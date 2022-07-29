@@ -1,0 +1,347 @@
+# Windows
+
+q —
+
+w —
+
+e —
+
+r — Shell
+
+t —
+
+y-\ — emojis
+
+a —
+
+s —
+
+d —
+
+f —
+
+g —
+
+h — Gimp
+
+j — Davinci Resolve
+
+k — FL Studio
+
+l — Lock
+
+; — 
+
+' — Weather
+
+z —
+
+x —
+
+c —
+
+v —
+
+b — Calendar
+
+n — Monkeytype
+
+m — Twitch
+
+, — Regex
+
+. — CMD
+
+/ — Calculator
+
+# Vs code
+
+## Y
+
+^+ Save workspace
+
+^! Open workspace
+
++! Reload window
+
+^ Redo
+
+!
+
+## U
+
+^+ Push
+
+^!
+
++! Commit
+
+^
+
+!
+
+## I
+
+^+ Configure snippets
+
+^! Clear terminal
+
++! Open search in editor
+
+^ Maximize panel
+
+! Toggle panel
+
+## O
+
+^+ Toggle terminal
+
+^! Delete terminal
+
++! Run code
+
+#^+ Run selection
+
+^ Jump with selection
+
+! Jump
+
+## P
+
+^+ Breadcrumbs
+
+^! Go to symbol in workspace
+
++! Command palette
+
+^ Go to file
+
+! Go to symbol
+
+## [
+
+^+ Copy name
+
+^! Move
+
++! +! Delete
+
+^ Rename
+
+!
+
+## ]
+
+^+ Settings
+
+^! Layout
+
++! Keybindings
+
+^ Editor tokens
+
+!
+
+## \
+
+^+ ^+ Add folder to workspace
+
+^+ . Open folder
+
+^! ^! Remove folder from workspace
+
+^! . Open file
+
++!
+
+^
+
+!
+
+## H
+
+^+ Fold all
+
+^! Unfold all
+
++! Toggle fold
+
+^ \d Fold level \d
+
+! Replace
+
+## J
+
+^+ Refactor
+
+^! Rename symbol
+
++! Select all occurrences
+
+^ Center cursor
+
+! Find
+
+## K
+
+^+ Copy full path
+
+^! Copy relative path
+
++! Get key code
+
+^ Go to previous occurrence
+
+! Select previous occurrence
+
+## L
+
+^+ Typewriter
+
+^! Scroll to cursor
+
++! Runner
+
+^ Go to next occurrence
+
+! Select next occurrence
+
+## ;
+
+^+ Format document
+
+^! Trim trailing whitespace
+
++! +! Toggle autosave
+
++! . Save all
+
+!
+
+### ^
+
+p Pin active tab
+
+[ Join editor groups
+
+j Add another keybinding
+
+k Change "when"
+
+l Search by keybind
+
+. Go to keybind search
+
+' Go to keybinds
+
+### No modifiers
+
+t Start live server
+
+y End live server
+
+b Indent using tabs
+
+s Select end of line sequence
+
+e Select encoding
+
+n Select language
+
+## '
+
+^+ Search editor
+
+^! Replace editor
+
++! Show view 
+
+^ Show opened editors
+
+! Go to line
+
+## N
+
+^+ New folder in root
+
+^! New file in root
+
++! New file
+
+^ New untitled file
+
+!
+
+## PgUp / PgDn
+
+^+ Multi-cursor
+
+^! Activate prev / next group
+
++! Move editor into prev / next group
+
+^# Go to first / last editor
+
+^ Go to prev / next editor
+
+! Go back / forward
+
+## Home / End
+
+^+ Select until start / end of file
+
+^!
+
++! Move editor left / right
+
+^ Go to start / end of file
+
+! Delete to the left / right of cursor
+
+## 7
+
+^+
+
+^! 
+
++!
+
+^
+
+! 
+
+## 8
+
+^+ Case sensitive
+
+^! Search whole word
+
++! Regex
+
+^
+
+!
+
+## 9
+
+^+ 
+
+^! Stop debugging
+
++!
+
+^
+
+!
+
+## 0
+
+^+ ---
+
+^! 
+
++! Timeline
+
+^
+
+!

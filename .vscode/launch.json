@@ -1,0 +1,22 @@
+{
+   "configurations": [
+		{
+			"name": "Ahk 2",
+			"type": "autohotkey",
+			"program": "${file}",
+			"request": "launch",
+			"runtimeArgs_v1": [".ahk"],
+			"port": "9003",
+			"runtime": "v2\\AutoHotkey64_UIA.exe",
+			"runtimeArgs": ["/ErrorStdOut=UTF-8"]
+		},
+      {
+         "name": "Python",
+         "type": "python",
+         "request": "launch",
+         "program": "${file}",
+         "console": "integratedTerminal",
+         "justMyCode": true
+      },
+   ]
+}

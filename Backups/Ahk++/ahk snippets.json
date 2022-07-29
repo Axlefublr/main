@@ -1,0 +1,1196 @@
+{
+	"MsgBox": {
+		"prefix": "MsgBox",
+		"body": "MsgBox($0)",
+		"description": "1.[Text]    - str\r\n2.[Title]   - str\r\n3.[Options] - str\r\n"
+	},
+	"Persistent": {
+		"prefix": "Persistent",
+		"body": "Persistent(${1:True})$0",
+		"description": "1.[Persist] - bool\r\n"
+	},
+	"HotIfWinActive": {
+		"prefix": "HotIfWinActive",
+		"body": "HotIfWinActive($0)",
+		"description": "1.[WinTitle] - str\r\n2.[WinText]  - str\r\n"
+	},
+	"HotIfWinNotActive": {
+		"prefix": "HotIfWinNotActive",
+		"body": "HotIfWinNotActive($0)",
+		"description": "1.[WinTitle] - str\r\n2.[WinText]  - str\r\n"
+	},
+	"HotIfWinExist": {
+		"prefix": "HotIfWinExist",
+		"body": "HotIfWinExist($0)",
+		"description": "1.[WinTitle] - str\r\n2.[WinText]  - str\r\n"
+	},
+	"HotIfWinNotExist": {
+		"prefix": "HotIfWinNotExist",
+		"body": "HotIfWinNotExist($0)",
+		"description": "1.[WinTitle] - str\r\n2.[WinText]  - str\r\n"
+	},
+	"ControlSend": {
+		"prefix": "ControlSend",
+		"body": "ControlSend($0)",
+		"description": "1.Keys           - str\r\n2.[Control]      - str,int,obj\r\n3.[WinTitle]     - str,int,obj\r\n4.[WinText]      - str\r\n5.[ExcludeTitle] - str\r\n6.[ExcludeText]  - str\r\n"
+	},
+	"ControlClick": {
+		"prefix": "ControlClick",
+		"body": "ControlClick($0)",
+		"description": "1.[Control/Pos]  - str,int,obj\r\n2.[WinTitle]     - str,int,obj\r\n3.[WinText]      - str\r\n4.[WhichButton]  - str\r\n5.[ClickCount]   - int\r\n6.[Option]       - str\r\n7.[ExcludeTitle] - str\r\n8.[ExcludeText]  - str\r\n"
+	},
+	"ExitApp": {
+		"prefix": "ExitApp",
+		"body": "ExitApp($0)",
+		"description": "1.[ExitCode] - int\r\n"
+	},
+	"SetWorkingDir": {
+		"prefix": "SetWorkingDir",
+		"body": "SetWorkingDir($0)",
+		"description": "1.DirPath - str\r\n"
+	},
+	"Click": {
+		"prefix": "Click",
+		"body": "Click($0)",
+		"description": "1.[Options] - expr\r\n"
+	},
+	"MouseGetPos": {
+		"prefix": "MouseGetPos",
+		"body": "MouseGetPos(&${1:loc}X, &${2:loc}Y)",
+		"description": "1.[OutVarX]       - varRef\r\n2.[OutVarY]       - varRef\r\n3.[OutVarWin]     - varRef\r\n4.[OutVarControl] - varRef\r\n5.[Flag]          - int\r\n"
+	},
+	"MouseMove": {
+		"prefix": "MouseMove",
+		"body": "MouseMove($0)",
+		"description": "1.X          - int\r\n2.Y          - int\r\n3.[Speed]    - int\r\n4.[Relative] - str\r\n"
+	},
+	"SendPlay": {
+		"prefix": "SendPlay",
+		"body": "SendPlay($0)",
+		"description": "1.Keys - str\r\n"
+	},
+	"WinActive": {
+		"prefix": "WinActive",
+		"body": "WinActive($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"WinExist": {
+		"prefix": "WinExist",
+		"body": "WinExist($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"ProcessExist": {
+		"prefix": "ProcessExist",
+		"body": "ProcessExist($0)",
+		"description": "1.[PIDorNAME] - str,int\r\n"
+	},
+	"InputBox": {
+		"prefix": "InputBox",
+		"body": "InputBox($0)",
+		"description": "1.[Prompt]  - str\r\n2.[Title]   - str\r\n3.[Option]  - str\r\n4.[Default] - str\r\n"
+	},
+	"KeyWait": {
+		"prefix": "KeyWait",
+		"body": "KeyWait($0)",
+		"description": "1.KeyName   - str\r\n2.[Options] - str\r\n"
+	},
+	"Random": {
+		"prefix": "Random",
+		"body": "Random($0)",
+		"description": "1.[A] - int,float\r\n2.[B] - int,float\r\n"
+	},
+	"WinGetProcessPath": {
+		"prefix": "WinGetProcessPath",
+		"body": "WinGetProcessPath($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"WinGetTitle": {
+		"prefix": "WinGetTitle",
+		"body": "WinGetTitle($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"FormatTime": {
+		"prefix": "FormatTime",
+		"body": "FormatTime(, $0)",
+		"description": "1.[YYYYMMDDHH24MISS] - str\r\n2.[Format]           - str\r\n"
+	},
+	"GuiCtrlFromHwnd": {
+		"prefix": "GuiCtrlFromHwnd",
+		"body": "GuiCtrlFromHwnd($0)",
+		"description": "1.Hwnd - int\r\n"
+	},
+	"SetTimer": {
+		"prefix": "SetTimer",
+		"body": "SetTimer($0)",
+		"description": "1.[Function] - funcObj\r\n2.[Period]   - int\r\n3.[Priority] - int\r\n"
+	},
+	"ClipWait": {
+		"prefix": "ClipWait",
+		"body": "ClipWait($0)",
+		"description": "1.[Timeout]        - int\r\n2.[WaitForAnyData] - int_bool\r\n"
+	},
+	"GroupAdd": {
+		"prefix": "GroupAdd",
+		"body": "GroupAdd($0)",
+		"description": "1.GroupName      - str\r\n2.[WinTitle]     - str,int,obj\r\n3.[WinText]      - str\r\n4.[ExcludeTitle] - str\r\n5.[ExcludeText]  - str\r\n"
+	},
+	"WinActivate": {
+		"prefix": "WinActivate",
+		"body": "WinActivate($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"WinWait": {
+		"prefix": "WinWait",
+		"body": "WinWait($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[Timeout]      - int,float\r\n4.[ExcludeTitle] - str\r\n5.[ExcludeText]  - str\r\n"
+	},
+	"ClipboardAll": {
+		"prefix": "ClipboardAll",
+		"body": "ClipboardAll($0)",
+		"description": "1.[Data] - obj,int\r\n2.[Size] - int\r\n"
+	},
+	"CoordMode": {
+		"prefix": "CoordMode",
+		"body": "CoordMode(\"${1:Mouse}\", \"${2:Screen}\")",
+		"description": "1.TargetType   - str\r\n2.[RelativeTo] - str\r\n"
+	},
+	"Run": {
+		"prefix": "Run",
+		"body": "Run($0)",
+		"description": "1.Target       - str\r\n2.[WorkingDir] - str\r\n3.[Options]    - str\r\n4.[OutVarPID]  - varRef\r\n"
+	},
+	"SoundPlay": {
+		"prefix": "SoundPlay",
+		"body": "SoundPlay($0)",
+		"description": "1.FileName - str\r\n2.[Wait]   - str,int_bool\r\n"
+	},
+	"Suspend": {
+		"prefix": "Suspend",
+		"body": "Suspend($0)",
+		"description": "1.[Mode] - str,int\r\n"
+	},
+	"Pause": {
+		"prefix": "Pause",
+		"body": "Pause($0)",
+		"description": "1.[NewState] - str,int\r\n"
+	},
+	"Shutdown": {
+		"prefix": "Shutdown",
+		"body": "Shutdown($0)",
+		"description": "1.Flag - int\r\n"
+	},
+	"Send": {
+		"prefix": "Send",
+		"body": "Send($0)",
+		"description": "1.Keys - str\r\n"
+	},
+	"WinClose": {
+		"prefix": "WinClose",
+		"body": "WinClose($0)",
+		"description": "1.[WinTitle]      - str,int,obj\r\n2.[WinText]       - str\r\n3.[SecondsToWait] - int,float\r\n4.[ExcludeTitle]  - str\r\n5.[ExcludeText]   - str\r\n"
+	},
+	"SendEvent": {
+		"prefix": "SendEvent",
+		"body": "SendEvent($0)",
+		"description": "1.Keys - str\r\n"
+	},
+	"StrReplace": {
+		"prefix": "StrReplace",
+		"body": "StrReplace($0)",
+		"description": "1.Haystack      - str\r\n2.Needle        - str\r\n3.[ReplaceText] - str\r\n4.[CaseSense]   - str,int\r\n5.[OutVarCount] - varRef\r\n6.[Limit]       - int\r\n"
+	},
+	"PostMessage": {
+		"prefix": "PostMessage",
+		"body": "PostMessage($0)",
+		"description": "1.Msg            - int\r\n2.[wParam]       - int\r\n3.[lParam]       - int\r\n4.[Control]      - str,int,obj\r\n5.[WinTitle]     - str,int,obj\r\n6.[WinText]      - str\r\n7.[ExcludeTitle] - str\r\n8.[ExcludeText]  - str\r\n"
+	},
+	"WinGetID": {
+		"prefix": "WinGetID",
+		"body": "WinGetID($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"Sleep": {
+		"prefix": "Sleep",
+		"body": "Sleep($0)",
+		"description": "1.Delay - int\r\n"
+	},
+	"Mod": {
+		"prefix": "Mod",
+		"body": "Mod($0)",
+		"description": "1.Dividend - int,float\r\n2.Divisor  - int,float\r\n"
+	},
+	"WinMinimize": {
+		"prefix": "WinMinimize",
+		"body": "WinMinimize($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"Gui": {
+		"prefix": "Gui",
+		"body": "Gui($0)",
+		"description": "1.[Options]  - str\r\n2.[Title]    - str\r\n3.[EventObj] - obj\r\n"
+	},
+	"Map": {
+		"prefix": "Map",
+		"body": ["Map(", "\t$0", ")"],
+		"description": "1.Key   - expr\r\n2.Value - expr\r\n"
+	},
+	"FileSelect": {
+		"prefix": "FileSelect",
+		"body": "FileSelect($0)",
+		"description": "1.[Options]          - str,int\r\n2.[RootDir/FileName] - str\r\n3.[Title]            - str\r\n4.[Filter]           - str\r\n"
+	},
+	"FileCreateShortcut": {
+		"prefix": "FileCreateShortcut",
+		"body": "FileCreateShortcut($0)",
+		"description": "1.Target        - str\r\n2.Linkfile      - str\r\n3.[WorkingDir]  - str\r\n4.[Args]        - str\r\n5.[Description] - str\r\n6.[IconFile]    - str\r\n7.[ShortcutKey] - str\r\n8.[IconNumber]  - int\r\n9.[RunState]    - int\r\n"
+	},
+	"SubStr": {
+		"prefix": "SubStr",
+		"body": "SubStr($0)",
+		"description": "1.String           - str\r\n2.StartingPosition - int\r\n3.[Length]         - int\r\n"
+	},
+	"SplitPath": {
+		"prefix": "SplitPath",
+		"body": "SplitPath($0)",
+		"description": "1.Path           - str\r\n2.[OutFileName]  - varRef\r\n3.[OutDir]       - varRef\r\n4.[OutExtension] - varRef\r\n5.[OutNameNoExt] - varRef\r\n6.[OutDrive]     - varRef\r\n"
+	},
+	"SetNumLockState": {
+		"prefix": "SetNumLockState",
+		"body": "SetNumLockState(\"${1:Off}\")",
+		"description": "1.[State] - str,int_bool\r\n"
+	},
+	"SoundBeep": {
+		"prefix": "SoundBeep",
+		"body": "SoundBeep($0)",
+		"description": "1.[Frequency] - int\r\n2.[Duration]  - int\r\n"
+	},
+	"StrLower": {
+		"prefix": "StrLower",
+		"body": "StrLower($0)",
+		"description": "1.String - str\r\n"
+	},
+	"StrUpper": {
+		"prefix": "StrUpper",
+		"body": "StrUpper($0)",
+		"description": "1.String - str\r\n"
+	},
+	"Chr": {
+		"prefix": "Chr",
+		"body": "Chr($0)",
+		"description": "1.Number - int\r\n"
+	},
+	"InStr": {
+		"prefix": "InStr",
+		"body": "InStr($0)",
+		"description": "1.Haystack      - str\r\n2.Needle        - str\r\n3.[CaseSense]   - str,int_bool\r\n4.[StartingPos] - int\r\n5.[Occurence]   - int\r\n"
+	},
+	"Trim": {
+		"prefix": "Trim",
+		"body": "Trim($0)",
+		"description": "1.String      - str\r\n2.[OmitChars] - str\r\n"
+	},
+	"WinWaitActive": {
+		"prefix": "WinWaitActive",
+		"body": "WinWaitActive($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[TimeOut]      - int,float\r\n4.[ExcludeTitle] - str\r\n5.[ExcludeText]  - str\r\n"
+	},
+	"WinWaitNotActive": {
+		"prefix": "WinWaitNotActive",
+		"body": "WinWaitNotActive($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[TimeOut]      - int,float\r\n4.[ExcludeTitle] - str\r\n5.[ExcludeText]  - str\r\n"
+	},
+	"OnExit": {
+		"prefix": "OnExit",
+		"body": "OnExit($0)",
+		"description": "1.Function    - funcObj\r\n2.[AddRemove] - int\r\n"
+	},
+	"RegexMatch": {
+		"prefix": "RegexMatch",
+		"body": "RegexMatch($0)",
+		"description": "1.Haystack      - str\r\n2.NeedleRegex   - str\r\n3.[OutVar]      - varRef\r\n4.[StartingPos] - int\r\n"
+	},
+	"StrSplit": {
+		"prefix": "StrSplit",
+		"body": "StrSplit($0)",
+		"description": "1.String       - str\r\n2.[Delimiters] - str\r\n3.[OmitChars]  - str\r\n4.[MaxParts]   - int\r\n"
+	},
+	"FileOpen": {
+		"prefix": "FileOpen",
+		"body": "FileOpen($0)",
+		"description": [
+			"1.FileName   - str\r\n2.Flags      - str,int\r\n3.[Encoding] - str,int\r\n"
+		]
+	},
+	"PixelGetColor": {
+		"prefix": "PixelGetColor",
+		"body": "PixelGetColor($0)",
+		"description": "1.X      - int\r\n2.Y      - int\r\n3.[Mode] - str\r\n"
+	},
+	"PixelSearch": {
+		"prefix": "PixelSearch",
+		"body": "PixelSearch($0)",
+		"description": "1.OutVarX     - varRef\r\n2.OutVarY     - varRef\r\n3.X1          - int\r\n4.Y1          - int\r\n5.X2          - int\r\n6.Y2          - int\r\n7.ColorID     - int\r\n8.[Variation] - int\r\n"
+	},
+	"WinGetProcessName": {
+		"prefix": "WinGetProcessName",
+		"body": "WinGetProcessName($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"FileCopy": {
+		"prefix": "FileCopy",
+		"body": "FileCopy($0)",
+		"description": "1.SourcePattern - str\r\n2.DestPattern   - str\r\n3.[OverWrite]   - int_bool\r\n"
+	},
+	"Hotkey": {
+		"prefix": "Hotkey",
+		"body": "Hotkey($0)",
+		"description": "1.KeyName   - str\r\n2.[Action]  - str,funcObj\r\n3.[Options] - str\r\n"
+	},
+	"ImageSearch": {
+		"prefix": "ImageSearch",
+		"body": "ImageSearch(&${1:pix}X, &${2:pix}Y, 0, 0, A_ScreenWidth, A_ScreenHeight, $0)",
+		"description": "1.OutVarX   - varRef\r\n2.OutVarY   - varRef\r\n3.X1        - int\r\n4.Y1        - int\r\n5.X2        - int\r\n6.Y2        - int\r\n7.ImageFile - str\r\n"
+	},
+	"WinSetTransparent": {
+		"prefix": "WinSetTransparent",
+		"body": "WinSetTransparent($0)",
+		"description": "1.[N]            - str,int\r\n2.[WinTitle]     - str,int,obj\r\n3.[WinText]      - str\r\n4.[ExcludeTitle] - str\r\n5.[ExcludeText]  - str\r\n"
+	},
+	"WinGetTransparent": {
+		"prefix": "WinGetTransparent",
+		"body": "WinGetTransparent($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"RegexReplace": {
+		"prefix": "RegexReplace",
+		"body": "RegexReplace($0)",
+		"description": "1.Haystack      - str\r\n2.NeedleRegex   - str\r\n3.[Replacement] - str\r\n4.[OutVarCount] - varRef\r\n5.[Limit]       - int\r\n6.[StartingPos] - int\r\n"
+	},
+	"SetScrollLockState": {
+		"prefix": "SetScrollLockState",
+		"body": "SetScrollLockState(\"${1:Off}\")",
+		"description": "1.[State] - str,int_bool\r\n"
+	},
+	"ToolTip": {
+		"prefix": "ToolTip",
+		"body": "ToolTip($0)",
+		"description": "1.[Text]         - str\r\n2.[X]            - int\r\n3.[Y]            - int\r\n4.[WhichToolTip] - int\r\n"
+	},
+	"GetKeyName": {
+		"prefix": "GetKeyName",
+		"body": "GetKeyName($0)",
+		"description": "1.KeyName - str\r\n"
+	},
+	"GetKeySC": {
+		"prefix": "GetKeySC",
+		"body": "GetKeySC($0)",
+		"description": "1.KeyName - str\r\n"
+	},
+	"GetKeyVK": {
+		"prefix": "GetKeyVK",
+		"body": "GetKeyVK($0)",
+		"description": "1.KeyName - str\r\n"
+	},
+	"StrLen": {
+		"prefix": "StrLen",
+		"body": "StrLen($0)",
+		"description": "1.String - str\r\n"
+	},
+	"HotIf": {
+		"prefix": "HotIf",
+		"body": "HotIf($0)",
+		"description": "1.[Expression] - str\r\n"
+	},
+	"Format": {
+		"prefix": "Format",
+		"body": "Format($0)",
+		"description": "1.FormatStr - str\r\n2*.[Values] - str,int,float\r\n"
+	},
+	"GetKeyState": {
+		"prefix": "GetKeyState",
+		"body": "GetKeyState($0)",
+		"description": "1.KeyName - str\r\n2.[Mode] - str\r\n"
+	},
+	"SetCapsLockState": {
+		"prefix": "SetCapsLockState",
+		"body": "SetCapsLockState($0)",
+		"description": "1.[State] - str,int_bool\r\n"
+	},
+	"StrTitle": {
+		"prefix": "StrTitle",
+		"body": "StrTitle($0)",
+		"description": "1.String - str\r\n"
+	},
+	"DllCall": {
+		"prefix": "DllCall",
+		"body": "DllCall($0)",
+		"description": " 1.[DllFile\\]Function - str,int\r\n*2.[Type]             - str\r\n*3.[Arg]              - str\r\n-1.[Cdecl ReturnType] - str\r\n"
+	},
+	"Object": {
+		"prefix": "Object",
+		"body": "Object($0)",
+		"description": "No params\r\n"
+	},
+	"OutputDebug": {
+		"prefix": "OutputDebug",
+		"body": "OutputDebug($0)",
+		"description": "1.Text - str\r\n"
+	},
+	"WinGetPID": {
+		"prefix": "WinGetPID",
+		"body": "WinGetPID($0)",
+		"description": "1.[WinTitle] - str,int,obj\r\n2.[WinText] - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText] - str\r\n"
+	},
+	"TrayTip": {
+		"prefix": "TrayTip",
+		"body": "TrayTip($0)",
+		"description": "1.[Text]    - str\r\n2.[Title]   - str\r\n3.[Options] - str,int\r\n"
+	},
+	"DirSelect": {
+		"prefix": "DirSelect",
+		"body": "DirSelect($0)",
+		"description": "1.[StartingFolder] - str\r\n2.[Options]        - int\r\n3.[Prompt]         - str\r\n"
+	},
+	"FileGetAttrib": {
+		"prefix": "FileGetAttrib",
+		"body": "FileGetAttrib($0)",
+		"description": "1.[FileName] - str\r\n"
+	},
+	"IsObject": {
+		"prefix": "IsObject",
+		"body": "IsObject($0)",
+		"description": "1.ObjectValue - obj\r\n"
+	},
+	"WinGetMinMax": {
+		"prefix": "WinGetMinMax",
+		"body": "WinGetMinMax($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[ExcludeTitle] - str\r\n4.[ExcludeText]  - str\r\n"
+	},
+	"FileDelete": {
+		"prefix": "FileDelete",
+		"body": "FileDelete($0)",
+		"description": "1.FilePattern - str\r\n"
+	},
+	"WinWaitClose": {
+		"prefix": "WinWaitClose",
+		"body": "WinWaitClose($0)",
+		"description": "1.[WinTitle]     - str,int,obj\r\n2.[WinText]      - str\r\n3.[Timeout]      - int,float\r\n4.[ExcludeTitle] - str\r\n5.[ExcludeText]  - str\r\n"
+	},
+	"Ceil": {
+		"prefix": "Ceil",
+		"body": "Ceil($0)",
+		"description": "1.Number - int,float\r\n"
+	},
+	"Floor": {
+		"prefix": "Floor",
+		"body": "Floor($0)",
+		"description": "1.Number - int,float\r\n"
+	},
+	"Round": {
+		"prefix": "Round",
+		"body": "Round($0)",
+		"description": "1.Number - int,float\r\n2.[N]    - int\r\n"
+	},
+	"Call": {
+		"prefix": ".Call",
+		"body": ".Call($0)",
+		"description": "*.[Params] - expr\r\n"
+	},
+	"Show": {
+		"prefix": ".Show",
+		"body": ".Show($0)",
+		"description": "1.[Options] - str\r\n"
+	},
+	"SetFont": {
+		"prefix": ".SetFont",
+		"body": ".SetFont($0)",
+		"description": "1.[Options]  - str\r\n2.[FontName] - str\r\n"
+	},
+	"Add": {
+		"prefix": ".Add",
+		"body": ".Add($0)",
+		"description": "1.ControlType - str\r\n2.[Options]   - str\r\n3.[Text]      - str,int,arr\r\n"
+	},
+	"OnEvent": {
+		"prefix": ".OnEvent",
+		"body": ".OnEvent($0)",
+		"description": "1.EventName   - str\r\n2.Callback    - str,funcObj\r\n3.[AddRemove] - int\r\n"
+	},
+	"Destroy": {
+		"prefix": ".Destroy",
+		"body": ".Destroy()",
+		"description": "No params\r\n"
+	},
+	"Seek": {
+		"prefix": ".Seek",
+		"body": ".Seek($0)",
+		"description": "1.Distance - int\r\n2.[Origin] - int\r\n"
+	},
+	"Close": {
+		"prefix": ".Close",
+		"body": ".Close($0)",
+		"description": "No params\r\n"
+	},
+	"GetText": {
+		"prefix": ".GetText",
+		"body": ".GetText($0)",
+		"description": "ListView\r\n1.RowNumber      - int\r\n2.[ColumnNumber] - int\r\n\nTreeView\r\n1.ItemID - int\r\n"
+	},
+	"Push": {
+		"prefix": ".Push",
+		"body": ".Push($0)",
+		"description": "*.Value - expr\r\n"
+	},
+	"InsertAt": {
+		"prefix": ".InsertAt",
+		"body": ".InsertAt($0)",
+		"description": "1.Index - int\r\n2*.Value - expr\r\n"
+	},
+	"property1": {
+		"prefix": ".Value",
+		"body": ".Value"
+	},
+	"property2": {
+		"prefix": ".Result",
+		"body": ".Result"
+	},
+	"property3": {
+		"prefix": ".Text",
+		"body": ".Text"
+	},
+	"property4": {
+		"prefix": ".Backcolor",
+		"body": ".Backcolor"
+	},
+	"property5": {
+		"prefix": ".Length",
+		"body": ".Length"
+	},
+	"#HotString": {
+		"prefix": "#Hotstring",
+		"body": "#Hotstring EndChars ",
+		"description": "1.NoMouse             - plainTxt\r\n1.NewOptions          - plainTxt\r\n1.EndChars [NewChars] - plainTxt\r\n"
+	},
+	"#HotIf": {
+		"prefix": "#HotIf",
+		"body": "#HotIf ${1:WinActive($0)}",
+		"description": "1.[Expression] - expr\r\n"
+	},
+	"#WinActivateForce": {
+		"prefix": "#WinActivateForce",
+		"body": "#WinActivateForce ",
+		"description": "No params\r\n"
+	},
+	"#SingleInstance": {
+		"prefix": "#SingleInstance",
+		"body": "#SingleInstance Force ",
+		"description": "1.[ForceIgnorePromptOff] - plainText\r\n"
+	},
+	"#Include": {
+		"prefix": "#Include",
+		"body": "#Include ",
+		"description": "1.FileOrDirName - str\r\n"
+	},
+	"#SuspendExempt": {
+		"prefix": "#SuspendExempt",
+		"body": "#SuspendExempt ",
+		"description": "1.[Exempt] - int_bool\r\n"
+	},
+	"#InputLevel": {
+		"prefix": "#InputLevel",
+		"body": "#InputLevel ",
+		"description": "1.[Level] - int\r\n"
+	},
+	"#MaxThreadsPerHotkey": {
+		"prefix": "#MaxThreadsPerHotkey",
+		"body": "#MaxThreadsPerHotkey 2",
+		"description": "1.Value - int\r\n"
+	},
+	"#Requires": {
+		"prefix": "#Requires v2",
+		"body": "#Requires AutoHotkey v2.0-a",
+		"description": "1.Requirement - plaintxt\r\n"
+	},
+	"#MaxThreadsBuffer": {
+		"prefix": "#MaxThreadsBuffer",
+		"body": "#MaxThreadsBuffer ",
+		"description": "1.[Setting] - int_bool\r\n"
+	},
+	"builtin_var1": {
+		"prefix": "A_Clipboard",
+		"body": "A_Clipboard"
+	},
+	"builtin_var2": {
+		"prefix": "A_MaxHotkeysPerInterval",
+		"body": "A_MaxHotkeysPerInterval"
+	},
+	"builtin_var3": {
+		"prefix": "A_ScriptFullPath",
+		"body": "A_ScriptFullPath"
+	},
+	"builtin_var4": {
+		"prefix": "A_IsSuspended",
+		"body": "A_IsSuspended"
+	},
+	"builtin_var5": {
+		"prefix": "A_WorkingDir",
+		"body": "A_WorkingDir"
+	},
+	"builtin_var6": {
+		"prefix": "A_MMMM",
+		"body": "A_MMMM"
+	},
+	"builtin_var7": {
+		"prefix": "A_Sec",
+		"body": "A_Sec"
+	},
+	"builtin_var8": {
+		"prefix": "A_Hour",
+		"body": "A_Hour"
+	},
+	"builtin_var9": {
+		"prefix": "A_Min",
+		"body": "A_Min"
+	},
+	"builtin_var10": {
+		"prefix": "A_AppData",
+		"body": "A_AppData"
+	},
+	"builtin_var11": {
+		"prefix": "A_IsAdmin",
+		"body": "A_IsAdmin"
+	},
+	"builtin_var12": {
+		"prefix": "A_LoopField",
+		"body": "A_LoopField"
+	},
+	"builtin_var13": {
+		"prefix": "A_PriorHotkey",
+		"body": "A_PriorHotkey"
+	},
+	"builtin_var14": {
+		"prefix": "A_ThisHotkey",
+		"body": "A_ThisHotkey"
+	},
+	"builtin_var15": {
+		"prefix": "A_TimeSinceThisHotkey",
+		"body": "A_TimeSinceThisHotkey"
+	},
+	"builtin_var16": {
+		"prefix": "A_TimeSincePriorHotkey",
+		"body": "A_TimeSincePriorHotkey"
+	},
+	"builtin_var17": {
+		"prefix": "A_AhkVersion",
+		"body": "A_AhkVersion"
+	},
+	"builtin_var18": {
+		"prefix": "A_TickCount",
+		"body": "A_TickCount"
+	},
+	"builtin_var19": {
+		"prefix": "A_ScreenHeight",
+		"body": "A_ScreenHeight"
+	},
+	"builtin_var20": {
+		"prefix": "A_ScreenWidth",
+		"body": "A_ScreenWidth"
+	},
+	"builtin_var21": {
+		"prefix": "A_LoopFileExt",
+		"body": "A_LoopFileExt"
+	},
+	"builtin_var22": {
+		"prefix": "A_LoopFileAttrib",
+		"body": "A_LoopFileAttrib"
+	},
+	"builltin_var23": {
+		"prefix": "A_ProgramFiles",
+		"body": "A_ProgramFiles"
+	},
+	"builtin_var24": {
+		"prefix": "A_LoopFileName",
+		"body": "A_LoopFileName"
+	},
+	"builtin_var25": {
+		"prefix": "A_LoopFileFullPath",
+		"body": "A_LoopFileFullPath"
+	},
+	"builtin_var26": {
+		"prefix": "A_MyDocuments",
+		"body": "A_MyDocuments"
+	},
+	"builtin_var27": {
+		"prefix": "A_PriorKey",
+		"body": "A_PriorKey"
+	},
+	"builtin_var28": {
+		"prefix": "A_UserName",
+		"body": "A_UserName"
+	},
+	"builtin_var29": {
+		"prefix": "A_TimeIdleKeyboard",
+		"body": "A_TimeIdleKeyboard"
+	},
+	"builtin_var30": {
+		"prefix": "A_ScriptDir",
+		"body": "A_ScriptDir"
+	},
+	"builtin_var31": {
+		"prefix": "A_LoopFileTimeModified",
+		"body": "A_LoopFileTimeModified"
+	},
+	"builtin_var32": {
+		"prefix": "A_LoopFileTimeCreated",
+		"body": "A_LoopFileTimeCreated"
+	},
+	"builtin_var33": {
+		"prefix": "A_ComSpec",
+		"body": "A_ComSpec"
+	},
+	"builtin_var34": {
+		"prefix": "A_ScriptName",
+		"body": "A_ScriptName"
+	},
+	"builtin_var35": {
+		"prefix": "A_ScriptHwnd",
+		"body": "A_ScriptHwnd"
+	},
+	"statement1": {
+		"prefix": "True",
+		"body": "True"
+	},
+	"statement2": {
+		"prefix": "False",
+		"body": "False"
+	},
+	"statement3": {
+		"prefix": "if",
+		"body": ["if $1{", "\t$0", "}"]
+	},
+	"statement4": {
+		"prefix": "else",
+		"body": ["else {", "\t$0", "}"]
+	},
+	"statement5": {
+		"prefix": "Case",
+		"body": "Case "
+	},
+	"statement6": {
+		"prefix": "Try",
+		"body": ["Try {", "\t$0", "}"]
+	},
+	"statement7": {
+		"prefix": "Class",
+		"body": ["Class C_$1 {", "\t$0", "}", "$1 := C_$1()"]
+	},
+	"statement8": {
+		"prefix": "Default",
+		"body": "Default:"
+	},
+	"statement9": {
+		"prefix": "static",
+		"body": "static"
+	},
+	"statement10": {
+		"prefix": "return",
+		"body": "return "
+	},
+	"statement11": {
+		"prefix": "for in",
+		"body": ["for key, value in $1 {", "\t$0", "}"]
+	},
+	"statement12": {
+		"prefix": "break",
+		"body": "break"
+	},
+	"statement13": {
+		"prefix": "continue",
+		"body": "continue"
+	},
+	"statement14": {
+		"prefix": "Loop",
+		"body": ["Loop $1{", "\t$0", "}"]
+	},
+	"statement15": {
+		"prefix": "Loop Files",
+		"body": ["Loop Files $1 {", "\t$0", "}"]
+	},
+	"Switch": {
+		"prefix": "Switch",
+		"body": [
+			"Switch $1{", 
+			"\t$0", 
+			"}"
+		],
+		"description": "1.[Value]     - expr\r\n2.[CaseSense] - str,bool_int\r\n"
+	},
+	"Catch": {
+		"prefix": "Catch",
+		"body": ["Catch {", "\t$0", "}"],
+		"description": "1.[ErrorClass] - class\r\nas\r\n2.OutVar       - var\r\n"
+	},
+	"button1": {
+		"prefix": "AltTabAndMenu",
+		"body": "AltTabAndMenu"
+	},
+	"button2": {
+		"prefix": "ShiftAltTab",
+		"body": "ShiftAltTab"
+	},
+	"button3": {
+		"prefix": "Media_Play_Pause",
+		"body": "Media_Play_Pause"
+	},
+	"button4": {
+		"prefix": "Volume_Up",
+		"body": "Volume_Up"
+	},
+	"button5": {
+		"prefix": "Volume_Down",
+		"body": "Volume_Down"
+	},
+	"button6": {
+		"prefix": "Volume_Mute",
+		"body": "Volume_Mute"
+	},
+	"button7": {
+		"prefix": "Media_Prev",
+		"body": "Media_Prev"
+	},
+	"button8": {
+		"prefix": "Media_Next",
+		"body": "Media_Next"
+	},
+	"button9": {
+		"prefix": "Browser_Back",
+		"body": "Browser_Back"
+	},
+	"button10": {
+		"prefix": "BackSpace",
+		"body": "BackSpace"
+	},
+	"button11": {
+		"prefix": "XButton1",
+		"body": "XButton1"
+	},
+	"button12": {
+		"prefix": "XButton2",
+		"body": "XButton2"
+	},
+	"button13": {
+		"prefix": "CapsLock",
+		"body": "CapsLock"
+	},
+	"button14": {
+		"prefix": "ScrollLock",
+		"body": "ScrollLock"
+	},
+	"button15": {
+		"prefix": "Insert",
+		"body": "Insert"
+	},
+	"button16": {
+		"prefix": "Escape",
+		"body": "Escape"
+	},
+	"button17": {
+		"prefix": "Enter",
+		"body": "Enter"
+	},
+	"button18": {
+		"prefix": "Delete",
+		"body": "Delete"
+	},
+	"button19": {
+		"prefix": "AppsKey",
+		"body": "AppsKey"
+	},
+	"button20": {
+		"prefix": "Launch_Media",
+		"body": "Launch_Media"
+	},
+	"button21": {
+		"prefix": "Media_Stop",
+		"body": "Media_Stop"
+	},
+	"button22": {
+		"prefix": "Launch_App1",
+		"body": "Launch_App1"
+	},
+	"button23": {
+		"prefix": "Launch_Mail",
+		"body": "Launch_Mail"
+	},
+	"button24": {
+		"prefix": "Launch_App2",
+		"body": "Launch_App2"
+	},
+	"button25": {
+		"prefix": "Browser_Home",
+		"body": "Browser_Home"
+	},
+	"button26": {
+		"prefix": "PrintScreen",
+		"body": "PrintScreen"
+	},
+	"button27": {
+		"prefix": "PgUp",
+		"body": "PgUp"
+	},
+	"button28": {
+		"prefix": "PgDn",
+		"body": "PgDn"
+	},
+	"button29": {
+		"prefix": "WheelUp",
+		"body": "WheelUp"
+	},
+	"button30": {
+		"prefix": "WheelDown",
+		"body": "WheelDown"
+	},
+	"button31": {
+		"prefix": "MButton",
+		"body": "MButton"
+	},
+	"button33": {
+		"prefix": "Button",
+		"body": "Button"
+	},
+	"button34": {
+		"prefix": "RButton",
+		"body": "RButton"
+	},
+	"button35": {
+		"prefix": "LButton",
+		"body": "LButton"
+	},
+	"button36": {
+		"prefix": "NumpadDot",
+		"body": "NumpadDot"
+	},
+	"button37": {
+		"prefix": "NumLock",
+		"body": "NumLock"
+	},
+	"button38": {
+		"prefix": "NumpadDiv",
+		"body": "NumpadDiv"
+	},
+	"button39": {
+		"prefix": "NumpadMult",
+		"body": "NumpadMult"
+	},
+	"button40": {
+		"prefix": "NumpadAdd",
+		"body": "NumpadAdd"
+	},
+	"button41": {
+		"prefix": "NumpadSub",
+		"body": "NumpadSub"
+	},
+	"button42": {
+		"prefix": "NumpadEnter",
+		"body": "NumpadEnter"
+	},
+	"button43": {
+		"prefix": "Numpad0",
+		"body": "Numpad0"
+	},
+	"button44": {
+		"prefix": "Numpad1",
+		"body": "Numpad1"
+	},
+	"button45": {
+		"prefix": "Numpad2",
+		"body": "Numpad2"
+	},
+	"button46": {
+		"prefix": "Numpad3",
+		"body": "Numpad3"
+	},
+	"button47": {
+		"prefix": "Numpad4",
+		"body": "Numpad4"
+	},
+	"button48": {
+		"prefix": "Numpad5",
+		"body": "Numpad5"
+	},
+	"button49": {
+		"prefix": "Numpad6",
+		"body": "Numpad6"
+	},
+	"button50": {
+		"prefix": "Numpad7",
+		"body": "Numpad7"
+	},
+	"button51": {
+		"prefix": "Numpad8",
+		"body": "Numpad8"
+	},
+	"button52": {
+		"prefix": "Numpad9",
+		"body": "Numpad9"
+	},
+	"button53": {
+		"prefix": "NumpadIns",
+		"body": "NumpadIns"
+	},
+	"button54": {
+		"prefix": "NumpadEnd",
+		"body": "NumpadEnd"
+	},
+	"button55": {
+		"prefix": "NumpadDown",
+		"body": "NumpadDown"
+	},
+	"button56": {
+		"prefix": "NumpadPgDn",
+		"body": "NumpadPgDn"
+	},
+	"button57": {
+		"prefix": "NumpadLeft",
+		"body": "NumpadLeft"
+	},
+	"button58": {
+		"prefix": "NumpadClear",
+		"body": "NumpadClear"
+	},
+	"button59": {
+		"prefix": "NumpadRight",
+		"body": "NumpadRight"
+	},
+	"button60": {
+		"prefix": "NumpadHome",
+		"body": "NumpadHome"
+	},
+	"button61": {
+		"prefix": "NumpadUp",
+		"body": "NumpadUp"
+	},
+	"button62": {
+		"prefix": "NumpadPgUp",
+		"body": "NumpadPgUp"
+	},
+	"button63": {
+		"prefix": "NumpadDel",
+		"body": "NumpadDel"
+	},
+	"button64": {
+		"prefix": "Browser_Forward",
+		"body": "Browser_Forward"
+	},
+	"preset1": {
+		"prefix": "VarArrow",
+		"body": "$1 := ($2) => ($0)"
+	},
+	"preset2": {
+		"prefix": "Function",
+		"body": ["$1($2) {", "\t$0", "}"]
+	},
+	"preset3": {
+		"prefix": "Arrow",
+		"body": "$1($2) => ($0)"
+	},
+	"preset4": {
+		"prefix": "Loop Until",
+		"body": ["Loop {", "\t$0", "} Until $1"]
+	},
+	"preset5": {
+		"prefix": "Run Dir",
+		"body": "Run(A_WorkingDir \"\\\\$0\")"
+	},
+	"preset6": {
+		"prefix": ".OnEvent close exit",
+		"body": ".OnEvent(\"Close\", (*) => ExitApp())",
+		"description": "Exit the script when gui is closed"
+	},
+	"preset7": {
+		"prefix": ".OnEvent click exit",
+		"body": ".OnEvent(\"Click\", (*) => ExitApp())",
+		"description": "Exit the script when guicontrol is clicked"
+	},
+	"preset8": {
+		"prefix": ".OnEvent click destroy",
+		"body": ".OnEvent(\"Click\", (*) => $0.Destroy())",
+		"description": "Destroy the gui when guicontrol is clicked"
+	},
+	"preset9": {
+		"prefix": ".OnEvent close destroy",
+		"body": ".OnEvent(\"Close\", (*) => $0.Destroy())",
+		"description": "Destroy the gui when it's closed"
+	},
+	"preset10": {
+		"prefix": "Hotkey works once and fucking DIES",
+		"body": [
+			"funcObj := (*) => (",
+			"\t${1:Expression it does},",
+			"\tHotkey(\"${2:Your hotkey}\", \"Off\")",
+			")",
+			"Hotkey(\"${2:Your hotkey}\", funcObj, \"On\")"
+		]
+	},
+	"preset11": {
+		"prefix": "if return",
+		"body": ["if $1", "\treturn", "$0"]
+	},
+	"preset12": {
+		"prefix": "if do return",
+		"body": [
+			"if $1 {", 
+			"\t$0", 
+			"\treturn", 
+			"}"
+		]
+	},
+	"preset13": {
+		"prefix": "color Dark",
+		"body": "171717"
+	},
+	"preset14": {
+		"prefix": "color White (vs code)",
+		"body": "C5C5C5"
+	},
+	"preset15": {
+		"prefix": "color Red",
+		"body": "D12229"
+	},
+	"preset16": {
+		"prefix": "color Orange",
+		"body": "F68A1E"
+	},
+	"preset17": {
+		"prefix": "color Yellow",
+		"body": "FDE01A"
+	},
+	"preset18": {
+		"prefix": "color Green",
+		"body": "007940"
+	},
+	"preset19": {
+		"prefix": "color Blue",
+		"body": "24408E"
+	},
+	"preset20": {
+		"prefix": "color Purple",
+		"body": "732982"
+	},
+	"common1": {
+		"prefix": "value",
+		"body": "value"
+	},
+	"common2": {
+		"prefix": "key",
+		"body": "key"
+	},
+	"common3": {
+		"prefix": "winTitle",
+		"body": "winTitle"
+	},
+	"common4": {
+		"prefix": "AlwaysOnTop",
+		"body": "AlwaysOnTop"
+	}
+}

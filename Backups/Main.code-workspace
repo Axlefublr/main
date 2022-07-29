@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Personal",
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\JS"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "JS",
+		"typewriterAutoScroll.enable": false
+	}
+}

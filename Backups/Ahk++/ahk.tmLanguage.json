@@ -1,0 +1,241 @@
+{
+	"fileTypes": ["ahk"],
+	"name": "AutoHotkey",
+	"scopeName": "source.ahk",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#string"
+		},
+		{
+			"include": "#script-block"
+		},
+		{
+			"include": "#function_call"
+		},
+		{
+			"include": "#keyword"
+		},
+		{
+			"include": "#punctuation"
+		},
+		{
+			"include": "#text"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"captures": {
+						"1": {
+							"name": "comment.ahk"
+						}
+					},
+					"match": "\\s*(;.*)",
+					"example": ";comment"
+				},
+				{
+					"begin": "^\\s*/\\*",
+					"end": "^\\s*\\*/",
+					"name": "comment.ahk",
+					"example": "/* comment */"
+				}
+			]
+		},
+		"string": {
+			"patterns": [
+				{
+					"begin": "(?<!\"|')\"[\\t ]*$",
+					"end": "\\)\"",
+					"name": "string.continuation.ahk",
+					"comment": "Quirked up white boy busts it down sexual style. Is he goated with the sauce?"
+				}
+			]
+		},
+		"script-block": {
+			"patterns": [
+				{
+					"match": "(?<=\\.)(?i:__item|marginx|marginy|length|capacity|backcolor|focusedctrl|hwnd|menubar|name|title|classnn|enabled|focused|gui|text|type|value|visible|clickcount|default|handle|pos|ateof|encoding|count|casesense|ptr|size|isbuiltin|isvariadic|minparams|maxparams|value|result)(?!\\()",
+					"name": "variable.other.builtin.property.ahk",
+					"example": ".length"
+				},
+				{
+					"match": "(?<=\\.)(?i:insertat|removeat|__new|__enum|getpos|getclientpos|onevent|onnotify|restore|redraw|setfont|format|clone|delete|has|pop|push|call|add|destroy|flash|hide|maximize|minimize|move|opt|show|submit|choose|focus|usetab|prototype|check|disable|enable|insert|rename|setcolor|seticon|togglecheck|toggleenable|uncheck|addstandard|read|write|readline|writeline|rawread|rawwrite|seek|close|readuint|readint|readint64|readshort|readushort|readchar|readuchar|readdouble|readfloat|writeuint|writeint|writeint64|writeshort|writeushort|writechar|writeuchar|writedouble|writefloat|clear|get|set|bind|isbyref|isoptional|modifycol|gettext)(?=\\()",
+					"name": "support.function.builtin.method.ahk",
+					"example": ".set()"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "support.type.builtin.hotkey.label.definition.ahk"
+						},
+						"2": {
+							"name": "support.type.builtin.hotkey.label.hotkey.ahk"
+						},
+						"3": {
+							"name": "support.type.builtin.hotkey.label.definition.ahk"
+						}
+					},
+					"match": "(:[bceiknoprsxzBCEIKNOPRSXZ0?\\*]{0,5}:)(.+)(::)",
+					"example": "::hot::"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "support.type.builtin.hotkey.label.hotkey.ahk"
+						},
+						"2": {
+							"name": "support.type.builtin.hotkey.label.definition.ahk"
+						}
+					},
+					"match": "^\\s*(.+)(::)",
+					"example": "^c::"
+				}
+			]
+		},
+		"function_call": {
+			"patterns": [
+				{
+					"match": "^[\\t ]*#(?i:hotif|inputlevel|suspendexempt)",
+					"name": "keyword.control.directives.ahk",
+					"example": "#HotIf expression"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "string.directives.ahk"
+						},
+						"2": {
+							"name": "comment.ahk"
+						}
+					},
+					"match": "#\\b\\w*(?!:{1,2})\\b([^;]*)(\\s+;.*)?$",
+					"name": "keyword.control.directives.ahk",
+					"example": "#persistent"
+				},
+				{
+					"match": "\\b(?i:a_[a-z,A-Z]+)\\b",
+					"name": "support.type.builtin.ahk",
+					"example": "A_ScriptDir"
+				}
+			]
+		},
+		"keyword": {
+			"patterns": [
+				{
+					"captures": {
+						"1": {
+							"name": "keyword.control.ahk"
+						},
+						"2": {
+							"name": "support.class.ahk"
+						},
+						"4": {
+							"name": "keyword.control.ahk"
+						},
+						"5": {
+							"name": "support.class.ahk"
+						}
+					},
+					"match": "(?i:\\b(class)\\b\\s*(\\w+))\\s*((extends)\\s+(\\w+))?",
+					"example": "Class class1 extends class2"
+				},
+				{
+					"match": "\\b(?i:true|false|static|local|global|this)\\b",
+					"name": "storage.type.function"
+				},
+				{
+					"match": "\\b(?i:if|else|switch|case|return|loop( files)?|break|for|in|while|catch|finally|throw|try|until|continue|default(?=[\\t ]*:(?!=))|except|class|unset)\\b",
+					"name": "keyword.control.ahk"
+				},
+				{
+					"match": "[eE]?[+-]?\\d+([.xX][\\da-fA-F]+)?",
+					"name": "constant.numeric.ahk"
+				},
+				{
+					"match": "\\b(?<!\\.)\\w+(\\(\\))?(?=\\.%?\\w+%?)",
+					"name": "support.class.ahk",
+					"example": "classInst.Method()"
+				},
+				{
+					"match": "[\\/|:*+-.~\\^](\\/)?=",
+					"name": "keyword.operator.assignment.ahk"
+				},
+				{
+					"match": "[/+\\-*\\^#]",
+					"name": "keyword.operator.arithmetic.ahk"
+				},
+				{
+					"match": "[<>=!](={1,2})?|(?i:\\b(or|and|not)\\b)|[&|]{2}",
+					"name": "keyword.operator.comparison.ahk"
+				}
+			]
+		},
+		"punctuation": {
+			"patterns": [
+				{
+					"match": "[`.,]",
+					"name": "punctuation.separator.period.ahk"
+				},
+				{
+					"match": "[\\[\\](){}]",
+					"name": "punctuation.bracket.ahk"
+				}
+			]
+		},
+		"text": {
+			"patterns": [
+				{
+					"match": "(?<!\\.)(?i:autotrim|abs|asin|acos|atan|blockinput|buffer|callbackfree|callbackcreate|caretgetpos|cell|chr|click|clipboardall|clipwait|comcall|comvalue|comobjactive|comobjarray|comobjconnect|comobject|comobjflags|comobjfromptr|comobjget|comobjquery|comobjtype|comobjvalue|controladditem|controlchooseindex|controlchoosestring|controlclick|controldeleteitem|controlfinditem|controlfocus|controlgetchecked|controlgetchoice|controlgetclassnn|controlgetenabled|controlgetfocus|controlgethwnd|controlgetindex|controlgetitems|controlgetpos|controlgetstyle|controlgetexstyle|controlgettext|controlgetvisible|hide|hidedropdown|move|send|sendtext|setchecked|setenabled|setstyle|setexstyle|settext|show|showdropdown|coordmode|cos|critical|dateadd|datediff|detecthiddentext|detecthiddenwindows|dircopy|dircreate|dirdelete|direxist|dirmove|dirselect|dllcall|download|driveeject|drivegetcapacity|drivegetfilesystem|drivegetlabel|drivegetlist|drivegetserial|drivegetspacefree|drivegetstatus|drivegetstatuscd|drivegettype|drivelock|driveretract|drivesetlabel|driveunlock|edit|editpaste|editgetcurrentcol|editgetcurrentline|editgetline|editgetlinecount|editgetselectedtext|envget|envset|exit|exitapp|exp|fileappend|filecopy|filecreateshortcut|filedelete|fileencoding|fileexist|fileinstall|filegetattrib|filegetshortcut|filegetsize|filegettime|filegetversion|filemove|fileopen|fileread|filerecycle|filerecycleempty|fileselect|filesetattrrib|filesettime|float|floor|format|formattime|getkeyname|getkeyvk|getkeysc|getkeystate|getmethod|goto|groupactivate|groupadd|groupclose|groupdeactivate|gui|GuiCtrlFromHwnd|guifromhwnd|hasbase|hasmethod|hasprop|hotifwinexist|hotifwinactive|hotifwinnotexist|hotifwinnotactive|hotkey|hotstring|il_create|il_add|il_destroy|imagesearch|inidelete|iniread|iniwrite|inputbox|inputhook|installkeybdhook|installmousehook|instr|integer|islabel|isobject|isset|issetref|keyhistory|keywait|listhotkeys|listlines|listvars|listviewgetcontent|loadpicture|log|ln|map|max|menufromhandle|menuselect|min|mod|monitorgetcount|monitorgetname|monitorgetprimary|monitorgetworkarea|mouseclick|mouseclickdrag|mousegetpos|mousemove|msgbox|number|numget|numput|objaddref|objrelease|objbindmethod|objhasownprop|objownprops|objgetbase|objgetcapacity|objownpropcount|objsetbase|objsetcapacity|onclipboardchange|onerror|onexit|onmessage|outputdebug|pause|persistent|pixelgetcolor|pixelsearch|postmessage|processclose|processexist|processsetpriority|processwait|processwaitclose|random|regexmatch|regexreplace|regdelete|regdeletekey|regread|regwrite|reload|round|run|runas|runwait|send|sendtext|sendinput|sendplay|sendevent|sendlevel|sendmessage|sendmode|setcapslockstate|setcontroldelay|setdefaultmousespeed|setkeydelay|setmousedelay|setnumlockstate|setscrolllockstate|setregview|setstorecapslockmode|settimer|settitlematchmode|setwindelay|setworkingdir|shutdown|sin|sleep|sort|soundbeep|soundgetinterface|soundgetmute|soundgetname|soundgetvolume|soundplay|soundsetmute|soundsetvolume|splitpath|sqrt|statusbargettext|statusbarwait|strcompare|strget|string|strlen|strlower|strptr|strput|strreplace|strsplit|strupper|substr|suspend|sysget|sysgetipadresses|tan|thread|tooltip|trayseticon|traytip|trim|ltrim|rtrim|type|varsetstrcapacity|vercompare|winactivate|winactivatebottom|winactive|winclose|winexist|wingetclass|wingetclientpos|wingetcontrols|wingetcontrolshwnd|wingetcount|wingetid|wingetidlast|wingetlist|wingetminmax|wingetpid|wingetpos|wingetprocessname|wingetprocesspath|wingetexstyle|wingetstyle|wingettext|wingettitle|wingettranscolor|wingettransparent|winhide|winkill|winmaximize|winminimize|winminimizeall|winminimizeallundo|winmove|winmovetop|winmovebottom|winredraw|winrestore|winsetalwaysontop|winsetenabled|winsetregionexstyle|winsetregionstyle|winsettitle|winsettranscolor|winsettransparent|winshow|winwaitnotactive|winwaitactive|winwaitclose|winwait|controlsend|hotif|strtitle|object|ceil)\\b",
+					"name": "support.function.builtin.ahk"
+				},
+				{
+					"match": "\\b(?i:c_)\\w+(?=\\(\\))",
+					"name": "support.function.classCall.ahk",
+					"example": "c_ThisIsAClass()"
+				},
+				{
+					"match": "[%\\w]+(?=\\()",
+					"name": "support.function.ahk",
+					"example": "fun("
+				},
+				{
+					"match": "[%?&:$=]>?",
+					"name": "keyword.operator.varref.ahk"
+				},
+				{
+					"match": "[\"']http(s)?:\\/\\/\\S+[\"']",
+					"name": "string.link.ahk",
+					"example": "\"https://github.com/Axlefublr/Personal/blob/main/_Libraries/Func/3.%20Global.ah2\""
+				},
+				{
+					"match": "\".*?(?<!(?<!`)`)\"",
+					"name": "string.ahk",
+					"example": "\"string\""
+				},
+				{
+					"match": "'.*?(?<!`)'",
+					"name": "string.ahk",
+					"example": "\"string\""
+				},
+				{
+					"match": "['\"]",
+					"name": "punctuation.ahk"
+				},
+				{
+					"match": "\\b(?<!\\.)(?i:key|value|index)\\b",
+					"name": "keyword.other.ahk",
+					"example": "text"
+				},
+				{
+					"match": "\\w+",
+					"name": "variable.def.ahk",
+					"example": "text"
+				}
+			]
+		}
+	}
+}
