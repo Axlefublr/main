@@ -1,11 +1,7 @@
 {
 	"folders": [
 		{
-			"name": "Personal",
 			"path": ".."
-		},
-		{
-			"path": "..\\..\\JS"
 		}
 	],
 	"settings": {

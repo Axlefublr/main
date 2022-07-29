@@ -530,7 +530,7 @@ git_Link(doWhat) {
 		path_relative := StrReplace(path_relative, " ", "%20")
 	)
 
-	ProjectFolders := ["Other/", "Personal/"]
+	ProjectFolders := ["Extra/", "Main/"]
 
 	for index in ProjectFolders {
 		noIndex := StrReplace(link_faulty, index, "")

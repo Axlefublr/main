@@ -2,8 +2,8 @@
 
 Class c_Paths {
 
-	PersDir        := "C:\Programming\Personal"
-	OthrDir        := "C:\Programming\Other"
+	PersDir        := "C:\Programming\Main"
+	OthrDir        := "C:\Programming\Extra"
 	JSDir          := "C:\Programming\JS"
 	Backups        := this.PersDir "\Backups"
 	Docs           := this.PersDir "\Docs"
