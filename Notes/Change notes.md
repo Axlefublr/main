@@ -1,1 +1,1 @@
-Function object tutorial files added
+Added static variables examples
