@@ -152,7 +152,7 @@
 					"name": "keyword.control.ahk"
 				},
 				{
-					"match": "[eE]?[+-]?\\d+([.xX][\\da-fA-F]+)?",
+					"match": "(?<!\\d)[eE]?[+-]?\\d+([.xX][\\da-fA-F]+)?",
 					"name": "constant.numeric.ahk"
 				},
 				{
