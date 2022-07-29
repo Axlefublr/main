@@ -1,1 +1,1 @@
-The debugger is now not a static link, I'll try to update the version number when new ones release
+Clock added

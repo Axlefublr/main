@@ -209,14 +209,25 @@ tool_FileSearch(caseSense := "Off") { ;Case sense is off by default, but may nee
 
 tool_Clock() {
 
+	static clock_hwnd
+
+	if IsSet(clock_hwnd) && WinExist(clock_hwnd) {
+		if WinActive(clock_hwnd)
+			return
+		WinActivate(clock_hwnd)
+		return
+	}
+	
 	;Get the time variables
 	clock_Time   := FormatTime(, " HH:mm:ss")
 	, clock_Week := FormatTime(, "dddd")
 	, clock_Date := FormatTime(, "d MMMM")
 
 	;Create the gui
-	g_Clock := Gui("AlwaysOnTop", "Clock")
+	g_Clock := Gui(, "Clock")
 	g_Clock.BackColor := "171717"
+
+	clock_hwnd := g_Clock.hwnd
 
 	;Add text
 	g_Clock.SetFont("S40 cC5C5C5", "Consolas")
@@ -228,7 +239,7 @@ tool_Clock() {
 	g_Clock.SetFont("S26")
 	g_Clock_Date := g_Clock.Add("Text", "w237 Center", clock_Date)
 	
-	g_Clock.Show("W350 H320 NA y0 x" A_ScreenWidth / 8 * 6)
+	g_Clock.Show("W350 H320 y0 x" A_ScreenWidth / 8 * 6)
 
 	;The func obj is separate because we'll need to disable the timer outside of it
 	timeCheck := () => (
@@ -240,14 +251,14 @@ tool_Clock() {
 	;Change the time text every half a second for better accuracy
 	SetTimer(timeCheck, 500)
 
+	HotIfWinActive("ahk_id " clock_hwnd)
 	;Takes care of all the trash
 	Destruction := (*) => ( ;the * takes care of the required parameters for hotkey and onevent
+		HotIfWinActive("ahk_id " clock_hwnd),
 		SetTimer(timeCheck, 0), ;Since it references a function object, it can be outside of the settimer's thread
 		Hotkey("Escape", "Off"),
 		g_Clock.Destroy()
 	)
-
-	HotIf()
 
 	Hotkey("Escape", Destruction, "On")
 	g_Clock.OnEvent("Close", Destruction)
