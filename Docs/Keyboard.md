@@ -1,58 +1,46 @@
 # Windows
 
-q —
-
-w —
-
-e —
-
-r — Shell
-
-t —
-
-y-\ — emojis
-
-a —
-
-s —
-
-d —
-
-f —
-
-g —
-
 h — Gimp
 
 j — Davinci Resolve
 
 k — FL Studio
 
-l — Lock
-
-; — 
-
 ' — Weather
 
-z —
-
-x —
-
-c —
-
-v —
-
-b — Calendar
+b — 
 
 n — Monkeytype
 
-m — Twitch
+m — Gmail
 
-, — Regex
+, — My github
 
 . — CMD
 
-/ — Calculator
+/ — 
+
+# Windows ctrl
+
+h — 
+
+j — 
+
+k — 
+
+' — 
+
+b — 
+
+n — Twitch
+
+m — Calendar
+
+, — Regex
+
+. — 
+
+/ — 
 
 # Vs code
 
@@ -223,6 +211,8 @@ m — Twitch
 p Pin active tab
 
 [ Join editor groups
+
+] Duplicate editors right 
 
 j Add another keybinding
 

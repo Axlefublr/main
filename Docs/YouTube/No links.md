@@ -2,4 +2,3 @@
 * Ternary is readable
 * Install ahk
 * Configure docs
-* 

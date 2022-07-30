@@ -212,9 +212,7 @@ tool_Clock() {
 	static clock_hwnd
 
 	if IsSet(clock_hwnd) && WinExist(clock_hwnd) {
-		if WinActive(clock_hwnd)
-			return
-		WinActivate(clock_hwnd)
+		win_MinMax(clock_hwnd)
 		return
 	}
 	
@@ -509,6 +507,8 @@ Snake(SquareSide, delay, timeout) {
 	maxSide := Min(A_ScreenWidth, A_ScreenHeight)
 	if SquareSide > maxSide
 		SquareSide := maxSide
+	else if SquareSide <= 1
+		SquareSide := 2
 
 	timeout := timeout * 1000
 
@@ -579,7 +579,11 @@ Snake(SquareSide, delay, timeout) {
 	colorIndex := 0
 
 	SetTimer(GoSsss, delay)
-	stopSlithering(*) => (SetTimer(GoSsss, 0), isSlithering := False)
+	stopSlithering(*) => (
+		SetTimer(GoSsss, 0),
+		isSlithering := False,
+		Hotkey("Escape", "Off")
+	)
 	Hotkey("Escape", stopSlithering, "On")
 
 	isSlithering := True

@@ -80,11 +80,13 @@ Media_Stop:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 XButton2:: {
 	MouseGetPos &sectionX, &sectionY
-	right  := (sectionX > 1368)
-	, left := (sectionX < 568)
-	, down := (sectionY > 747)
-	, up   := (sectionY < 347)
+	right      := (sectionX > 1368)
+	, left     := (sectionX < 568)
+	, down     := (sectionY > 747)
+	, up       := (sectionY < 347)
+	, topRight := ((sectionX > 1707) && (sectionY < 233))
 	Switch {
+		Case topRight:return
 		Case right:
 			Switch {
 				Case Wintitles.youtube_isWatchingVid:youtube_SkipNext()

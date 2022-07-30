@@ -232,6 +232,6 @@ CapsLock::tool_SomeLockHint("CapsLock")
 +!g::tool_WindowGetter()
 +!t::tool_Clock()
 +!v::tool_RelativeCoordGetter()
-^+s::Snake(20, 50, 1.7)
+^+s::Snake(5, 20, 1.7)
 
 Info("Script reloaded", True)

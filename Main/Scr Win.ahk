@@ -1,17 +1,17 @@
 #HotIf !WinActive("ahk_group Game")
 
 ;Links
-#b::RunLink(Links.Links["calendar"])
+#^n::RunLink(Links.Links["twitch"])
+#m::RunLink(Links.Links["gmail"])
+#^m::RunLink(Links.Links["calendar"])
 #sc28::RunLink(Links.Links["weather"])
-#m::RunLink(Links.Links["twitch"])
-#sc33::RunLink(Links.Links["regex"])
+#sc33::RunLink(Links.Links["my github"])
+#^sc33::RunLink(Links.Links["regex"])
 
 
 ;Command prompt
 #sc34::press_Hold_Sugar(win_App.Bind("ahk_exe cmd.exe", "cmd.exe"), RunLike.Bind("RunAs", "cmd.exe", "Max"))
 
-;Calculator
-#sc35::win_App("Calculator", "calc.exe")
 
 ;Monkeytype
 #n::win_App("Monkeytype ahk_exe chrome.exe", Paths.Apps["Monkeytype"])
