@@ -266,9 +266,9 @@ n Select language
 
 ^+ Multi-cursor
 
-^! Activate prev / next group
+^! Move editor into prev / next group
 
-+! Move editor into prev / next group
++! Activate prev / next group
 
 ^# Go to first / last editor
 
@@ -280,7 +280,7 @@ n Select language
 
 ^+ Select until start / end of file
 
-^!
+^! 
 
 +! Move editor left / right
 

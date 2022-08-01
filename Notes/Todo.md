@@ -13,3 +13,7 @@ The hotkey to disable it is the same as the one to enact it
 Fix gitlink
 
 #^ cmd as admin
+
+Gui for timer
+
+Inputbox in keygetter gui

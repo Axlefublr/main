@@ -1,7 +1,5 @@
-More links to fit thanks to #^, link for my github and gmail added
+No continuing lines. While that does improve performance, it kinda looks ugly. Even with formatting, it's just kinda ass, and therefore not worth it. Especially considering that it's instant anyway
 
-Clock now minmaxes, is not NA or AlwaysOnTop
+Now my guis are either hotifexisted or hotifactived, the previous issue I wanted to solve with global hotkeys is so when I closed a gui, it wouldn't activate a strange window. This issue doesn't seem to happen anymore, and if it does, it's worth it for what I now get
 
-I can now cancel XButton2 (it was racist)
-
-Now actually disabling the esc hotkey in snake and accounting for negative sizes as well
+The guis are neither always active, nor NA. Meaning, I can use as many at once as I want. I can get the keycodes of the entire alphabet if I so wanted, while getting the info for all active windows and multiple coordinates (although I'm not sure how I'd remember which one is which). Now there's no "rush" to actually using the info I'm getting, which is a big plus. Better yet, it's now more usable to other people, if we ignore the dependencies

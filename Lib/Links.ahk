@@ -66,7 +66,7 @@ Class c_Links {
 		;Download watch
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"one piece",        "https://gogoanime.sk/one-piece-episode-",
-		"overlord",         "https://gogoanime.lu/overlord-episode-",
+		"overlord",         "https://gogoanime.lu/overlord-iv-episode-",
 
 		;Shops
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

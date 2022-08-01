@@ -1,10 +1,7 @@
 # My tags
 
 -  v2 issue
--  directoriesv1
--  no wrap if
 -  arrow functions
--  run on reboot
 
 # Useful tags
 

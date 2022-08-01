@@ -71,7 +71,7 @@
 <!v::win_App_Folders(Paths.Pictures, "Min")
 
 ;Content
-<!z::win_App_Folders(Paths.Content, "Min")
+<!z::win_App_Folders(Paths.Content, "Max")
 
 ;Editing
 <!b::win_App_Folders(Paths.Editing, "Min")

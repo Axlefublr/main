@@ -21,7 +21,7 @@ Class c_Paths {
 	Materials := this.Pictures "\Editing\Materials"
 	Content   := this.Pictures "\Content"
 	OnePiece  := this.Pictures "\Content\One Piece"
-	Overlord  := this.Pictures "\Content\Overlord\Overlord 1"
+	Overlord  := this.Pictures "\Content\Overlord\Overlord 4"
 
 	VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
 

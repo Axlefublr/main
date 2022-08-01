@@ -392,3 +392,22 @@ If you want to use the counter variable outside of the for loop, for example, yo
 
 Non {}'ed let variables are superglobal
 
+# Variable embeds
+
+`${variable}`
+
+`${}` is considered brackets
+
+Whitespace LITERALLY doesn't matter, you can do this easily:
+
+```js
+let text = 
+`Hello, ${userName}
+You are ${age} years old
+I hope you have a good day!`
+```
+
+the above text won't actually be seen as multiline, if you want linebreaks for html, you need to use `<br>`
+
+On the other hand, the linebreaks are recognized themselves when you use this for console.log
+

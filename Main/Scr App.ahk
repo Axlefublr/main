@@ -115,6 +115,8 @@ NumpadDel & NumpadClear::vscode_CursorForward()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("ahk_exe KMPlayer64.exe")
 Delete::player_SkipOpening()
+Up::Send "{Volume_Up}"
+Down::Send "{Volume_Down}"
 
 #HotIf WinActive("ahk_exe Resolve.exe")
 !e::davinci_Insert()

@@ -31,7 +31,8 @@ scr_Suspend() {
 
 scr_RunAsAdmin() {
 	if !A_IsAdmin {
-		Run('*RunAs "' A_ScriptFullPath '"')
+		RunLike("RunAs", A_ScriptFullPath)
+		; Run('*RunAs "' A_ScriptFullPath '"')
 		Sleep(10000) 
 		;Even though we just ran a new instance of the same script that's currently running, it might still partly reach the following line, here we make sure nothing even tries to happen before we properly rerun the current script as admin. This sleep doesn't actually introduce any delay, it's purely for smoothness.
 	}

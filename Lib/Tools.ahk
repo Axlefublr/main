@@ -6,24 +6,25 @@ tool_KeyCodeGetter() {
 	selectedKey := str_GetSelection()
 
 	key_name := GetKeyName(selectedKey)
-	key_SC := GetKeySC(selectedKey)
-	key_VK := GetKeyVK(selectedKey)
+	key_SC   := GetKeySC(selectedKey)
+	key_VK   := GetKeyVK(selectedKey)
 
 	key_SC := "sc" Format("{:x}", key_SC) ;getkey sc/vk returns a base 10 value, when both of those are actually base 16. This makes absolutely no fucking sense. So, we use format to format a base 10 integer into a base 16 int for both of them
 	key_VK := "vk" Format("{:x}", key_VK)
 
-	g_values := Gui("AlwaysOnTop")
+	g_values := Gui(, "Key code getter")
 	g_values.BackColor := "171717"
 	g_values.SetFont("s30 cC5C5C5", "Consolas")
 
 	g_values_name := g_values.Add("Text", "Center", key_name)   
-	g_values_SC := g_values.Add("Text", "Center", key_SC)   
-	g_values_VK := g_values.Add("Text", "x+100 Center", key_VK)
+	g_values_SC   := g_values.Add("Text", "Center", key_SC)   
+	g_values_VK   := g_values.Add("Text", "x+100 Center", key_VK)
 
-	g_values_hwnd := g_values.hwnd
+	values_hwnd := g_values.hwnd
 
 	Destruction := (*) => (
 		g_values.Destroy(),
+		HotIfWinActive("ahk_id " values_hwnd),
 		Hotkey("Escape", "Off"),
 		Hotkey("F1", "Off"),
 		Hotkey("F2", "Off"),
@@ -35,19 +36,19 @@ tool_KeyCodeGetter() {
 		Destruction()
 	}
 	
-	HotIfWinExist("ahk_id " g_values_hwnd) ;If a hotkey to call this function is under a #HotIf, the hotkeys created in this functions will be affected by that. So, we have to specify that they should have no condition.
+	HotIfWinActive("ahk_id " values_hwnd) ;If a hotkey to call this function is under a #HotIf, the hotkeys created in this functions will be affected by that. So, we have to specify that they should have no condition.
 	Hotkey("F1", toClip.Bind(key_name), "On")      
-	Hotkey("F2", toClip.Bind(key_SC), "On")
-	Hotkey("F3", toClip.Bind(key_VK), "On")      
+	Hotkey("F2", toClip.Bind(key_SC),   "On")
+	Hotkey("F3", toClip.Bind(key_VK),   "On")      
 	
 	Hotkey("Escape", Destruction, "On")
 	g_values.OnEvent("Close", Destruction)
 
 	g_values_name.OnEvent("Click", toClip.Bind(key_name))
-	g_values_SC.OnEvent("Click", toClip.Bind(key_SC))
-	g_values_VK.OnEvent("Click", toClip.Bind(key_VK))
+	g_values_SC.OnEvent("Click",   toClip.Bind(key_SC))
+	g_values_VK.OnEvent("Click",   toClip.Bind(key_VK))
 
-	g_values.Show("NA w500 h200 y0 x" A_ScreenWidth / 8 * 5)
+	g_values.Show("w500 h200 y0 x" A_ScreenWidth / 20 * 13.4)
 }
 
 tool_RelativeCoordGetter() {
@@ -72,21 +73,19 @@ tool_RelativeCoordGetter() {
 	initY := 0
 	var := !var
 
-	g_relative := Gui("AlwaysOnTop")
+	g_relative := Gui(, "Relative coord getter")
 	g_relative.BackColor := "171717"
-	g_relative.SetFont("s40 cC5C5C5", "Consolas")
+	g_relative.SetFont("s30 cC5C5C5", "Consolas")
 
 	g_relative_textX := g_relative.Add("Text",, "Relative X: " relPosX)
 	g_relative_textY := g_relative.Add("Text",, "Relative Y: " relPosY)
 
-	topRightCorner := A_ScreenWidth / 8 * 5
-
-	g_relative.Show("AutoSize NA y0 x" topRightCorner)
+	topRightCorner := A_ScreenWidth / 20 * 14.3
 
 	g_relative_hwnd := g_relative.hwnd
 
-	HotIfWinExist("ahk_id " g_relative_hwnd)
 	Destruction := (*) => (
+		HotIfWinActive("ahk_id " g_relative_hwnd),
 		Hotkey("Escape", "Off"),
 		Hotkey("F1", "Off"),
 		Hotkey("F2", "Off"),
@@ -102,14 +101,17 @@ tool_RelativeCoordGetter() {
 			Destruction()
 	}
 
+	HotIfWinActive("ahk_id " g_relative_hwnd)
+	Hotkey("F1", toClip.Bind(relPosX), "On")
+	Hotkey("F2", toClip.Bind(relPosY), "On")
+	Hotkey("Escape", Destruction, "On")
+
 	g_relative_textX.OnEvent("Click", toClip.Bind(relPosX))
 	g_relative_textY.OnEvent("Click", toClip.Bind(relPosY)) 
 
-	Hotkey("F1", toClip.Bind(relPosX), "On")
-	Hotkey("F2", toClip.Bind(relPosY), "On")
-
 	g_relative.OnEvent("Close", Destruction)
-	Hotkey("Escape", Destruction, "On")
+
+	g_relative.Show("AutoSize y0 x" topRightCorner)
 
 }
 
@@ -237,8 +239,6 @@ tool_Clock() {
 	g_Clock.SetFont("S26")
 	g_Clock_Date := g_Clock.Add("Text", "w237 Center", clock_Date)
 	
-	g_Clock.Show("W350 H320 y0 x" A_ScreenWidth / 8 * 6)
-
 	;The func obj is separate because we'll need to disable the timer outside of it
 	timeCheck := () => (
 		g_Clock_Time.Text := FormatTime(, " HH:mm:ss"),
@@ -249,17 +249,19 @@ tool_Clock() {
 	;Change the time text every half a second for better accuracy
 	SetTimer(timeCheck, 500)
 
-	HotIfWinActive("ahk_id " clock_hwnd)
 	;Takes care of all the trash
 	Destruction := (*) => ( ;the * takes care of the required parameters for hotkey and onevent
-		HotIfWinActive("ahk_id " clock_hwnd),
 		SetTimer(timeCheck, 0), ;Since it references a function object, it can be outside of the settimer's thread
+		HotIfWinActive("ahk_id " clock_hwnd),
 		Hotkey("Escape", "Off"),
 		g_Clock.Destroy()
 	)
 
+	HotIfWinActive("ahk_id " clock_hwnd)
 	Hotkey("Escape", Destruction, "On")
 	g_Clock.OnEvent("Close", Destruction)
+
+	g_Clock.Show("W350 H320 y0 x" A_ScreenWidth / 20 * 15.3)
 
 }
 
@@ -267,34 +269,35 @@ tool_CoordGetter() {
 
 	;We get all the coordinates and the pixel color at absolute coords
 	CoordMode("Mouse", "Screen")
-	, MouseGetPos(&locScrX, &locScrY)
+	MouseGetPos(&locScrX, &locScrY)
 
-	, CoordMode("Mouse", "Client")
-	, MouseGetPos(&locCliX, &locCliY)
+	CoordMode("Mouse", "Client")
+	MouseGetPos(&locCliX, &locCliY)
 
-	, CoordMode("Mouse", "Window")
-	, MouseGetPos(&locWinX, &locWinY)
+	CoordMode("Mouse", "Window")
+	MouseGetPos(&locWinX, &locWinY)
 
-	, CoordMode("Pixel", "Screen")
-	, pixel := PixelGetColor(locScrX, locScrY, "Alt Slow") ;Haven't used pixelgetcolor so using the slowest method for safety
+	CoordMode("Pixel", "Screen")
+	pixel := PixelGetColor(locScrX, locScrY, "Alt Slow") ;Haven't used pixelgetcolor so using the slowest method for safety
 
 	;Creation of the gui
-	g_CrdGet := Gui("AlwaysOnTop", "Coord Getter")
+	g_CrdGet := Gui(, "Coord Getter")
 	g_CrdGet.Backcolor := "171717"
 	g_CrdGet.SetFont("S30 cC5C5C5", "Consolas")
 
+	CrdGet_hwnd := g_CrdGet.hwnd
+
 	;Adding all the text for the gui
 	g_CrdGet_CtrlFormat := g_CrdGet.Add("Text",, "X = " . locCliX . "`nY = " . locCliY)
-	, g_CrdGet_Screen   := g_CrdGet.Add("Text",, "Screen")
-	, g_CrdGet_Client   := g_CrdGet.Add("Text", "y+15", "Client")
-	, g_CrdGet_Window   := g_CrdGet.Add("Text", "y+15", "Window") ;The 'word' text is visually more grouped together
-	, g_CrdGet_Pixel    := g_CrdGet.Add("Text", "y+35", pixel)
-
-	g_CrdGet.Show("NA Center H440 W300 y0 x" A_ScreenWidth / 8 * 6.3)
+	g_CrdGet_Screen     := g_CrdGet.Add("Text",, "Screen")
+	g_CrdGet_Client     := g_CrdGet.Add("Text", "y+15", "Client")
+	g_CrdGet_Window     := g_CrdGet.Add("Text", "y+15", "Window") ;The 'word' text is visually more grouped together
+	g_CrdGet_Pixel      := g_CrdGet.Add("Text", "y+35", pixel)
 
 	;Destroys the gui as well as every previously created hotkey
 	;You can also append defining arrow functions, but there has to be nothing after them (on the same line). Otherwise that next thing is considered as the second value for => to return, which is an error. To go around this, you can wrap the whole arrow definition into () and then it's all good. But at that point, what are you doing (we draw the line right below what we believe)
 	FlushHotkeys := (*) => (
+		HotIfWinActive("ahk_id " CrdGet_hwnd),
 		Hotkey("F1", "Off"),
 		Hotkey("F2", "Off"),
 		Hotkey("F3", "Off"),
@@ -310,61 +313,59 @@ tool_CoordGetter() {
 	;Defining all the function objects that we're gonna call by hotkeys and buttons. (*) takes care of Hotkey and OnEvent requiring parameters we aren't gonna use
 	;If you keep appending lines for too long, it overflows the memory and gives an error -- this is why there's no , here. Plus, harder to debug because ahk sees it as one line. The positive is that it's around 35% faster. Be careful with this tradeoff (you can remove all the ,'s at starts of lines if you want)
 	ToClip_CtrlFormat := ToClip.Bind("`"X" locCliX " Y" locCliY "`"") ;You get the formatting that you can just paste into your controlclick without having to change anything
-	, ToClip_Screen   := ToClip.Bind(locScrX " " locScrY)
-	, ToClip_Client   := ToClip.Bind(locCliX " " locCliY)
-	, ToClip_Window   := ToClip.Bind(locWinX " " locWinY) ;Pure coords with no formatting for the other options
-	, ToClip_Pixel    := ToClip.Bind(pixel)
-
-	HotIf()
+	ToClip_Screen     := ToClip.Bind(locScrX " " locScrY)
+	ToClip_Client     := ToClip.Bind(locCliX " " locCliY)
+	ToClip_Window     := ToClip.Bind(locWinX " " locWinY) ;Pure coords with no formatting for the other options
+	ToClip_Pixel      := ToClip.Bind(pixel)
 
 	;Press a hotkey to activate its func object
-	Hotkey("F1",       ToClip_CtrlFormat, "On")
-	, Hotkey("F2",     ToClip_Screen, "On")
-	, Hotkey("F3",     ToClip_Client, "On")
-	, Hotkey("F4",     ToClip_Window, "On")
-	, Hotkey("F5",     ToClip_Pixel, "On")
-	, Hotkey("Escape", FlushHotkeys, "On")
+	HotIfWinActive("ahk_id " CrdGet_hwnd)
+	Hotkey("F1",     ToClip_CtrlFormat, "On")
+	Hotkey("F2",     ToClip_Screen,     "On")
+	Hotkey("F3",     ToClip_Client,     "On")
+	Hotkey("F4",     ToClip_Window,     "On")
+	Hotkey("F5",     ToClip_Pixel,      "On")
+	Hotkey("Escape", FlushHotkeys,      "On")
 
 	;Click the text to activate its func object (same as with hotkeys)
 	g_CrdGet_CtrlFormat.OnEvent("Click", ToClip_CtrlFormat)
-	, g_CrdGet_Screen.OnEvent("Click",   ToClip_Screen)
-	, g_CrdGet_Client.OnEvent("Click",   ToClip_Client)
-	, g_CrdGet_Window.OnEvent("Click",   ToClip_Window)
-	, g_CrdGet_Pixel.OnEvent("Click",    ToClip_Pixel)
-	, g_CrdGet.OnEvent("Close",          FlushHotkeys) ;The gui isn't automatically destroyed when you click X by default, you'd have to do `guiObj.OnEvent("Close", (*) => guiObj.Destroy())` usually
+	g_CrdGet_Screen.OnEvent(    "Click", ToClip_Screen)
+	g_CrdGet_Client.OnEvent(    "Click", ToClip_Client)
+	g_CrdGet_Window.OnEvent(    "Click", ToClip_Window)
+	g_CrdGet_Pixel.OnEvent(     "Click", ToClip_Pixel)
+
+	g_CrdGet.OnEvent("Close", FlushHotkeys) ;The gui isn't automatically destroyed when you click X by default, you'd have to do `guiObj.OnEvent("Close", (*) => guiObj.Destroy())` usually
+
+	g_CrdGet.Show("Center H440 W300 y0 x" A_ScreenWidth / 8 * 6.3)
 
 }
 
 tool_WindowGetter() {
 
 	;Getting the current window's info
-	winTitle     := WinGetTitle("A")
-	, winExePath := WinGetProcessPath("A")
-	, winExe     := WinGetProcessName("A")
-	, winID      := WinGetID("A")
-	, winPID     := WinGetPID("A")
+	winTitle   := WinGetTitle("A")
+	winExePath := WinGetProcessPath("A")
+	winExe     := WinGetProcessName("A")
+	winID      := WinGetID("A")
+	winPID     := WinGetPID("A")
 
 	;Gui creation
-	g_WinGet := Gui("AlwaysOnTop", "WindowGetter")
-	, g_WinGet.Backcolor := "171717"
-	, g_WinGet.SetFont("S20 cC5C5C5", "Consolas")
-	, g_WinGet.Show("Center NA H300 W1000 y0")
+	g_WinGet := Gui(, "WindowGetter")
+	g_WinGet.Backcolor := "171717"
+	g_WinGet.SetFont("S20 cC5C5C5", "Consolas")
+
+	WinGet_hwnd := g_WinGet.hwnd
 
 	;Show the window's info
-	g_WinGet_WinTitle     := g_WinGet.Add("Text", "Center", winTitle)
-	, g_WinGet_WinExePath := g_WinGet.Add("Text", "Center", winExePath)
-	, g_WinGet_WinExe     := g_WinGet.Add("Text", "Center", winExe)
-	, g_WinGet_WinID      := g_WinGet.Add("Text", "Center", "id: " winID)
-	, g_WinGet_WinPID     := g_WinGet.Add("Text", "Center", "pid: " winPID)
-
-	;This function copies the text you clicked to your clipboard and destroys the gui right after
-	ToClip(text) => (
-		A_Clipboard := text,
-		FlushHotkeys()
-	)
+	g_WinGet_WinTitle   := g_WinGet.Add("Text", "Center", winTitle)
+	g_WinGet_WinExePath := g_WinGet.Add("Text", "Center", winExePath)
+	g_WinGet_WinExe     := g_WinGet.Add("Text", "Center", winExe)
+	g_WinGet_WinID      := g_WinGet.Add("Text", "Center", "id: " winID)
+	g_WinGet_WinPID     := g_WinGet.Add("Text", "Center", "pid: " winPID)
 
 	;Destroys the gui as well as every previously created hotkeys
-	FlushHotkeys() => (
+	FlushHotkeys := (*) => (
+		HotIfWinActive("ahk_id " WinGet_hwnd),
 		Hotkey("F1", "Off"),
 		Hotkey("F2", "Off"),
 		Hotkey("F3", "Off"),
@@ -374,29 +375,37 @@ tool_WindowGetter() {
 		g_WinGet.Destroy()
 	)
 
+	;This function copies the text you clicked to your clipboard and destroys the gui right after
+	ToClip := (text, *) => (
+		A_Clipboard := text,
+		FlushHotkeys()
+	)
+
 	;Making the func objects to later call in two separate instances
-	ToClip_Title  := (*) => ToClip(winTitle) ;We pass the params of winSmth
-	, ToClip_Path := (*) => ToClip(winExePath) ;To copy it, disable the hotkeys and destroy the gui
-	, ToClip_Exe  := (*) => ToClip(winExe) 
-	, ToClip_ID   := (*) => ToClip(winID) 
-	, ToClip_PID  := (*) => ToClip(winPID) 
+	ToClip_Title := ToClip.Bind(winTitle) ;We pass the params of winSmth
+	ToClip_Path  := ToClip.Bind(winExePath) ;To copy it, disable the hotkeys and destroy the gui
+	ToClip_Exe   := ToClip.Bind(winExe) 
+	ToClip_ID    := ToClip.Bind(winID) 
+	ToClip_PID   := ToClip.Bind(winPID) 
 
-	HotIf()
+	HotIfWinActive("ahk_id " WinGet_hwnd)
+	Hotkey("F1", ToClip_Title, "On")
+	Hotkey("F2", ToClip_path,  "On")
+	Hotkey("F3", ToClip_Exe,   "On")
+	Hotkey("F4", ToClip_ID,    "On")
+	Hotkey("F5", ToClip_PID,   "On")
 
-	Hotkey("F1",   ToClip_Title, "On")
-	, Hotkey("F2", ToClip_path, "On")
-	, Hotkey("F3", ToClip_Exe, "On")
-	, Hotkey("F4", ToClip_ID, "On")
-	, Hotkey("F5", ToClip_PID, "On")
-	, Hotkey("Escape", (*) => FlushHotkeys(), "On")
+	Hotkey("Escape", FlushHotkeys, "On")
 
-	g_WinGet_WinTitle.OnEvent("Click",      ToClip_Title)
-	, g_WinGet_WinExePath.OnEvent("Click",  ToClip_Path)
-	, g_WinGet_WinExe.OnEvent("Click",      ToClip_Exe)
-	, g_WinGet_WinID.OnEvent("Click",       ToClip_ID)
-	, g_WinGet_WinPID.OnEvent("Click",      ToClip_PID)
-	, g_WinGet.OnEvent("Close", (*) => FlushHotkeys()) ;Destroys the gui when you close the X button on it
+	g_WinGet_WinTitle.OnEvent(  "Click", ToClip_Title)
+	g_WinGet_WinExePath.OnEvent("Click", ToClip_Path)
+	g_WinGet_WinExe.OnEvent(    "Click", ToClip_Exe)
+	g_WinGet_WinID.OnEvent(     "Click", ToClip_ID)
+	g_WinGet_WinPID.OnEvent(    "Click", ToClip_PID)
 
+	g_WinGet.OnEvent("Close", FlushHotkeys) ;Destroys the gui when you close the X button on it
+
+	g_WinGet.Show("Center H300 W1000 y0")
 }
 
 tool_Timer(minutes, shouldExit := False) {
@@ -413,6 +422,7 @@ tool_Timer(minutes, shouldExit := False) {
 	}
 	
 	SetTimer(_isItTime, 500)
+	Info("Timer set for " minutes " minutes!", True)
 }
 
 ;Select a file to run on startup
@@ -435,8 +445,10 @@ tool_SomeLockHint(whatLock) {
 	g_SomeLock.BackColor := "171717"
 	g_SomeLock.SetFont("s20 cC5C5C5", "Consolas")
 	g_SomeLock.Add("Text",, whatLock " " newState_Word)
-	g_SomeLock.Show("W225 NA x1595 y640")
+
 	SetTimer(() => g_SomeLock.Destroy(), -1000)
+	
+	g_SomeLock.Show("W225 NA x1595 y640")
 }
 
 ;Another alternative to outputdebug
@@ -449,14 +461,13 @@ Info(text, disappear := False) {
 	static infos := []
 	static index := 0
 	index++
-	g_Info_hwnd := g_Info.Hwnd
-	infos.Push(g_Info_hwnd)
+	Info_hwnd := g_Info.Hwnd
+	infos.Push(Info_hwnd)
 	
 	fullDivisions := index // 18
 	if fullDivisions
 		index := index - 18 * fullDivisions + 1
 	yCoord := index * 60 - 60
-	g_Info.Show("AutoSize NA x0 y" yCoord)
 
 	Destruction(*) {
 		if disappear
@@ -464,6 +475,7 @@ Info(text, disappear := False) {
 
 		if infos.Length <= 1 {
 			if !disappear {
+				HotIfWinExist('ahk_id ' Info_hwnd)
 				Hotkey("Escape", "Off")
 				Hotkey("+Escape", "Off")
 			}
@@ -483,8 +495,9 @@ Info(text, disappear := False) {
 	}
 	
 	g_Info.OnEvent("Close", (*) => g_Info.Destroy())
-	HotIf()
+
 	if !disappear {
+		HotIfWinExist('ahk_id ' Info_hwnd)
 		Hotkey("Escape", Destruction, "On")
 		Hotkey("+Escape", FullDestruction, "On")
 	}
@@ -492,7 +505,9 @@ Info(text, disappear := False) {
 	if disappear
 		SetTimer(Destruction, -1500)
 
-	return g_Info_hwnd
+	g_Info.Show("AutoSize NA x0 y" yCoord)
+	
+	return Info_hwnd
 }
 
 Snake(SquareSide, delay, timeout) {
@@ -578,15 +593,17 @@ Snake(SquareSide, delay, timeout) {
 	index := 0
 	colorIndex := 0
 
+	isSlithering := True
+
 	SetTimer(GoSsss, delay)
 	stopSlithering(*) => (
+		HotIf(),
 		SetTimer(GoSsss, 0),
 		isSlithering := False,
 		Hotkey("Escape", "Off")
 	)
+	HotIf()
 	Hotkey("Escape", stopSlithering, "On")
-
-	isSlithering := True
 
 	GoSsss() {
 
