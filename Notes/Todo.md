@@ -30,3 +30,4 @@ Automatic backups, but with A_Now, or some sort of date formatting (maybe even f
 * It gets calculated which button to press how many times
 * If not for kmplayer, assumes to send the right arrow to skip 5 seconds
 * Rounds down
+

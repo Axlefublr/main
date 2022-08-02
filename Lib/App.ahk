@@ -564,10 +564,6 @@ git_Link() {
 		flag := "D"
 		blobbie := "/tree/main/"
 	}
-	else {
-		flag := ""
-		Infos("it's neither a file or a folder")
-	}
 
 	selected_path := FileSelect(flag, programming_path, "Select a " selection_type " to get the github link of: ")
 
@@ -578,7 +574,7 @@ git_Link() {
 
 	RegexMatch(relative_path, "(\w+)\\(.*)", &match_split)
 	project_folder := match_split[1]
-	project_file := match_split[2]
+	project_file := StrReplace(match_split[2], " ", "%20")
 
 	account := "https://github.com/Axlefublr/"
 
