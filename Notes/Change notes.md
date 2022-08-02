@@ -1,5 +1,10 @@
-No continuing lines. While that does improve performance, it kinda looks ugly. Even with formatting, it's just kinda ass, and therefore not worth it. Especially considering that it's instant anyway
+Infos for info that stays, info disappears by default
 
-Now my guis are either hotifexisted or hotifactived, the previous issue I wanted to solve with global hotkeys is so when I closed a gui, it wouldn't activate a strange window. This issue doesn't seem to happen anymore, and if it does, it's worth it for what I now get
-
-The guis are neither always active, nor NA. Meaning, I can use as many at once as I want. I can get the keycodes of the entire alphabet if I so wanted, while getting the info for all active windows and multiple coordinates (although I'm not sure how I'd remember which one is which). Now there's no "rush" to actually using the info I'm getting, which is a big plus. Better yet, it's now more usable to other people, if we ignore the dependencies
+# Keycode getter
+* Now has an inputbox, where you type in the name / sc / vk code of the key you want
+* After you press enter, you get the results
+* The query in the inputbox gets deleted, no need to backspace
+* Hotkeys F1, F2, F3 to copy the results to the clipboard
+* You can also click on them instead
+* Running the function while the gui already exists, minmaxes the gui window
+* Destroy it by pressing escape

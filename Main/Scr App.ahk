@@ -92,8 +92,6 @@ XButton2 & MButton::discord_React()
 
 #HotIf WinActive("ahk_exe Code.exe") 
 
-+!k::tool_KeyCodeGetter()
-
 Media_Stop & MButton::vscode_Reload()
 
 AppsKey & Delete::vscode_Comment()

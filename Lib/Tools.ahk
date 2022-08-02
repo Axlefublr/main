@@ -3,52 +3,78 @@
 
 tool_KeyCodeGetter() {
 
-	selectedKey := str_GetSelection()
+	static values_hwnd := False
 
-	key_name := GetKeyName(selectedKey)
-	key_SC   := GetKeySC(selectedKey)
-	key_VK   := GetKeyVK(selectedKey)
-
-	key_SC := "sc" Format("{:x}", key_SC) ;getkey sc/vk returns a base 10 value, when both of those are actually base 16. This makes absolutely no fucking sense. So, we use format to format a base 10 integer into a base 16 int for both of them
-	key_VK := "vk" Format("{:x}", key_VK)
+	if values_hwnd {
+		win_MinMax(values_hwnd)
+		return
+	}
 
 	g_values := Gui(, "Key code getter")
 	g_values.BackColor := "171717"
 	g_values.SetFont("s30 cC5C5C5", "Consolas")
 
-	g_values_name := g_values.Add("Text", "Center", key_name)   
-	g_values_SC   := g_values.Add("Text", "Center", key_SC)   
-	g_values_VK   := g_values.Add("Text", "x+100 Center", key_VK)
-
 	values_hwnd := g_values.hwnd
 
-	Destruction := (*) => (
-		g_values.Destroy(),
-		HotIfWinActive("ahk_id " values_hwnd),
-		Hotkey("Escape", "Off"),
-		Hotkey("F1", "Off"),
-		Hotkey("F2", "Off"),
+	g_values_input := g_values.Add("Edit", "background171717")
+
+	g_values_name := g_values.Add("Text", "w400", "Key name")   
+	g_values_SC   := g_values.Add("Text",, "SC code")   
+	g_values_VK   := g_values.Add("Text", "x+100", "VK code")
+
+	Destruction(*) {
+		HotIfWinActive("ahk_id " values_hwnd)
+		Hotkey("Escape", "Off")
+		Hotkey("Enter", "Off")
+		values_hwnd := False
+		g_values.Destroy()
+
+		if !used
+			return
+			
+		Hotkey("F1", "Off")
+		Hotkey("F2", "Off")
 		Hotkey("F3", "Off")
-	)
-	
-	toClip(what, *) {
-		A_Clipboard := what
-		Destruction()
+		used := False
 	}
 	
-	HotIfWinActive("ahk_id " values_hwnd) ;If a hotkey to call this function is under a #HotIf, the hotkeys created in this functions will be affected by that. So, we have to specify that they should have no condition.
-	Hotkey("F1", toClip.Bind(key_name), "On")      
-	Hotkey("F2", toClip.Bind(key_SC),   "On")
-	Hotkey("F3", toClip.Bind(key_VK),   "On")      
+	toClip := (what, *) => A_Clipboard := what
+
+	static used := False
+	Submit(*) {
+		used := True
+
+		input := g_values_input.value
+		g_values_input.value := ""
+
+		key_name := GetKeyName(input)
+		key_SC   := GetKeySC(input)
+		key_VK   := GetKeyVK(input)
+
+		key_SC := "sc" Format("{:x}", key_SC) ;getkey sc/vk returns a base 10 value, when both of those are actually base 16. This makes absolutely no fucking sense. So, we use format to format a base 10 integer into a base 16 int for both of them
+		key_VK := "vk" Format("{:x}", key_VK)
+
+		g_values_name.Text := key_name
+		g_values_SC.Text := key_SC
+		g_values_VK.Text := key_VK
+		
+		HotIfWinActive("ahk_id " values_hwnd) ;If a hotkey to call this function is under a #HotIf, the hotkeys created in this functions will be affected by that. So, we have to specify that they should have no condition.
+		Hotkey("F1", toClip.Bind(g_values_name.text), "On")      
+		Hotkey("F2", toClip.Bind(g_values_SC.text),   "On")
+		Hotkey("F3", toClip.Bind(g_values_VK.text),   "On")      
+		
+		g_values_name.OnEvent("Click", toClip.Bind(g_values_name.text))
+		g_values_SC.OnEvent("Click",   toClip.Bind(g_values_SC.text))
+		g_values_VK.OnEvent("Click",   toClip.Bind(g_values_VK.text))
+	}
 	
+	HotIfWinActive("ahk_id " values_hwnd)
+	Hotkey("Enter", Submit, "On")
 	Hotkey("Escape", Destruction, "On")
 	g_values.OnEvent("Close", Destruction)
 
-	g_values_name.OnEvent("Click", toClip.Bind(key_name))
-	g_values_SC.OnEvent("Click",   toClip.Bind(key_SC))
-	g_values_VK.OnEvent("Click",   toClip.Bind(key_VK))
+	g_values.Show("AutoSize y0 x" A_ScreenWidth / 20 * 12.95)
 
-	g_values.Show("w500 h200 y0 x" A_ScreenWidth / 20 * 13.4)
 }
 
 tool_RelativeCoordGetter() {
@@ -96,7 +122,7 @@ tool_RelativeCoordGetter() {
 		static var := 0
 		var++
 		A_Clipboard := text
-		Info("copied " text, True)
+		Info("copied " text)
 		if var >= 2
 			Destruction()
 	}
@@ -422,7 +448,7 @@ tool_Timer(minutes, shouldExit := False) {
 	}
 	
 	SetTimer(_isItTime, 500)
-	Info("Timer set for " minutes " minutes!", True)
+	Info("Timer set for " minutes " minutes!")
 }
 
 ;Select a file to run on startup
@@ -452,7 +478,7 @@ tool_SomeLockHint(whatLock) {
 }
 
 ;Another alternative to outputdebug
-Info(text, disappear := False) {
+Info(text, disappear := True) {
 	g_Info := Gui("AlwaysOnTop -caption")
 	g_Info.BackColor := "171717"
 	g_Info.SetFont("s20 cC5C5C5", "Consolas")
@@ -510,12 +536,14 @@ Info(text, disappear := False) {
 	return Info_hwnd
 }
 
+Infos(text) => Info(text, False)
+
 Snake(SquareSide, delay, timeout) {
 
 	static isSlithering := False
 
 	if isSlithering {
-		Info("Press escape to disable snake first", True)
+		Info("Press escape to disable snake first")
 		return
 	}
 

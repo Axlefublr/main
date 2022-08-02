@@ -64,7 +64,7 @@ str_ConvertToJson(IndentDepth := 10, TabLength := 3) {
 
 	text := RegexReplace(text, "m)^", "`"")
 	A_Clipboard := text
-	Info("Converted to json", True)
+	Info("Converted to json")
 }
 
 str_RemoveExtraJsonIndentation(toParse) {

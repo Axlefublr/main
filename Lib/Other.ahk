@@ -46,7 +46,7 @@ AnimeDownload(which) {
 		HotIf(),
 		Hotkey("Escape", "Off"),
 		NextEpisode := 0,
-		Info("Anime downloader disabled", True)
+		Info("Anime downloader disabled")
 	)
 		
 
@@ -77,7 +77,7 @@ MainApps() {
 	index += win_Run(spotify.winTitle, spotify.exe)
 	index += win_Run(ahkdocs.winTitle, ahkdocs.exe)
 	if !index
-		Info("All apps are already active", True)
+		Info("All apps are already active")
 }
 
 Symbol(unicodeName, endChar?) {
@@ -106,16 +106,4 @@ CloseButForSure() {
 
 RadNum() {
 	return Random(1000000, 9999999)
-}
-
-Calculator(expr) {
-	WriteFile(Paths.Ptf["temp"], ArrToStr([
-		"#Requires AutoHotkey v2.0-a",
-		"#SingleInstance Force",
-		"#Include <Tools>",
-		"hwnd := Info(" expr ")",
-		"WinWaitClose(hwnd)",
-		"ExitApp()"
-	], "`n"))
-	Run(Paths.Ptf["temp"])
 }

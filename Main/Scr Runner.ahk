@@ -42,7 +42,7 @@ Class c_RunBin {
 		"apps",                  () => MainApps(),
 		"ahk++ update",          () => vscode_AhkPlusPlusUpdate(),
 		"js tut",                () => vscode_JsTutorial(),
-		"str len",               () => Info(StrLen(str_GetSelection()), False),
+		"str len",               () => Infos(StrLen(str_GetSelection())),
 		"radnum",                () => ClipSend(RadNum(), ""),
 		"fs",                    () => tool_FileSearch(),
 
@@ -105,7 +105,7 @@ Class c_RunBin {
 				Case "r":spotify_NewRapper(result[2])
 				Case "t":WriteFile(Paths.Ptf["Timer.txt"], result[2]), Run(Paths.Ptf["Timer.ahk"])
 				Case "a":spotify_FavRapper_Manual(result[2])
-				Case "e":Info(Eval(result[2]))
+				Case "e":Infos(Eval(result[2]))
 			}
 		}
 	}

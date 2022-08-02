@@ -388,7 +388,7 @@ vscode_CleanText() {
 
 	WriteFile(Paths.Ptf["Clean"], clean)
 	WriteFile(Paths.Ptf["Description"], description)
-	Info("Text cleaned", True)
+	Info("Text cleaned")
 }
 
 vscode_AhkPlusPlusUpdate() {
