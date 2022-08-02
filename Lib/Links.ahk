@@ -6,9 +6,15 @@ Class c_Links {
 
 		;Main
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		"reddit", "https://www.reddit.com/notifications",
-		"twitch", "https://www.twitch.tv/directory/following",
-		"ytm",    "https://music.youtube.com/playlist?list=PLV0jCBtadKgg3drvv8jDaTFTIY8EYT7ma",
+		"reddit",    "https://www.reddit.com/notifications",
+		"twitch",    "https://www.twitch.tv/directory/following",
+		"ytm",       "https://music.youtube.com/playlist?list=PLV0jCBtadKgg3drvv8jDaTFTIY8EYT7ma",
+		"my github", "https://github.com/Axlefublr",
+
+		;Watch
+		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		"movies",           "https://watchmovieshd.ru/",
+		"gogoanime",        "https://gogoanime.fi/",
 
 		;Extra
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,14 +63,10 @@ Class c_Links {
 		"fl studio 20",    "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
 		"discord highlighting", "https://gist.github.com/kkrypt0nn/a02506f3712ff2d1c8ca7c9e0aed7c06",
 
-		;Watch
+		;Series
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		"movies",           "https://watchmovieshd.ru/",
-		"better call saul", "https://watchmovieshd.ru/series/better-call-saul-82zxv/6-7",
-		"gogoanime",        "https://gogoanime.fi/",
+		"better call saul", "https://watchmovieshd.ru/series/better-call-saul-82zxv/6-9",
 
-		;Download watch
-		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"one piece",        "https://gogoanime.sk/one-piece-episode-",
 		"overlord",         "https://gogoanime.lu/overlord-iv-episode-",
 
@@ -77,12 +79,6 @@ Class c_Links {
 		"zakazaka",  "https://zaka-zaka.com/",
 		"barber",    "https://b73723.yclients.com/company/89170/",
 		
-		;Github
-		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		"runner",    "https://github.com/Axlefublr/Personal/blob/main/Main/Runner.ahk",
-		"libraries", "https://github.com/Axlefublr/Personal/tree/main/_Libraries",
-		"my github", "https://github.com/Axlefublr",
-
 		;My tutorials
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"my channel",          "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",

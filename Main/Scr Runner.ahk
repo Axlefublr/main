@@ -49,8 +49,8 @@ Class c_RunBin {
 
 		;GITHUB
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		"gitlink", () => git_Link("paste"),
-		"gitopen", () => git_Link("run"),
+		"gitlink", () => ClipSend(git_Link(),, False),
+		"gitopen", () => RunLink(git_Link()),
 
 		;Github nicknames
 		"github micha", () => ClipSend("@Micha-ohne-el"),

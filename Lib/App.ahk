@@ -509,50 +509,86 @@ git_CommitBothDirectories(andPush := True) {
 
 	RunSpec(program,, True)
 	WriteFile(Paths.Ptf["Change notes"], "")
+	Out(changeNotes)
 }
 
-git_Link(doWhat) {
-	path_programming := "C:\Programming\"
-	path_full := FileSelect("S", path_programming)
+git_Link() {
+	static programming_path := Paths.Prog
 
-	if !path_full 
-		return
+	shouldContinue := False
 
-	link_faulty := _PathToLink(path_full)
+	g_selectType := Gui()
+	g_selectType.BackColor := "171717"
+	g_selectType.SetFont("s20 cC5C5C5", "Consolas")
 
-	;Formats a full file path into a relative one
-	_PathToLink(path_full) => (
-		;Removes the start of the path, since it's irrelevant in the link that just uses the project folder
-		path_relative := StrReplace(path_full, path_programming, ""),
-		;Links use forward slashes while paths use backslashes
-		path_relative := StrReplace(path_relative, "\", "/"),
-		;Spaces are replaced with %20 in links
-		path_relative := StrReplace(path_relative, " ", "%20")
+	selectType_hwnd := g_selectType.hwnd
+
+	g_selectType_prompt := g_selectType.Add("Text",, "What do you want to get the link of?")
+
+	g_selectType.SetFont("s15")
+
+	Destruction := (*) => (
+		HotIfWinActive("ahk_id " selectType_hwnd),
+		Hotkey("Escape", "Off"),
+		g_selectType.Destroy()
+	)
+		
+	static selection_type := "File"
+	SelectType := (type_to_select, *) => (
+		selection_type := type_to_select,
+		shouldContinue := True,
+		Destruction()
 	)
 
-	ProjectFolders := ["Extra/", "Main/"]
+	g_selectType_file := g_selectType.Add("Button", "Default background171717", "File")
+	.OnEvent("Click", SelectType.Bind("file"))
+	g_selectType_folder := g_selectType.Add("Button", "x+m background171717", "Folder")
+	.OnEvent("Click", SelectType.Bind("folder"))
+	
+	HotIfWinActive("ahk_id " selectType_hwnd)
+	Hotkey("Escape", Destruction)
 
-	for index in ProjectFolders {
-		noIndex := StrReplace(link_faulty, index, "")
-		if noIndex != link_faulty {
-			link_working := index "blob/main/" noIndex
-			break
-		}
+	g_selectType.OnEvent("Close", Destruction)
+	g_selectType.Show("AutoSize")
+	
+	WinWaitClose(selectType_hwnd)
+
+	if !shouldContinue
+		return
+
+	if selection_type = "File" {
+		flag := "S"
+		blobbie := "/blob/main/"
+	}
+	else if selection_type = "Folder" {
+		flag := "D"
+		blobbie := "/tree/main/"
+	}
+	else {
+		flag := ""
+		Infos("it's neither a file or a folder")
 	}
 
-	link_full := "https://github.com/Axlefublr/" . link_working
+	selected_path := FileSelect(flag, programming_path, "Select a " selection_type " to get the github link of: ")
 
-	Switch doWhat {
-		Case "run":RunLink(link_full)
-		Case "paste":ClipSend(link_full,, False)
-	}
+	if !selected_path
+		return
+
+	relative_path := StrReplace(selected_path, programming_path "\") ;C:\Programming\Main\Lib\Win.ahk => Main\Lib\Win.ahk
+
+	RegexMatch(relative_path, "(\w+)\\(.*)", &match_split)
+	project_folder := match_split[1]
+	project_file := match_split[2]
+
+	account := "https://github.com/Axlefublr/"
+
+	return account project_folder blobbie project_file
 }
 
-
-
-
-
-
+;PLAYER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 player_SkipOpening() {
 	Send "{F12 8}"

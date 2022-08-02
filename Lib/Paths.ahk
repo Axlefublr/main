@@ -2,6 +2,7 @@
 
 Class c_Paths {
 
+	Prog           := "C:\Programming"
 	PersDir        := "C:\Programming\Main"
 	OthrDir        := "C:\Programming\Extra"
 	JSDir          := "C:\Programming\JS"
