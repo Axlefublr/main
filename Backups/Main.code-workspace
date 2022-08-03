@@ -4,11 +4,11 @@
 			"path": ".."
 		},
 		{
-			"path": "..\\..\\Extra"
+			"path": "..\\..\\Ahk_v2_Syntax_Highlighting"
 		}
 	],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "JS",
-		"typewriterAutoScroll.enable": true
+		"typewriterAutoScroll.enable": false
 	}
 }

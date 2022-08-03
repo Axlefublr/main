@@ -4,8 +4,8 @@ Class c_Paths {
 
 	Prog           := "C:\Programming"
 	PersDir        := "C:\Programming\Main"
-	OthrDir        := "C:\Programming\Extra"
 	JSDir          := "C:\Programming\JS"
+	SynHigh        := "C:\Programming\Ahk_v2_Syntax_Highlighting"
 	Backups        := this.PersDir "\Backups"
 	Docs           := this.PersDir "\Docs"
 	Music          := this.PersDir "\Docs\Music"
@@ -29,13 +29,8 @@ Class c_Paths {
 	AhkPlusPlus := "C:\Users\" A_UserName "\.vscode\extensions\mark-wiemer.vscode-autohotkey-plus-plus-2.8.4"
 
 	Ptf := Map(
-		"Both",                             this.PersDir "\Backups\Both.code-workspace",
 		"Main",                             this.PersDir "\Backups\Main.code-workspace",
 
-		"tmLanguage",                       this.PersDir "\Backups\Ahk++\ahk.tmLanguage.json",
-		"configuration",                    this.PersDir "\Backups\Ahk++\ahk.configuration.json", 
-		"ahk snippets",                     this.PersDir "\Backups\Ahk++\ahk snippets.json",
-                  
 		"Discovery log",                    this.PersDir "\Docs\Music\Discovery log.txt",
 		"Unfinished",                       this.PersDir "\Docs\Music\Unfinished.txt",
 		"Rappers",                          this.PersDir "\Docs\Music\Rappers.txt",
@@ -44,7 +39,6 @@ Class c_Paths {
 		"react",                            this.PersDir "\Files\Images\react.png",
 		"Kristi",                           this.PersDir "\Files\Images\Kristi.png",
 		"switch account ytt",               this.PersDir "\Files\Images\switch account ytt.png",
-		"switch account ytm",               this.PersDir "\Files\Images\switch account ytm.png",
 		"youtube logo",                     this.PersDir "\Files\Images\youtube logo.png",
 		"diary",                            this.PersDir "\Files\Images\diary.png",
 
@@ -67,15 +61,14 @@ Class c_Paths {
 		"1",                                this.PersDir "\Test\1.ahk",
 		"2",                                this.PersDir "\Test\2.ahk",
 
-		"Commit both directories",          this.PersDir "\Tools\Commit both directories",
-		"Commit and push both directories", this.PersDir "\Tools\Commit and push both directories.bat",
 		"Timer.ahk",                        this.PersDir "\Tools\Timer.ahk",
 		"Symlink creator",                  this.PersDir "\Tools\Symlink creator.ahk",
-		"temp",                             this.PersDir "\Tools\temp.ahk",
 
 
-		"Other\synHigh settingsJson preset", this.OthrDir "\Public libraries\Ahk code coloring\synHigh settingsJson preset.txt",
-		"Other\tmLanguage",                  this.OthrDir "\Public libraries\Ahk code coloring\tmLanguage.json",
+		"SynHigh\settings.json preset", this.SynHigh "\settings.json preset.txt",
+		"SynHigh\tmLanguage",           this.SynHigh "\tmLanguage.json",
+		"SynHigh\ahk snippets",         this.SynHigh "\ahk snippets.json",
+		"SynHigh\configuration",        this.SynHigh "\ahk.configuration.json",
 
 
 		"index.js",   this.JSDir "\jsm.js",

@@ -392,13 +392,13 @@ vscode_CleanText() {
 }
 
 vscode_AhkPlusPlusUpdate() {
-	tmLanguage := ReadFile(Paths.Ptf["tmLanguage"])
+	tmLanguage := ReadFile(Paths.Ptf["SynHigh\tmLanguage"])
 	WriteFile(Paths.Ptf["Ahk++\tmLanguage"], tmLanguage)
 
-	configuration := ReadFile(Paths.Ptf["configuration"])
+	configuration := ReadFile(Paths.Ptf["SynHigh\configuration"])
 	WriteFile(Paths.Ptf["Ahk++\configuration"], configuration)
 
-	ahkSnippets := ReadFile(Paths.Ptf["ahk snippets"])
+	ahkSnippets := ReadFile(Paths.Ptf["SynHigh\ahk snippets"])
 	WriteFile(Paths.Ptf["Ahk++\ahk snippets"], ahkSnippets)
 
 	package := ReadFile(Paths.Ptf["Ahk++\package"])
@@ -465,19 +465,15 @@ git_MovingCompany() {
 
 	FileCopy(
 		Paths.Ptf["Ahk++\tmLanguage"],
-		Paths.Ptf["Other\tmLanguage"], 1
-	)
-	FileCopy(
-		Paths.Ptf["Ahk++\tmLanguage"],
-		Paths.Ptf["tmLanguage"], 1
+		Paths.Ptf["SynHigh\tmLanguage"], 1
 	)
 	FileCopy(
 		Paths.Ptf["Ahk++\configuration"],
-		Paths.Ptf["configuration"], 1
+		Paths.Ptf["SynHigh\configuration"], 1
 	)
 	FileCopy(
 		Paths.Ptf["Ahk++\ahk snippets"],
-		Paths.Ptf["ahk snippets"], 1
+		Paths.Ptf["SynHigh\ahk snippets"], 1
 	)
 }
 
@@ -493,13 +489,9 @@ git_CommitBothDirectories(andPush := True) {
 		'cd "' Paths.PersDir '"',
 		'git add .',
 		'git commit -m "' changeNotes '"',
-		'cd "' Paths.OthrDir '"',
-		'git add .', 
-		'git commit -m "' changeNotes '"',
 	]
 
 	if andPush {
-		program.InsertAt(4, "git push")
 		program.Push("git push")
 	}
 
