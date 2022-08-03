@@ -120,20 +120,6 @@ RunWith(with, runFile) {
    Run(with ' "' runFile '"')
 }
 
-;Right click context menu a file
-RunLike(systemVerb, filePath, runOpt?) {
-	/*
-		For ahk scripts:
-		Edit
-		Compile
-		Compile-Gui
-		RunAs - runs the script as administrator
-		uiAccess - runs the script with UI access (the script will work in some places it couldn't before, like photoshop)
-	*/
-
-	Run("*" systemVerb ' "' filePath '"',, runOpt ?? "")
-}
-
 RunSpec(commands, AsAdmin := False, seeCmd := False) {
 
 	commands_converted := IsObject(commands) ? ""        : commands

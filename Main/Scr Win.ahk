@@ -10,7 +10,7 @@
 
 
 ;Command prompt
-#sc34::press_Hold_Sugar(win_App.Bind("ahk_exe cmd.exe", "cmd.exe"), RunLike.Bind("RunAs", "cmd.exe", "Max"))
+#sc34::press_Hold_Sugar(win_App.Bind("ahk_exe cmd.exe", "cmd.exe"), Run.Bind('*RunAs cmd.exe', "Max"))
 
 
 ;Monkeytype

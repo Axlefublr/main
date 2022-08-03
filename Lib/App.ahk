@@ -485,7 +485,7 @@ git_CommitBothDirectories(andPush := True) {
 	changeNotes := RegexReplace(changeNotes, "\r?\n") ;we gotta remove all the newlines so we don't accidentally send a bunch of enters to the console
 	changeNotes := RegexReplace(changeNotes, '"', "'")
 
-	five_random_words := ""
+	five_random_words := " "
 	Loop 5 
 		five_random_words .= Words.GetRandomWord("english") " "
 
