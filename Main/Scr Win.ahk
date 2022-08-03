@@ -35,7 +35,7 @@
 <!c::win_App("Google Chrome ahk_exe chrome.exe", Paths.Apps["Google Chrome"])
 
 ;Discord
-<!q::win_App("ahk_exe Discord.exe", Paths.Apps["Discord"])
+<!q::win_App("Discord ahk_exe Discord.exe", Paths.Apps["Discord"])
 
 ;Telegram
 <!t::win_App("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])

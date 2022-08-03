@@ -1,3 +1,3 @@
-Forgot a space between A_Now and 5 random words
+Debugger settings moved to the workspace file
 
-Runlike is an abstraction that's kinda not worth it
+The hotkey to launch discord should now actually wait for the discord window, rather than the discord launcher

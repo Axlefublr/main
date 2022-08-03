@@ -5,10 +5,28 @@
 		},
 		{
 			"path": "..\\..\\Extra-a46148fd9cd600b8c57fb8689f3fd5e6d80b17d7"
+		},
+		{
+			"path": "..\\..\\Ahk_v2_Syntax_Highlighting"
 		}
 	],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "JS",
 		"typewriterAutoScroll.enable": false
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Ahk 2",
+				"type": "autohotkey",
+				"program": "${file}",
+				"request": "launch",
+				"runtimeArgs_v2": [".ahk"],
+				"port": "9003",
+				"runtime": "v2\\AutoHotkey64_UIA.exe",
+				"runtimeArgs": ["/ErrorStdOut=UTF-8"]
+			},
+		]
 	}
 }
