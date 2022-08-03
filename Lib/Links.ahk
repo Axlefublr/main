@@ -9,7 +9,6 @@ Class c_Links {
 		"reddit",    "https://www.reddit.com/notifications",
 		"twitch",    "https://www.twitch.tv/directory/following",
 		"ytm",       "https://music.youtube.com/playlist?list=PLV0jCBtadKgg3drvv8jDaTFTIY8EYT7ma",
-		"my github", "https://github.com/Axlefublr",
 
 		;Watch
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,6 +77,11 @@ Class c_Links {
 		"mvideo",    "https://www.mvideo.ru/",
 		"zakazaka",  "https://zaka-zaka.com/",
 		"barber",    "https://b73723.yclients.com/company/89170/",
+		
+		;Github
+		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		"my github", "https://github.com/Axlefublr",
+		"synhigh",   "https://github.com/Axlefublr/Ahk_v2_Syntax_Highlighting",
 		
 		;My tutorials
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -485,13 +485,23 @@ git_CommitBothDirectories(andPush := True) {
 	changeNotes := RegexReplace(changeNotes, "\r?\n") ;we gotta remove all the newlines so we don't accidentally send a bunch of enters to the console
 	changeNotes := RegexReplace(changeNotes, '"', "'")
 
+	five_random_words := ""
+	Loop 5 
+		five_random_words .= Words.GetRandomWord("english") " "
+
+	random_commit_message := A_Now five_random_words
+
 	program := [
 		'cd "' Paths.PersDir '"',
 		'git add .',
 		'git commit -m "' changeNotes '"',
+		'cd "' Paths.SynHigh '"',
+		'git add .',
+		'git commit -m "' random_commit_message '"'
 	]
 
 	if andPush {
+		program.InsertAt(4, "git push")
 		program.Push("git push")
 	}
 
