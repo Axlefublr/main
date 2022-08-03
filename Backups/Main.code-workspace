@@ -2,12 +2,6 @@
 	"folders": [
 		{
 			"path": ".."
-		},
-		{
-			"path": "..\\..\\Extra-a46148fd9cd600b8c57fb8689f3fd5e6d80b17d7"
-		},
-		{
-			"path": "..\\..\\Ahk_v2_Syntax_Highlighting"
 		}
 	],
 	"settings": {
@@ -26,7 +20,7 @@
 				"port": "9003",
 				"runtime": "v2\\AutoHotkey64_UIA.exe",
 				"runtimeArgs": ["/ErrorStdOut=UTF-8"]
-			},
+			}
 		]
 	}
 }

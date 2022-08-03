@@ -83,6 +83,10 @@ Class c_Links {
 		"my github",    "https://github.com/Axlefublr",
 		"repo synhigh", "https://github.com/Axlefublr/Ahk_v2_Syntax_Highlighting",
 		"repo startup", "https://github.com/Axlefublr/StartupRun",
+		"repo arrow",   "https://github.com/Axlefublr/Fat_Arrow_Functions",
+		"repo tools", "https://github.com/Axlefublr/Tools",
+		"repo function objects", "https://github.com/Axlefublr/Function_Objects",
+		"repo static",  "https://github.com/Axlefublr/Static_var_examples",
 		
 		;My tutorials
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

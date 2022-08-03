@@ -1,3 +1,7 @@
-Debugger settings moved to the workspace file
-
-The hotkey to launch discord should now actually wait for the discord window, rather than the discord launcher
+Repos and link in Links.ahk for:
+* Arrow functions
+* Getters
+* Function objects
+* Static variables
+* ClipSend
+* Clock
