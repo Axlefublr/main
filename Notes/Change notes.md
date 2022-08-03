@@ -1,3 +1,5 @@
-Removed safety from git_Link()
+Debugger preset moved to main
 
-Forgot to account for spaces in links
+Ahk snippets file removed from extra, paths, and moving company
+
+Links for youtube updated

@@ -342,19 +342,19 @@ So apparently you can define the scope yourself with brackets? I wonder how ofte
 
 `var` is function scope, if it's global, it gets appended to the window object
 
-`let` is {} scope and will *not* be accessible outside of them
+`let` is {} scope and will _not_ be accessible outside of them
 
-Will also *not* be appended to the window object
+Will also _not_ be appended to the window object
 
 # Checkbox
 
 To make a checkbox, you make an input tag and specify its type with "checkbox"
 
-To make a label specifically *for* the checkbox, you specify that with a `for` keyword, in which you put the id
+To make a label specifically _for_ the checkbox, you specify that with a `for` keyword, in which you put the id
 
 # Switch
 
-You actually *can* just evaluate conditions, but since you still have to give an expression to compare to in a switch, you can just pass `True`
+You actually _can_ just evaluate conditions, but since you still have to give an expression to compare to in a switch, you can just pass `True`
 
 # While loops
 
@@ -362,14 +362,13 @@ Undefined values are false
 
 In a window prompt, if you hit cancel, the value you were supposed to give is `null`, not `false`
 
-
 # Do While loops
 
 A normal while loop first checks the condition, then does the code
 
 If the condition is first false then true, the whole while loop will be skipped
 
-That's what do while loops are for 
+That's what do while loops are for
 
 First do this, if the condition is true, repeat
 
@@ -381,8 +380,8 @@ First do this, if the condition is true, repeat
 
 ```js
 let i;
-for (i = 1; i <= 10; i++){
-	console.log(i)
+for (i = 1; i <= 10; i++) {
+	console.log(i);
 }
 ```
 
@@ -401,13 +400,42 @@ Non {}'ed let variables are superglobal
 Whitespace LITERALLY doesn't matter, you can do this easily:
 
 ```js
-let text = 
-`Hello, ${userName}
+let text = `Hello, ${userName}
 You are ${age} years old
-I hope you have a good day!`
+I hope you have a good day!`;
 ```
 
 the above text won't actually be seen as multiline, if you want linebreaks for html, you need to use `<br>`
 
 On the other hand, the linebreaks are recognized themselves when you use this for console.log
 
+# toLocaleString
+
+```js
+number.toLocaleString(locale, { options });
+```
+
+```js
+1234.56789 => "en-US" => 1,234.568 //a comma for every 000
+123456.789 => "hi-IN" => 1,23,456.789 //hindi
+123456.789 => "de-DE" => 123.456,789 //german
+```
+
+```js
+nummie = nummie.toLocaleString("en_US", {style: "currency", currency: "USD"})
+```
+
+You can style currency to whatever it is
+
+```js
+nummie.toLocaleString(undefined, {style: "percent"})
+100 => {style: "percent"} => 10000%
+1 => {style: "percent"} => 100%
+.5 => {style: "percent"} => 50%
+```
+
+```js
+{style: "unit", unit: "celcius"}
+```
+
+There are a few units you can choose from, such as temperature, weight, distance, etc

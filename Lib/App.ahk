@@ -479,10 +479,6 @@ git_MovingCompany() {
 		Paths.Ptf["Ahk++\ahk snippets"],
 		Paths.Ptf["ahk snippets"], 1
 	)
-	FileCopy(
-		Paths.Ptf["Ahk++\ahk snippets"],
-		Paths.Ptf["Other\ahk snippets"], 1
-	)
 }
 
 git_CommitBothDirectories(andPush := True) {
@@ -509,7 +505,7 @@ git_CommitBothDirectories(andPush := True) {
 
 	RunSpec(program,, True)
 	WriteFile(Paths.Ptf["Change notes"], "")
-	Out(changeNotes)
+	; Out(changeNotes)
 }
 
 git_Link() {
@@ -578,7 +574,9 @@ git_Link() {
 
 	account := "https://github.com/Axlefublr/"
 
-	return account project_folder blobbie project_file
+	link := StrReplace(account project_folder blobbie project_file, "\", "/")
+
+	return link
 }
 
 ;PLAYER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

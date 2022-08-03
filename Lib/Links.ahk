@@ -65,7 +65,7 @@ Class c_Links {
 
 		;Series
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		"better call saul", "https://watchmovieshd.ru/series/better-call-saul-82zxv/6-9",
+		"better call saul", "https://watchmovieshd.ru/series/better-call-saul-82zxv/6-11",
 
 		"one piece",        "https://gogoanime.sk/one-piece-episode-",
 		"overlord",         "https://gogoanime.lu/overlord-iv-episode-",

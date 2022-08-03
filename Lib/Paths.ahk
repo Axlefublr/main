@@ -76,7 +76,6 @@ Class c_Paths {
 
 		"Other\synHigh settingsJson preset", this.OthrDir "\Public libraries\Ahk code coloring\synHigh settingsJson preset.txt",
 		"Other\tmLanguage",                  this.OthrDir "\Public libraries\Ahk code coloring\tmLanguage.json",
-		"Other\ahk snippets",                this.OthrDir "\Files\ahk.jsonc",
 
 
 		"index.js",   this.JSDir "\jsm.js",

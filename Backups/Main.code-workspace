@@ -9,6 +9,6 @@
 	],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "JS",
-		"typewriterAutoScroll.enable": false
+		"typewriterAutoScroll.enable": true
 	}
 }

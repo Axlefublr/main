@@ -3,4 +3,4 @@
 
 [Ahk snippets](https://github.com/Axlefublr/Extra/blob/main/Files/ahk.jsonc)
 
-[Debugger](https://github.com/Axlefublr/Extra/blob/main/Files/launch.json)
+[Debugger](https://github.com/Axlefublr/Main/blob/main/Backups/launch.json)
