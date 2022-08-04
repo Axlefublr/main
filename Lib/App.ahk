@@ -505,6 +505,7 @@ git_CommitRepo(changeNote_file, repo_path, andPush := True) {
 		program.Push("git push")
 
 	RunSpec(program,, True)
+	WriteFile(changeNote_file)
 }
 
 git_Link() {
