@@ -498,7 +498,8 @@ git_CommitRepo(changeNote_file, repo_path, andPush := True) {
 	program := [
 		'cd "' repo_path '"',
 		'git add .',
-		'git commit -m "' commitMessage '"'
+		'git commit -m "' commitMessage '"',
+		'pause'
 	]
 
 	if andPush 
