@@ -56,6 +56,9 @@ Class c_RunBin {
 		"github micha", () => ClipSend("@Micha-ohne-el"),
 		"github reiwa", () => ClipSend("@rbstrachan"),
 
+		;Commit repos
+		"com main",    () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main),
+		"com synhigh", () => git_CommitRepo(Paths.Ptf["SynHigh\Change notes"], Paths.SynHigh),
 	)
 
 }

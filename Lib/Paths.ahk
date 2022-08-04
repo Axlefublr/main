@@ -3,19 +3,19 @@
 Class c_Paths {
 
 	Prog           := "C:\Programming"
-	PersDir        := "C:\Programming\Main"
+	Main           := "C:\Programming\Main"
 	JSDir          := "C:\Programming\JS"
 	SynHigh        := "C:\Programming\Ahk_v2_Syntax_Highlighting"
-	Backups        := this.PersDir "\Backups"
-	Docs           := this.PersDir "\Docs"
-	Music          := this.PersDir "\Docs\Music"
-	Files          := this.PersDir "\Files"
-	Images         := this.PersDir "\Files\Images"
-	Sounds         := this.PersDir "\Files\Sounds"
-	Notes          := this.PersDir "\Notes"
-	NotesTemp      := this.PersDir "\Notes temp"
-	Test           := this.PersDir "\Test"
-	Tools          := this.PersDir "\Tools"
+	Backups        := this.Main "\Backups"
+	Docs           := this.Main "\Docs"
+	Music          := this.Main "\Docs\Music"
+	Files          := this.Main "\Files"
+	Images         := this.Main "\Files\Images"
+	Sounds         := this.Main "\Files\Sounds"
+	Notes          := this.Main "\Notes"
+	NotesTemp      := this.Main "\Notes temp"
+	Test           := this.Main "\Test"
+	Tools          := this.Main "\Tools"
 
 	Pictures  := "C:\Files\Pictures"
 	Editing   := this.Pictures "\Editing"
@@ -29,40 +29,40 @@ Class c_Paths {
 	AhkPlusPlus := "C:\Users\" A_UserName "\.vscode\extensions\mark-wiemer.vscode-autohotkey-plus-plus-2.8.4"
 
 	Ptf := Map(
-		"Main",               this.PersDir "\Backups\Main.code-workspace",
+		"Main",               this.Main "\Backups\Main.code-workspace",
 
-		"Discovery log",      this.PersDir "\Docs\Music\Discovery log.txt",
-		"Unfinished",         this.PersDir "\Docs\Music\Unfinished.txt",
-		"Rappers",            this.PersDir "\Docs\Music\Rappers.txt",
-		"Artists",            this.PersDir "\Docs\Music\Artists.md",
+		"Discovery log",      this.Main "\Docs\Music\Discovery log.txt",
+		"Unfinished",         this.Main "\Docs\Music\Unfinished.txt",
+		"Rappers",            this.Main "\Docs\Music\Rappers.txt",
+		"Artists",            this.Main "\Docs\Music\Artists.md",
                   
-		"react",              this.PersDir "\Files\Images\react.png",
-		"Kristi",             this.PersDir "\Files\Images\Kristi.png",
-		"switch account ytt", this.PersDir "\Files\Images\switch account ytt.png",
-		"youtube logo",       this.PersDir "\Files\Images\youtube logo.png",
-		"diary",              this.PersDir "\Files\Images\diary.png",
+		"react",              this.Main "\Files\Images\react.png",
+		"Kristi",             this.Main "\Files\Images\Kristi.png",
+		"switch account ytt", this.Main "\Files\Images\switch account ytt.png",
+		"youtube logo",       this.Main "\Files\Images\youtube logo.png",
+		"diary",              this.Main "\Files\Images\diary.png",
 
-		"Timer.txt",          this.PersDir "\Files\Innit\Timer.txt",
+		"Timer.txt",          this.Main "\Files\Innit\Timer.txt",
 
-		"MethFunc",           this.PersDir "\Lib\MethFunc.ahk",
+		"MethFunc",           this.Main "\Lib\MethFunc.ahk",
                   
-		"Keys",               this.PersDir "\Main\Scr Keys.ahk",
+		"Keys",               this.Main "\Main\Scr Keys.ahk",
 						
-		"Change notes",       this.PersDir "\Notes\Change notes.md",
+		"Change notes",       this.Main "\Notes\Change notes.md",
                   
-		"Raw",                this.PersDir "\Notes temp\Raw.md",
-		"Clean",              this.PersDir "\Notes temp\Clean.md",
-		"Description",        this.PersDir "\Notes temp\Description.txt",
-		"Diary",              this.PersDir "\Notes temp\Diary.md",
-		"Output",             this.PersDir "\Notes temp\Output.txt",
+		"Raw",                this.Main "\Notes temp\Raw.md",
+		"Clean",              this.Main "\Notes temp\Clean.md",
+		"Description",        this.Main "\Notes temp\Description.txt",
+		"Diary",              this.Main "\Notes temp\Diary.md",
+		"Output",             this.Main "\Notes temp\Output.txt",
 
-		"AhkTest",            this.PersDir "\Test\AhkTest.ahk",
-		"BatTest",            this.PersDir "\Test\BatTest.bat",
-		"1",                  this.PersDir "\Test\1.ahk",
-		"2",                  this.PersDir "\Test\2.ahk",
+		"AhkTest",            this.Main "\Test\AhkTest.ahk",
+		"BatTest",            this.Main "\Test\BatTest.bat",
+		"1",                  this.Main "\Test\1.ahk",
+		"2",                  this.Main "\Test\2.ahk",
 
-		"Timer.ahk",          this.PersDir "\Tools\Timer.ahk",
-		"Symlink creator",    this.PersDir "\Tools\Symlink creator.ahk",
+		"Timer.ahk",          this.Main "\Tools\Timer.ahk",
+		"Symlink creator",    this.Main "\Tools\Symlink creator.ahk",
 
 
 		"SynHigh\settings.json preset", this.SynHigh "\settings.json preset.txt",

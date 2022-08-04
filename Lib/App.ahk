@@ -490,34 +490,21 @@ git_MovingCompany() {
 	)
 }
 
-git_CommitBothDirectories(andPush := True) {
-	git_MovingCompany() ;Loads the files from (mainly) the personal directory onto the Other directory
+git_CommitRepo(changeNote_file, repo_path, andPush := True) {
+	git_MovingCompany()
 
-	commitMessage_main := vscode_toCommitMessage(ReadFile(Paths.Ptf["Change notes"]))
-
-	commitMessage_synHigh := vscode_toCommitMessage(ReadFile(Paths.Ptf["SynHigh\Change notes"]))
-
-	if !commitMessage_synHigh
-		commitMessage_synHigh := GetRandomCommitMessage()
+	commitMessage := vscode_toCommitMessage(ReadFile(changeNote_file))
 
 	program := [
-		'cd "' Paths.PersDir '"',
+		'cd "' repo_path '"',
 		'git add .',
-		'git commit -m "' commitMessage_main '"',
-		'cd "' Paths.SynHigh '"',
-		'git add .',
-		'git commit -m "' commitMessage_synHigh '"'
+		'git commit -m "' commitMessage '"'
 	]
 
-	if andPush {
-		program.InsertAt(4, "git push")
+	if andPush 
 		program.Push("git push")
-	}
 
 	RunSpec(program,, True)
-	WriteFile(Paths.Ptf["Change notes"])
-	Out(commitMessage_main)
-	Out(commitMessage_synHigh)
 }
 
 git_Link() {
