@@ -62,7 +62,7 @@ spotify_Discovery() {
 		isStarted := False
 	}
 
-	static g_added 
+	static g_added
 	g_added := Gui("AlwaysOnTop -caption")
 	g_added.backColor := "171717"
 	g_added.SetFont("s50 cC5C5C5", "Consolas")
@@ -76,7 +76,7 @@ spotify_Discovery() {
 	g_added_text.OnEvent("Click", (*) => var := g_added_text.Text := g_added_text.Text - 1)
 	g_added_text.OnEvent("DoubleClick", Destruction.Bind())
 
-	isStarted := True 
+	isStarted := True
 }
 
 spotify_GetCurrSong() {
@@ -313,7 +313,7 @@ vscode_CursorForward() {
 }
 
 vscode_GetCurrentFileFullPath(keepClip := True) {
-	if keepClip 
+	if keepClip
 		prevClip := ClipboardAll()
 	A_Clipboard := ""
 	Send("^+k")
@@ -357,7 +357,8 @@ vscode_toCommitMessage(changeNotes_rawFile) {
 	changeNotes := RegexReplace(changeNotes, "\r?\n", " ") ;we gotta remove all the newlines so we don't accidentally send a bunch of enters to the console
 
 	changeNotes := RegexReplace(changeNotes, '"', "'")
-	changeNotes := RegexReplace(changeNotes, '\*{1,2} ?') 
+	changeNotes := RegexReplace(changeNotes, '^\* ')
+	changeNotes := RegexReplace(changeNotes, '\*{1,2}')
 
 	return changeNotes
 }
@@ -366,9 +367,9 @@ vscode_CleanText() {
 	clean := ReadFile(Paths.Ptf["Raw"])
 	clean := StrReplace(clean, "`r`n", "`n") ;making it easy for regex to work its magic by removing returns
 	clean := RegexReplace(clean, "m)^\* .*\n(\n)?") ;removing bullets and their additional newlines
-	
+
 	RegexMatch(clean, "s)---\n(.*)", &description_regexed) ;Getting the description that's manually written
-	
+
 	clean := RegexReplace(clean, "s)---\n.*") ;deleting the description part of the script
 	clean := RegexReplace(clean, "\n{3,}") ;removing spammed newlines
 	clean := RegexReplace(clean, "m) *$") ;removing leading spaces
@@ -378,14 +379,14 @@ vscode_CleanText() {
 
 	if !description_regexed
 		description_manual := ''
-	else 
+	else
 		description_manual := description_regexed[1]
 
 	description := "
 	(
 
 
-		Learn about autohotkey v2 in the documentation: https://lexikos.github.io/v2/docs/AutoHotkey.htm 
+		Learn about autohotkey v2 in the documentation: https://lexikos.github.io/v2/docs/AutoHotkey.htm
 		IDE used in the video: https://code.visualstudio.com/
 
 		My github:
@@ -394,7 +395,7 @@ vscode_CleanText() {
 		Catch me on the ahk discord server as Axlefublr:
 		https://discord.com/invite/Aat7KHmG7v
 
-		The video script:	
+		The video script:
 
 	)" clean_compact
 
@@ -515,7 +516,6 @@ git_CommitBothDirectories(andPush := True) {
 
 	RunSpec(program,, True)
 	WriteFile(Paths.Ptf["Change notes"])
-	WriteFile(Paths.Ptf["SynHigh\Change notes"])
 	Out(commitMessage_main)
 	Out(commitMessage_synHigh)
 }
@@ -540,7 +540,7 @@ git_Link() {
 		Hotkey("Escape", "Off"),
 		g_selectType.Destroy()
 	)
-		
+
 	static selection_type := "File"
 	SelectType := (type_to_select, *) => (
 		selection_type := type_to_select,
@@ -552,13 +552,13 @@ git_Link() {
 	.OnEvent("Click", SelectType.Bind("file"))
 	g_selectType_folder := g_selectType.Add("Button", "x+m background171717", "Folder")
 	.OnEvent("Click", SelectType.Bind("folder"))
-	
+
 	HotIfWinActive("ahk_id " selectType_hwnd)
 	Hotkey("Escape", Destruction)
 
 	g_selectType.OnEvent("Close", Destruction)
 	g_selectType.Show("AutoSize")
-	
+
 	WinWaitClose(selectType_hwnd)
 
 	if !shouldContinue
@@ -607,7 +607,7 @@ player_SkipOpening() {
 
 video_EditLastScreenshot() {
 	d_Path_Name := Map()
-	
+
 	Loop Files Paths.Materials "\*.png" {
 		RegexMatch(A_LoopFileName, "^\d+", &IntPartOfFileName)
 		d_Path_Name.Set(A_LoopFileFullPath, IntPartOfFileName[0])
