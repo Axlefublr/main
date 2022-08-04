@@ -1,1 +1,1 @@
-For some reason I deleted the overwriting of the change note file. Readded
+Forgot to reload the script so now I just wanna see it work
