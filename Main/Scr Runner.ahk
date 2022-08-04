@@ -1,6 +1,35 @@
-Class c_RunBin {
++!l:: {
+	prevWin := WinGetID("A")
 
-	d_Commands := Map(
+	g_terminal := Gui("AlwaysOnTop -caption")
+	g_terminal.backColor := "171717"
+	g_terminal.SetFont("S16 q5 c0xC5C5C5", "Consolas")
+	g_terminal_edit := g_terminal.Add("Edit", "lowercase background171717 -E0x200 Center x10 W377 h45")
+	g_terminal.Show("W400 H50 y20")
+
+	val := ""
+
+	Destruction(*) => (
+		WinActivate(prevWin),
+		g_terminal.Destroy(), 
+		Hotkey("Escape", "Off"),
+		Hotkey("Enter", "Off")
+	)
+
+	ValueIs(*) => (
+		val := g_terminal_edit.Value,
+		Destruction()
+	)
+
+	Hotkey("Enter", ValueIs, "On")
+	Hotkey("Escape", Destruction, "On")
+
+	WinWaitClose(g_terminal.Hwnd)
+
+	if !val
+		return
+
+	static runner_commands := Map(
 
 		;APPS
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,46 +86,16 @@ Class c_RunBin {
 		"github reiwa", () => ClipSend("@rbstrachan"),
 
 		;Commit repos
-		"com main",    () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main),
-		"com synhigh", () => git_CommitRepo(Paths.Ptf["SynHigh\Change notes"], Paths.SynHigh),
+		"com main",    () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main, False),
+		"psh main",    () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main),
+
+		"com synhigh", () => git_CommitRepo(Paths.Ptf["SynHigh\Change notes"], Paths.SynHigh, False),
+		"psh synhigh", () => git_CommitRepo(Paths.Ptf["SynHigh\Change notes"], Paths.SynHigh),
+
 	)
 
-}
-
-+!l:: {
-	prevWin := WinGetID("A")
-
-	g_terminal := Gui("AlwaysOnTop -caption")
-	g_terminal.backColor := "171717"
-	g_terminal.SetFont("S16 q5 c0xC5C5C5", "Consolas")
-	g_terminal_edit := g_terminal.Add("Edit", "lowercase background171717 -E0x200 Center x10 W377 h45")
-	g_terminal.Show("W400 H50 y20")
-
-	val := ""
-
-	Destruction(*) => (
-		WinActivate(prevWin),
-		g_terminal.Destroy(), 
-		Hotkey("Escape", "Off"),
-		Hotkey("Enter", "Off")
-	)
-
-	ValueIs(*) => (
-		val := g_terminal_edit.Value,
-		Destruction()
-	)
-
-	Hotkey("Enter", ValueIs, "On")
-	Hotkey("Escape", Destruction, "On")
-
-	WinWaitClose(g_terminal.Hwnd)
-
-	if !val
-		return
-
-	try {
-		c_RunBin().d_Commands[val].Call()
-	}
+	try 
+		runner_commands[val].Call()
 	catch any {
 		RegexMatch(val, "^(p|o|g|s|r|t|a|e) (.+)", &result)
 		try {
