@@ -45,6 +45,7 @@ GroupAdd(  "Game", "ahk_exe EtG.exe")
 , GroupAdd("Game", "Minecraft ahk_exe javaw.exe")
 , GroupAdd("Game", "ahk_exe METAL GEAR RISING REVENGEANCE.exe")
 , GroupAdd("Game", "ahk_exe Chair Simulator.exe")
+, GroupAdd("Game", "ahk_exe dontstarve_steam.exe")
 
 , GroupAdd("Game_M", "ahk_exe EtG.exe" )
 , GroupAdd("Game_M", "ahk_exe isaac-ng.exe")

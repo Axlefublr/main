@@ -103,14 +103,19 @@ Symbol(unicodeName, endChar?) {
 }
 
 CloseButForSure() {
-	WinActive("ahk_exe Spotify.exe") ? spotify_Close() : win_Close()
 	Switch {
+		Case WinActive("ahk_exe Spotify.exe"):spotify_Close()
+		Case WinActive("ahk_exe steam.exe"):
+			win_Close()
+			ProcessClose("steam.exe")
 		Case WinActive("ahk_exe gimp-2.10.exe"):
+			win_Close()
 			closeWindow := "Quit GIMP ahk_exe gimp-2.10.exe"
 			if !WinWait(closeWindow,, 60)
 				return
 			win_Activate(closeWindow)
 			Send("{Left}{Enter}")
+		Default:win_Close()
 	}
 }
 
