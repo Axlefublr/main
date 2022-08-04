@@ -56,6 +56,9 @@ Class c_Links {
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"pointer pointer", "https://pointerpointer.com/",
 		"guess this code", "https://guessthiscode.com/",
+
+		;Info
+		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"openasar",        "https://openasar.dev/",
 		"nirsoft",         "https://www.nirsoft.net/",
 		"vpn gate",        "https://www.vpngate.net/en/download.aspx",
@@ -64,10 +67,11 @@ Class c_Links {
 
 		;Series
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		"better call saul", "https://watchmovieshd.ru/series/better-call-saul-82zxv/6-12",
-
-		"one piece",        "https://gogoanime.sk/one-piece-episode-",
-		"overlord",         "https://gogoanime.lu/overlord-iv-episode-",
+		;stream
+		"bcs", "https://watchmovieshd.ru/series/better-call-saul-82zxv/6-12",
+		;download
+		"one piece", "https://gogoanime.sk/one-piece-episode-",
+		"overlord",  "https://gogoanime.lu/overlord-iv-episode-",
 
 		;Shops
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,10 +85,11 @@ Class c_Links {
 		;Github
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"my github",    "https://github.com/Axlefublr",
+		"repo main",    "https://github.com/Axlefublr/Main",
 		"repo synhigh", "https://github.com/Axlefublr/Ahk_v2_Syntax_Highlighting",
 		"repo startup", "https://github.com/Axlefublr/StartupRun",
 		"repo arrow",   "https://github.com/Axlefublr/Fat_Arrow_Functions",
-		"repo tools", "https://github.com/Axlefublr/Tools",
+		"repo tools",   "https://github.com/Axlefublr/Tools",
 		"repo function objects", "https://github.com/Axlefublr/Function_Objects",
 		"repo static",  "https://github.com/Axlefublr/Static_var_examples",
 		
@@ -107,45 +112,45 @@ Class c_Links {
 
 		;Memes
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		"i made it the fuck up",                  "https://www.youtube.com/watch?v=r7l0Rq9E8MY",
-		"funny mic",                              "https://www.youtube.com/watch?v=jfbKJy_ZuIU",
-		"delay lama",                             "https://www.youtube.com/watch?v=Np4iG7-se7I",
-		"i quickly became homophobic",            "https://www.youtube.com/watch?v=m2ksGuqf8eo",
-		"if you design a quest",                  "https://www.youtube.com/watch?v=chn0ggv9TdY",
-		"zoro is racist",                         "https://www.youtube.com/watch?v=kb_udP2ZeF8",
-		"loaf check",                             "https://www.youtube.com/watch?v=jvds0ib84VA",
-		"you fucker",                             "https://youtu.be/jsaRzVIBrg8?t=12",
+		"i made it the fuck up",       "https://www.youtube.com/watch?v=r7l0Rq9E8MY",
+		"funny mic",                   "https://www.youtube.com/watch?v=jfbKJy_ZuIU",
+		"delay lama",                  "https://www.youtube.com/watch?v=Np4iG7-se7I",
+		"i quickly became homophobic", "https://www.youtube.com/watch?v=m2ksGuqf8eo",
+		"if you design a quest",       "https://www.youtube.com/watch?v=chn0ggv9TdY",
+		"zoro is racist",              "https://www.youtube.com/watch?v=kb_udP2ZeF8",
+		"loaf check",                  "https://www.youtube.com/watch?v=jvds0ib84VA",
+		"you fucker",                  "https://youtu.be/jsaRzVIBrg8?t=12",
 		"are you going to finish that croissant", "https://youtu.be/UZKcSuYaBQY?t=2",
-		"arab cat",                               "https://www.youtube.com/watch?v=2rYQ1FC1orc",
-		"kitten in towel",                        "https://www.youtube.com/watch?v=nRBERbcbFgY",
-		"top ten cat loafs",                      "https://www.youtube.com/watch?v=_kRaKHKCj0g",
-		"do the skype thing",                     "https://www.youtube.com/watch?v=ztubL6yVFkw",
-		"keke gay",                               "https://www.youtube.com/watch?v=OpOyEUjHS1Q",
-		"mi5",                                    "https://www.youtube.com/watch?v=xUxmdvYrCS4",
-		"fr on god",                              "https://www.youtube.com/watch?v=4V7_dlIEKEg",
-		"bro a random word generator",            "https://www.youtube.com/shorts/pF5rT_1u0KY",
-		"lofi girl",                              "https://www.youtube.com/watch?v=5qap5aO4i9A",
-		"no you don't",                           "https://youtu.be/k23992kcnJU?list=PLlR-IeFoOZclB4GCGHu4Z4p4Mb9SpgneG&t=223",
-		"heheheha",                               "https://www.youtube.com/watch?v=Sag4AGymNr0",
-		"wow",                                    "https://www.youtube.com/watch?v=w7x_lWJNnNg",
-		"mlem",                                   "https://www.youtube.com/watch?v=kvxCU_lQwKM",
-		"hi herbert",                             "https://www.youtube.com/watch?v=aymLIdTNAc8",
-		"empire",                                 "https://www.youtube.com/watch?v=ovVvtC4wXSQ",
-		"shlatt heheheha",                        "https://www.youtube.com/watch?v=DQzucQECcG4",
-		"walter racist impression",               "https://www.youtube.com/watch?v=A3aHvtrB7QQ",
-		"sims cat break dance",                   "https://www.youtube.com/watch?v=wLkfz10Srxw",
-		"sims cat break dance and the girl",      "https://www.youtube.com/watch?v=W1ValKNYw_U",
-		"death note angry birds",                 "https://www.youtube.com/watch?v=E4dHRLWq3FM",
-		"get rotated idiot",                      "https://www.youtube.com/watch?v=o3uJCCa5w2A",
-		"right emote",                            "https://www.youtube.com/watch?v=mNEZL8ynCyc",
-		"cien fleurs",                            "https://www.youtube.com/watch?v=N57Q0IZCPGk",
-		"50 bomb",                                "https://www.youtube.com/watch?v=w1cWcAH7JcE",
-		"you're now listening to",                "https://www.youtube.com/watch?v=SSpp5CsBFkQ",
-		"cheetah meow",                           "https://www.youtube.com/watch?v=eC5-0uAU1Gc",
-		"aye you still got the stick in there",   "https://www.youtube.com/watch?v=QhgPSs9Scrw",
-		"pyro shlatt",                            "https://youtu.be/hKVbiiP8wDI?t=4",
-		"300 chinese finger traps",               "https://youtube.com/shorts/AfTKlOBraoM",
-		'beninging',                              'https://www.youtube.com/watch?v=y_7GL3IpdaQ',
+		"arab cat",                    "https://www.youtube.com/watch?v=2rYQ1FC1orc",
+		"kitten in towel",             "https://www.youtube.com/watch?v=nRBERbcbFgY",
+		"top ten cat loafs",           "https://www.youtube.com/watch?v=_kRaKHKCj0g",
+		"do the skype thing",          "https://www.youtube.com/watch?v=ztubL6yVFkw",
+		"keke gay",                    "https://www.youtube.com/watch?v=OpOyEUjHS1Q",
+		"mi5",                         "https://www.youtube.com/watch?v=xUxmdvYrCS4",
+		"fr on god",                   "https://www.youtube.com/watch?v=4V7_dlIEKEg",
+		"bro a random word generator", "https://www.youtube.com/shorts/pF5rT_1u0KY",
+		"lofi girl",                   "https://www.youtube.com/watch?v=5qap5aO4i9A",
+		"no you don't",                "https://youtu.be/k23992kcnJU?list=PLlR-IeFoOZclB4GCGHu4Z4p4Mb9SpgneG&t=223",
+		"heheheha",                 "https://www.youtube.com/watch?v=Sag4AGymNr0",
+		"wow",                      "https://www.youtube.com/watch?v=w7x_lWJNnNg",
+		"mlem",                     "https://www.youtube.com/watch?v=kvxCU_lQwKM",
+		"hi herbert",               "https://www.youtube.com/watch?v=aymLIdTNAc8",
+		"empire",                   "https://www.youtube.com/watch?v=ovVvtC4wXSQ",
+		"shlatt heheheha",          "https://www.youtube.com/watch?v=DQzucQECcG4",
+		"walter racist impression", "https://www.youtube.com/watch?v=A3aHvtrB7QQ",
+		"sims cat break dance",     "https://www.youtube.com/watch?v=wLkfz10Srxw",
+		"sims cat break dance and the girl", "https://www.youtube.com/watch?v=W1ValKNYw_U",
+		"death note angry birds",   "https://www.youtube.com/watch?v=E4dHRLWq3FM",
+		"get rotated idiot",        "https://www.youtube.com/watch?v=o3uJCCa5w2A",
+		"right emote",              "https://www.youtube.com/watch?v=mNEZL8ynCyc",
+		"cien fleurs",              "https://www.youtube.com/watch?v=N57Q0IZCPGk",
+		"50 bomb",                  "https://www.youtube.com/watch?v=w1cWcAH7JcE",
+		"you're now listening to",  "https://www.youtube.com/watch?v=SSpp5CsBFkQ",
+		"cheetah meow",             "https://www.youtube.com/watch?v=eC5-0uAU1Gc",
+		"aye you still got the stick in there", "https://www.youtube.com/watch?v=QhgPSs9Scrw",
+		"pyro shlatt",              "https://youtu.be/hKVbiiP8wDI?t=4",
+		"300 chinese finger traps", "https://youtube.com/shorts/AfTKlOBraoM",
+		'beninging',                'https://www.youtube.com/watch?v=y_7GL3IpdaQ',
 	)
 
 }

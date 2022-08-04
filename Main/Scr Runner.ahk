@@ -68,13 +68,16 @@
 		"convert to json",       () => str_ConvertToJson(),
 		"main",                  () => vscode_WorkSpace("Main"),
 		"kristi",                () => spotify_SendTrackToKristi(),
-		"apps",                  () => MainApps(),
 		"ahk++ update",          () => vscode_AhkPlusPlusUpdate(),
 		"js tut",                () => vscode_JsTutorial(),
 		"str len",               () => Infos(StrLen(str_GetSelection())),
 		"radnum",                () => ClipSend(RadNum(), ""),
 		"fs",                    () => tool_FileSearch(),
 
+		;WIN
+		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		"apps",       () => MainApps(),
+		"close apps", () => CloseMainApps(),
 
 		;GITHUB
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

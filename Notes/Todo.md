@@ -7,6 +7,10 @@ You can kill the snake by clicking on it a lot
 
 # 
 
+* Removeat
+* SetTitleMatchMode
+* WinGetList
+
 #^ cmd as admin
 
 Gui for timer
