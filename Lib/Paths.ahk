@@ -29,46 +29,47 @@ Class c_Paths {
 	AhkPlusPlus := "C:\Users\" A_UserName "\.vscode\extensions\mark-wiemer.vscode-autohotkey-plus-plus-2.8.4"
 
 	Ptf := Map(
-		"Main",                             this.PersDir "\Backups\Main.code-workspace",
+		"Main",               this.PersDir "\Backups\Main.code-workspace",
 
-		"Discovery log",                    this.PersDir "\Docs\Music\Discovery log.txt",
-		"Unfinished",                       this.PersDir "\Docs\Music\Unfinished.txt",
-		"Rappers",                          this.PersDir "\Docs\Music\Rappers.txt",
-		"Artists",                          this.PersDir "\Docs\Music\Artists.md",
+		"Discovery log",      this.PersDir "\Docs\Music\Discovery log.txt",
+		"Unfinished",         this.PersDir "\Docs\Music\Unfinished.txt",
+		"Rappers",            this.PersDir "\Docs\Music\Rappers.txt",
+		"Artists",            this.PersDir "\Docs\Music\Artists.md",
                   
-		"react",                            this.PersDir "\Files\Images\react.png",
-		"Kristi",                           this.PersDir "\Files\Images\Kristi.png",
-		"switch account ytt",               this.PersDir "\Files\Images\switch account ytt.png",
-		"youtube logo",                     this.PersDir "\Files\Images\youtube logo.png",
-		"diary",                            this.PersDir "\Files\Images\diary.png",
+		"react",              this.PersDir "\Files\Images\react.png",
+		"Kristi",             this.PersDir "\Files\Images\Kristi.png",
+		"switch account ytt", this.PersDir "\Files\Images\switch account ytt.png",
+		"youtube logo",       this.PersDir "\Files\Images\youtube logo.png",
+		"diary",              this.PersDir "\Files\Images\diary.png",
 
-		"Timer.txt",                        this.PersDir "\Files\Innit\Timer.txt",
+		"Timer.txt",          this.PersDir "\Files\Innit\Timer.txt",
 
-		"MethFunc",                         this.PersDir "\Lib\MethFunc.ahk",
+		"MethFunc",           this.PersDir "\Lib\MethFunc.ahk",
                   
-		"Keys",                             this.PersDir "\Main\Scr Keys.ahk",
+		"Keys",               this.PersDir "\Main\Scr Keys.ahk",
 						
-		"Change notes",                     this.PersDir "\Notes\Change notes.md",
+		"Change notes",       this.PersDir "\Notes\Change notes.md",
                   
-		"Raw",                              this.PersDir "\Notes temp\Raw.md",
-		"Clean",                            this.PersDir "\Notes temp\Clean.md",
-		"Description",                      this.PersDir "\Notes temp\Description.txt",
-		"Diary",                            this.PersDir "\Notes temp\Diary.md",
-		"Output",                           this.PersDir "\Notes temp\Output.txt",
+		"Raw",                this.PersDir "\Notes temp\Raw.md",
+		"Clean",              this.PersDir "\Notes temp\Clean.md",
+		"Description",        this.PersDir "\Notes temp\Description.txt",
+		"Diary",              this.PersDir "\Notes temp\Diary.md",
+		"Output",             this.PersDir "\Notes temp\Output.txt",
 
-		"AhkTest",                          this.PersDir "\Test\AhkTest.ahk",
-		"BatTest",                          this.PersDir "\Test\BatTest.bat",
-		"1",                                this.PersDir "\Test\1.ahk",
-		"2",                                this.PersDir "\Test\2.ahk",
+		"AhkTest",            this.PersDir "\Test\AhkTest.ahk",
+		"BatTest",            this.PersDir "\Test\BatTest.bat",
+		"1",                  this.PersDir "\Test\1.ahk",
+		"2",                  this.PersDir "\Test\2.ahk",
 
-		"Timer.ahk",                        this.PersDir "\Tools\Timer.ahk",
-		"Symlink creator",                  this.PersDir "\Tools\Symlink creator.ahk",
+		"Timer.ahk",          this.PersDir "\Tools\Timer.ahk",
+		"Symlink creator",    this.PersDir "\Tools\Symlink creator.ahk",
 
 
 		"SynHigh\settings.json preset", this.SynHigh "\settings.json preset.txt",
 		"SynHigh\tmLanguage",           this.SynHigh "\tmLanguage.json",
 		"SynHigh\ahk snippets",         this.SynHigh "\ahk snippets.json",
 		"SynHigh\configuration",        this.SynHigh "\ahk.configuration.json",
+		"SynHigh\Change notes",         this.SynHigh "\Change notes.md",
 
 
 		"index.js",   this.JSDir "\jsm.js",

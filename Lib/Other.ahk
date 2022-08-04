@@ -107,3 +107,11 @@ CloseButForSure() {
 RadNum() {
 	return Random(1000000, 9999999)
 }
+
+GetRandomCommitMessage() {
+	five_random_words := " "
+	Loop 5 
+		five_random_words .= Words.GetRandomWord("english") " "
+
+	return A_Now five_random_words
+}

@@ -350,6 +350,18 @@ vscode_WorkSpace(wkspName) {
 	Run(Paths.Ptf[wkspName],, "Max")
 }
 
+vscode_toCommitMessage(changeNotes_rawFile) {
+	if !changeNotes_rawFile
+		return ""
+	changeNotes := RegexReplace(changeNotes_rawFile, "\r?\n\r?\n", "`; ")
+	changeNotes := RegexReplace(changeNotes, "\r?\n", " ") ;we gotta remove all the newlines so we don't accidentally send a bunch of enters to the console
+
+	changeNotes := RegexReplace(changeNotes, '"', "'")
+	changeNotes := RegexReplace(changeNotes, '\*{1,2} ?') 
+
+	return changeNotes
+}
+
 vscode_CleanText() {
 	clean := ReadFile(Paths.Ptf["Raw"])
 	clean := StrReplace(clean, "`r`n", "`n") ;making it easy for regex to work its magic by removing returns
@@ -480,24 +492,20 @@ git_MovingCompany() {
 git_CommitBothDirectories(andPush := True) {
 	git_MovingCompany() ;Loads the files from (mainly) the personal directory onto the Other directory
 
-	changeNotes := ReadFile(Paths.Ptf["Change notes"]) ;Getting the commit message, which is actually just the entirety of the change notes file
-	changeNotes := RegexReplace(changeNotes, "\r?\n\r?\n", "`; ")
-	changeNotes := RegexReplace(changeNotes, "\r?\n") ;we gotta remove all the newlines so we don't accidentally send a bunch of enters to the console
-	changeNotes := RegexReplace(changeNotes, '"', "'")
+	commitMessage_main := vscode_toCommitMessage(ReadFile(Paths.Ptf["Change notes"]))
 
-	five_random_words := " "
-	Loop 5 
-		five_random_words .= Words.GetRandomWord("english") " "
+	commitMessage_synHigh := vscode_toCommitMessage(ReadFile(Paths.Ptf["SynHigh\Change notes"]))
 
-	random_commit_message := A_Now five_random_words
+	if !commitMessage_synHigh
+		commitMessage_synHigh := GetRandomCommitMessage()
 
 	program := [
 		'cd "' Paths.PersDir '"',
 		'git add .',
-		'git commit -m "' changeNotes '"',
+		'git commit -m "' commitMessage_main '"',
 		'cd "' Paths.SynHigh '"',
 		'git add .',
-		'git commit -m "' random_commit_message '"'
+		'git commit -m "' commitMessage_synHigh '"'
 	]
 
 	if andPush {
@@ -506,8 +514,10 @@ git_CommitBothDirectories(andPush := True) {
 	}
 
 	RunSpec(program,, True)
-	WriteFile(Paths.Ptf["Change notes"], "")
-	; Out(changeNotes)
+	WriteFile(Paths.Ptf["Change notes"])
+	WriteFile(Paths.Ptf["SynHigh\Change notes"])
+	Out(commitMessage_main)
+	Out(commitMessage_synHigh)
 }
 
 git_Link() {

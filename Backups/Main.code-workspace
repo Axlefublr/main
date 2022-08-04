@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": ".."
+		},
+		{
+			"path": "..\\..\\Ahk_v2_Syntax_Highlighting"
 		}
 	],
 	"settings": {

@@ -18,4 +18,3 @@ Numbers as hotkeys for guis, rather than function keys
 * It gets calculated which button to press how many times
 * If not for kmplayer, assumes to send the right arrow to skip 5 seconds
 * Rounds down
-
