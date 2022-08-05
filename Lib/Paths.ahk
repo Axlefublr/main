@@ -41,6 +41,7 @@ Class c_Paths {
 		"switch account ytt", this.Main "\Files\Images\switch account ytt.png",
 		"youtube logo",       this.Main "\Files\Images\youtube logo.png",
 		"diary",              this.Main "\Files\Images\diary.png",
+		"selected diary",     this.Main "\Files\Images\selected diary.png",
 
 		"Timer.txt",          this.Main "\Files\Innit\Timer.txt",
 
@@ -77,10 +78,8 @@ Class c_Paths {
 		"styles.css", this.JSDir "\css.css",
 
 
-
 	 	"FL preset",        this.Pictures "\Editing\Tools\FL preset.flp",
 		"Thumbnail preset", this.Pictures "\Editing\Tools\Thumbnail preset.xcf",
-
 
 
 		"VsCode\settings",      A_AppData "\Code\User\settings.json",
@@ -97,6 +96,7 @@ Class c_Paths {
 	)
 	
 	LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
+	System32 := "C:\Windows\System32"
 
    Apps := Map(
       "Ahk v1 docs",       A_ProgramFiles "\AutoHotkey\AutoHotkey.chm",
@@ -123,6 +123,8 @@ Class c_Paths {
       "Todoist",           this.LocalAppData "\Programs\todoist\Todoist.exe",
       "WPS",               this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
       "Discord",           this.LocalAppData "\Discord\app-1.0.9005\Discord.exe",
+
+		"Sound mixer",       this.System32 "\SndVol.exe",
 
    )
 

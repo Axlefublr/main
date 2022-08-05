@@ -39,10 +39,18 @@ RunLink(link) {
    WinActivate("Google Chrome ahk_exe chrome.exe")
 }
 
-WaitUntilImage(imageFile) {
+WaitUntilImage(imageFile, coordObj?) {
    var := 0
+	if !IsSet(coordObj) {
+		coordObj := {
+			x1: 0,
+			y1: 0,
+			x2: A_ScreenWidth,
+			y2: A_ScreenHeight,
+		}
+	}
    While !var {
-      var := ImageSearch(&imgX, &imgY, 0, 0, A_ScreenWidth, A_ScreenHeight, imageFile)
+      var := ImageSearch(&imgX, &imgY, coordObj.x1, coordObj.y1, coordObj.x2, coordObj.y2, imageFile)
    }
    return [imgX, imgY]
 }

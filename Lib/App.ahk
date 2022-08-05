@@ -217,17 +217,17 @@ telegram_Scroll() {
 
 telegram_Channel(channelToFind, waitForChannel?) {
 	ControlClick("X456 Y74")
-	Send(channelToFind)
+	Send(channelToFind "{Down}")
 	if waitForChannel
 		WaitUntilImage(waitForChannel)
-	Send("{Down}{Enter}")
+	Send("{Enter}")
 }
 
 telegram_Diary() {
 	diary := ReadFile(Paths.Ptf["Diary"])
 	WriteFile(Paths.Ptf["Diary"])
 	win_RunAct("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
-	telegram_Channel("Diary", Paths.Ptf["diary"])
+	telegram_Channel("Diary", Paths.Ptf["selected diary"])
 	WaitUntilImage(Paths.Ptf["diary"])
 	ClipSend(diary)
 	Send("{Enter}")

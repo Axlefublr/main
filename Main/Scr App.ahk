@@ -127,8 +127,7 @@ Down::Send "{Volume_Down}"
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("ahk_group AutoHotkey_Help")
-F1::Send "!s" 
-F2::Send "!n"
+!j::Send "!s" 
 
 #HotIf WinActive("ahk_exe AutoHotkey64_UIA.exe") || WinActive("ahk_exe explorer.exe")
 ^BackSpace::DeleteWord()

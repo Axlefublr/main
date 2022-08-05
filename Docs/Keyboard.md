@@ -154,9 +154,15 @@ m — Calendar
 
 +! Toggle fold
 
-^ \d Fold level \d
-
 ! Replace
+
+### H^
+
+\d Fold level \d
+
+h Create manual folding range
+
+j Remove manual folding ranges
 
 ## J
 
@@ -258,9 +264,9 @@ n Select language
 
 +! New file
 
-^ New untitled file
+^ New file create
 
-!
+! New untitled file
 
 ## PgUp / PgDn
 
@@ -280,7 +286,9 @@ n Select language
 
 ^+ Select until start / end of file
 
-^! 
+^+# Focus prev / next cursor
+
+^! Go to prev / next folding range
 
 +! Move editor left / right
 

@@ -28,7 +28,6 @@ Class c_Links {
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"share files",     "https://files.fm/",
 		"regex",           "https://regex101.com/",
-		"sounds",          "https://www.myinstants.com/index/ru/",
 		"ytdownload",      "https://ytb.rip/en/",
 		"regex generator", "https://ibnuhx.com/regex-generator/",
 		"img",             "https://imgur.com/upload",
@@ -37,6 +36,16 @@ Class c_Links {
 		"docsify",         "https://docsify.js.org/#/",
 		"regex one",       "https://regexone.com/",
 		"color picker",    "https://docs.microsoft.com/en-us/windows/powertoys/color-picker",
+
+		;Info
+		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		"sounds",          "https://www.myinstants.com/index/ru/",
+		"openasar",        "https://openasar.dev/",
+		"nirsoft",         "https://www.nirsoft.net/",
+		"vpn gate",        "https://www.vpngate.net/en/download.aspx",
+		"fl studio 20",    "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
+		"discord highlighting", "https://gist.github.com/kkrypt0nn/a02506f3712ff2d1c8ca7c9e0aed7c06",
+		"svg export",      "https://chrome.google.com/webstore/detail/svg-export/naeaaedieihlkmdajjefioajbbdbdjgp",
 
 		;Learning
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,14 +65,6 @@ Class c_Links {
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"pointer pointer", "https://pointerpointer.com/",
 		"guess this code", "https://guessthiscode.com/",
-
-		;Info
-		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		"openasar",        "https://openasar.dev/",
-		"nirsoft",         "https://www.nirsoft.net/",
-		"vpn gate",        "https://www.vpngate.net/en/download.aspx",
-		"fl studio 20",    "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
-		"discord highlighting", "https://gist.github.com/kkrypt0nn/a02506f3712ff2d1c8ca7c9e0aed7c06",
 
 		;Series
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
