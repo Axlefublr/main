@@ -37,6 +37,7 @@
 		"sort algos",      Run.Bind(Paths.Apps["Sort algos"]),
 		"shell menu view", Run.Bind(Paths.Apps["Shell Menu View"]),
 		"symlink",         Run.Bind(Paths.Ptf["Symlink creator"]),
+		"sm",     Run.Bind(Paths.Apps["Sound mixer"]),
 
 		;FOLDERS
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

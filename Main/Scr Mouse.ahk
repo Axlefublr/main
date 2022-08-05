@@ -143,7 +143,7 @@ XButton1:: {
 				Case bottomLeft: scr_Test()
 				Case left:       PrevTab()
 				Case down:       vscode_CloseTab()
-				Case up:         Send("#{PgUp}")
+				Case up:         RestoreTab()
 			}
 		Case WinActive("ahk_exe Spotify.exe"):
 			Switch {
