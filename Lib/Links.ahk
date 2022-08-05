@@ -28,7 +28,7 @@ Class c_Links {
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"share files",     "https://files.fm/",
 		"regex",           "https://regex101.com/",
-		"ytdownload",      "https://ytb.rip/en/",
+		"ytdownload",      "https://ssyoutube.com/en8/",
 		"regex generator", "https://ibnuhx.com/regex-generator/",
 		"img",             "https://imgur.com/upload",
 		"color generator", "https://coolors.co/generate",

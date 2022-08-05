@@ -53,9 +53,8 @@
 
 		;ANIME
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		'one piece download', () => AnimeDownload('one piece'),
-		'baki download',      () => AnimeDownload('baki'),
-		'overlord down',      () => AnimeDownload('overlord'),
+		'one piece down', () => AnimeDownload('one piece'),
+		'overlord down',  () => AnimeDownload('overlord'),
 
 		;VIDEO MAKING
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
