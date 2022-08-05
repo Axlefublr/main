@@ -60,7 +60,7 @@
 		;VIDEO MAKING
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		'clean text', () => vscode_CleanText(),
-		'edit',       () => video_EditLastScreenshot(),
+		'edit',       () => video_EditScreenshot(),
 		'video up',   () => vscode_VideoUp(),
 		'dupl',       () => video_DuplicateScreenshot(),
 

@@ -590,24 +590,12 @@ player_SkipOpening() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-video_EditLastScreenshot() {
-	d_Path_Name := Map()
+video_EditScreenshot() {
+	selectedFile := FileSelect("S", Paths.Materials, "Select a file to edit in gimp")
+	if !selectedFile
+		return
 
-	Loop Files Paths.Materials "\*.png" {
-		RegexMatch(A_LoopFileName, "^\d+", &IntPartOfFileName)
-		d_Path_Name.Set(A_LoopFileFullPath, IntPartOfFileName[0])
-	}
-
-	highestFileNum := 0
-
-	for key, value in d_Path_Name {
-		if value > highestFileNum {
-			highestFileNum := value
-			latestFilePath := key
-		}
-	}
-
-	RunWith(Paths.Apps["Gimp"], latestFilePath)
+	RunWith(Paths.Apps["Gimp"], selectedFile)
 }
 
 video_DuplicateScreenshot() {
