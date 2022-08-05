@@ -382,10 +382,8 @@ vscode_CleanText() {
 	else
 		description_manual := description_regexed[1]
 
-	description := "
+	description := description_manual "`n`n" "
 	(
-
-
 		Learn about autohotkey v2 in the documentation: https://lexikos.github.io/v2/docs/AutoHotkey.htm
 		IDE used in the video: https://code.visualstudio.com/
 
@@ -396,8 +394,7 @@ vscode_CleanText() {
 		https://discord.com/invite/Aat7KHmG7v
 
 		The video script:
-
-	)" clean_compact
+	)" "`n`n" clean_compact
 
 	WriteFile(Paths.Ptf["Clean"], clean)
 	WriteFile(Paths.Ptf["Description"], description)

@@ -212,7 +212,7 @@ j Remove manual folding ranges
 
 !
 
-### ^
+### ;^
 
 p Pin active tab
 
@@ -230,7 +230,11 @@ l Search by keybind
 
 ' Go to keybinds
 
-### No modifiers
+i go to previous change
+
+o go to next change
+
+### ;.
 
 t Start live server
 

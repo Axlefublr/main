@@ -29,12 +29,12 @@ Class c_Paths {
 	AhkPlusPlus := "C:\Users\" A_UserName "\.vscode\extensions\mark-wiemer.vscode-autohotkey-plus-plus-2.8.4"
 
 	Ptf := Map(
-		"Main",               this.Main "\Backups\Main.code-workspace",
+		"Main", this.Main "\Backups\Main.code-workspace",
 
-		"Discovery log",      this.Main "\Docs\Music\Discovery log.txt",
-		"Unfinished",         this.Main "\Docs\Music\Unfinished.txt",
-		"Rappers",            this.Main "\Docs\Music\Rappers.txt",
-		"Artists",            this.Main "\Docs\Music\Artists.md",
+		"Discovery log", this.Main "\Docs\Music\Discovery log.txt",
+		"Unfinished",    this.Main "\Docs\Music\Unfinished.txt",
+		"Rappers",       this.Main "\Docs\Music\Rappers.txt",
+		"Artists",       this.Main "\Docs\Music\Artists.md",
                   
 		"react",              this.Main "\Files\Images\react.png",
 		"Kristi",             this.Main "\Files\Images\Kristi.png",
@@ -43,27 +43,27 @@ Class c_Paths {
 		"diary",              this.Main "\Files\Images\diary.png",
 		"selected diary",     this.Main "\Files\Images\selected diary.png",
 
-		"Timer.txt",          this.Main "\Files\Innit\Timer.txt",
+		"Timer.txt", this.Main "\Files\Innit\Timer.txt",
 
-		"MethFunc",           this.Main "\Lib\MethFunc.ahk",
+		"MethFunc", this.Main "\Lib\MethFunc.ahk",
                   
-		"Keys",               this.Main "\Main\Scr Keys.ahk",
+		"Keys", this.Main "\Main\Scr Keys.ahk",
 						
-		"Change notes",       this.Main "\Notes\Change notes.md",
+		"Change notes", this.Main "\Notes\Change notes.md",
                   
-		"Raw",                this.Main "\Notes temp\Raw.md",
-		"Clean",              this.Main "\Notes temp\Clean.md",
-		"Description",        this.Main "\Notes temp\Description.txt",
-		"Diary",              this.Main "\Notes temp\Diary.md",
-		"Output",             this.Main "\Notes temp\Output.txt",
+		"Raw",         this.Main "\Notes temp\Raw.md",
+		"Clean",       this.Main "\Notes temp\Clean.md",
+		"Description", this.Main "\Notes temp\Description.txt",
+		"Diary",       this.Main "\Notes temp\Diary.md",
+		"Output",      this.Main "\Notes temp\Output.txt",
 
-		"AhkTest",            this.Main "\Test\AhkTest.ahk",
-		"BatTest",            this.Main "\Test\BatTest.bat",
-		"1",                  this.Main "\Test\1.ahk",
-		"2",                  this.Main "\Test\2.ahk",
+		"AhkTest",  this.Main "\Test\AhkTest.ahk",
+		"AhkTest2", this.Main "\Test\1.ahk",
+		"AhkTest3", this.Main "\Test\2.ahk",
+		"BatTest",  this.Main "\Test\BatTest.bat",
 
-		"Timer.ahk",          this.Main "\Tools\Timer.ahk",
-		"Symlink creator",    this.Main "\Tools\Symlink creator.ahk",
+		"Timer.ahk",       this.Main "\Tools\Timer.ahk",
+		"Symlink creator", this.Main "\Tools\Symlink creator.ahk",
 
 
 		"SynHigh\settings.json preset", this.SynHigh "\settings.json preset.txt",
