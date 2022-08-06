@@ -50,7 +50,3 @@ Out(put := "", endChar := "`n", overwrite := False) {
 	else
 		AppendFile(filePath, put endChar)
 }
-
-scr_HighPriority() {
-	ProcessSetPriority("H", WinGetPID("A"))
-}

@@ -207,8 +207,12 @@ WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
    return True
 }
 
-RebootSystem() {
+SystemReboot() {
 	Shutdown(2)
+}
+
+SystemPowerDown() {
+	Shutdown(1)
 }
 
 GetDateAndTime() {

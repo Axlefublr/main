@@ -30,8 +30,8 @@ A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
 ScrollLock::  scr_Reload()
 !ScrollLock:: scr_HardReload()
 +ScrollLock:: scr_Suspend()
-#ScrollLock:: RebootSystem()
-#Pause::      scr_HighPriority()
+#ScrollLock:: SystemReboot()
+#Pause::      SystemPowerDown()
 Pause::       scr_Test()
 #SuspendExempt False
 
@@ -145,7 +145,7 @@ Insert:: {
 NumpadDown:: scr_Reload()
 !NumpadDown::scr_HardReload()
 +NumpadDown::scr_Suspend()
-#NumpadDown::RebootSystem()
+#NumpadDown::SystemReboot()
 
 NumpadPgDn:: scr_Test()
 !NumpadPgDn::Send "!{Pause}"
