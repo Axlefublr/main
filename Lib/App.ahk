@@ -503,6 +503,7 @@ git_CommitRepo(changeNote_file, repo_path, andPush := True) {
 
 	RunSpec(program,, True)
 	WriteFile(changeNote_file)
+	Out(commitMessage)
 }
 
 git_Link() {

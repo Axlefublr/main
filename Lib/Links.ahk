@@ -152,6 +152,7 @@ Class c_Links {
 		"pyro shlatt",              "https://youtu.be/hKVbiiP8wDI?t=4",
 		"300 chinese finger traps", "https://youtube.com/shorts/AfTKlOBraoM",
 		'beninging',                'https://www.youtube.com/watch?v=y_7GL3IpdaQ',
+		"mike we can't",            'https://www.youtube.com/watch?v=OydatMpUo04&ab_channel=Seedy',
 	)
 
 }

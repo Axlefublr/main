@@ -21,7 +21,7 @@
 				"request": "launch",
 				"runtimeArgs_v2": [".ahk"],
 				"port": "9003",
-				"runtime": "v2\\AutoHotkey64_UIA.exe",
+				"runtime": "v2\\AutoHotkey64.exe",
 				"runtimeArgs": ["/ErrorStdOut=UTF-8"]
 			}
 		]

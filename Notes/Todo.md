@@ -18,6 +18,8 @@ Gui for timer
 
 Numbers as hotkeys for guis, rather than function keys
 
+Rolling eyes emoji
+
 # Player
 * Function lets you write down the amount of time to skip, permenent by file
 * It gets calculated which button to press how many times

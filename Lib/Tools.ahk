@@ -314,7 +314,7 @@ tool_CoordGetter() {
 	CrdGet_hwnd := g_CrdGet.hwnd
 
 	;Adding all the text for the gui
-	g_CrdGet_CtrlFormat := g_CrdGet.Add("Text",, "X = " . locCliX . "`nY = " . locCliY)
+	g_CrdGet_CtrlFormat := g_CrdGet.Add("Text",, "X = " locScrX "`nY = " locScrY)
 	g_CrdGet_Screen     := g_CrdGet.Add("Text",, "Screen")
 	g_CrdGet_Client     := g_CrdGet.Add("Text", "y+15", "Client")
 	g_CrdGet_Window     := g_CrdGet.Add("Text", "y+15", "Window") ;The 'word' text is visually more grouped together
