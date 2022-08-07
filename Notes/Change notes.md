@@ -1,7 +1,5 @@
-Keyhistory 0 because I have my own keycode getter :P
+s in runner lets you skip the amount of seconds you put in
 
-Cmd as admin moved from on hold to #^
+Added hotkeys to scroll in all directions
 
-Rolling eyes emoji hotkey added
-
-i in runner lets you write down some info to be displayed with Infos
+GetSelectionLength for snippets now uses Infos()

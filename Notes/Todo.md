@@ -25,16 +25,7 @@ ctrlclick acts like the first query does now
 
 # Snippets 
 
-* Removeat
-* SetTitleMatchMode
-* WinGetList
 * ProcessClose
-
-# Player
-* Function lets you write down the amount of time to skip, permenent by file
-* It gets calculated which button to press how many times
-* If not for kmplayer, assumes to send the right arrow to skip 5 seconds
-* Rounds down
 
 # Snake
 Snake

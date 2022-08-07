@@ -84,7 +84,7 @@ XButton2 & MButton::discord_React()
 !e::vscode_ToEndOfCurrFile(), PrevTab()
 
 #HotIf WinActive("ahk.json ahk_exe Code.exe")
-!e::ToolStay(str_GetSelection_Length(), "ahk.json ahk_exe Code.exe")
+!e::Infos(str_GetSelection_Length())
 
 #HotIf WinActive("ahk_exe Code.exe") 
 

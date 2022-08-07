@@ -130,3 +130,8 @@ GetRandomCommitMessage() {
 
 	return A_Now five_random_words
 }
+
+Skipper(time) {
+	time := Floor(time / 5)
+	Send("{Right " time "}")
+}

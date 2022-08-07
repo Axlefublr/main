@@ -125,6 +125,11 @@ PrintScreen::ScreenSnip()
 #Right::win_RestoreLeftRight("right")
 #Left::win_RestoreLeftRight("left")
 
+#^Up::Send "{WheelUp}"
+#^Down::Send "{WheelDown}"
+#^Right::Send "{WheelRight}"
+#^Left::Send "{WheelLeft}"
+
 Insert:: {
 	if press_Hold()
 		SelectAll()
