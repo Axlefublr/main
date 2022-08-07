@@ -1,3 +1,7 @@
+#HotIf !WinExist("ahk_group Game")
+;Steam
+<!g::win_App("ahk_exe steam.exe", Paths.Apps["Steam"],, "Steam - News")
+
 #HotIf !WinActive("ahk_group Game")
 
 ;Links
@@ -10,17 +14,14 @@
 
 
 ;Command prompt
-#sc34::press_Hold_Sugar(win_App.Bind("ahk_exe cmd.exe", "cmd.exe"), Run.Bind('*RunAs cmd.exe', "Max"))
-
+#sc34::win_App("ahk_exe cmd.exe", "cmd.exe")
+#^sc34::Run('*RunAs cmd.exe', "Max")
 
 ;Monkeytype
 #n::win_App("Monkeytype ahk_exe chrome.exe", Paths.Apps["Monkeytype"])
 
-;Media apps or steam
-<!r:: {
-   if !win_MinMax("ahk_group Media") 
-      win_App("ahk_exe steam.exe", Paths.Apps["Steam"],, "Steam - News")
-}
+;Media
+<!r::win_MinMax("ahk_group Media")
 
 ;Spotify
 <!s::win_App("ahk_exe Spotify.exe", Paths.Apps["Spotify"])

@@ -7,6 +7,7 @@
 CoordMode "Mouse", "Screen" ;Uses the coordinates of the screen rather than of the window's
 CoordMode "Pixel", "Client" ;Because controlclick also uses client
 SetControlDelay -1 ;Even faster controlclick
+KeyHistory 0
 SetScrollLockState "AlwaysOff"
 SetWorkingDir A_ScriptDir "\..\" ;Ensures a consistent A_WorkingDir.
 A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
@@ -89,6 +90,7 @@ GroupAdd(  "Game", "ahk_exe EtG.exe")
 #F5::Symbol("fearful")
 #F6::Symbol("smiling imp")
 #F7::Symbol("purple heart")
+#F8::Symbol("rolling eyes")
 
 ;MAIN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

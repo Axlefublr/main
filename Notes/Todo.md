@@ -1,29 +1,44 @@
-﻿# Snake
-Snake
+﻿# 
 
-The hotkey to disable it is the same as the one to enact it
+Gui for timer
 
-You can kill the snake by clicking on it a lot
+Numbers as hotkeys for guis, rather than function keys
 
-# 
+# Coordgetter
+
+```
+Screen: x1234 y1234
+Window: x1234 y1234
+Client: x1234 y1234
+Color: 0x12345
+
+CtrlClick
+```
+
+if you click on the word, you copy both with a space
+
+if you click on the x1234/y1234, you copy that exact thing
+
+irrelevant for color
+
+ctrlclick acts like the first query does now
+
+# Snippets 
 
 * Removeat
 * SetTitleMatchMode
 * WinGetList
 * ProcessClose
 
-#^ cmd as admin
-
-Gui for timer
-
-Numbers as hotkeys for guis, rather than function keys
-
-Rolling eyes emoji
-
-Hotkey to power down on win pause
-
 # Player
 * Function lets you write down the amount of time to skip, permenent by file
 * It gets calculated which button to press how many times
 * If not for kmplayer, assumes to send the right arrow to skip 5 seconds
 * Rounds down
+
+# Snake
+Snake
+
+The hotkey to disable it is the same as the one to enact it
+
+You can kill the snake by clicking on it a lot
