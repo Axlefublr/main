@@ -100,7 +100,7 @@
 	try 
 		runner_commands[val].Call()
 	catch any {
-		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|s) (.+)', &result)
+		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|k) (.+)', &result)
 		try {
 			Switch result[1] {
 				Case 'p':ClipSend(Links.Links[result[2]],, False)
@@ -112,7 +112,7 @@
 				Case 'a':spotify_FavRapper_Manual(result[2])
 				Case 'e':Infos(Eval(result[2]))
 				Case 'i':Infos(result[2])
-				Case 's':Skipper(result[2])
+				Case 'k':Skipper(result[2])
 			}
 		}
 	}

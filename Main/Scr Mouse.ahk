@@ -35,9 +35,9 @@ XButton1 & XButton2::Media_Play_Pause
 XButton1 & WheelUp::ifTopLeft_Sugar(Redo, Send.Bind("{Browser_Forward}"))
 XButton1 & WheelDown::ifTopLeft_Sugar(Undo, Send.Bind("{Browser_Back}"))
 
-XButton2 & WheelUp::ifTopLeft_Sugar(Send.Bind("{Volume_Up}"), TransAndProud.Bind(20))
+XButton2 & WheelUp::ifTopLeftRight_Sugar(Send.Bind("{Volume_Up}"), TransAndProud.Bind(20), Send.Bind("{WheelLeft}"))
 
-XButton2 & WheelDown::ifTopLeft_Sugar(Send.Bind("{Volume_Down}"), TransAndProud.Bind(-20))
+XButton2 & WheelDown::ifTopLeftRight_Sugar(Send.Bind("{Volume_Down}"), TransAndProud.Bind(-20), Send.Bind("{WheelRight}"))
 
 XButton1 & LButton::press_Hold_Sugar(Send.Bind("{BackSpace}"), SelectAll)
 XButton1 & RButton::Delete

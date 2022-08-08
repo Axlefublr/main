@@ -356,8 +356,8 @@ vscode_toCommitMessage(changeNotes_rawFile) {
 	changeNotes := RegexReplace(changeNotes_rawFile, "\r?\n\r?\n", "`; ")
 	changeNotes := RegexReplace(changeNotes, "\r?\n", " ") ;we gotta remove all the newlines so we don't accidentally send a bunch of enters to the console
 
-	changeNotes := RegexReplace(changeNotes, '"', "'")
-	changeNotes := RegexReplace(changeNotes, '^\* ')
+	changeNotes := StrReplace(changeNotes, '"', "'")
+	changeNotes := StrReplace(changeNotes, '* ')
 	changeNotes := RegexReplace(changeNotes, '\*{1,2}')
 
 	return changeNotes

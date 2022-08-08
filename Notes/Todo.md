@@ -23,9 +23,13 @@ irrelevant for color
 
 ctrlclick acts like the first query does now
 
+refactor iftopleft and the like
+
 # Snippets 
 
-* ProcessClose
+Organize them in order and add more 
+
+GetKeyState params
 
 # Snake
 Snake
@@ -33,3 +37,4 @@ Snake
 The hotkey to disable it is the same as the one to enact it
 
 You can kill the snake by clicking on it a lot
+

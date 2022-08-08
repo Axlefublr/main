@@ -52,11 +52,22 @@ press_Hold_Sugar(funcObj1, funcObj2, howLong := 0.20) {
 		funcObj2()
 }
 
-ifTopLeft_Sugar(funcObj1, funcObj2, topLeftX := 252, topLeftY := 229) {
+ifTopLeft_Sugar(funcObj1, funcObj2, topLeftX := 250, topLeftY := 230) {
 	MouseGetPos(&sectionX, &sectionY)
 	topLeft := ((sectionX < topLeftX) && (sectionY < topLeftY))
 	if topLeft
 		funcObj2()
 	else
 		funcObj1()
+}
+
+ifTopLeftRight_Sugar(funcObj1, funcObj2, funcObj3, topLeftX := 250, topRightX := 1700, topY := 230) {
+	MouseGetPos(&sectionX, &sectionY)
+	topLeft := ((sectionX < topLeftX) && (sectionY < topY))
+	topRight := ((sectionX > topRightX) && (sectionY < topY))
+	Switch {
+		Case topRight:funcObj3()
+		Case topLeft:funcObj2()
+		Default:funcObj1()
+	}
 }

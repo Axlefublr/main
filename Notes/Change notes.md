@@ -1,5 +1,7 @@
-s in runner lets you skip the amount of seconds you put in
+Using StrReplace instead of RegexReplace for quotes and asterisk space
 
-Added hotkeys to scroll in all directions
+' * ' => ', ' now is back to being '* ' => ''
 
-GetSelectionLength for snippets now uses Infos()
+Now if you scroll in the top right corner, you will scroll sideways (with XButton2)
+
+Added hotkeys for fl studio to scroll sideways, mouse doesn't work
