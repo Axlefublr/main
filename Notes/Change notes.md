@@ -1,1 +1,1 @@
-I'm not using the morse code map in any other place other than converting text into morse code, so it might as well be a static map in MorseCode(), that's now a function
+On that note, I don't use MorseCode() period, might as well not have it
