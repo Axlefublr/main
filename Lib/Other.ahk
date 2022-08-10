@@ -91,18 +91,6 @@ CloseMainApps() {
 	WinClose("ahk_group MainApps")
 }
 
-Symbol(unicodeName, endChar?) {
-	if IsObject(unicodeName) {
-		toSend := ""
-		for key, value in unicodeName 
-			toSend .= Chr(Char.Unicodes[value])
-	}
-	else
-		toSend := Chr(Char.Unicodes[unicodeName])
-
-	Send(toSend (endChar ?? ""))
-}
-
 CloseButForSure() {
 	Switch {
 		Case WinActive("ahk_exe Spotify.exe"):spotify_Close()
