@@ -153,6 +153,8 @@ Class c_Links {
 		"300 chinese finger traps", "https://youtube.com/shorts/AfTKlOBraoM",
 		'beninging',                'https://www.youtube.com/watch?v=y_7GL3IpdaQ',
 		"mike we can't",            'https://www.youtube.com/watch?v=OydatMpUo04&ab_channel=Seedy',
+		'nice',                     'https://www.youtube.com/watch?v=IOBQD41r4Wk&ab_channel=NotVixiosXD',
+		'i hate the floor',         'https://www.youtube.com/watch?v=u1ri5HEN_j8&ab_channel=FunnyOriginalMeme',
 	)
 
 }

@@ -5,19 +5,19 @@
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 XButton1 & Media_Stop:: {
 	Switch {
-		Case Wintitles.youtube_isNotWatchingVid:youtube_Miniscreen()
-		Case Wintitles.youtube_isWatchingVid
-		, WinActive("WatchMoviesHD"):           youtube_Fullscreen()
-		Case WinActive("Messenger ahk_exe chrome.exe"):            vk_Notifications()
-		Case WinActive("ahk_exe Discord.exe"):  discord_Emoji()
+		Case youtube_isNotWatchingVid():youtube_Miniscreen()
+		Case youtube_isWatchingVid()
+		, WinActive("WatchMoviesHD"):youtube_Fullscreen()
+		Case WinActive("Messenger ahk_exe chrome.exe"):vk_Notifications()
+		Case WinActive("ahk_exe Discord.exe"):discord_Emoji()
 	}
 }
 
 XButton2 & Media_Stop:: {
 	Switch {
 		Case WinActive("Channel content - YouTube Studio"):youtube_ToYouTube()
-		Case WinActive("YouTube"):             youtube_ChannelSwitch()
-		Case WinActive("Messenger ahk_exe chrome.exe"):           vk_Voice()
+		Case WinActive("YouTube"):youtube_ChannelSwitch()
+		Case WinActive("Messenger ahk_exe chrome.exe"):vk_Voice()
 		Case WinActive("ahk_exe Telegram.exe"):telegram_Voice()
 		Case WinActive("ahk_exe Discord.exe"): discord_Gif()
 	}
@@ -93,16 +93,15 @@ XButton2:: {
 	, up       := (sectionY < 347)
 	, topRight := ((sectionX > 1707) && (sectionY < 233))
 	Switch {
-		Case topRight:return
 		Case right:
 			Switch {
-				Case Wintitles.youtube_isWatchingVid:youtube_SkipNext()
+				Case youtube_isWatchingVid():youtube_SkipNext()
 				Case WinActive("ahk_exe Spotify"):spotify_SkipNext()
 				Default:Send("{Media_Next}")
 			}
 		Case left:
 			Switch {
-				Case Wintitles.youtube_isWatchingVid:youtube_SkipPrev()
+				Case youtube_isWatchingVid():youtube_SkipPrev()
 				Case WinActive("ahk_exe Spotify"):spotify_SkipPrev()
 				Default:Send("{Media_Prev}")
 			}
@@ -111,7 +110,6 @@ XButton2:: {
 		Case down:                          CloseButForSure()
 		Case up:                            win_Minimize()
 		Case WinActive("ahk_exe Code.exe"): vscode_DeleteLine()
-		Default:                            Send("{Browser_Forward}")
 	}
 }
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -131,14 +129,13 @@ XButton1:: {
 	Switch {
 		Case WinActive("Google Chrome"):
 			Switch {
-				Default:                  Send("{Browser_Back}")
-				Case topRight:            RestoreTab()
-				Case right:               NextTab()
-				Case left:                PrevTab()
-				Case up:                  NewTab()
+				Case topRight:RestoreTab()
+				Case right:   NextTab()
+				Case left:    PrevTab()
+				Case up:      NewTab()
 				Case down
 				&& WinActive("Messenger ahk_exe chrome.exe"):vk_Scroll()
-				Case down:                CloseTab()
+				Case down:    CloseTab()
 			}
 		Case WinActive("ahk_exe Code.exe"):
 			Switch {
@@ -154,7 +151,6 @@ XButton1:: {
 			}
 		Case WinActive("ahk_exe Spotify.exe"):
 			Switch {
-				Default:         Send("{Browser_Back}")
 				Case topRight:   spotify_NewDiscovery()
 				Case bottomRight:spotify_Discovery()
 				Case topLeft:    spotify_Context()

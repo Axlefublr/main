@@ -1,7 +1,3 @@
-CloseApps() now also closes explorer windows
+XButtons while clicked on the center are no longer browser back / forward, RButton & XButton ftw: there's no need to go through a bunch of cases to result in an action so simple
 
-Scrolling while holding the right mouse button scrolls horizontally
-
-XButtons while holding RButton are browser back / forward
-
-Browser back forward on top left scroll removed
+youtube_IsWatchingVid and youtube_IsNotWatchingVid moved from being in a class to being functions

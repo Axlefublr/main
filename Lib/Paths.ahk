@@ -130,20 +130,3 @@ Class c_Paths {
 
 }
 Paths := c_Paths()
-
-Class c_Wintitles {
-
-	youtube_isWatchingVid => (
-		WinActive(" - YouTube ahk_exe chrome.exe") 
-		&& !WinActive("Watch later ahk_exe chrome.exe") 
-		&& !WinActive("Subscriptions ahk_exe chrome.exe")
-	)
-
-	youtube_isNotWatchingVid => (
-		WinActive("Watch later ahk_exe chrome.exe")
-		|| WinActive("Subscriptions ahk_exe chrome.exe")
-		|| (WinActive("YouTube ahk_exe chrome.exe") && !WinActive(" - YouTube"))
-	)
-
-}
-Wintitles := c_Wintitles()

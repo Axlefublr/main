@@ -188,6 +188,19 @@ youtube_ToYouTube() {
 	ControlClick("X1865 Y130")
 	WaitClick(Paths.Ptf["youtube logo"])
 }
+
+youtube_isWatchingVid() {
+	return WinActive(" - YouTube ahk_exe chrome.exe") 
+	&& !WinActive("Watch later ahk_exe chrome.exe") 
+	&& !WinActive("Subscriptions ahk_exe chrome.exe")
+}
+
+youtube_isNotWatchingVid() {
+	return WinActive("Watch later ahk_exe chrome.exe")
+	|| WinActive("Subscriptions ahk_exe chrome.exe")
+	|| (WinActive("YouTube ahk_exe chrome.exe") 
+	&& !WinActive(" - YouTube"))
+}
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
