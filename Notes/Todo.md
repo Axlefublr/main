@@ -6,8 +6,6 @@ Numbers as hotkeys for guis, rather than function keys
 
 # Classes => functions
 
-youtube wintitles through functions
-
 # Coordgetter
 
 ```

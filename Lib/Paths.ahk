@@ -1,34 +1,34 @@
 ﻿;No dependencies
 
-Class c_Paths {
+Class Paths {
 
-	Prog           := "C:\Programming"
-	Main           := "C:\Programming\Main"
-	JSDir          := "C:\Programming\JS"
-	SynHigh        := "C:\Programming\Ahk_v2_Syntax_Highlighting"
-	Backups        := this.Main "\Backups"
-	Docs           := this.Main "\Docs"
-	Music          := this.Main "\Docs\Music"
-	Files          := this.Main "\Files"
-	Images         := this.Main "\Files\Images"
-	Sounds         := this.Main "\Files\Sounds"
-	Notes          := this.Main "\Notes"
-	NotesTemp      := this.Main "\Notes temp"
-	Test           := this.Main "\Test"
-	Tools          := this.Main "\Tools"
+	static Prog           := "C:\Programming"
+	static Main           := "C:\Programming\Main"
+	static JSDir          := "C:\Programming\JS"
+	static SynHigh        := "C:\Programming\Ahk_v2_Syntax_Highlighting"
+	static Backups        := this.Main "\Backups"
+	static Docs           := this.Main "\Docs"
+	static Music          := this.Main "\Docs\Music"
+	static Files          := this.Main "\Files"
+	static Images         := this.Main "\Files\Images"
+	static Sounds         := this.Main "\Files\Sounds"
+	static Notes          := this.Main "\Notes"
+	static NotesTemp      := this.Main "\Notes temp"
+	static Test           := this.Main "\Test"
+	static Tools          := this.Main "\Tools"
 
-	Pictures  := "C:\Files\Pictures"
-	Editing   := this.Pictures "\Editing"
-	Materials := this.Pictures "\Editing\Materials"
-	Content   := this.Pictures "\Content"
-	OnePiece  := this.Pictures "\Content\One Piece"
-	Overlord  := this.Pictures "\Content\Overlord\Overlord 4"
+	static Pictures  := "C:\Files\Pictures"
+	static Editing   := this.Pictures "\Editing"
+	static Materials := this.Pictures "\Editing\Materials"
+	static Content   := this.Pictures "\Content"
+	static OnePiece  := this.Pictures "\Content\One Piece"
+	static Overlord  := this.Pictures "\Content\Overlord\Overlord 4"
 
-	VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
+	static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
 
-	AhkPlusPlus := "C:\Users\" A_UserName "\.vscode\extensions\mark-wiemer.vscode-autohotkey-plus-plus-2.8.4"
+	static AhkPlusPlus := "C:\Users\" A_UserName "\.vscode\extensions\mark-wiemer.vscode-autohotkey-plus-plus-2.8.4"
 
-	Ptf := Map(
+	static Ptf := Map(
 		"Main", this.Main "\Backups\Main.code-workspace",
 
 		"Discovery log", this.Main "\Docs\Music\Discovery log.txt",
@@ -95,10 +95,10 @@ Class c_Paths {
 
 	)
 	
-	LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
-	System32 := "C:\Windows\System32"
+	static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
+	static System32 := "C:\Windows\System32"
 
-   Apps := Map(
+   static Apps := Map(
       "Ahk v1 docs",       A_ProgramFiles "\AutoHotkey\AutoHotkey.chm",
       "Ahk v2 docs",       A_ProgramFiles "\AutoHotkey\v2\AutoHotkey.chm",
       "Ahk compiler",      A_ProgramFiles "\AutoHotkey\Compiler\Ahk2Exe.exe",
@@ -127,6 +127,4 @@ Class c_Paths {
 		"Sound mixer",       this.System32 "\SndVol.exe",
 
    )
-
 }
-Paths := c_Paths()
