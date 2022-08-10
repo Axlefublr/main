@@ -127,7 +127,7 @@ RadNum() {
 GetRandomCommitMessage() {
 	five_random_words := " "
 	Loop 5 
-		five_random_words .= Words.GetRandomWord("english") " "
+		five_random_words .= GetRandomWord("english") " "
 
 	return A_Now five_random_words
 }

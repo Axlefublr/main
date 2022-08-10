@@ -64,9 +64,8 @@ GroupAdd(  "Game", "ahk_exe EtG.exe")
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-:XB0*?:uclanr::Send("{BackSpace 6}" Words.GetRandomWord("english") " ")
-:XB0*?:ilandh::Send("{BackSpace 6}" Words.GetRandomWord("russian") " ")
+:XB0*?:uclanr::Send("{BackSpace 6}" GetRandomWord("english"))
+:XB0*?:ilandh::Send("{BackSpace 6}" GetRandomWord("russian"))
 
 ;Alt + number sends the Unicode for a specific Symbol, making that work anywhere. These hotkeys only work in windows that are messengers
 ;🥺😋🤯😼😎😩🤤👉👈

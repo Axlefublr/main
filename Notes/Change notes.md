@@ -1,1 +1,1 @@
-The paths class no longer has an instance, and instead everything within it is static, so can be used just like it was before
+Words class removed: I only ever need *random* words, meaning I can just have a function with static arrays
