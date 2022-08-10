@@ -1,1 +1,1 @@
-Words class removed: I only ever need *random* words, meaning I can just have a function with static arrays
+I'm not using the morse code map in any other place other than converting text into morse code, so it might as well be a static map in MorseCode(), that's now a function

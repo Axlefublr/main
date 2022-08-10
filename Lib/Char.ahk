@@ -29,7 +29,12 @@ Class c_SpecialCharacters {
 		"long dash",                0x2014,
    )
 
-   Morse := Map(
+}
+Char := c_SpecialCharacters()
+
+MorseCode(toMorse) {
+
+   static Morse := Map(
       "a", ".-  ",
       "b", "-...  ",
       "c", "-.-.  ",
@@ -71,20 +76,16 @@ Class c_SpecialCharacters {
       "9", "--.  "
    )
 
-	MorseCode(toMorse) {
-		text           := StrLower(toMorse)
-		noSpecialText  := RegexReplace(text, "[^\w\d\s]+")
-		noSpecialChars := StrSplit(noSpecialText)
+   text           := StrLower(toMorse)
+   noSpecialText  := RegexReplace(text, "[^\w\d\s]+")
+   noSpecialChars := StrSplit(noSpecialText)
 
-		morseText := ""
-		for key, value in noSpecialChars
-			try morseText .= this.Morse[value]
+   morseText := ""
+   for key, value in noSpecialChars
+      try morseText .= Morse[value]
 
-		return morseText
-	}
-
+   return morseText
 }
-Char := c_SpecialCharacters()
 
 GetRandomWord(language) {
 
