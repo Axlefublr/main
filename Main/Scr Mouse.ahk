@@ -26,18 +26,25 @@ XButton2 & Media_Stop:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RButton::RButton
+
 Media_Stop & XButton1::press_Hold_Sugar(Copy, Cut)
 Media_Stop & XButton2::press_Hold_Sugar(Paste, WinPaste)
 
 XButton2 & XButton1::Escape
 XButton1 & XButton2::Media_Play_Pause
 
-XButton1 & WheelUp::ifTopLeft_Sugar(Redo, Send.Bind("{Browser_Forward}"))
-XButton1 & WheelDown::ifTopLeft_Sugar(Undo, Send.Bind("{Browser_Back}"))
+RButton & WheelUp::WheelLeft
+RButton & WheelDown::WheelRight
 
-XButton2 & WheelUp::ifTopLeftRight_Sugar(Send.Bind("{Volume_Up}"), TransAndProud.Bind(20), Send.Bind("{WheelLeft}"))
+RButton & XButton2::Browser_Forward
+RButton & XButton1::Browser_Back
 
-XButton2 & WheelDown::ifTopLeftRight_Sugar(Send.Bind("{Volume_Down}"), TransAndProud.Bind(-20), Send.Bind("{WheelRight}"))
+XButton1 & WheelUp::Redo()
+XButton1 & WheelDown::Undo()
+
+XButton2 & WheelUp::ifTopLeft_Sugar(Send.Bind("{Volume_Up}"), TransAndProud.Bind(20))
+XButton2 & WheelDown::ifTopLeft_Sugar(Send.Bind("{Volume_Down}"), TransAndProud.Bind(-20))
 
 XButton1 & LButton::press_Hold_Sugar(Send.Bind("{BackSpace}"), SelectAll)
 XButton1 & RButton::Delete
@@ -99,7 +106,7 @@ XButton2:: {
 				Case WinActive("ahk_exe Spotify"):spotify_SkipPrev()
 				Default:Send("{Media_Prev}")
 			}
-		Case down 
+		Case down
 		&& WinActive("ahk_exe Spotify.exe"):spotify_Close()
 		Case down:                          CloseButForSure()
 		Case up:                            win_Minimize()

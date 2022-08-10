@@ -234,6 +234,8 @@ i go to previous change
 
 o go to next change
 
+h go to last edit location
+
 ### ;.
 
 t Start live server

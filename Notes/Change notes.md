@@ -1,1 +1,7 @@
-Apparently waiting for images in telegram channel search was a mistake: too many times have I needed to update the images only to then change them again in the future. If it doesn't wait for anything, it's all good
+CloseApps() now also closes explorer windows
+
+Scrolling while holding the right mouse button scrolls horizontally
+
+XButtons while holding RButton are browser back / forward
+
+Browser back forward on top left scroll removed

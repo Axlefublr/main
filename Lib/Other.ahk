@@ -87,6 +87,7 @@ CloseMainApps() {
 	GroupAdd("MainApps", "Visual Studio Code ahk_exe Code.exe")
 	GroupAdd("MainApps", "ahk_exe Spotify.exe")
 	GroupAdd("MainApps", "ahk_group AutoHotkey_Help")
+	GroupAdd("MainApps", "C:\ ahk_exe explorer.exe")
 	WinClose("ahk_group MainApps")
 }
 
