@@ -4,7 +4,7 @@ Gui for timer
 
 Numbers as hotkeys for guis, rather than function keys
 
-# Classes => functions
+Define the function if it's not defined already, see how much sense Base makes outside of straight hotkeys and being used in other functions, introducing an unnessesary dependency
 
 # Coordgetter
 

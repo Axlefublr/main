@@ -1,4 +1,5 @@
-﻿#Include <Main>
+﻿#Include <Global>
+#Include <Paths>
 
 ;Reloads the script
 scr_Reload() {

@@ -12,7 +12,7 @@ AnimeDownload(which) {
 	path := StrReplace(path, " ", "")
 	path := Paths.%path%
 
-	link := Links.Links[which]
+	link := Linker(which)
 
 	static NextEpisode := 0
 

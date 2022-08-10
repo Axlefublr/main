@@ -103,8 +103,8 @@
 		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|k) (.+)', &result)
 		try {
 			Switch result[1] {
-				Case 'p':ClipSend(Links.Links[result[2]],, False)
-				Case 'o':RunLink(Links.Links[result[2]])
+				Case 'p':ClipSend(Linker(result[2]),, False)
+				Case 'o':RunLink(Linker(result[2]))
 				Case 'g':Googler(result[2])
 				Case 's':SoundPlay(Paths.Sounds '\' result[2] '.mp3')
 				Case 'r':spotify_NewRapper(result[2])

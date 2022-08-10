@@ -511,7 +511,7 @@ git_CommitRepo(changeNote_file, repo_path, andPush := True) {
 	if andPush 
 		program.Push("git push")
 
-	RunSpec(program,, True)
+	RunSpec(program,, andPush)
 	WriteFile(changeNote_file)
 	Out(commitMessage)
 }

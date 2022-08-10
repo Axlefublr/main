@@ -1,30 +1,12 @@
-# All libs
-* App
-* Base
-* Char
-* Eval
-* Global
-* Links
-* Other
-* Paths
-* Press
-* Script
-* Sort
-* StrMan
-* Tools
-* Win
-
 # External libraries
 * Eval
 
 # No dependencies
-## Class
-* Links
 * Paths
-## Classless
 * Base
 * Char
 * Global
+* Links
 * Press
 * Sort
 * Win

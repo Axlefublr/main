@@ -5,12 +5,12 @@
 #HotIf !WinActive("ahk_group Game")
 
 ;Links
-#^n::RunLink(Links.Links["twitch"])
-#m::RunLink(Links.Links["gmail"])
-#^m::RunLink(Links.Links["calendar"])
-#sc28::RunLink(Links.Links["weather"])
-#sc33::RunLink(Links.Links["my github"])
-#^sc33::RunLink(Links.Links["regex"])
+#^n::RunLink(Linker("twitch"))
+#m::RunLink(Linker("gmail"))
+#^m::RunLink(Linker("calendar"))
+#sc28::RunLink(Linker("weather"))
+#sc33::RunLink(Linker("my github"))
+#^sc33::RunLink(Linker("regex"))
 
 
 ;Command prompt

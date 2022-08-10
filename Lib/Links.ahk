@@ -1,8 +1,7 @@
 ﻿;No dependencies
 
-Class c_Links {
-	
-	Links := Map(
+Linker(linkName) {
+	static Links := Map(
 
 		;Main
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,7 +57,7 @@ Class c_Links {
 		"image search tips", "https://github.com/nuj123/AutoHotKey/blob/master/ImageSearchFAQ.md",
 		"dll calls",         "https://docs.microsoft.com/en-us/windows/win32/api/",
 		"ahk wiki",          "https://autohotkey.wiki/",
-		"ahk v1 docs",       "https://www.autohotkey.com/docs/Tutorial.htm", 
+		"ahk v1 docs",       "https://www.autohotkey.com/docs/Tutorial.htm",
 		"ascii codes",       "https://theasciicode.com.ar/",
 
 		;Cool
@@ -82,7 +81,7 @@ Class c_Links {
 		"mvideo",    "https://www.mvideo.ru/",
 		"zakazaka",  "https://zaka-zaka.com/",
 		"barber",    "https://b73723.yclients.com/company/89170/",
-		
+
 		;Github
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"my github",    "https://github.com/Axlefublr",
@@ -93,7 +92,7 @@ Class c_Links {
 		"repo tools",   "https://github.com/Axlefublr/Tools",
 		"repo function objects", "https://github.com/Axlefublr/Function_Objects",
 		"repo static",  "https://github.com/Axlefublr/Static_var_examples",
-		
+
 		;My tutorials
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"my channel",          "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",
@@ -157,6 +156,5 @@ Class c_Links {
 		'i hate the floor',         'https://www.youtube.com/watch?v=u1ri5HEN_j8&ab_channel=FunnyOriginalMeme',
 	)
 
+	return Links[linkName]
 }
-Links := c_Links()
-
