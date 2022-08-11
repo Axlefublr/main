@@ -363,12 +363,29 @@ vscode_WorkSpace(wkspName) {
 vscode_toCommitMessage(changeNotes_rawFile) {
 	if !changeNotes_rawFile
 		return ""
-	changeNotes := RegexReplace(changeNotes_rawFile, "\r?\n\r?\n", "`; ")
-	changeNotes := RegexReplace(changeNotes, "\r?\n", " ") ;we gotta remove all the newlines so we don't accidentally send a bunch of enters to the console
 
-	changeNotes := StrReplace(changeNotes, '"', "'")
-	changeNotes := StrReplace(changeNotes, '* ')
-	changeNotes := RegexReplace(changeNotes, '\*{1,2}')
+	/*
+		Making it easy to work with regex
+		Why I'm not using ^ and $ and instead am using workarounds: I get the text as a string, and even though it has newlines and the like, it's still considered to only have one start of the line
+		I know going step by step is inefficient, but this improves mantainability and stability, since if I take care of things one at a time, I won't be able to miss anything. It's so fast that I can't notice anyway. I'd rather be able to change things more easily
+	*/	
+
+	changeNotes := StrReplace(changeNotes_rawFile, "`t", " ") ;Replacing tabs with spaces
+	changeNotes := StrReplace(changeNotes, "`r`n", "`n") ;Removing the annoying \r (returns), to not have to care about them in the regex
+	changeNotes := RegexReplace(changeNotes, " *\n", "`n") ;Removing all trailing whitespace
+	changeNotes := RegexReplace(changeNotes, " {2,}", " ") ;Only one space instead of potentially many (inline)
+	changeNotes := RegexReplace(changeNotes, "\n{3,}", "`n`n") ;Only two newlines instead of potentially many
+
+	changeNotes := StrReplace(changeNotes, "`n# ", "`n") ;I can use the # character as normal, unless it's at the start and with a space, meaning is a md label
+	changeNotes := RegexReplace(changeNotes, "^# ") ;The first label won't have a newline before it and it is also the beginning of the text, so that's why we can use ^
+	changeNotes := StrReplace(changeNotes, ":`n* ", ": ") ;When a line ends with :, it's a marker for a list
+	changeNotes := StrReplace(changeNotes, "`n* ", ", ") ;All the following items in the list will have commas between them, even if I forget a :, there will just be commas between all of them
+
+	changeNotes := RegexReplace(changeNotes, "(?<![.:])\n\n", ". ") ;Double newlines are connected by a dot
+	changeNotes := StrReplace(changeNotes, "`n`n", " ") ;If I added the dot myself, we just replace those two newlines with a space
+	changeNotes := StrReplace(changeNotes, "`n", " ") ;On the off-chance I missed something, or something broke
+
+	changeNotes := StrReplace(changeNotes, '"', "'") ;double quotes are not allowed in cmd, or rather they will cause trouble
 
 	return changeNotes
 }
@@ -508,8 +525,10 @@ git_CommitRepo(changeNote_file, repo_path, andPush := True) {
 		'git commit -m "' commitMessage '"',
 	]
 
-	if andPush 
+	if andPush {
+		program.Push("pause")
 		program.Push("git push")
+	}
 
 	RunSpec(program,, andPush)
 	WriteFile(changeNote_file)

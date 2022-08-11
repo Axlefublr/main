@@ -1,4 +1,4 @@
-﻿#Include <StrMan>
+﻿#Include <Global>
 #Include <Win>
 
 tool_KeyCodeGetter() {

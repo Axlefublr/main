@@ -10,13 +10,10 @@
 * Press
 * Sort
 * Win
-* Eval
 
-# Sparing dependencies
+# Dependencies
 * StrMan
 * Tools
-
-# Personal libraries, with near unlimited dependencies
 * App
 * Other
 * Script

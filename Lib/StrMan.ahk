@@ -1,5 +1,4 @@
-﻿#Include <Global>
-#Include <Base>
+﻿#Include <Tools>
 
 ;Takes multiline text and turns every line into a key in an array
 str_FormatTableToArray() {
@@ -18,7 +17,9 @@ str_GetSelection_Length() {
 str_GetSelection(keepClip := True) {
 	if keepClip 
 		prevClip := ClipboardAll()
-	Copy()
+	A_Clipboard := ""
+	Send("^c")
+	ClipWait(3, 1)
 	selection := A_Clipboard
 	if keepClip
 		A_Clipboard := prevClip
@@ -28,7 +29,9 @@ str_GetSelection(keepClip := True) {
 str_GetSelection_Cut(keepClip := True) {
 	if keepClip
 		prevClip := ClipboardAll()
-	Copy()
+	A_Clipboard := ""
+	Send("^c")
+	ClipWait(3, 1)
 	, selection := A_Clipboard
 	if keepClip
 		A_Clipboard := prevClip
