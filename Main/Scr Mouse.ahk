@@ -34,6 +34,9 @@ Media_Stop & XButton2::press_Hold_Sugar(Paste, WinPaste)
 XButton2 & XButton1::Escape
 XButton1 & XButton2::Media_Play_Pause
 
+#WheelUp::WheelLeft
+#WheelDown::WheelRight
+
 RButton & WheelUp::WheelLeft
 RButton & WheelDown::WheelRight
 
@@ -160,7 +163,6 @@ XButton1:: {
 			}
 		Case WinActive("ahk_exe Discord.exe") && down: Send("{Esc}")
 		Case WinActive("ahk_exe Telegram.exe") && down:telegram_Scroll()
-		Default:                                       Send("{Browser_Back}")
 	}
 }
 
