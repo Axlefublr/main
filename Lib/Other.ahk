@@ -104,6 +104,13 @@ CloseButForSure() {
 				return
 			win_Activate(closeWindow)
 			Send("{Left}{Enter}")
+		Case WinActive("DaVinci Resolve ahk_exe Resolve.exe"):
+			win_Close()
+			closeWindow := "Message ahk_exe Resolve.exe"
+			if !WinWait(closeWindow,, 60)
+				return
+			win_Activate(closeWindow)
+			Send("{Left 2}{Enter}")
 		Default:win_Close()
 	}
 }

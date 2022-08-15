@@ -109,6 +109,7 @@ Linker(linkName) {
 		"configure docs",      "https://youtu.be/8OymPoyUN70",
 		"static",              "https://youtu.be/HOvItTvVTZA",
 		"clipsend",            "https://youtu.be/dnp1KTu-R2k",
+		"objects",             "https://youtu.be/6W9Ruu5jHaM",
 
 		;Memes
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

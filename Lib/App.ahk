@@ -461,8 +461,6 @@ vscode_VideoUp() {
 		Paths.Ptf["Raw"],
 		Paths.Ptf["Clean"],
 		Paths.Ptf["Description"],
-		Paths.Ptf["1"],
-		Paths.Ptf["2"]
 	]
 	for key, value in files {
 		WriteFile(value)

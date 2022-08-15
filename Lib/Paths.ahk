@@ -122,7 +122,7 @@ Class Paths {
       "VS Code",           this.LocalAppData "\Programs\Microsoft VS Code\Code.exe",
       "Todoist",           this.LocalAppData "\Programs\todoist\Todoist.exe",
       "WPS",               this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
-      "Discord",           this.LocalAppData "\Discord\app-1.0.9005\Discord.exe",
+      "Discord",           this.LocalAppData "\Discord\app-1.0.9006\Discord.exe",
 
 		"Sound mixer",       this.System32 "\SndVol.exe",
 

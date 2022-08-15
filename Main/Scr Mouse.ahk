@@ -26,22 +26,19 @@ XButton2 & Media_Stop:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RButton::RButton
-
 Media_Stop & XButton1::press_Hold_Sugar(Copy, Cut)
 Media_Stop & XButton2::press_Hold_Sugar(Paste, WinPaste)
 
 XButton2 & XButton1::Escape
 XButton1 & XButton2::Media_Play_Pause
 
-#WheelUp::WheelLeft
-#WheelDown::WheelRight
+CapsLock & WheelUp::WheelLeft
+CapsLock & WheelDown::WheelRight
 
-RButton & WheelUp::WheelLeft
-RButton & WheelDown::WheelRight
+CapsLock & XButton2::Browser_Forward
+CapsLock & XButton1::Browser_Back
 
-RButton & XButton2::Browser_Forward
-RButton & XButton1::Browser_Back
+CapsLock & Media_Stop::ScreenSnip()
 
 XButton1 & WheelUp::Redo()
 XButton1 & WheelDown::Undo()

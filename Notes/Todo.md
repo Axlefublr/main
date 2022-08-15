@@ -2,6 +2,8 @@
 
 Numbers as hotkeys for guis, rather than function keys
 
+Get the position more efficiently, with math and shit
+
 # Snippets 
 
 Organize them in order and add more 
