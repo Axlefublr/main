@@ -73,6 +73,7 @@
 		'str len',               () => Infos(StrLen(str_GetSelection())),
 		'radnum',                () => ClipSend(RadNum(), ''),
 		'fs',                    () => tool_FileSearch(),
+		'startup',               () => tool_StartupRun(),
 
 		;WIN
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

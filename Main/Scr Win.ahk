@@ -30,7 +30,7 @@
 <!x::win_App("AutoHotkey v2 Help", Paths.Apps["Ahk v2 docs"])
 
 ;Visual studio code
-<!a::win_App("ahk_exe Code.exe", Paths.Apps["VS Code"])
+<!a::win_App("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
 
 ;Chrome 
 <!c::win_App("Google Chrome ahk_exe chrome.exe", Paths.Apps["Google Chrome"])

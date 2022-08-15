@@ -71,13 +71,13 @@ Media_Stop:: {
 	, bottomRight := ((sectionX > 1673) && (sectionY > 839))
 	Switch {
 		Case topRight:   win_Maximize()
-		Case bottomRight:win_App("Telegram", Paths.Apps["Telegram"])
-		Case right:      win_App("ahk_exe Discord.exe", Paths.Apps["Discord"])
+		Case bottomRight:win_App("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
+		Case right:      win_App("Discord ahk_exe Discord.exe", Paths.Apps["Discord"])
 		Case topLeft:    win_RestoreDown()
 		Case bottomLeft: win_App("AutoHotkey v2 Help", Paths.Apps["Ahk v2 docs"])
-		Case left:       win_App("ahk_exe Code.exe", Paths.Apps["VS Code"])
+		Case left:       win_App("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
 		Case down:       win_App("ahk_exe Spotify.exe", Paths.Apps["Spotify"])
-		Case up:         win_App("Google Chrome", Paths.Apps["Google Chrome"])
+		Case up:         win_App("Google Chrome ahk_exe chrome.exe", Paths.Apps["Google Chrome"])
 		Default:         AltTab()
 	}
 }
