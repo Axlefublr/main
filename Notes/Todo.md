@@ -8,18 +8,6 @@ japanese in runner
 
 The function separations will be handled at the runner's level
 
-## show get asdf
-
-✅ Show_Get() runlinks the link, that gets returned
-
-✅ Safety of getting the show
-
-✅ If the show doesn't have an episode, it will be set to zero (meaning one)
-
-## show run asdf
-
-Wrapper function for show get that tells you if there's something wrong with the link itself and it can't run it
-
 ## show link asdf jkl;
 
 The separation of asdf and jk;l will be in the function itself, StrSplit() by the space
