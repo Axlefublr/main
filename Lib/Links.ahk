@@ -92,7 +92,7 @@ Linker(linkName) {
 		"repo tools",   "https://github.com/Axlefublr/Tools",
 		"repo function objects", "https://github.com/Axlefublr/Function_Objects",
 		"repo static",  "https://github.com/Axlefublr/Static_var_examples",
-
+	
 		;My tutorials
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"my channel",          "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",

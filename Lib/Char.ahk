@@ -56,3 +56,58 @@ GetRandomWord(language) {
 
    return %language%[Random(1, %language%.Length)]
 }
+
+MorseCode(toMorse) {
+
+   static Morse := Map(
+      "a", ".-  ",
+      "b", "-...  ",
+      "c", "-.-.  ",
+      "d", "-..  ",
+      "e", ".  ", 
+      "f", "..-.  ", 
+      "g", "-.  ", 
+      "h", "....  ", 
+      "i", "..  ", 
+      "j", ".--  ", 
+      "k", "-.-  ", 
+      "l", ".-..  ", 
+      "m", "-  ", 
+      "n", "-.  ", 
+      "o", "--  ", 
+      "p", ".-.  ", 
+      "q", "-.-  ", 
+      "r", ".-.  ", 
+      "s", "...  ", 
+      "t", "-  ", 
+      "u", "..-  ", 
+      "v", "...-  ", 
+      "w", ".-  ", 
+      "x", "-..-  ", 
+      "y", "-.-  ", 
+      "z", "-..  ", 
+      " ", "    ", 
+      "`n", "`n",
+      "`t", "`t",
+      "0", "---  ", 
+      "1", ".--  ", 
+      "2", "..--  ", 
+      "3", "...-  ", 
+      "4", "....-  ", 
+      "5", ".....  ", 
+      "6", "-....  ", 
+      "7", "-...  ", 
+      "8", "--..  ", 
+      "9", "--.  "
+   )
+
+   text           := StrLower(toMorse)
+   noSpecialText  := RegexReplace(text, "[^\w\d\s]+")
+   noSpecialChars := StrSplit(noSpecialText)
+
+   morseText := ""
+   for key, value in noSpecialChars
+      try morseText .= Morse[value]
+
+   return morseText
+}
