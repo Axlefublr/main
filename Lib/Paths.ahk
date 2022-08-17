@@ -44,6 +44,7 @@ Class Paths {
 		"selected diary",     this.Main "\Files\Images\selected diary.png",
 
 		"Timer.txt", this.Main "\Files\Innit\Timer.txt",
+		'Shows',     this.Main "\Files\Innit\Shows.jsonc",
 
 		"MethFunc", this.Main "\Lib\MethFunc.ahk",
                   

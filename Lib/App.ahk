@@ -616,6 +616,32 @@ player_SkipOpening() {
 	Send "{F12 8}"
 }
 
+;SHOW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Show_GetLink(whichShow) {
+	shows := Yaml(Paths.Ptf['Shows'])
+	try currShowObj := shows[whichShow]
+	catch any {
+		Info('Show "' whichShow "`" doesn't exist yet!")
+		return ""
+	}
+	try currShow_link := currShowObj['link']
+	catch any {
+		Info('Show "' whichShow "`" doesn't have a link")
+		return
+	}
+	try currShow_episode := currShowObj['episode']
+	catch any {
+		shows[whichShow]['episode'] := 0
+		currShow_episode := 0
+		WriteFile(Paths.Ptf['Shows'], Yaml(shows))
+	}
+	return currShow_link currShow_episode + 1
+}
+
 ;VIDEO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

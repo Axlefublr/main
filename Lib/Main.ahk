@@ -7,5 +7,6 @@
 #Include <Sort>
 #Include <Win>
 #Include <Eval>
+#Include <Json>
 #Include <StrMan>
 #Include <Tools>

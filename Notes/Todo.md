@@ -6,13 +6,27 @@ japanese in runner
 
 # Anime
 
-Anime downloader? No need, since I'm not going to download anime as much anymore
+The function separations will be handled at the runner's level
 
-Json file with show:episode
+## show get asdf
 
-Write down with universal regex "ani"
+✅ Show_Get() runlinks the link, that gets returned
 
-when opening the show, you get the episode part of the link by reading that file
+✅ Safety of getting the show
+
+✅ If the show doesn't have an episode, it will be set to zero (meaning one)
+
+## show run asdf
+
+Wrapper function for show get that tells you if there's something wrong with the link itself and it can't run it
+
+## show link asdf jkl;
+
+The separation of asdf and jk;l will be in the function itself, StrSplit() by the space
+
+## show ep asdf jkl;
+
+Also in the function
 
 # Morse code
 

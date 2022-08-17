@@ -1,9 +1,21 @@
-The regex switch in runner is now a map
+# GetLink general idea:
 
-Can't make it static, because the input is always different
+Show_GetLink() compiles a link by reading the object of the show in the json file
 
-Everything is an arrow function rather than bind because that hides errors, the other way of doing this would be putting a try everywhere, which would be more inefficient than just wrapping everything in a function
+You give it a show name, that show has its key
 
-Instead of having to go through every possible regex until it's true, the time is spent on creating the map instead. 
+The value of that key is an object
 
-With how many entries I already have, this now makes more sense to do
+It has the link property and an episode property
+
+Concatenates the link and the episode (plus one) and returns it
+
+# Features:
+
+Safety on every step
+
+If the key of the show doesn't exist, returns an empty string and says that the show doesn't exist
+
+If the link doesn't exist, says so and returns an empty string
+
+If the episode doesn't exist, sets it to 0 (which becomes 1), updates the json, and continues running
