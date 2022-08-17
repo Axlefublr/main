@@ -98,23 +98,21 @@
 
 	)
 
-	try 
-		runner_commands[val].Call()
+	try runner_commands[val].Call()
 	catch any {
 		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>) (.+)', &result)
-		try {
-			Switch result[1] {
-				Case 'p':ClipSend(Linker(result[2]),, False)
-				Case 'o':RunLink(Linker(result[2]))
-				Case 'g':Googler(result[2])
-				Case 's':SoundPlay(Paths.Sounds '\' result[2] '.mp3')
-				Case 'r':spotify_NewRapper(result[2])
-				Case 't':WriteFile(Paths.Ptf['Timer.txt'], result[2]), Run(Paths.Ptf['Timer.ahk'])
-				Case 'a':spotify_FavRapper_Manual(result[2])
-				Case 'e':Infos(Eval(result[2]))
-				Case 'i':Infos(result[2])
-				Case '>':Skipper(result[2])
-			}
-		}
+		runner_regex := Map(
+			'p', () => ClipSend(Linker(result[2]),, False),
+			'o', () => RunLink(Linker(result[2])),
+			'g', () => Googler(result[2]),
+			's', () => SoundPlay(Paths.Sounds '\' result[2] '.mp3'),
+			'r', () => spotify_NewRapper(result[2]),
+			't', () => (WriteFile(Paths.Ptf['Timer.txt'], result[2]), Run(Paths.Ptf['Timer.ahk'])),
+			'a', () => spotify_FavRapper_Manual(result[2]),
+			'e', () => Infos(Eval(result[2])),
+			'i', () => Infos(result[2]),
+			'>', () => Skipper(result[2]),
+		)
+		try runner_regex[result[1]].Call()
 	}
 }
