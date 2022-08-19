@@ -647,14 +647,17 @@ Show_GetLink(whichShow) {
 }
 
 Show_Run(whichShow) {
-	try RunLink(Show_GetLink(whichShow))
-	catch any
+	try Run(Show_GetLink(whichShow))
+	catch any {
 		Info("There's something wrong with the link itself")
+		return
+	}
+	win_Activate("Google Chrome ahk_exe chrome.exe")
 }
 
 Show_SetLink(show_and_link) {
 	show_and_link := RegexReplace(show_and_link, " {2,}", " ")
-	RegexMatch(show_and_link, "(.*) (https:\/\/[^ ]+)", &show_and_link_match)
+	RegexMatch(show_and_link, "(.+) (https:\/\/[^ ]+)", &show_and_link_match)
 	if !show_and_link_match {
 		Info("You either forgot the link or the show name")
 		return
@@ -668,19 +671,34 @@ Show_SetLink(show_and_link) {
 	try showsJson[show] ;Creating the object for the show, if it doesn't already exist
 	catch any {
 		Infos('New object created for "' show '"')
-		showsJson[show] := {}
+		showsJson[show] := {episode: 0, link: ""}
 	}
 
-	try showsJson[show]["episode"] ;Setting the episode to 0, if the property of episode didn't exist already
-	catch any {
-		Infos("Episode set to 0")
-		showsJson[show].episode := 0
-	}
-
-	showsJson[show].link := link ;We're going to set the link regardless
+	showsJson[show]["link"] := link ;We're going to set the link regardless
 
 	WriteFile(Paths.Ptf['Shows'], Yaml(showsJson))
 	Infos('Set the link for the show "' show '"')
+}
+
+Show_SetEpisode(show_and_episode) {
+	show_and_episode := RegexReplace(show_and_episode, " {2,}", " ")
+	RegexMatch(show_and_episode, "(.+) (\d+)", &show_and_episode_match)
+
+	show := show_and_episode_match[1]
+	episode := show_and_episode_match[2]
+
+	showsJson := Yaml(Paths.Ptf['Shows'])
+
+	try showsJson[show] ;Creating the object for the show, if it doesn't already exist
+	catch any {
+		Infos('New object created for "' show '"')
+		showsJson[show] := {episode: 0, link: ""}
+	}
+
+	showsJson[show]["episode"] := episode
+
+	WriteFile(Paths.Ptf['Shows'], Yaml(showsJson))
+	Infos('Set episode ' episode ' for the show "' show '"')
 }
 
 ;VIDEO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

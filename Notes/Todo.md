@@ -12,22 +12,6 @@ japanese in runner
 
 The function separations will be handled at the runner's level
 
-## show link asdf jkl;
-
-The separation of asdf and jk;l will be in the function itself, StrSplit() by the space
-
-try to just set the link. if it works, also set the episode to 0 later
-
-if it doesn't, create the object with the link in it, and the episode sets later
-
-any whitespace after the second word is ignored
-
-separation using regex
-
-anything+ space https://[^ ]+
-
-same safety now for this
-
 ## show ep asdf jkl;
 
 Also in the function
