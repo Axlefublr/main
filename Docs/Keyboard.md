@@ -252,7 +252,7 @@ n Select language
 
 ## '
 
-^+ Search editor
+^+ 
 
 ^! Replace editor
 
@@ -294,7 +294,7 @@ n Select language
 
 ^+# Focus prev / next cursor
 
-^! Go to prev / next folding range
+^! Go to prev / next folding range; Got to prev / next found result
 
 +! Move editor left / right
 
@@ -349,3 +349,29 @@ n Select language
 ^
 
 !
+
+## Arrows
+
+### Horizontal
+
+^+ Select word
+
+^! Indent
+
++! Un/redo
+
+^ Skip a word
+
+! Skip a camel word; Move selection
+
+### Vertical
+
+^+ Multiple cursors
+
+^! Expand / shrink selection
+
++! Duplicate line
+
+^ Scroll
+
+! Move line

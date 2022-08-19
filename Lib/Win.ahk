@@ -38,7 +38,7 @@ win_Run(winTitle, exePath, runOpt?, winTitleAdditional?) {
 	Run(exePath,, runOpt ?? "Max")
 	WinWait(winTitle,, 120)
 	if winTitleAdditional ?? False {
-		WinWait(winTitleAdditional,, 60)
+		WinWait(winTitleAdditional,, 120)
 		win_Close(winTitleAdditional)
 	}
 	return 1
