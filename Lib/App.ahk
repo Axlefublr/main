@@ -631,7 +631,7 @@ Show_GetLink(whichShow) {
 	try currShow_link := currShowObj['link']
 	catch any {
 		Info('Show "' whichShow "`" doesn't have a link")
-		return
+		return ""
 	}
 	try currShow_episode := currShowObj['episode']
 	catch any {
@@ -646,6 +646,28 @@ Show_Run(whichShow) {
 	try RunLink(Show_GetLink(whichShow))
 	catch any
 		Info("There's something wrong with the link itself")
+}
+
+Show_SetLink(show_and_link) {
+	try show_and_link_array := StrSplit(show_and_link, " ")
+	catch any {
+		Info("You either forgot the link or the show name")
+		return
+	}
+	for key, value in show_and_link_array {
+		if InStr(value, "https://") 
+			link := value
+		else
+			show := value
+	}
+	if !IsSet(link) {
+		Info("You didn't set a link!")
+		return
+	}
+	showsJson := Yaml(Paths.Ptf['Shows'])
+	showsJson[show] := {episode: 0, link: link}
+	WriteFile(Paths.Ptf['Shows'], Yaml(showsJson))
+	Info('Set the link for the show "' show '"')
 }
 
 ;VIDEO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

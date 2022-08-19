@@ -4,13 +4,8 @@
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 XButton1 & Media_Stop:: {
-	Switch {
-		Case youtube_isNotWatchingVid():youtube_Miniscreen()
-		Case youtube_isWatchingVid()
-		, WinActive("WatchMoviesHD"):youtube_Fullscreen()
-		Case WinActive("Messenger ahk_exe chrome.exe"):vk_Notifications()
-		Case WinActive("ahk_exe Discord.exe"):discord_Emoji()
-	}
+	if WinActive("Discord ahk_exe Discord.exe")
+		discord_Emoji()
 }
 
 XButton2 & Media_Stop:: {
@@ -87,29 +82,16 @@ Media_Stop:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 XButton2:: {
 	MouseGetPos &sectionX, &sectionY
-	right      := (sectionX > 1368)
-	, left     := (sectionX < 568)
-	, down     := (sectionY > 747)
-	, up       := (sectionY < 347)
-	, topRight := ((sectionX > 1707) && (sectionY < 233))
+	right  := (sectionX > 1368)
+	, left := (sectionX < 568)
+	, down := (sectionY > 747)
+	, up   := (sectionY < 347)
 	Switch {
-		Case right:
-			Switch {
-				Case youtube_isWatchingVid():youtube_SkipNext()
-				Case WinActive("ahk_exe Spotify"):spotify_SkipNext()
-				Default:Send("{Media_Next}")
-			}
-		Case left:
-			Switch {
-				Case youtube_isWatchingVid():youtube_SkipPrev()
-				Case WinActive("ahk_exe Spotify"):spotify_SkipPrev()
-				Default:Send("{Media_Prev}")
-			}
-		Case down
-		&& WinActive("ahk_exe Spotify.exe"):spotify_Close()
-		Case down:                          CloseButForSure()
-		Case up:                            win_Minimize()
-		Case WinActive("ahk_exe Code.exe"): vscode_DeleteLine()
+		Case right:Send("{Media_Next}")
+		Case left:Send("{Media_Prev}")
+		Case down:CloseButForSure()
+		Case up:win_Minimize()
+		Case WinActive("ahk_exe Code.exe"):vscode_DeleteLine()
 	}
 }
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,21 +111,17 @@ XButton1:: {
 	Switch {
 		Case WinActive("Google Chrome"):
 			Switch {
-				Case topRight:RestoreTab()
 				Case right:   NextTab()
 				Case left:    PrevTab()
-				Case up:      NewTab()
-				Case down
-				&& WinActive("Messenger ahk_exe chrome.exe"):vk_Scroll()
+				Case up:      RestoreTab()
+				Case WinActive("Messenger ahk_exe chrome.exe"):vk_Scroll()
 				Case down:    CloseTab()
 			}
 		Case WinActive("ahk_exe Code.exe"):
 			Switch {
 				Default:         vscode_Comment()
-				Case topRight:   vscode_IndentRight()
 				Case bottomRight:scr_Reload()
 				Case right:      NextTab()
-				Case topLeft:    vscode_IndentLeft()
 				Case bottomLeft: scr_Test()
 				Case left:       PrevTab()
 				Case down:       vscode_CloseTab()
@@ -158,7 +136,6 @@ XButton1:: {
 				Case up:         spotify_Like()
 				Case down:       spotify_Shuffle()
 			}
-		Case WinActive("ahk_exe Discord.exe") && down: Send("{Esc}")
 		Case WinActive("ahk_exe Telegram.exe") && down:telegram_Scroll()
 	}
 }
