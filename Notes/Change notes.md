@@ -1,23 +1,11 @@
-# Show_SetLink():
+Indending is back, because I realize I'm used to it and it isn't much of a performance issue
 
-You give it a string with the show and the link, in any order
+Clicking in the middle of the screen, in any app, with the XButtons are copy and paste
 
-If you only put in one thing, it will say so and stop executing
+Ms & xb in the middle of the screen are cut and winpaste
 
-Then it differentiates what's the show name and what's its link by searching "https://"
+xb & ms moved to ms & xb
 
-If it specifically didn't find a link, will say so and stop executing
+The more specific vs code functions too, like deleting lines, commenting and indenting are on ms & xb
 
-If everything is okay, updates the link property of the show
-
-# 
-
-Deleted mouse fullscreen hotkeys, and miniscreen, now xbutton1 & media_stop only do emojis for discord
-
-No need for a specific spotify close, because it's included in CloseButForSure()
-
-I do still want to have vk scroll, but there's no need to check for down and winactive for it, since down will work regardless if vk isn't active
-
-Indent right and left removed in vs code: I don't do it often enough to not just do it with the keyboard
-
-No need for a discord scroll because escape works by itself, I can just learn to use it
+xb & ms does nothing (returns)

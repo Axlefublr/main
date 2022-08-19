@@ -3,27 +3,47 @@
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-XButton1 & Media_Stop:: {
-	if WinActive("Discord ahk_exe Discord.exe")
-		discord_Emoji()
+Media_Stop & XButton1:: {
+	MouseGetPos &sectionX, &sectionY
+	right         := (sectionX > 1368)
+	, left        := (sectionX < 568)
+	, down        := (sectionY > 747)
+	, up          := (sectionY < 347)
+	, deffault    := !right && !left && !down && !up
+	Switch {
+		Case deffault:Cut()
+		Case WinActive("Visual Studio Code ahk_exe Code.exe"):
+			Switch {
+				Case right:vscode_IndentRight()
+				Case left:vscode_IndentLeft()
+				Case up:vscode_DeleteLine()
+				Case down:vscode_Comment()
+			}
+		Case WinActive("Discord ahk_exe Discord.exe"):discord_Emoji()
+		Case WinActive("YouTube ahk_exe chrome.exe"):youtube_Fullscreen()
+	}
 }
 
-XButton2 & Media_Stop:: {
+Media_Stop & XButton2:: {
+	MouseGetPos &sectionX, &sectionY
+	right         := (sectionX > 1368)
+	, left        := (sectionX < 568)
+	, down        := (sectionY > 747)
+	, up          := (sectionY < 347)
+	, deffault    := !right && !left && !down && !up
 	Switch {
-		Case WinActive("Channel content - YouTube Studio"):youtube_ToYouTube()
+		Case deffault:WinPaste()
+		Case WinActive("YouTube Studio"):youtube_ToYouTube()
 		Case WinActive("YouTube"):youtube_ChannelSwitch()
 		Case WinActive("Messenger ahk_exe chrome.exe"):vk_Voice()
 		Case WinActive("ahk_exe Telegram.exe"):telegram_Voice()
-		Case WinActive("ahk_exe Discord.exe"): discord_Gif()
+		Case WinActive("ahk_exe Discord.exe"):discord_Gif()
 	}
 }
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Media_Stop & XButton1::press_Hold_Sugar(Copy, Cut)
-Media_Stop & XButton2::press_Hold_Sugar(Paste, WinPaste)
-
 XButton2 & XButton1::Escape
 XButton1 & XButton2::Media_Play_Pause
 
@@ -50,6 +70,9 @@ XButton2 & LButton::Enter
 Media_Stop & RButton::Send "!{Pause}"
 Media_Stop & MButton::F5
 Media_Stop & LButton::scr_Reload()
+
+XButton1 & Media_Stop::return
+XButton2 & Media_Stop::return
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,7 +114,7 @@ XButton2:: {
 		Case left:Send("{Media_Prev}")
 		Case down:CloseButForSure()
 		Case up:win_Minimize()
-		Case WinActive("ahk_exe Code.exe"):vscode_DeleteLine()
+		Default:Paste()
 	}
 }
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -108,7 +131,9 @@ XButton1:: {
 	, topLeft     := ((sectionX < 252) && (sectionY < 229))
 	, bottomLeft  := ((sectionX < 263) && (sectionY > 849))
 	, bottomRight := ((sectionX > 1673) && (sectionY > 839))
+	, deffault    := !right && !left && !down && !up
 	Switch {
+		Case deffault:Copy()
 		Case WinActive("Google Chrome"):
 			Switch {
 				Case right:   NextTab()
@@ -119,7 +144,6 @@ XButton1:: {
 			}
 		Case WinActive("ahk_exe Code.exe"):
 			Switch {
-				Default:         vscode_Comment()
 				Case bottomRight:scr_Reload()
 				Case right:      NextTab()
 				Case bottomLeft: scr_Test()

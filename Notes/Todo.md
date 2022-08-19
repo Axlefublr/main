@@ -1,5 +1,7 @@
 ﻿# 
 
+track: get track name to clipboard
+
 if variable direction, do this, return, then another if and so on
 
 Closest weekday to day
