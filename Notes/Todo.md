@@ -8,14 +8,6 @@ Numbers as hotkeys for guis, rather than function keys
 
 japanese in runner
 
-# Anime
-
-The function separations will be handled at the runner's level
-
-## show ep asdf jkl;
-
-Also in the function
-
 # Morse code
 
 make morse code more efficient: for loop of the chars in the map (all of the one character at once rather than switch every following char) 

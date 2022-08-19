@@ -20,7 +20,11 @@ Media_Stop & XButton1:: {
 				Case down:vscode_Comment()
 			}
 		Case WinActive("Discord ahk_exe Discord.exe"):discord_Emoji()
-		Case WinActive("YouTube ahk_exe chrome.exe"):youtube_Fullscreen()
+		Case WinActive("YouTube ahk_exe chrome.exe"):
+			if right
+				youtube_Fullscreen()
+			else if left
+				youtube_Miniscreen()
 	}
 }
 

@@ -51,11 +51,6 @@
 		'snippets',   Run.Bind(Paths.Ptf['Ahk++\ahk snippets']),
 		'eva dark',   Run.Bind(Paths.Ptf['Eva\Dark']),
 
-		;ANIME
-		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		'one piece down', () => AnimeDownload('one piece'),
-		'overlord down',  () => AnimeDownload('overlord'),
-
 		;VIDEO MAKING
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		'clean text', () => vscode_CleanText(),

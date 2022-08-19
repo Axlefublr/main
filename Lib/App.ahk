@@ -670,14 +670,14 @@ Show_SetLink(show_and_link) {
 
 	try showsJson[show] ;Creating the object for the show, if it doesn't already exist
 	catch any {
-		Infos('New object created for "' show '"')
+		Info('New object created for "' show '"')
 		showsJson[show] := {episode: 0, link: ""}
 	}
 
-	showsJson[show]["link"] := link ;We're going to set the link regardless
+	showsJson[show].link := link ;We're going to set the link regardless
 
 	WriteFile(Paths.Ptf['Shows'], Yaml(showsJson))
-	Infos('Set the link for the show "' show '"')
+	Info('Set the link for the show "' show '"')
 }
 
 Show_SetEpisode(show_and_episode) {
@@ -691,14 +691,14 @@ Show_SetEpisode(show_and_episode) {
 
 	try showsJson[show] ;Creating the object for the show, if it doesn't already exist
 	catch any {
-		Infos('New object created for "' show '"')
+		Info('New object created for "' show '"')
 		showsJson[show] := {episode: 0, link: ""}
 	}
 
 	showsJson[show]["episode"] := episode
 
 	WriteFile(Paths.Ptf['Shows'], Yaml(showsJson))
-	Infos('Set episode ' episode ' for the show "' show '"')
+	Info('Set episode ' episode ' for the show "' show '"')
 }
 
 ;VIDEO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

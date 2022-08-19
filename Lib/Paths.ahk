@@ -21,8 +21,6 @@ Class Paths {
 	static Editing   := this.Pictures "\Editing"
 	static Materials := this.Pictures "\Editing\Materials"
 	static Content   := this.Pictures "\Content"
-	static OnePiece  := this.Pictures "\Content\One Piece"
-	static Overlord  := this.Pictures "\Content\Overlord\Overlord 4"
 
 	static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
 

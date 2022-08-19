@@ -6,60 +6,6 @@ Googler(searchRequest) {
 	RunLink("https://www.google.com/search?q=" searchRequest)
 }
 
-AnimeDownload(which) {
-
-	path := StrTitle(which)
-	path := StrReplace(path, " ", "")
-	path := Paths.%path%
-
-	link := Linker(which)
-
-	static NextEpisode := 0
-
-	AllFiles := []
-	Loop Files path "\*.mp4" {
-		RegexMatch(A_LoopFileName, "\d+", &temp)
-		AllFiles.Push(temp[0])
-	}
-
-	if !AllFiles.Length 
-		NextEpisode := 1
-	else {
-		AllFiles := InsertionSort(AllFiles) ;Usually the files are sorted already, but this is just to make sure
-		NextEpisode := AllFiles[-1] + 1
-	}
-
-	RunLink(link NextEpisode)
-
-	PasteAndIncr := (*) => (
-		ClipSend(NextEpisode), 
-		NextEpisode++, 
-		Send("{Enter}")
-	)
-
-	Destruction := (*) => (
-		HotIfWinActive("Save As ahk_exe chrome.exe"),
-		Hotkey("Tab", "Off"),
-		HotIfWinActive("Google Chrome ahk_exe chrome.exe"),
-		Hotkey("Tab", "Off"),
-		HotIfWinActive(),
-		HotIf(),
-		Hotkey("Escape", "Off"),
-		NextEpisode := 0,
-		Info("Anime downloader disabled")
-	)
-		
-
-	HotIfWinActive("Save As ahk_exe chrome.exe")
-	Hotkey("Tab", PasteAndIncr, "On")
-	HotIfWinActive("Google Chrome ahk_exe chrome.exe")
-	Hotkey("Tab", (*) => CloseTab(), "On")
-	HotIfWinActive()
-	HotIf()
-	Hotkey("Escape", Destruction, "On")
-	
-}
-
 MainApps() {
 
 	chrome   := {winTitle: "Google Chrome ahk_exe chrome.exe",    exe: Paths.Apps["Google Chrome"]},

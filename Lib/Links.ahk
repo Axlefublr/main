@@ -65,14 +65,6 @@ Linker(linkName) {
 		"pointer pointer", "https://pointerpointer.com/",
 		"guess this code", "https://guessthiscode.com/",
 
-		;Series
-		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		;stream
-		"bcs", "https://watchmovieshd.ru/series/better-call-saul-82zxv/6-12",
-		;download
-		"one piece", "https://gogoanime.sk/one-piece-episode-",
-		"overlord",  "https://gogoanime.lu/overlord-iv-episode-",
-
 		;Shops
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"перцы",     "https://krasnoyarsk.pizzapertsy.ru/",

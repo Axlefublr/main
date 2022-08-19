@@ -1,12 +1,7 @@
-It should be at least one character, not "any amount" (* changed to +)
+Failed idea with Show_Delete(), because of the limitations of the library I'm using
 
-If a link itself is wrong (or not set), we shouldn't activate chrome with run link, so the steps are done separately 
+I can now both use i and f as mouse hotkeys on youtube, depending where on the screen I pressed the hotkey
 
-Ok so turns out you need to use [] syntax entirely, when you're using the json library
+I'm beyond confused: one place requires point access, another - [] syntax, for pretty much the same situation, so I'm really not sure wtf is up with this
 
-Reasoning: you can't set a property with accessor syntax, it will simply not translate to the json, but you *can* using [] syntax
-
-Now either setting the episode or setting the link, when the object doesn't yet exist, creates both properties with null values
-
-Then either one is set, and since the object is already created, they won't be overwritten
-
+Paths, Links, and Runner entries for shows removed, since now they are handled by the Show_ functions
