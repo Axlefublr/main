@@ -86,6 +86,10 @@ spotify_GetCurrSong() {
 	return currSong
 }
 
+spotify_GetCurrSong_ToClip() {
+	A_Clipboard := spotify_GetCurrSong()
+}
+
 spotify_NewDiscovery() {
 	currSong := spotify_GetCurrSong()
 	if !currSong {
@@ -649,25 +653,34 @@ Show_Run(whichShow) {
 }
 
 Show_SetLink(show_and_link) {
-	try show_and_link_array := StrSplit(show_and_link, " ")
-	catch any {
+	show_and_link := RegexReplace(show_and_link, " {2,}", " ")
+	RegexMatch(show_and_link, "(.*) (https:\/\/[^ ]+)", &show_and_link_match)
+	if !show_and_link_match {
 		Info("You either forgot the link or the show name")
 		return
 	}
-	for key, value in show_and_link_array {
-		if InStr(value, "https://") 
-			link := value
-		else
-			show := value
-	}
-	if !IsSet(link) {
-		Info("You didn't set a link!")
-		return
-	}
+	
+	show := show_and_link_match[1]
+	link := show_and_link_match[2]
+
 	showsJson := Yaml(Paths.Ptf['Shows'])
-	showsJson[show] := {episode: 0, link: link}
+
+	try showsJson[show] ;Creating the object for the show, if it doesn't already exist
+	catch any {
+		Infos('New object created for "' show '"')
+		showsJson[show] := {}
+	}
+
+	try showsJson[show]["episode"] ;Setting the episode to 0, if the property of episode didn't exist already
+	catch any {
+		Infos("Episode set to 0")
+		showsJson[show].episode := 0
+	}
+
+	showsJson[show].link := link ;We're going to set the link regardless
+
 	WriteFile(Paths.Ptf['Shows'], Yaml(showsJson))
-	Info('Set the link for the show "' show '"')
+	Infos('Set the link for the show "' show '"')
 }
 
 ;VIDEO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,9 +1,5 @@
 ﻿# 
 
-track: get track name to clipboard
-
-if variable direction, do this, return, then another if and so on
-
 Closest weekday to day
 
 Day to weekday
@@ -42,30 +38,14 @@ make morse code more efficient: for loop of the chars in the map (all of the one
 
 and implement it back into runner
 
-# Mouse
-
-first get the active window, and go to its switch immidiately
-
-no overly specific mouse actions to make stuff more efficient
-
-Get the position of mouse specific things more efficiently, with math and shit
-
-remove unnessesary mouse hotkeys
-
-simplify / move some of them
-
 # Snippets 
-
-show shown as built in function when it's a method
 
 Organize them in order and add more 
 
-GetKeyState params
-
 # Snake
+
 Snake
 
 The hotkey to disable it is the same as the one to enact it
 
 You can kill the snake by clicking on it a lot
-

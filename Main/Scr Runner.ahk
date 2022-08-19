@@ -67,13 +67,17 @@
 		'remove comments',       () => str_RemoveComments(),
 		'convert to json',       () => str_ConvertToJson(),
 		'main',                  () => vscode_WorkSpace('Main'),
-		'kristi',                () => spotify_SendTrackToKristi(),
 		'ahk++ update',          () => vscode_AhkPlusPlusUpdate(),
 		'js tut',                () => vscode_JsTutorial(),
 		'str len',               () => Infos(StrLen(str_GetSelection())),
 		'radnum',                () => ClipSend(RadNum(), ''),
 		'fs',                    () => tool_FileSearch(),
 		'startup',               () => tool_StartupRun(),
+
+		;MUSIC
+		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		'track',  () => spotify_GetCurrSong_ToClip(),
+		'kristi', () => spotify_SendTrackToKristi(),
 
 		;WIN
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

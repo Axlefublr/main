@@ -521,7 +521,7 @@ Info(text, disappear := True) {
 	}
 
 	if disappear
-		SetTimer(Destruction, -1500)
+		SetTimer(Destruction, -2000)
 
 	g_Info.Show("AutoSize NA x0 y" yCoord)
 	
