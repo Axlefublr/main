@@ -99,7 +99,7 @@
 
 	try runner_commands[val].Call()
 	catch any {
-		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show run|show link|show ep) (.+)', &result)
+		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show run|show link|show ep|counter) (.+)', &result)
 		runner_regex := Map(
 			'p', () => ClipSend(Linker(result[2]),, False),
 			'o', () => RunLink(Linker(result[2])),
@@ -114,6 +114,7 @@
 			'show run', () => Show_Run(result[2]),
 			'show link', () => Show_SetLink(result[2]),
 			'show ep', () => Show_SetEpisode(result[2]),
+			'counter', () => Counter(result[2]),
 		)
 		try runner_regex[result[1]].Call()
 	}

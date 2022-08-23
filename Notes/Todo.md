@@ -1,7 +1,5 @@
 ﻿# 
 
-timer now continuously plays a sound until its window is closed
-
 Counter starting from some number that makes Tab paste it until you press shift tab
 
 Closest weekday to day

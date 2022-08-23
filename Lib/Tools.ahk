@@ -448,7 +448,7 @@ tool_Timer(minutes, shouldExit := False) {
 
 		timeUp.OnEvent("Close", (*) => timeUp.Destroy())
 		HotIfWinActive("ahk_id " guiHwnd)
-		Hotkey("Escape", (*) => timeUp.Destroy())
+		Hotkey("Escape", (*) => timeUp.Destroy(), "On")
 		
 		_Timer() {
 			SoundBeep(800, 200)
