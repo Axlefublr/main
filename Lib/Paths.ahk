@@ -44,6 +44,8 @@ Class Paths {
 		"Timer.txt", this.Main "\Files\Innit\Timer.txt",
 		'Shows',     this.Main "\Files\Innit\Shows.jsonc",
 
+		"vine boom sound effect", this.Main "\Files\Sounds\vine boom.mp3",
+
 		"MethFunc", this.Main "\Lib\MethFunc.ahk",
                   
 		"Keys", this.Main "\Main\Scr Keys.ahk",

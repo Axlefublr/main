@@ -50,6 +50,8 @@ Linker(linkName) {
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"simplilearn", "https://www.simplilearn.com/tutorials/data-structure-tutorial",
 		"leetcode",    "https://leetcode.com/problems/two-sum/",
+		"skill factory", "https://skillfactory.ru/qa-engineer-python-testirovshchik-programmnogo-obespecheniya",
+		"skill box", "https://skillbox.ru/course/profession-test/",
 
 		;Docs
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -147,6 +149,7 @@ Linker(linkName) {
 		"mike we can't",            'https://www.youtube.com/watch?v=OydatMpUo04&ab_channel=Seedy',
 		'nice',                     'https://www.youtube.com/watch?v=IOBQD41r4Wk&ab_channel=NotVixiosXD',
 		'i hate the floor',         'https://www.youtube.com/watch?v=u1ri5HEN_j8&ab_channel=FunnyOriginalMeme',
+		'stripper magician',        'https://www.youtube.com/watch?v=lDRjqI-fBVI&ab_channel=CarolineKonstnar-Archive',
 	)
 
 	return Links[linkName]

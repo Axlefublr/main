@@ -108,7 +108,7 @@
 			'r', () => spotify_NewRapper(result[2]),
 			't', () => (WriteFile(Paths.Ptf['Timer.txt'], result[2]), Run(Paths.Ptf['Timer.ahk'])),
 			'a', () => spotify_FavRapper_Manual(result[2]),
-			'e', () => Infos(Eval(result[2])),
+			'e', () => Infos(Round(Eval(result[2]), 3)),
 			'i', () => Infos(result[2]),
 			'>', () => Skipper(result[2]),
 			'show run', () => Show_Run(result[2]),
