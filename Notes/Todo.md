@@ -1,7 +1,5 @@
 ﻿# 
 
-Counter starting from some number that makes Tab paste it until you press shift tab
-
 Closest weekday to day
 
 Day to weekday

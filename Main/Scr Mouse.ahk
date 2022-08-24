@@ -37,6 +37,8 @@ Media_Stop & XButton2:: {
 	, deffault    := !right && !left && !down && !up
 	Switch {
 		Case deffault:WinPaste()
+		Case up:Send("{Browser_Forward}")
+		Case down:Send("{Browser_Back}")
 		Case WinActive("YouTube Studio"):youtube_ToYouTube()
 		Case WinActive("YouTube"):youtube_ChannelSwitch()
 		Case WinActive("Messenger ahk_exe chrome.exe"):vk_Voice()
@@ -51,16 +53,13 @@ Media_Stop & XButton2:: {
 XButton2 & XButton1::Escape
 XButton1 & XButton2::Media_Play_Pause
 
-CapsLock & WheelUp::WheelLeft
-CapsLock & WheelDown::WheelRight
-
-CapsLock & XButton2::Browser_Forward
-CapsLock & XButton1::Browser_Back
+XButton1 & WheelUp::WheelLeft
+XButton1 & WheelDown::WheelRight
 
 CapsLock & Media_Stop::ScreenSnip()
 
-XButton1 & WheelUp::Redo()
-XButton1 & WheelDown::Undo()
+CapsLock & WheelUp::Redo()
+CapsLock & WheelDown::Undo()
 
 XButton2 & WheelUp::ifTopLeft_Sugar(Send.Bind("{Volume_Up}"), TransAndProud.Bind(20))
 XButton2 & WheelDown::ifTopLeft_Sugar(Send.Bind("{Volume_Down}"), TransAndProud.Bind(-20))

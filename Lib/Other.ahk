@@ -74,7 +74,7 @@ GetRandomCommitMessage() {
 }
 
 Skipper(time) {
-	time := Floor(time / 5)
+	time := Round(Eval(time) / 5)
 	Send("{Right " time "}")
 }
 
@@ -89,7 +89,7 @@ Counter(startingNum, singleKey := "Tab") {
 		Hotkey(singleKey, "Off")
 		Hotkey("+" singleKey, "Off")
 	)
-	
+
 	Hotkey(singleKey, _SendNum, "On")
 	Hotkey("+" singleKey, _DeleteBothHotkeys, "On")
 }

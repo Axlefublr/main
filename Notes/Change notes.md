@@ -1,7 +1,3 @@
-# Counter:
+Mouse horizontal scroll and undo / redo hotkeys are switched modifiers
 
-Specify a starting number and a key
-
-When you press that key, you'll send that number, increasing by 1 every time
-
-Press shift + that key to disable both hotkeys
+Browser back / forward are back on the mouse exclusively, screen coord dependent
