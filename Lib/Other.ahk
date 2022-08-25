@@ -78,18 +78,12 @@ Skipper(time) {
 	Send("{Right " time "}")
 }
 
-Counter(startingNum, singleKey := "Tab") {
-
-	_SendNum(*) {
-		static num := startingNum
-		Send(num++)
-	}
-
-	_DeleteBothHotkeys := (*) => (
-		Hotkey(singleKey, "Off")
-		Hotkey("+" singleKey, "Off")
-	)
-
-	Hotkey(singleKey, _SendNum, "On")
-	Hotkey("+" singleKey, _DeleteBothHotkeys, "On")
+GetWeekDay(day) {
+	static ONE_MONTH := 100000000
+	if StrLen(day) = 1
+		day := "0" day ;We need the leading zero in the YYYYMMDDHH24MISS format if it's a single digit
+	date := A_YYYY A_MM day "112233" ;Everything after the day doesn't matter, since we're getting the weekday, 112233 for easy visibility
+	if A_DD > day 
+		date += ONE_MONTH ;Because I don't need to know what *was* the weekday of a passed day, I'll almost always want to know of the day yet to come
+	Info(FormatTime(date, "dddd"))
 }

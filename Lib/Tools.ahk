@@ -694,3 +694,19 @@ Snake(SquareSide, delay, timeout) {
 	}
 
 }
+
+Counter(startingNum, singleKey := "Tab") {
+
+	_SendNum(*) {
+		static num := startingNum
+		Send(num++)
+	}
+
+	_DeleteBothHotkeys := (*) => (
+		Hotkey(singleKey, "Off")
+		Hotkey("+" singleKey, "Off")
+	)
+
+	Hotkey(singleKey, _SendNum, "On")
+	Hotkey("+" singleKey, _DeleteBothHotkeys, "On")
+}

@@ -99,7 +99,7 @@
 
 	try runner_commands[val].Call()
 	catch any {
-		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show|link|ep|counter) (.+)', &result)
+		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show|link|ep|counter|wd) (.+)', &result)
 		runner_regex := Map(
 			'p', () => ClipSend(Linker(result[2]),, False),
 			'o', () => RunLink(Linker(result[2])),
@@ -115,6 +115,7 @@
 			'link', () => Show_SetLink(result[2]),
 			'ep', () => Show_SetEpisode(result[2]),
 			'counter', () => Counter(result[2]),
+			'wd', () => GetWeekDay(result[2]),
 		)
 		try runner_regex[result[1]].Call()
 	}

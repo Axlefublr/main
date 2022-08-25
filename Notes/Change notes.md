@@ -1,3 +1,5 @@
-Mouse horizontal scroll and undo / redo hotkeys are switched modifiers
+wd in runner calls GetWeekDay()
 
-Browser back / forward are back on the mouse exclusively, screen coord dependent
+GetWeekDay() returns the weekday of the date passed and shows it in an Info()
+
+If you specify a day lower than today's date, you'll be searching for the weekday of that day of the following month

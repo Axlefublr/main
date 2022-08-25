@@ -8,7 +8,7 @@ k — FL Studio
 
 ' — Weather
 
-b — 
+b —
 
 n — Monkeytype
 
@@ -18,19 +18,19 @@ m — Gmail
 
 . — CMD
 
-/ — 
+/ —
 
 # Windows ctrl
 
-h — 
+h —
 
-j — 
+j —
 
-k — 
+k —
 
-' — 
+' —
 
-b — 
+b —
 
 n — Twitch
 
@@ -38,9 +38,9 @@ m — Calendar
 
 , — Regex
 
-. — 
+. —
 
-/ — 
+/ —
 
 # Vs code
 
@@ -218,7 +218,7 @@ p Pin active tab
 
 [ Join editor groups
 
-] Duplicate editors right 
+] Duplicate editors right
 
 j Add another keybinding
 
@@ -252,11 +252,11 @@ n Select language
 
 ## '
 
-^+ 
+^+
 
 ^! Replace editor
 
-+! Show view 
++! Show view
 
 ^ Show opened editors
 
@@ -270,7 +270,7 @@ n Select language
 
 +! New file
 
-^ New file create
+^
 
 ! New untitled file
 
@@ -306,13 +306,13 @@ n Select language
 
 ^+
 
-^! 
+^!
 
 +!
 
 ^
 
-! 
+!
 
 ## 8
 
@@ -328,7 +328,7 @@ n Select language
 
 ## 9
 
-^+ 
+^+
 
 ^! Stop debugging
 
@@ -342,7 +342,7 @@ n Select language
 
 ^+ ---
 
-^! 
+^!
 
 +! Timeline
 
