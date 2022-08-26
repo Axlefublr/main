@@ -38,6 +38,7 @@
 		'shell menu view', Run.Bind(Paths.Apps['Shell Menu View']),
 		'symlink',         Run.Bind(Paths.Ptf['Symlink creator']),
 		'sm',              Run.Bind(Paths.Apps['Sound mixer']),
+		'slack',           () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps['Slack']),
 
 		;FOLDERS
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,6 +79,7 @@
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		'apps',       () => MainApps(),
 		'close apps', () => CloseMainApps(),
+		'rel',        () => scr_Reload(),
 
 		;GITHUB
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,7 +101,7 @@
 
 	try runner_commands[val].Call()
 	catch any {
-		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show|link|ep|counter|wd) (.+)', &result)
+		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show|link|ep|counter|wd|dw) (.+)', &result)
 		runner_regex := Map(
 			'p', () => ClipSend(Linker(result[2]),, False),
 			'o', () => RunLink(Linker(result[2])),
@@ -115,7 +117,8 @@
 			'link', () => Show_SetLink(result[2]),
 			'ep', () => Show_SetEpisode(result[2]),
 			'counter', () => Counter(result[2]),
-			'wd', () => GetWeekDay(result[2]),
+			'dw', () => GetWeekDay(result[2]),
+			'wd', () => GetDayFromWeekDay(result[2]),
 		)
 		try runner_regex[result[1]].Call()
 	}

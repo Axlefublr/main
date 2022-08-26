@@ -87,3 +87,21 @@ GetWeekDay(day) {
 		date += ONE_MONTH ;Because I don't need to know what *was* the weekday of a passed day, I'll almost always want to know of the day yet to come
 	Info(FormatTime(date, "dddd"))
 }
+
+;Shows the day for the next weekday you input
+GetDayFromWeekDay(weekDay) {
+	date := A_Now
+	i := 0
+	Loop {
+		i++
+		date := DateAdd(date, 1, "Day")
+		if i > 7 {
+			Info("No such weekday!")
+			return
+		}
+		if FormatTime(date, "dddd") = weekDay 
+		|| FormatTime(date, "ddd") = weekDay
+			break
+	} 
+	Info(FormatTime(date, "d"))
+}
