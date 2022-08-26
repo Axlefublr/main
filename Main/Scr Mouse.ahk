@@ -10,6 +10,7 @@ Media_Stop & XButton1:: {
 	, down        := (sectionY > 747)
 	, up          := (sectionY < 347)
 	, deffault    := !right && !left && !down && !up
+	, fullScreenable := WinActive("YouTube ahk_exe chrome.exe") || WinActive("Skillfactory")
 	Switch {
 		Case deffault:Cut()
 		Case WinActive("Visual Studio Code ahk_exe Code.exe"):
@@ -20,7 +21,7 @@ Media_Stop & XButton1:: {
 				Case down:vscode_Comment()
 			}
 		Case WinActive("Discord ahk_exe Discord.exe"):discord_Emoji()
-		Case WinActive("YouTube ahk_exe chrome.exe"):
+		Case fullScreenable:
 			if right
 				youtube_Fullscreen()
 			else if left

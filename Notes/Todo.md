@@ -2,10 +2,6 @@
 
 Closest weekday to day
 
-Day to weekday
-
-Numbers as hotkeys for guis, rather than function keys
-
 japanese in runner
 
 # Morse code

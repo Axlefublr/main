@@ -50,8 +50,7 @@ Linker(linkName) {
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		"simplilearn", "https://www.simplilearn.com/tutorials/data-structure-tutorial",
 		"leetcode",    "https://leetcode.com/problems/two-sum/",
-		"skill factory", "https://skillfactory.ru/qa-engineer-python-testirovshchik-programmnogo-obespecheniya",
-		"skill box", "https://skillbox.ru/course/profession-test/",
+		"skill factory", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+QAP-3.0+2021/course/",
 
 		;Docs
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,6 +60,7 @@ Linker(linkName) {
 		"ahk wiki",          "https://autohotkey.wiki/",
 		"ahk v1 docs",       "https://www.autohotkey.com/docs/Tutorial.htm",
 		"ascii codes",       "https://theasciicode.com.ar/",
+		"glossary",          "https://glossary.istqb.org/en/search/",
 
 		;Cool
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

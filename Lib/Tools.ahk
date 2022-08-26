@@ -32,9 +32,9 @@ tool_KeyCodeGetter() {
 		if !used
 			return
 			
-		Hotkey("F1", "Off")
-		Hotkey("F2", "Off")
-		Hotkey("F3", "Off")
+		Hotkey("1", "Off")
+		Hotkey("2", "Off")
+		Hotkey("3", "Off")
 		used := False
 	}
 	
@@ -59,9 +59,9 @@ tool_KeyCodeGetter() {
 		g_values_VK.Text := key_VK
 		
 		HotIfWinActive("ahk_id " values_hwnd) ;If a hotkey to call this function is under a #HotIf, the hotkeys created in this functions will be affected by that. So, we have to specify that they should have no condition.
-		Hotkey("F1", toClip.Bind(g_values_name.text), "On")      
-		Hotkey("F2", toClip.Bind(g_values_SC.text),   "On")
-		Hotkey("F3", toClip.Bind(g_values_VK.text),   "On")      
+		Hotkey("1", toClip.Bind(g_values_name.text), "On")      
+		Hotkey("2", toClip.Bind(g_values_SC.text),   "On")
+		Hotkey("3", toClip.Bind(g_values_VK.text),   "On")      
 		
 		g_values_name.OnEvent("Click", toClip.Bind(g_values_name.text))
 		g_values_SC.OnEvent("Click",   toClip.Bind(g_values_SC.text))
@@ -113,8 +113,8 @@ tool_RelativeCoordGetter() {
 	Destruction := (*) => (
 		HotIfWinActive("ahk_id " g_relative_hwnd),
 		Hotkey("Escape", "Off"),
-		Hotkey("F1", "Off"),
-		Hotkey("F2", "Off"),
+		Hotkey("1", "Off"),
+		Hotkey("2", "Off"),
 		g_relative.Destroy()
 	)
 
@@ -128,8 +128,8 @@ tool_RelativeCoordGetter() {
 	}
 
 	HotIfWinActive("ahk_id " g_relative_hwnd)
-	Hotkey("F1", toClip.Bind(relPosX), "On")
-	Hotkey("F2", toClip.Bind(relPosY), "On")
+	Hotkey("1", toClip.Bind(relPosX), "On")
+	Hotkey("2", toClip.Bind(relPosY), "On")
 	Hotkey("Escape", Destruction, "On")
 
 	g_relative_textX.OnEvent("Click", toClip.Bind(relPosX))
@@ -384,11 +384,11 @@ tool_WindowGetter() {
 	;Destroys the gui as well as every previously created hotkeys
 	FlushHotkeys := (*) => (
 		HotIfWinActive("ahk_id " WinGet_hwnd),
-		Hotkey("F1", "Off"),
-		Hotkey("F2", "Off"),
-		Hotkey("F3", "Off"),
-		Hotkey("F4", "Off"),
-		Hotkey("F5", "Off"),
+		Hotkey("1", "Off"),
+		Hotkey("2", "Off"),
+		Hotkey("3", "Off"),
+		Hotkey("4", "Off"),
+		Hotkey("5", "Off"),
 		Hotkey("Escape", "Off"),
 		g_WinGet.Destroy()
 	)
@@ -407,11 +407,11 @@ tool_WindowGetter() {
 	ToClip_PID   := ToClip.Bind(winPID) 
 
 	HotIfWinActive("ahk_id " WinGet_hwnd)
-	Hotkey("F1", ToClip_Title, "On")
-	Hotkey("F2", ToClip_path,  "On")
-	Hotkey("F3", ToClip_Exe,   "On")
-	Hotkey("F4", ToClip_ID,    "On")
-	Hotkey("F5", ToClip_PID,   "On")
+	Hotkey("1", ToClip_Title, "On")
+	Hotkey("2", ToClip_path,  "On")
+	Hotkey("3", ToClip_Exe,   "On")
+	Hotkey("4", ToClip_ID,    "On")
+	Hotkey("5", ToClip_PID,   "On")
 
 	Hotkey("Escape", FlushHotkeys, "On")
 
