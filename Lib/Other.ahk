@@ -88,7 +88,7 @@ GetWeekDay(day) {
 	Info(FormatTime(date, "dddd"))
 }
 
-;Shows the day for the next weekday you input
+;Pass a weekday (string) to get its date (string). Shows the day with no month in an Info(). Both Mon and Monday work. If you input a non-existant weekday, will stop executing after checking the next 7 days, and will say there's an error in an Info()
 GetDayFromWeekDay(weekDay) {
 	date := A_Now
 	i := 0

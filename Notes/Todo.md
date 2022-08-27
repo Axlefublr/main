@@ -1,6 +1,6 @@
 ﻿# 
 
-Closest weekday to day
+fullscreen for anime
 
 japanese in runner
 

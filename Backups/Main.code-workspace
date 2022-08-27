@@ -7,12 +7,12 @@
 			"path": "..\\..\\Ahk_v2_Syntax_Highlighting"
 		},
 		{
-			"path": "..\\..\\Course"
+			"path": "..\\..\\QA_Course"
 		}
 	],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "JS",
-		"typewriterAutoScroll.enable": false
+		"typewriterAutoScroll.enable": true
 	},
 	"launch": {
 		"version": "0.2.0",

@@ -46,9 +46,9 @@ m — Calendar
 
 ## Y
 
-^+ Save workspace
+^+
 
-^! Open workspace
+^!
 
 +! Reload window
 
@@ -60,9 +60,9 @@ m — Calendar
 
 ^+ Push
 
-^!
+^! Stage all changes (`git add .`)
 
-+! Commit
++! Replace editor
 
 ^
 
@@ -82,13 +82,11 @@ m — Calendar
 
 ## O
 
-^+ Toggle terminal
+^+ New terminal
 
 ^! Delete terminal
 
 +! Run code
-
-#^+ Run selection
 
 ^ Jump with selection
 
@@ -108,37 +106,35 @@ m — Calendar
 
 ## [
 
-^+ Copy name
+^+
 
-^! Move
+^!
 
-+! +! Delete
++!
 
-^ Rename
+^ Go to previous change
 
 !
 
 ## ]
 
-^+ Settings
+^+ ^+ Settings
 
-^! Layout
+^+ . settings.json
+
+^! Editor tokens
 
 +! Keybindings
 
-^ Editor tokens
+^ Go to next change
 
 !
 
 ## \
 
-^+ ^+ Add folder to workspace
+^+
 
-^+ . Open folder
-
-^! ^! Remove folder from workspace
-
-^! . Open file
+^!
 
 +!
 
@@ -156,13 +152,7 @@ m — Calendar
 
 ! Replace
 
-### H^
-
-\d Fold level \d
-
-h Create manual folding range
-
-j Remove manual folding ranges
+^ Go to last edit location
 
 ## J
 
@@ -178,9 +168,9 @@ j Remove manual folding ranges
 
 ## K
 
-^+ Copy full path
+^+
 
-^! Copy relative path
+^!
 
 +! Get key code
 
@@ -216,10 +206,6 @@ j Remove manual folding ranges
 
 p Pin active tab
 
-[ Join editor groups
-
-] Duplicate editors right
-
 j Add another keybinding
 
 k Change "when"
@@ -230,31 +216,11 @@ l Search by keybind
 
 ' Go to keybinds
 
-i go to previous change
-
-o go to next change
-
-h go to last edit location
-
-### ;.
-
-t Start live server
-
-y End live server
-
-b Indent using tabs
-
-s Select end of line sequence
-
-e Select encoding
-
-n Select language
-
 ## '
 
 ^+
 
-^! Replace editor
+^!
 
 +! Show view
 
@@ -268,7 +234,7 @@ n Select language
 
 ^! New file in root
 
-+! New file
++!
 
 ^
 
@@ -281,8 +247,6 @@ n Select language
 ^! Move editor into prev / next group
 
 +! Activate prev / next group
-
-^# Go to first / last editor
 
 ^ Go to prev / next editor
 
@@ -302,18 +266,6 @@ n Select language
 
 ! Delete to the left / right of cursor
 
-## 7
-
-^+
-
-^!
-
-+!
-
-^
-
-!
-
 ## 8
 
 ^+ Case sensitive
@@ -321,30 +273,6 @@ n Select language
 ^! Search whole word
 
 +! Regex
-
-^
-
-!
-
-## 9
-
-^+
-
-^! Stop debugging
-
-+!
-
-^
-
-!
-
-## 0
-
-^+ ---
-
-^!
-
-+! Timeline
 
 ^
 

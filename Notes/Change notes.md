@@ -1,11 +1,3 @@
-Slack runner command added
+Better comment for GetDayFromWeekDay(): it's probably a good idea to make more descriptive comments for the explanation of the function, black boxing it
 
-# GetDayFromWeekDay():
-
-Doesn't continue after checking the next week, if your weekday doesn't exist
-
-You'll get an Info() saying "No such weekday!" in that case
-
-Shows the date of the *next* weekday, so if it's friday today and you specify friday, you'll get 2, and not 26
-
-Both Monday and Mon work (full / shortened versions)
+Removed many hotkeys, because I spend more time remembering which hotkey it is than I would have the comfort of just typing it out

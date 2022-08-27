@@ -86,6 +86,7 @@ Linker(linkName) {
 		"repo tools",   "https://github.com/Axlefublr/Tools",
 		"repo function objects", "https://github.com/Axlefublr/Function_Objects",
 		"repo static",  "https://github.com/Axlefublr/Static_var_examples",
+		"repo qa course", "https://github.com/Axlefublr/QA_Course",
 	
 		;My tutorials
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
