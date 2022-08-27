@@ -10,9 +10,7 @@ A_ThisHotkey_Formatted() {
 
 ;For the sugar variants, funcObj1 is for a short one click, funcObj2 is for when you held / double pressed it, whatever else
 
-press_Twice(howLong := 200) {
-	return (A_PriorHotkey = A_ThisHotkey) && (A_TimeSincePriorHotkey <= howLong)
-}
+press_Twice(howLong := 200) => (A_PriorHotkey = A_ThisHotkey) && (A_TimeSincePriorHotkey <= howLong)
 
 press_Twice_Sugar(funcObj1, funcObj2, howLong := 200) {
 	if (A_PriorHotkey = A_ThisHotkey) && (A_TimeSincePriorHotkey <= howLong)
@@ -41,9 +39,7 @@ press_Double_Sugar(funcObj1, funcObj2, howLong := "0.1") {
 		funcObj1()
 }
 
-press_Hold(howLong := 0.20) {
-	return !KeyWait(A_ThisHotkey_Formatted(), "U T" howLong)
-} 
+press_Hold(howLong := 0.20) => !KeyWait(A_ThisHotkey_Formatted(), "U T" howLong)
 
 press_Hold_Sugar(funcObj1, funcObj2, howLong := 0.20) {
 	if KeyWait(A_ThisHotkey_Formatted(), "U T" howLong)
