@@ -31,7 +31,7 @@ spotify_LikedPlaylist := Send.Bind("+!s")
 spotify_Close := Send.Bind("^+q")
 
 spotify_Discovery() {
-	static isStarted := False
+	static isStarted := false
 	static var := 0
 
 	if isStarted {
@@ -54,7 +54,7 @@ spotify_Discovery() {
 		Hotkey("Escape", "Off")
 		g_added.Destroy()
 		var := 0
-		isStarted := False
+		isStarted := false
 	}
 
 	static g_added
@@ -71,13 +71,13 @@ spotify_Discovery() {
 	g_added_text.OnEvent("Click", (*) => var := g_added_text.Text := g_added_text.Text - 1)	;We update the number we *see* with the one just lower than it, and also update the amount of tracks until destruction (var)
 	g_added_text.OnEvent("DoubleClick", Destruction.Bind())
 
-	isStarted := True
+	isStarted := true
 }
 
 spotify_GetCurrSong() {
 	currSong := WinGetTitle("ahk_exe Spotify.exe")
 	if currSong = "Spotify Free"
-		return False
+		return false
 	return currSong
 }
 
@@ -266,7 +266,7 @@ vscode_CursorBack := Send.Bind("!{PgUp}")
 
 vscode_CursorForward := Send.Bind("!{PgDn}")
 
-vscode_GetCurrentFileFullPath(keepClip := True) {
+vscode_GetCurrentFileFullPath(keepClip := true) {
 	if keepClip
 		prevClip := ClipboardAll()
 	A_Clipboard := ""
@@ -414,7 +414,7 @@ vscode_JsTutorial() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-git_CommitRepo(changeNote_file, repo_path, andPush := True) {
+git_CommitRepo(changeNote_file, repo_path, andPush := true) {
 
 	commitMessage := vscode_toCommitMessage(ReadFile(changeNote_file))
 
@@ -437,7 +437,7 @@ git_CommitRepo(changeNote_file, repo_path, andPush := True) {
 git_Link() {
 	static programming_path := Paths.Prog
 
-	shouldContinue := False
+	shouldContinue := false
 
 	g_selectType := Gui()
 	g_selectType.BackColor := "171717"
@@ -458,7 +458,7 @@ git_Link() {
 	static selection_type := "File"
 	SelectType := (type_to_select, *) => (
 			selection_type := type_to_select,
-			shouldContinue := True,
+			shouldContinue := true,
 			Destruction()
 		)
 

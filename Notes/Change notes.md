@@ -1,1 +1,3 @@
-Press.ahk
+True => true; False => false
+
+StrMan.ahk

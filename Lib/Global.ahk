@@ -12,7 +12,7 @@ ClickThenGoBack_Event(coordinates) {
 }
 
 ;A faster send. Sending stuff can take too long, but if you copy and paste it, it's much faster. Retains your clipboard as well
-ClipSend(toSend, endChar := " ", isClipReverted := True, untilRevert := 100) {
+ClipSend(toSend, endChar := " ", isClipReverted := true, untilRevert := 100) {
 	/*
 		Because there's no way to know whether an application has received the input we sent it with ^v
 		We revert the clipboard after a certain time (untilRevert)
@@ -126,7 +126,7 @@ ToolStay(text, winTitle?, x := 0, y := 0) {
 
 RunWith(with, runFile) => Run(with ' "' runFile '"')
 
-RunSpec(commands, AsAdmin := False, seeCmd := False) {
+RunSpec(commands, AsAdmin := false, seeCmd := false) {
 
 	commands_converted := IsObject(commands) ? "" : commands
 	AsAdmin := AsAdmin ? "*RunAs " : ""
@@ -148,10 +148,10 @@ RunSpec(commands, AsAdmin := False, seeCmd := False) {
 }
 
 WriteFile(whichFile, text := "") => (
-	fileObj := FileOpen(whichFile, "w"),
-	fileObj.Write(text),
-	fileObj.Close()
-)
+		fileObj := FileOpen(whichFile, "w"),
+		fileObj.Write(text),
+		fileObj.Close()
+	)
 
 AppendFile(whichFile, text) {
 	if FileExist(whichFile)
@@ -172,9 +172,9 @@ ReadFile(whichFile) {
 }
 
 ControlClick_Here(winTitle := "A", whichButton := "L") => (
-	MouseGetPos(&locX, &locY),
-	ControlClick("X" locX " Y" locY, winTitle, , whichButton)
-)
+		MouseGetPos(&locX, &locY),
+		ControlClick("X" locX " Y" locY, winTitle, , whichButton)
+	)
 
 WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
 	MouseGetPos(&locX, &locY)
@@ -184,14 +184,14 @@ WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
 
 	for key, value in r_RelPos {
 		if !RegexMatch(value, "(-?\d+),? (-?\d+)", &init_coords)
-			return False
+			return false
 		initPix.Push(PixelGetColor(locX + init_coords[1], locY + init_coords[2]))
 	}
 
 	Loop {
 		for key, value in r_RelPos {
 			if !RegexMatch(value, "(-?\d*),? (-?\d*)", &end_coords)
-				return False
+				return false
 			endPix.Push(PixelGetColor(locX + end_coords[1], locY + end_coords[2]))
 		}
 		for key, value in initPix {
@@ -200,9 +200,9 @@ WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
 		}
 		endPix := []
 		if A_TickCount - time > timeout * 1000
-			return False
+			return false
 	}
-	return True
+	return true
 }
 
 SystemReboot := Shutdown.Bind(2)
@@ -218,7 +218,7 @@ RegexInFile(filePath, regex) {
 	if !IsObject(regex) {
 		if !RegexMatch(fileText, regex, &match) {
 			TrayTip(regex " not found in " filePath)
-			return False
+			return false
 		}
 		return match
 	}

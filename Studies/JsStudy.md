@@ -354,7 +354,7 @@ To make a label specifically _for_ the checkbox, you specify that with a `for` k
 
 # Switch
 
-You actually _can_ just evaluate conditions, but since you still have to give an expression to compare to in a switch, you can just pass `True`
+You actually _can_ just evaluate conditions, but since you still have to give an expression to compare to in a switch, you can just pass `true`
 
 # While loops
 
@@ -422,7 +422,7 @@ number.toLocaleString(locale, { options });
 ```
 
 ```js
-nummie = nummie.toLocaleString("en_US", {style: "currency", currency: "USD"})
+nummie = nummie.toLocaleString("en_US", { style: "currency", currency: "USD" });
 ```
 
 You can style currency to whatever it is

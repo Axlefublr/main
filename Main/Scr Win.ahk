@@ -1,6 +1,6 @@
 #HotIf !WinExist("ahk_group Game")
 ;Steam
-<!g::win_App("ahk_exe steam.exe", Paths.Apps["Steam"],, "Steam - News")
+<!g::win_App("ahk_exe steam.exe", Paths.Apps["Steam"], , "Steam - News")
 
 #HotIf !WinActive("ahk_group Game")
 
@@ -11,7 +11,6 @@
 #sc28::RunLink(Linker("weather"))
 #sc33::RunLink(Linker("my github"))
 #^sc33::RunLink(Linker("regex"))
-
 
 ;Command prompt
 #sc34::win_App("ahk_exe cmd.exe", "cmd.exe")
@@ -32,7 +31,7 @@
 ;Visual studio code
 <!a::win_App("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
 
-;Chrome 
+;Chrome
 <!c::win_App("Google Chrome ahk_exe chrome.exe", Paths.Apps["Google Chrome"])
 
 ;Discord
@@ -41,9 +40,8 @@
 ;Telegram
 <!t::win_App("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
 
-
-;Gimp 
-#h::win_App("Thumbnail preset.xcf-1.0", Paths.Ptf["Thumbnail preset"],, "About GIMP ahk_exe gimp-2.10.exe")
+;Gimp
+#h::win_App("Thumbnail preset.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe")
 
 ;Video editor
 #j:: {
@@ -55,16 +53,14 @@
 ;Fl Studio
 #k::win_App("ahk_exe FL64.exe", Paths.Ptf["FL preset"])
 
-
-#MaxThreadsBuffer True
+#MaxThreadsBuffer true
 ;Explorer
 <!d:: {
 	if press_Hold() {
 		Run("explorer.exe C:\")
 		WinWait("C:\ ahk_exe explorer.exe")
 		win_Activate("C:\ ahk_exe explorer.exe")
-	}
-	else
+	} else
 		win_App_Folders("C:\", "Min")
 }
 
@@ -76,7 +72,7 @@
 
 ;Editing
 <!b::win_App_Folders(Paths.Editing, "Min")
-#MaxThreadsBuffer False
+#MaxThreadsBuffer false
 
 ;A bunch of apps I want to be able to activate easily
 <!f:: {
@@ -92,4 +88,4 @@
 #HotIf WinExist("ahk_group Game")
 <!g::win_MinMax("ahk_group Game")
 
-#HotIf 
+#HotIf

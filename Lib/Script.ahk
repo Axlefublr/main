@@ -19,11 +19,10 @@ scr_HardReload() {
 ;Suspends or unsuspends the script
 scr_Suspend() {
 	if A_IsSuspended {
-		Suspend(False)
+		Suspend(false)
 		Info("Script unsuspended")
-	}
-	else {
-		Suspend(True)
+	} else {
+		Suspend(true)
 		Info("Script suspended")
 	}
 }
@@ -31,7 +30,7 @@ scr_Suspend() {
 scr_RunAsAdmin() {
 	if !A_IsAdmin {
 		Run('*RunAs "' A_ScriptFullPath '"')
-		Sleep(10000) 
+		Sleep(10000)
 		;Even though we just ran a new instance of the same script that's currently running, it might still partly reach the following line, here we make sure nothing even tries to happen before we properly rerun the current script as admin. This sleep doesn't actually introduce any delay, it's purely for smoothness.
 	}
 }
@@ -39,11 +38,11 @@ scr_RunAsAdmin() {
 scr_Test() => Run(Paths.Ptf["AhkTest"])
 
 ;Alternative to outputdebug
-Out(put := "", endChar := "`n", overwrite := False) {
+Out(put := "", endChar := "`n", overwrite := false) {
 	filePath := Paths.Ptf["Output"]
-	static wasRan := False
-	if !wasRan || overwrite 
-		WriteFile(filePath, put endChar), wasRan := True
+	static wasRan := false
+	if !wasRan || overwrite
+		WriteFile(filePath, put endChar), wasRan := true
 	else
 		AppendFile(filePath, put endChar)
 }

@@ -2,20 +2,16 @@
 
 ;Takes multiline text and turns every line into a key in an array
 str_FormatTableToArray() {
-	formatted := StrReplace(str_GetSelection(), "`r`n", "`", `"") ;replacing every newline with ", "
-	ClipSend("`"" formatted "`"", "") ;adding the missing "" at the first and last index
+	formatted := StrReplace(str_GetSelection(), "`r`n", "`", `"")	;replacing every newline with ", "
+	ClipSend("`"" formatted "`"", "")	;adding the missing "" at the first and last index
 }
 
-str_RemoveComments() {
-	ClipSend(RegexReplace(str_GetSelection(), "m)(\s;.*)|(^;.*)", ""), "")
-}
+str_RemoveComments := ClipSend.Bind(RegexReplace(str_GetSelection(), "m)(\s;.*)|(^;.*)", ""), "")
 
-str_GetSelection_Length() {
-	return StrLen(str_GetSelection())
-}
+str_GetSelection_Length() => StrLen(str_GetSelection())
 
-str_GetSelection(keepClip := True) {
-	if keepClip 
+str_GetSelection(keepClip := true) {
+	if keepClip
 		prevClip := ClipboardAll()
 	A_Clipboard := ""
 	Send("^c")
@@ -26,7 +22,7 @@ str_GetSelection(keepClip := True) {
 	return selection
 }
 
-str_GetSelection_Cut(keepClip := True) {
+str_GetSelection_Cut(keepClip := true) {
 	if keepClip
 		prevClip := ClipboardAll()
 	A_Clipboard := ""
@@ -42,10 +38,10 @@ str_FormatSelection(formatting) {
 
 	selection := str_GetSelection()
 
-	Switch formatting, False {
-		Case "title":selection := StrTitle(selection)
-		Case "upper":selection := StrUpper(selection)
-		Case "lower":selection := StrLower(selection)
+	Switch formatting, false {
+		Case "title": selection := StrTitle(selection)
+		Case "upper": selection := StrUpper(selection)
+		Case "lower": selection := StrLower(selection)
 	}
 
 	ClipSend(selection, "")
@@ -80,18 +76,17 @@ str_RemoveExtraJsonIndentation(toParse) {
 		if key = 1 {
 			try {
 				Text.ExtraTabs := StrReplace(MatchedTabs[1], "\t", "\\t")
-			}
-			catch 
+			} catch
 				return Text.Full
 		}
 
-		Text.Lines[key] := RegexReplace(value, "^(\s*`")" . Text.ExtraTabs, "$1") 
+		Text.Lines[key] := RegexReplace(value, "^(\s*`")" . Text.ExtraTabs, "$1")
 	}
 
 	Text.Full := ""
 	for key, value in Text.Lines {
 		Text.Full .= value "`n"
 	}
-	
+
 	return Text.Full
 }
