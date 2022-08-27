@@ -4,15 +4,13 @@
 			"path": ".."
 		},
 		{
-			"path": "..\\..\\Ahk_v2_Syntax_Highlighting"
-		},
-		{
 			"path": "..\\..\\QA_Course"
 		}
 	],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "JS",
-		"typewriterAutoScroll.enable": true
+		"typewriterAutoScroll.enable": false,
+		"AutoHotkey2.InterpreterPath": "c:\\Program Files\\Autohotkey\\v2.0-beta.7\\AutoHotkey64.exe"
 	},
 	"launch": {
 		"version": "0.2.0",

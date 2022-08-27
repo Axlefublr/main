@@ -10,10 +10,6 @@ make morse code more efficient: for loop of the chars in the map (all of the one
 
 and implement it back into runner
 
-# Snippets 
-
-Organize them in order and add more 
-
 # Snake
 
 Snake

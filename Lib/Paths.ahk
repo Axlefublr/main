@@ -5,7 +5,6 @@ Class Paths {
 	static Prog           := "C:\Programming"
 	static Main           := "C:\Programming\Main"
 	static JSDir          := "C:\Programming\JS"
-	static SynHigh        := "C:\Programming\Ahk_v2_Syntax_Highlighting"
 	static Backups        := this.Main "\Backups"
 	static Docs           := this.Main "\Docs"
 	static Music          := this.Main "\Docs\Music"
@@ -24,8 +23,6 @@ Class Paths {
 
 	static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
 
-	static AhkPlusPlus := "C:\Users\" A_UserName "\.vscode\extensions\mark-wiemer.vscode-autohotkey-plus-plus-2.8.4"
-
 	static Ptf := Map(
 		"Main", this.Main "\Backups\Main.code-workspace",
 
@@ -33,7 +30,7 @@ Class Paths {
 		"Unfinished",    this.Main "\Docs\Music\Unfinished.txt",
 		"Rappers",       this.Main "\Docs\Music\Rappers.txt",
 		"Artists",       this.Main "\Docs\Music\Artists.md",
-                  
+
 		"react",              this.Main "\Files\Images\react.png",
 		"Kristi",             this.Main "\Files\Images\Kristi.png",
 		"switch account ytt", this.Main "\Files\Images\switch account ytt.png",
@@ -47,11 +44,11 @@ Class Paths {
 		"vine boom sound effect", this.Main "\Files\Sounds\vine boom.mp3",
 
 		"MethFunc", this.Main "\Lib\MethFunc.ahk",
-                  
+
 		"Keys", this.Main "\Main\Scr Keys.ahk",
-						
+
 		"Change notes", this.Main "\Notes\Change notes.md",
-                  
+
 		"Raw",         this.Main "\Notes temp\Raw.md",
 		"Clean",       this.Main "\Notes temp\Clean.md",
 		"Description", this.Main "\Notes temp\Description.txt",
@@ -67,13 +64,6 @@ Class Paths {
 		"Symlink creator", this.Main "\Tools\Symlink creator.ahk",
 
 
-		"SynHigh\settings.json preset", this.SynHigh "\settings.json preset.txt",
-		"SynHigh\tmLanguage",           this.SynHigh "\tmLanguage.json",
-		"SynHigh\ahk snippets",         this.SynHigh "\ahk snippets.json",
-		"SynHigh\configuration",        this.SynHigh "\ahk.configuration.json",
-		"SynHigh\Change notes",         this.SynHigh "\Change notes.md",
-
-
 		"index.js",   this.JSDir "\jsm.js",
 		"index.html", this.JSDir "\htt.html",
 		"styles.css", this.JSDir "\css.css",
@@ -87,15 +77,11 @@ Class Paths {
 		"VsCode\ahk snippets",  A_AppData "\Code\User\snippets\ahk.json",
 		"VsCode\keybindings",   A_AppData "\Code\User\keybindings.json",
 
-		"Ahk++\tmLanguage",    this.AhkPlusPlus "\syntaxes\ahk.tmLanguage.json",
-		"Ahk++\package",       this.AhkPlusPlus "\package.json",
-		"Ahk++\configuration", this.AhkPlusPlus "\ahk.configuration.json",
-		"Ahk++\ahk snippets",  this.AhkPlusPlus "\snippets\ahk.json",
 
 		"Eva\Dark",            this.VsCodeExtensions "\fisheva.eva-theme-1.8.7\themes\Eva-Dark.json",
 
 	)
-	
+
 	static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
 	static System32 := "C:\Windows\System32"
 

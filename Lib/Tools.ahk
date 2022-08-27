@@ -227,6 +227,7 @@ tool_FileSearch(caseSense := "Off") { ;Case sense is off by default, but may nee
 		This is much better performance-wise than adding all the full paths to an array while adding the listviews (in the loop) and accessing it here. 
 		Arguably more readable too
 		*/
+
 		file := g_found_list.GetText(rowInfo, 1) 
 		dir  := g_found_list.GetText(rowInfo, 2)
 		path := g_found_list.GetText(rowInfo, 3)

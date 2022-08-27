@@ -435,34 +435,6 @@ vscode_CleanText() {
 	Info("Text cleaned")
 }
 
-vscode_AhkPlusPlusUpdate() {
-	tmLanguage := ReadFile(Paths.Ptf["SynHigh\tmLanguage"])
-	WriteFile(Paths.Ptf["Ahk++\tmLanguage"], tmLanguage)
-
-	configuration := ReadFile(Paths.Ptf["SynHigh\configuration"])
-	WriteFile(Paths.Ptf["Ahk++\configuration"], configuration)
-
-	ahkSnippets := ReadFile(Paths.Ptf["SynHigh\ahk snippets"])
-	WriteFile(Paths.Ptf["Ahk++\ahk snippets"], ahkSnippets)
-
-	package := ReadFile(Paths.Ptf["Ahk++\package"])
-	package := StrReplace(package
-	, "C:\\Program Files\\Autohotkey\\AutoHotkeyU64.exe"
-	, "C:\\Program Files\\Autohotkey\\v2\\AutoHotkey64_UIA.exe"
-	)
-	package := StrReplace(package
-	, "C:/Program Files/AutoHotkey/AutoHotkeyU64.exe"
-	, "C:/Program Files/AutoHotkey/v2/AutoHotkey64_UIA.exe"
-	)
-	package := StrReplace(package
-	, "C:/Program Files/AutoHotkey/AutoHotkey.chm"
-	, "C:/Program Files/AutoHotkey/v2/AutoHotkey.chm"
-	)
-	WriteFile(Paths.Ptf["Ahk++\package"], package)
-
-	vscode_Reload()
-}
-
 vscode_VideoUp() {
 	files := [
 		Paths.Ptf["Raw"],
@@ -499,28 +471,12 @@ vscode_JsTutorial() {
 	)")
 
 }
-
-
-
-
-git_MovingCompany() {
-
-	FileCopy(
-		Paths.Ptf["Ahk++\tmLanguage"],
-		Paths.Ptf["SynHigh\tmLanguage"], 1
-	)
-	FileCopy(
-		Paths.Ptf["Ahk++\configuration"],
-		Paths.Ptf["SynHigh\configuration"], 1
-	)
-	FileCopy(
-		Paths.Ptf["Ahk++\ahk snippets"],
-		Paths.Ptf["SynHigh\ahk snippets"], 1
-	)
-}
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 git_CommitRepo(changeNote_file, repo_path, andPush := True) {
-	git_MovingCompany()
 
 	commitMessage := vscode_toCommitMessage(ReadFile(changeNote_file))
 

@@ -43,14 +43,6 @@
 		;FOLDERS
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		'extensions', () => win_RunAct_Folders(Paths.VsCodeExtensions),
-		'ahk++',      () => win_RunAct_Folders(Paths.AhkPlusPlus),
-
-		;FILES
-		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		'package',    Run.Bind(Paths.Ptf['Ahk++\package']),
-		'tmlanguage', Run.Bind(Paths.Ptf['Ahk++\tmLanguage']),
-		'snippets',   Run.Bind(Paths.Ptf['Ahk++\ahk snippets']),
-		'eva dark',   Run.Bind(Paths.Ptf['Eva\Dark']),
 
 		;VIDEO MAKING
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -63,7 +55,6 @@
 		'remove comments',       () => str_RemoveComments(),
 		'convert to json',       () => str_ConvertToJson(),
 		'main',                  () => vscode_WorkSpace('Main'),
-		'ahk++ update',          () => vscode_AhkPlusPlusUpdate(),
 		'js tut',                () => vscode_JsTutorial(),
 		'str len',               () => Infos(StrLen(str_GetSelection())),
 		'radnum',                () => ClipSend(RadNum(), ''),
@@ -103,19 +94,19 @@
 	catch any {
 		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show|link|ep|counter|wd|dw) (.+)', &result)
 		runner_regex := Map(
-			'p', () => ClipSend(Linker(result[2]),, False),
-			'o', () => RunLink(Linker(result[2])),
-			'g', () => Googler(result[2]),
-			's', () => SoundPlay(Paths.Sounds '\' result[2] '.mp3'),
-			'r', () => spotify_NewRapper(result[2]),
-			't', () => (WriteFile(Paths.Ptf['Timer.txt'], result[2]), Run(Paths.Ptf['Timer.ahk'])),
-			'a', () => spotify_FavRapper_Manual(result[2]),
-			'e', () => Infos(Round(Eval(result[2]), 3)),
-			'i', () => Infos(result[2]),
-			'>', () => Skipper(result[2]),
+			'p',    () => ClipSend(Linker(result[2]),, False),
+			'o',    () => RunLink(Linker(result[2])),
+			'g',    () => Googler(result[2]),
+			's',    () => SoundPlay(Paths.Sounds '\' result[2] '.mp3'),
+			'r',    () => spotify_NewRapper(result[2]),
+			't',    () => (WriteFile(Paths.Ptf['Timer.txt'], result[2]), Run(Paths.Ptf['Timer.ahk'])),
+			'a',    () => spotify_FavRapper_Manual(result[2]),
+			'e',    () => Infos(Round(Eval(result[2]), 3)),
+			'i',    () => Infos(result[2]),
+			'>',    () => Skipper(result[2]),
 			'show', () => Show_Run(result[2]),
 			'link', () => Show_SetLink(result[2]),
-			'ep', () => Show_SetEpisode(result[2]),
+			'ep',   () => Show_SetEpisode(result[2]),
 			'counter', () => Counter(result[2]),
 			'dw', () => GetWeekDay(result[2]),
 			'wd', () => GetDayFromWeekDay(result[2]),
