@@ -326,7 +326,7 @@ vscode_toCommitMessage(changeNotes_rawFile) {
 	changeNotes := StrReplace(changeNotes, ":`n* ", ": ")	;When a line ends with :, it's a marker for a list
 	changeNotes := StrReplace(changeNotes, "`n* ", ", ")	;All the following items in the list will have commas between them, even if I forget a :, there will just be commas between all of them
 
-	changeNotes := RegexReplace(changeNotes, "(?<![.:])\n\n", ". ")	;Double newlines are connected by a dot
+	changeNotes := RegexReplace(changeNotes, "(?<![.:!?])\n\n", ". ")	;Double newlines are connected by a dot
 	changeNotes := StrReplace(changeNotes, "`n`n", " ")	;If I added the dot myself, we just replace those two newlines with a space
 	changeNotes := StrReplace(changeNotes, "`n", " ")	;On the off-chance I missed something, or something broke
 

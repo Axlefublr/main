@@ -1,7 +1,5 @@
 ﻿# 
 
-fullscreen for anime
-
 japanese in runner
 
 # Morse code
