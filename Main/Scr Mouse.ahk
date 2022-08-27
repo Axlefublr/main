@@ -10,7 +10,9 @@ Media_Stop & XButton1:: {
 	, down        := (sectionY > 747)
 	, up          := (sectionY < 347)
 	, deffault    := !right && !left && !down && !up
-	, fullScreenable := WinActive("YouTube ahk_exe chrome.exe") || WinActive("Skillfactory")
+	, fullScreenable := WinActive("YouTube ahk_exe chrome.exe") 
+	|| WinActive("Skillfactory ahk_exe chrome.exe")
+	|| WinActive("Gogoanime ahk_exe chrome.exe")
 	Switch {
 		Case deffault:Cut()
 		Case WinActive("Visual Studio Code ahk_exe Code.exe"):
@@ -54,13 +56,13 @@ Media_Stop & XButton2:: {
 XButton2 & XButton1::Escape
 XButton1 & XButton2::Media_Play_Pause
 
-XButton1 & WheelUp::WheelLeft
-XButton1 & WheelDown::WheelRight
+CapsLock & WheelUp::WheelLeft
+CapsLock & WheelDown::WheelRight
 
 CapsLock & Media_Stop::ScreenSnip()
 
-CapsLock & WheelUp::Redo()
-CapsLock & WheelDown::Undo()
+XButton1 & WheelUp::Redo()
+XButton1 & WheelDown::Undo()
 
 XButton2 & WheelUp::ifTopLeft_Sugar(Send.Bind("{Volume_Up}"), TransAndProud.Bind(20))
 XButton2 & WheelDown::ifTopLeft_Sugar(Send.Bind("{Volume_Down}"), TransAndProud.Bind(-20))

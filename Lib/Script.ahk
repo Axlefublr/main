@@ -2,9 +2,7 @@
 #Include <Paths>
 
 ;Reloads the script
-scr_Reload() {
-	Run(A_ScriptFullPath)
-}
+scr_Reload() => Run(A_ScriptFullPath)
 
 ;Hard reloads the script: exits the script and then runs it, instead of just running over itself like _scr_Reload does.
 scr_HardReload() {
@@ -38,9 +36,7 @@ scr_RunAsAdmin() {
 	}
 }
 
-scr_Test() {
-	Run(Paths.Ptf["AhkTest"])
-}
+scr_Test() => Run(Paths.Ptf["AhkTest"])
 
 ;Alternative to outputdebug
 Out(put := "", endChar := "`n", overwrite := False) {

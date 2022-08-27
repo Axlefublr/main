@@ -22,6 +22,7 @@ Class Paths {
 	static Content   := this.Pictures "\Content"
 
 	static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
+	static AhkPlusPlusExtension := this.VsCodeExtensions "\thqby.vscode-autohotkey2-lsp-1.5.7"
 
 	static Ptf := Map(
 		"Main", this.Main "\Backups\Main.code-workspace",
@@ -78,7 +79,10 @@ Class Paths {
 		"VsCode\keybindings",   A_AppData "\Code\User\keybindings.json",
 
 
-		"Eva\Dark",            this.VsCodeExtensions "\fisheva.eva-theme-1.8.7\themes\Eva-Dark.json",
+		"Ahk++\package", this.AhkPlusPlusExtension "\package.json",
+		"Ahk++\configuration", this.AhkPlusPlusExtension "\ahk2.configuration.json",
+
+		"Eva\Dark", this.VsCodeExtensions "\fisheva.eva-theme-1.8.7\themes\Eva-Dark.json",
 
 	)
 
@@ -87,7 +91,7 @@ Class Paths {
 
    static Apps := Map(
       "Ahk v1 docs",       A_ProgramFiles "\AutoHotkey\AutoHotkey.chm",
-      "Ahk v2 docs",       A_ProgramFiles "\AutoHotkey\v2\AutoHotkey.chm",
+      "Ahk v2 docs",       A_ProgramFiles "\AutoHotkey\v2.0-beta.7\AutoHotkey.chm",
       "Ahk compiler",      A_ProgramFiles "\AutoHotkey\Compiler\Ahk2Exe.exe",
 
 		"Debug log",         A_ProgramFiles "\Debug view\Dbgview.exe",

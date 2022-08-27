@@ -44,6 +44,11 @@
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		'extensions', () => win_RunAct_Folders(Paths.VsCodeExtensions),
 
+		;FILES
+		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		'package', Run.Bind(Paths.Ptf['Ahk++\package']),
+		'config', Run.Bind(Paths.Ptf['Ahk++\configuration']),
+
 		;VIDEO MAKING
 		;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		'clean text', () => vscode_CleanText(),
