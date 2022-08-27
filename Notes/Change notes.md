@@ -1,3 +1,3 @@
-Undo / redo and horizontal scroll mouse hotkeys switched once again
+Com and psh synhigh removed, since I'm not going to update that repo anymore
 
-Added runner entries for package and config, but for the new extension I'm using
+Single line functions in Base.ahk are now arrow functions, since the extension I'm now using supports them as symbols

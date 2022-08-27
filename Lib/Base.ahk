@@ -1,120 +1,68 @@
 ﻿;No dependencies
 
-Copy() {
-	A_Clipboard := ""
-	Send("^c")
+Copy() => (
+	A_Clipboard := "",
+	Send("^c"),
 	ClipWait(3, 1)
-}
+)
 
-Paste() {
-	Send "^v"
-}
+Paste() => Send("^v")
 
-WinPaste() {
-	Send "#v"
-}
+WinPaste() => Send("#v")
 
-Cut() {
-	A_Clipboard := ""
-	Send("^x")
+Cut() => (
+	A_Clipboard := "",
+	Send("^x"),
 	ClipWait(3, 1)
-}
+)
 
-SelectAll() {
-	Send "^a"
-}
+SelectAll() => Send("^a")
 
-DeleteAll() {
-	Send "^a{Delete}"
-}
+DeleteAll() => Send("^a{Delete}")
 
-Undo() {
-	Send "^z"
-}
+Undo() => Send("^z")
 
-Redo() {
-	Send "^y"
-}
+Redo() => Send("^y")
 
-CloseTab() {
-	Send "^w"
-}
+CloseTab() => Send("^w")
 
-NewTab() {
-	Send "^t"
-}
+NewTab() => Send("^t")
 
-NextTab() {
-	Send "^{PgDn}"
-}
+NextTab() => Send("^{PgDn}")
 
-PrevTab() {
-	Send "^{PgUp}"
-}
+PrevTab() => Send("^{PgUp}")
 
-NextWin() {
-	Send "!{Tab}"
-}
+NextWin() => Send("!{Tab}")
 
-PrevWin() {
-	Send "+!{Tab}"
-}
+PrevWin() => Send("+!{Tab}")
 
-ChooseNext() {
-	Send "{Down}{Enter}"
-}
+ChooseNext() => Send("{Down}{Enter}")
 
-SwitchLanguage() {
-	Send "{LWin Down}{Space}{LWin Up}"
-}
+SwitchLanguage() => Send("{LWin Down}{Space}{LWin Up}")
 
-ShiftClick() {
-	Send "+{Click}"
-}
+ShiftClick() => Send("+{Click}")
 
-CtrlClick() {
-	Send "^{Click}"
-}
+CtrlClick() => Send("^{Click}")
 
-Search() {
-	Send "^f"
-}
+Search() => Send("^f")
 
-AltTab() {
-	Send "^!{Tab}"
-}
+AltTab() => Send("^!{Tab}")
 
-WinTab() {
-	Send "#{Tab}"
-}
+WinTab() => Send("#{Tab}")
 
-Save() {
-	Send "^s"
-}
+Save() => Send("^s")
 
-RestoreTab() {
-	Send "^+t"
-}
+RestoreTab() => Send("^+t")
 
-LanguageRus() {
-	PostMessage(0x0050,, 0x0419,, "A")
-}
+LanguageRus() => PostMessage(0x0050, , 0x0419, , "A")
 
-LanguageEng() {
-	PostMessage(0x0050,, 0x0409,, "A")
-}
+LanguageEng() => PostMessage(0x0050, , 0x0409, , "A")
 
-DeleteWord() {
-	Send "{Ctrl down}{Left}{Delete}{Ctrl up}"
-}
+DeleteWord() => Send("{Ctrl down}{Left}{Delete}{Ctrl up}")
 
-SelectWord() {
-	Send("{left}{ctrl down}{right}{left}{shift down}{right}{shift up}{ctrl up}")
-}
+SelectWord() => Send("{left}{ctrl down}{right}{left}{shift down}{right}{shift up}{ctrl up}")
 
-DeleteLine() {
-	Send("{Home}+{End}{Delete 2}")
-}
+DeleteLine() => Send("{Home}+{End}{Delete 2}")
 
 DeleteInDirection(direction) {
 	Switch direction, False {
@@ -124,10 +72,6 @@ DeleteInDirection(direction) {
 	Send("+" direction "{Delete}")
 } 
 
-ScreenSnip() {
-	Send("#+s")
-}
+ScreenSnip() => Send("#+s")
 
-Find() {
-	Send("^f")
-}
+Find() => Send("^f")

@@ -90,9 +90,6 @@
 		'com main',    () => git_CommitRepo(Paths.Ptf['Change notes'], Paths.Main, False),
 		'psh main',    () => git_CommitRepo(Paths.Ptf['Change notes'], Paths.Main),
 
-		'com synhigh', () => git_CommitRepo(Paths.Ptf['SynHigh\Change notes'], Paths.SynHigh, False),
-		'psh synhigh', () => git_CommitRepo(Paths.Ptf['SynHigh\Change notes'], Paths.SynHigh),
-
 	)
 
 	try runner_commands[val].Call()
