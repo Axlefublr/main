@@ -1,20 +1,20 @@
 ﻿;No dependencies
 
 Copy() => (
-		A_Clipboard := "",
-		Send("^c"),
-		ClipWait(3, 1)
-	)
+      A_Clipboard := "",
+      Send("^c"),
+      ClipWait(3, 1)
+   )
 
 Paste() => Send("^v")
 
 WinPaste() => Send("#v")
 
 Cut() => (
-		A_Clipboard := "",
-		Send("^x"),
-		ClipWait(3, 1)
-	)
+      A_Clipboard := "",
+      Send("^x"),
+      ClipWait(3, 1)
+   )
 
 SelectAll() => Send("^a")
 
@@ -65,11 +65,11 @@ SelectWord() => Send("{left}{ctrl down}{right}{left}{shift down}{right}{shift up
 DeleteLine() => Send("{Home}+{End}{Delete 2}")
 
 DeleteInDirection(direction) {
-	Switch direction, false {
-		Case "right": direction := "{End}"
-		Case "left": direction := "{Home}"
-	}
-	Send("+" direction "{Delete}")
+   Switch direction, false {
+      Case "right": direction := "{End}"
+      Case "left": direction := "{Home}"
+   }
+   Send("+" direction "{Delete}")
 }
 
 ScreenSnip() => Send("#+s")
