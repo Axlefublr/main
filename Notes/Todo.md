@@ -1,5 +1,7 @@
 ﻿# 
 
+file specific ifwinactives use paths ptf
+
 japanese in runner
 
 volume for gogoanime

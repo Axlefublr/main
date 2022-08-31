@@ -51,6 +51,7 @@ Linker(linkName) {
       "simplilearn", "https://www.simplilearn.com/tutorials/data-structure-tutorial",
       "leetcode",    "https://leetcode.com/problems/two-sum/",
       "skill factory", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+QAP-3.0+2021/course/",
+      "learn git branching", "https://learngitbranching.js.org/",
 
       ;Docs
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

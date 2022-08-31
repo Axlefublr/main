@@ -71,20 +71,14 @@ XButton2 & MButton::discord_React()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("Diary.md ahk_exe Code.exe")
+#HotIf WinActive(Paths.Ptf["Diary"] " ahk_exe Code.exe")
 !e::telegram_Diary()
 
-#HotIf WinActive("Todo.md ahk_exe Code.exe")
-!e::vscode_ToEndOfOthrFile(Paths.Ptf["Change notes"])
-
-#HotIf WinActive("Rappers.txt ahk_exe Code.exe")
+#HotIf WinActive(Paths.Ptf["Rappers"] " ahk_exe Code.exe")
 !e::vscode_ToEndOfOthrFile(Paths.Ptf["Unfinished"]), NextTab()
 
-#HotIf WinActive("Unfinished.txt ahk_exe Code.exe")
+#HotIf WinActive(Paths.Ptf["Unfinished"] " ahk_exe Code.exe")
 !e::vscode_ToEndOfCurrFile(), PrevTab()
-
-#HotIf WinActive("ahk.json ahk_exe Code.exe")
-!e::Infos(str_GetSelection_Length())
 
 #HotIf WinActive("ahk_exe Code.exe") 
 

@@ -34,13 +34,13 @@ ClipSend(toSend, endChar := " ", isClipReverted := true, untilRevert := 100) {
 }
 
 RunLink(link) => (
-      Run(link),
-      WinWait("Google Chrome ahk_exe chrome.exe"),
-      WinActivate("Google Chrome ahk_exe chrome.exe")
-   )
+   Run(link),
+   WinWait("Google Chrome ahk_exe chrome.exe"),
+   WinActivate("Google Chrome ahk_exe chrome.exe")
+)
 
 WaitUntilImage(imageFile, coordObj?) {
-   var := 0
+   var := 0 
    if !IsSet(coordObj) {
       coordObj := {
          x1: 0,
@@ -56,9 +56,9 @@ WaitUntilImage(imageFile, coordObj?) {
 }
 
 WaitClick(imageFile) => (
-      coords := WaitUntilImage(imageFile),
-      ControlClick("X" coords[1] " Y" coords[2], "A")
-   )
+   coords := WaitUntilImage(imageFile),
+   ControlClick("X" coords[1] " Y" coords[2], "A")
+)
 
 TransAndProud(whatCrement) {
    howTrans := WinGetTransparent("A")
@@ -148,12 +148,12 @@ RunSpec(commands, AsAdmin := false, seeCmd := false) {
 }
 
 WriteFile(whichFile, text := "") => (
-      fileObj := FileOpen(whichFile, "w"),
-      fileObj.Write(text),
-      fileObj.Close()
-   )
+   fileObj := FileOpen(whichFile, "w"),
+   fileObj.Write(text),
+   fileObj.Close()
+)
 
-AppendFile(whichFile, text) {
+AppendFile(whichFile, text) { 
    if FileExist(whichFile)
       fileObj := FileOpen(whichFile, "a")
    else
@@ -163,7 +163,7 @@ AppendFile(whichFile, text) {
    fileObj.Close()
 }
 
-ReadFile(whichFile) {
+ReadFile(whichFile) { 
    fileObj := FileOpen(whichFile, "r")
    fileObj.Seek(0, 0)
    text := fileObj.Read()
@@ -171,7 +171,7 @@ ReadFile(whichFile) {
    return text
 }
 
-ControlClick_Here(winTitle := "A", whichButton := "L") => (
+ControlClick_Here(winTitle := "A", whichButton := "L") => ( 
       MouseGetPos(&locX, &locY),
       ControlClick("X" locX " Y" locY, winTitle, , whichButton)
    )
@@ -213,7 +213,7 @@ GetDateAndTime() => FormatTime(, "yy.MM.dd HH:mm")
 
 GetTimeAndSec() => FormatTime(, "HH:mm:ss")
 
-RegexInFile(filePath, regex) {
+RegexInFile(filePath, regex) { 
    fileText := ReadFile(filePath)
    if !IsObject(regex) {
       if !RegexMatch(fileText, regex, &match) {
