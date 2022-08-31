@@ -278,6 +278,18 @@ l Search by keybind
 
 !
 
+## 9
+
+^+ Stop debugging
+
+^! Restart debugging
+
++! Start debugging / Continue
+
+^ Toggle breakpoint
+
+! 9th tab
+
 ## Arrows
 
 ### Horizontal

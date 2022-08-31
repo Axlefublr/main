@@ -8,5 +8,6 @@
 #Include <Win>
 #Include <Eval>
 #Include <Json>
+#Include <Json2>
 #Include <StrMan>
 #Include <Tools>

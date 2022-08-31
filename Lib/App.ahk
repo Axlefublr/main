@@ -516,25 +516,18 @@ player_SkipOpening := Send.Bind("{F12 8}")
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Show_GetLink(whichShow) {
-   shows := Yaml(Paths.Ptf['Shows'])
-   try currShowObj := shows[whichShow]
-   catch any {
-      Info('Show "' whichShow "`" doesn't exist yet!")
-      return ""
+Show_GetLink(show) {
+   shows := JSON.parse(ReadFile(Paths.Ptf['Shows']))
+   try shows[show] 
+   catch Any {
+      Info("No " show "!🎬")
+      return "" ;There for sure won't be a link nor an episode if the object doesn't exist yet, because if I either set the link or the episode, the show object will exist along with the properties, even if one of them doesn't have a non-zero value
    }
-   try currShow_link := currShowObj['link']
-   catch any {
-      Info('Show "' whichShow "`" doesn't have a link")
-      return ""
+   if !shows[show]['link'] {
+      Info("No link!🔗") 
+      return "" ;If the object exists, so does the link property, which will be blank if I only set the episode (somehow). The episode always starts out being 0 though, no need to check for it
    }
-   try currShow_episode := currShowObj['episode']
-   catch any {
-      shows[whichShow]['episode'] := 0
-      currShow_episode := 0
-      WriteFile(Paths.Ptf['Shows'], Yaml(shows))
-   }
-   return currShow_link currShow_episode + 1
+   return shows[show]['link'] shows[show]['episode'] + 1
 }
 
 Show_Run(whichShow) {
