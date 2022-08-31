@@ -1,3 +1,1 @@
-I can now finally delete the shows in the json file with Shows_DeleteShow() thanks to the new library (or more realistically, due to me realizing the json object was not in fact an object, but a map of maps of maps of maps..., which was probably the same case for the previous library and I just didn't bother to debug / didn't have a debugger I was comfortable with using)
-
-Counter now shows an Info when disabled
+Added direct file links in Links.ahk, some formatting, better organization

@@ -80,7 +80,7 @@
 
 			;GITHUB
 			;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			'gitlink', () => ClipSend(git_Link(), , false),
+			'gitlink', () => ClipSend(git_Link(), "", false),
 			'gitopen', () => RunLink(git_Link()),
 
 			;Github nicknames

@@ -3,28 +3,31 @@
 Linker(linkName) {
    static Links := Map(
 
-      ;Main
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      "reddit",    "https://www.reddit.com/notifications",
-      "twitch",    "https://www.twitch.tv/directory/following",
-      "ytm",       "https://music.youtube.com/playlist?list=PLV0jCBtadKgg3drvv8jDaTFTIY8EYT7ma",
+      ;Social
+      "reddit", "https://www.reddit.com/notifications",
+      "twitch", "https://www.twitch.tv/directory/following",
+      "mal",    "https://myanimelist.net/profile/Axlefublr",
 
       ;Watch
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      "movies",           "https://watchmovieshd.ru/",
-      "gogoanime",        "https://gogoanime.fi/",
+      "movies",    "https://watchmovieshd.ru/",
+      "gogoanime", "https://gogoanime.fi/",
 
-      ;Extra
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ;Services
       "gmail",    "https://mail.google.com/mail/u/0/#inbox",
       "calendar", "https://calendar.google.com/calendar/u/0/r",
       "weather",  "https://yandex.ru/pogoda/",
-      "mal",      "https://myanimelist.net/profile/Axlefublr",
-      "metta",    "https://mettalife.ru/pl/my?gcmes=5779290672&gcmlg=-4",
       "npm",      "https://www.npmjs.com/",
 
+      ;Courses
+      "metta",         "https://mettalife.ru/pl/my?gcmes=5779290672&gcmlg=-4",
+      "skill factory", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+QAP-3.0+2021/course/",
+      
+      ;Learning
+      "simplilearn",         "https://www.simplilearn.com/tutorials/data-structure-tutorial",
+      "leetcode",            "https://leetcode.com/problems/two-sum/",
+      "learn git branching", "https://learngitbranching.js.org/",
+      
       ;Tools
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       "share files",     "https://files.fm/",
       "regex",           "https://regex101.com/",
       "ytdownload",      "https://ssyoutube.com/en8/",
@@ -35,41 +38,32 @@ Linker(linkName) {
       "docsify",         "https://docsify.js.org/#/",
       "regex one",       "https://regexone.com/",
       "color picker",    "https://docs.microsoft.com/en-us/windows/powertoys/color-picker",
-
-      ;Info
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      "sounds",          "https://www.myinstants.com/index/ru/",
-      "openasar",        "https://openasar.dev/",
-      "nirsoft",         "https://www.nirsoft.net/",
-      "vpn gate",        "https://www.vpngate.net/en/download.aspx",
-      "fl studio 20",    "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
-      "discord highlighting", "https://gist.github.com/kkrypt0nn/a02506f3712ff2d1c8ca7c9e0aed7c06",
       "svg export",      "https://chrome.google.com/webstore/detail/svg-export/naeaaedieihlkmdajjefioajbbdbdjgp",
 
-      ;Learning
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      "simplilearn", "https://www.simplilearn.com/tutorials/data-structure-tutorial",
-      "leetcode",    "https://leetcode.com/problems/two-sum/",
-      "skill factory", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+QAP-3.0+2021/course/",
-      "learn git branching", "https://learngitbranching.js.org/",
+      ;Databases
+      "sounds",      "https://www.myinstants.com/index/ru/",
+      "ascii codes", "https://theasciicode.com.ar/",
+      "glossary",    "https://glossary.istqb.org/en/search/",
 
       ;Docs
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      "trading",           "https://minecraft.fandom.com/wiki/Trading",
-      "image search tips", "https://github.com/nuj123/AutoHotKey/blob/master/ImageSearchFAQ.md",
-      "dll calls",         "https://docs.microsoft.com/en-us/windows/win32/api/",
-      "ahk wiki",          "https://autohotkey.wiki/",
-      "ahk v1 docs",       "https://www.autohotkey.com/docs/Tutorial.htm",
-      "ascii codes",       "https://theasciicode.com.ar/",
-      "glossary",          "https://glossary.istqb.org/en/search/",
+      "ahk wiki",    "https://autohotkey.wiki/",
+      "dll calls",   "https://docs.microsoft.com/en-us/windows/win32/api/",
+      "ahk v1 docs", "https://www.autohotkey.com/docs/Tutorial.htm",
+      
+      ;Potentially useful
+      "vpn gate",     "https://www.vpngate.net/en/download.aspx",
+      "fl studio 20", "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
+      
+      ;Potentially info
+      "discord highlighting", "https://gist.github.com/kkrypt0nn/a02506f3712ff2d1c8ca7c9e0aed7c06",
+      "trading",              "https://minecraft.fandom.com/wiki/Trading",
+      "image search tips",    "https://github.com/nuj123/AutoHotKey/blob/master/ImageSearchFAQ.md",
 
-      ;Cool
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ;Potentially cool
       "pointer pointer", "https://pointerpointer.com/",
       "guess this code", "https://guessthiscode.com/",
 
       ;Shops
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       "перцы",     "https://krasnoyarsk.pizzapertsy.ru/",
       "чебурекми", "https://cheburek.me/krasnoyarsk/",
       "yaneda",    "https://eda.yandex.ru/krasnoyarsk?shippingType=delivery",
@@ -79,7 +73,8 @@ Linker(linkName) {
 
       ;Github
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      "my github",    "https://github.com/Axlefublr",
+      "github",    "https://github.com/Axlefublr",
+
       "repo main",    "https://github.com/Axlefublr/Main",
       "repo synhigh", "https://github.com/Axlefublr/Ahk_v2_Syntax_Highlighting",
       "repo startup", "https://github.com/Axlefublr/StartupRun",
@@ -88,9 +83,20 @@ Linker(linkName) {
       "repo function objects", "https://github.com/Axlefublr/Function_Objects",
       "repo static",  "https://github.com/Axlefublr/Static_var_examples",
       "repo qa course", "https://github.com/Axlefublr/QA_Course",
+
+      "fold lib", "https://github.com/Axlefublr/Main/tree/main/Lib",
    
-      ;My tutorials
+      "file scr runner", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Runner.ahk",
+      "file scr mouse", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Mouse.ahk",
+      "file scr keys", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Keys.ahk",
+      "file scr app", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20App.ahk",
+      "file scr win", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Win.ahk",
+
+      "file global", "https://github.com/Axlefublr/Main/blob/main/Lib/Global.ahk",
+      "file tools", "https://github.com/Axlefublr/Main/blob/main/Lib/Tools.ahk",
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+      ;My tutorials
       "my channel",          "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",
       "startup",             "https://youtu.be/vjQIbagvkcs",
       "arrow",               "https://youtu.be/nSTL3KND25c",
@@ -108,7 +114,6 @@ Linker(linkName) {
       "objects",             "https://youtu.be/6W9Ruu5jHaM",
 
       ;Memes
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       "i made it the fuck up",       "https://www.youtube.com/watch?v=r7l0Rq9E8MY",
       "funny mic",                   "https://www.youtube.com/watch?v=jfbKJy_ZuIU",
       "delay lama",                  "https://www.youtube.com/watch?v=Np4iG7-se7I",
