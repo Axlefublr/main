@@ -236,9 +236,9 @@ l Search by keybind
 
 +!
 
-^
+^ New untitled file
 
-! New untitled file
+! 
 
 ## PgUp / PgDn
 

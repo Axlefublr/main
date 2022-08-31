@@ -1,1 +1,1 @@
-The wintitle of vs code is now the full path to the file, so I can use Paths.Ptf in IfWinActives to make hotkeys specific to some file, and if I move / rename / whatever the file, it won't matter: I would have changed its query in Paths.Ptf, also changing it for the ifwinactives, so this improves maintainability
+Up down arrows => global volume for gogoanime
