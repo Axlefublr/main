@@ -704,8 +704,10 @@ Counter(startingNum, singleKey := "Tab") {
    }
 
    _DeleteBothHotkeys := (*) => (
-         Hotkey(singleKey, "Off") Hotkey("+" singleKey, "Off")
-      )
+      Hotkey(singleKey, "Off"), 
+      Hotkey("+" singleKey, "Off"),
+      Info("Counter disabled")
+   )
 
    Hotkey(singleKey, _SendNum, "On")
    Hotkey("+" singleKey, _DeleteBothHotkeys, "On")

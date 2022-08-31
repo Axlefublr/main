@@ -540,10 +540,16 @@ Show_GetShows() {
 Show_Run(show) {
    try Run(Show_GetLink(show))
    catch any {
-      Info("There's something wrong with the link itself")
+      Info("Fucked up link :(")
       return
    }
    win_Activate("Google Chrome ahk_exe chrome.exe")
+}
+
+Show_DeleteShow(show) {
+   shows := JSON.parse(ReadFile(Paths.Ptf['Shows']))
+   shows.Delete(show)
+   WriteFile(Paths.Ptf['Shows'], JSON.stringify(shows))
 }
 
 Show_SetLink(show_and_link) {
