@@ -530,8 +530,15 @@ Show_GetLink(show) {
    return shows[show]['link'] shows[show]['episode'] + 1
 }
 
-Show_Run(whichShow) {
-   try Run(Show_GetLink(whichShow))
+Show_GetShows() {
+   shows := JSON.parse(ReadFile(Paths.Ptf['Shows']))
+   for key, value in shows {
+      Infos(key)
+   }
+}
+
+Show_Run(show) {
+   try Run(Show_GetLink(show))
    catch any {
       Info("There's something wrong with the link itself")
       return
@@ -543,25 +550,23 @@ Show_SetLink(show_and_link) {
    show_and_link := RegexReplace(show_and_link, " {2,}", " ")
    RegexMatch(show_and_link, "(.+) (https:\/\/[^ ]+)", &show_and_link_match)
    if !show_and_link_match {
-      Info("You either forgot the link or the show name")
+      Info("No show / link")
       return
    }
 
    show := show_and_link_match[1]
    link := show_and_link_match[2]
 
-   showsJson := Yaml(Paths.Ptf['Shows'])
+   shows := JSON.parse(ReadFile(Paths.Ptf['Shows']))
 
-   try showsJson[show]	;Creating the object for the show, if it doesn't already exist
-   catch any {
-      Info('New object created for "' show '"')
-      showsJson[show] := { episode: 0, link: "" }
+   try shows[show]
+   catch Any {
+      shows.Set(show, {episode: 0, link: link})
    }
-
-   showsJson[show].link := link	;We're going to set the link regardless
-
-   WriteFile(Paths.Ptf['Shows'], Yaml(showsJson))
-   Info('Set the link for the show "' show '"')
+   else shows[show]['link'] := link
+   
+   WriteFile(Paths.Ptf['Shows'], JSON.stringify(shows))
+   Info(show ": link set")
 }
 
 Show_SetEpisode(show_and_episode) {
@@ -571,18 +576,15 @@ Show_SetEpisode(show_and_episode) {
    show := show_and_episode_match[1]
    episode := show_and_episode_match[2]
 
-   showsJson := Yaml(Paths.Ptf['Shows'])
-
-   try showsJson[show]	;Creating the object for the show, if it doesn't already exist
-   catch any {
-      Info('New object created for "' show '"')
-      showsJson[show] := { episode: 0, link: "" }
+   shows := JSON.parse(ReadFile(Paths.Ptf['Shows']))
+   try shows[show]
+   catch Any {
+      shows.Set(show, {episode: episode, link: ""})
    }
+   else shows[show]['episode'] := episode
 
-   showsJson[show]["episode"] := episode
-
-   WriteFile(Paths.Ptf['Shows'], Yaml(showsJson))
-   Info('Set episode ' episode ' for the show "' show '"')
+   WriteFile(Paths.Ptf['Shows'], JSON.stringify(shows))
+   Info(show ": " episode)
 }
 
 ;VIDEO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
