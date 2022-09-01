@@ -442,9 +442,21 @@ wksp_FoldersInProg() {
 }
 
 wksp_AddFolderToWorkspace(newFolder) {
+   if !DirExist(Paths.Prog '\' newFolder) {
+      Info("Folder doesn't exist")
+      return
+   }
+   inWksp := wksp_FoldersInWorkSpace()
+   for key, value in inWksp {
+      if newFolder = value {
+         Info("Folder is already in the workspace")
+         return
+      }
+   }
    workspace_folders := JSON.parse(ReadFile(Paths.Ptf['Main']))
    workspace_folders['folders'].Push({path: Paths.Prog '\' newFolder})
    WriteFile(Paths.Ptf['Main'], JSON.stringify(workspace_folders))
+   Info(newFolder " added to workspace")
 }
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

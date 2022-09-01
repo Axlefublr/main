@@ -85,6 +85,7 @@ Linker(linkName) {
       'repo qa course', 'https://github.com/Axlefublr/QA_Course',
       'repo v2 extension', 'https://github.com/thqby/vscode-autohotkey2-lsp',
       'repo vscode-setup-for-v2', 'https://github.com/Axlefublr/vscode-setup-for-v2',
+      'repo ahk-clock', 'https://github.com/rbstrachan/ahk-clock',
 
       'fold lib', 'https://github.com/Axlefublr/Main/tree/main/Lib',
 

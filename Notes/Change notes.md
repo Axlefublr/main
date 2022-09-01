@@ -1,3 +1,5 @@
-entries in runner for wksp_FoldersInProg() and wksp_FoldersInWorkSpace_Show()
+Safety check for wksp_AddFolderToWorkspace(): won't add a folder if it's already there
 
-I can now add a folder to the workspace with wksp_AddFolderToWorkspace()
+If you try to add a folder that doesn't exist, the function will not work and will say so
+
+If you added the folder successfully, you'll get an Info() about it

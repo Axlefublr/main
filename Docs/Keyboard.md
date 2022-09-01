@@ -60,9 +60,9 @@ m — Calendar
 
 ^+ Push
 
-^! Stage all changes (`git add .`)
+^!
 
-+! Replace editor
++! Commit all changes
 
 ^
 
@@ -74,7 +74,7 @@ m — Calendar
 
 ^! Clear terminal
 
-+! Open search in editor
++! Focus terminal
 
 ^ Maximize panel
 
@@ -274,9 +274,7 @@ l Search by keybind
 
 +! Regex
 
-^
-
-!
+^ Open search in editor
 
 ## 9
 
@@ -287,8 +285,6 @@ l Search by keybind
 +! Start debugging / Continue
 
 ^ Toggle breakpoint
-
-! 9th tab
 
 ## Arrows
 
