@@ -384,30 +384,6 @@ vscode_VideoUp() {
    FileDelete(Paths.Materials '\*.*')
 }
 
-vscode_JsTutorial() {
-   WriteFile(Paths.Ptf['index.js'])
-   WriteFile(Paths.Ptf['styles.css'])
-   WriteFile(Paths.Ptf['index.html'], '
-   (
-      <!DOCTYPE html>
-      <html>
-         <head>
-            <meta charset="utf-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <title>Page Title</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <link rel="stylesheet" type="text/css" media="screen" href="css.css" />
-         </head>
-         <body>
-
-            #
-
-            <script src="jsm.js"></script>
-         </body>
-      </html>
-   )')
-
-}
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -468,6 +444,7 @@ wksp_RemoveFolderFromWorkSpace(index) {
       return
    }
    WriteFile(Paths.Ptf['Main'], JSON.stringify(workspace_folders))
+   wksp_FoldersInWorkSpace_Show()
 }
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

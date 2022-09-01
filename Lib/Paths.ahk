@@ -4,7 +4,6 @@ Class Paths {
 
    static Prog           := 'C:\Programming'
    static Main           := 'C:\Programming\Main'
-   static JSDir          := 'C:\Programming\JS'
    static Backups        := this.Main '\Backups'
    static Docs           := this.Main '\Docs'
    static Music          := this.Main '\Docs\Music'
@@ -63,11 +62,6 @@ Class Paths {
 
       'Timer.ahk',       this.Main '\Tools\Timer.ahk',
       'Symlink creator', this.Main '\Tools\Symlink creator.ahk',
-
-
-      'index.js',   this.JSDir '\jsm.js',
-      'index.html', this.JSDir '\htt.html',
-      'styles.css', this.JSDir '\css.css',
 
 
       'FL preset',        this.Pictures '\Editing\Tools\FL preset.flp',

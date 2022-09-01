@@ -62,7 +62,6 @@
          'remove comments', () => str_RemoveComments(),
          'convert to json', () => str_ConvertToJson(),
          'main', () => vscode_WorkSpace('Main'),
-         'js tut', () => vscode_JsTutorial(),
          'str len', () => Infos(StrLen(str_GetSelection())),
          'radnum', () => ClipSend(RadNum(), ''),
          'fs', () => tool_FileSearch(),
@@ -100,10 +99,11 @@
 
    try runner_commands[val].Call()
    catch any {
-      RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr) (.+)', &result)
+      RegexMatch(val, '^(p|o|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|cmd) (.+)', &result)
       runner_regex := Map(
-         'p', () => ClipSend(Linker(result[2]), , false),
+         'p', () => ClipSend(Linker(result[2])),
          'o', () => RunLink(Linker(result[2])),
+         'c', () => (A_Clipboard := Linker(result[2]), Info("Copied: " A_Clipboard)),
          'g', () => Googler(result[2]),
          's', () => SoundPlay(Paths.Sounds '\' result[2] '.mp3'),
          'r', () => spotify_NewRapper(result[2]),
@@ -121,7 +121,8 @@
          'wd', () => GetDayFromWeekDay(result[2]),
          'fr', () => (DirDelete(Paths.Prog '\' result[2], true), Info(result[2] " deleted")),
          'wka', () => wksp_AddFolderToWorkspace(result[2]),
-         'wkr', () => wksp_RemoveFolderFromWorkSpace(result[2])
+         'wkr', () => wksp_RemoveFolderFromWorkSpace(result[2]),
+         'cmd', () => RunSpec_StringWrapper(result[2]),
       )
       try runner_regex[result[1]].Call()
    }

@@ -102,3 +102,9 @@ GetDayFromWeekDay(weekDay) {
    }
    Info(FormatTime(date, 'd'))
 }
+
+RunSpec_StringWrapper(input) {
+   commands := StrSplit(input, '; ')
+   commands.Push('pause')
+   RunSpec(commands, , true)
+}

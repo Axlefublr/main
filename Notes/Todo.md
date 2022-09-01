@@ -2,6 +2,4 @@
 
 Contribution to clock
 
-# Terminal
-
-Remove folder from workspace using json
+terminal in runner through & with a wrapper to array
