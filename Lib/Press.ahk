@@ -2,9 +2,9 @@
 
 A_ThisHotkey_Formatted() {
    thisHotkey := A_ThisHotkey
-   thisHotkey := RegexReplace(thisHotkey, "^.* & ", "", &isAndedHotkey)
+   thisHotkey := RegexReplace(thisHotkey, '^.* & ', '', &isAndedHotkey)
    if !isAndedHotkey
-      thisHotkey := RegexReplace(thisHotkey, "[#!^+<>*~$]|(?i:[\t ]+up)", "")
+      thisHotkey := RegexReplace(thisHotkey, '[#!^+<>*~$]|(?i:[\t ]+up)', '')
    return thisHotkey
 }
 
@@ -19,28 +19,28 @@ press_Twice_Sugar(funcObj1, funcObj2, howLong := 200) {
       funcObj1()
 }
 
-press_Double(howLong := "0.1") {
-   KeyWait(A_ThisHotkey_Formatted(), "U")
-   if KeyWait(A_ThisHotkey_Formatted(), "D T" howLong) {
-      KeyWait(A_ThisHotkey_Formatted(), "U")	;If you don't, will first return false and then true from one double press
+press_Double(howLong := '0.1') {
+   KeyWait(A_ThisHotkey_Formatted(), 'U')
+   if KeyWait(A_ThisHotkey_Formatted(), 'D T' howLong) {
+      KeyWait(A_ThisHotkey_Formatted(), 'U')	;If you don't, will first return false and then true from one double press
       return true
    } else
       return false
 }
 
-press_Double_Sugar(funcObj1, funcObj2, howLong := "0.1") {
-   KeyWait(A_ThisHotkey_Formatted(), "U")
-   if KeyWait(A_ThisHotkey_Formatted(), "D T" howLong) {
-      KeyWait(A_ThisHotkey_Formatted(), "U")	;If you don't, will first return false and then true from one double press
+press_Double_Sugar(funcObj1, funcObj2, howLong := '0.1') {
+   KeyWait(A_ThisHotkey_Formatted(), 'U')
+   if KeyWait(A_ThisHotkey_Formatted(), 'D T' howLong) {
+      KeyWait(A_ThisHotkey_Formatted(), 'U')	;If you don't, will first return false and then true from one double press
       funcObj2()
    } else
       funcObj1()
 }
 
-press_Hold(howLong := 0.20) => !KeyWait(A_ThisHotkey_Formatted(), "U T" howLong)
+press_Hold(howLong := 0.20) => !KeyWait(A_ThisHotkey_Formatted(), 'U T' howLong)
 
 press_Hold_Sugar(funcObj1, funcObj2, howLong := 0.20) {
-   if KeyWait(A_ThisHotkey_Formatted(), "U T" howLong)
+   if KeyWait(A_ThisHotkey_Formatted(), 'U T' howLong)
       funcObj1()
    else
       funcObj2()

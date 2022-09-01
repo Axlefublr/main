@@ -7,27 +7,27 @@
 ;Clicks as an event for extra fucky things
 ClickThenGoBack_Event(coordinates) {
    MouseGetPos(&initX, &initY)
-   SendEvent("{Click " . coordinates . "}")
+   SendEvent('{Click ' coordinates '}')
    MouseMove(initX, initY)
 }
 
 ;A faster send. Sending stuff can take too long, but if you copy and paste it, it's much faster. Retains your clipboard as well
-ClipSend(toSend, endChar := " ", isClipReverted := true, untilRevert := 100) {
+ClipSend(toSend, endChar := ' ', isClipReverted := true, untilRevert := 100) {
    /*
       Because there's no way to know whether an application has received the input we sent it with ^v
       We revert the clipboard after a certain time (untilRevert)
-   
-      If we reverted the clipboard immidiately, we'd end up sending not "toSend", but the previous clipboard instead, because we didn't give the application enough time to process the action.
-   
+
+      If we reverted the clipboard immidiately, we'd end up sending not 'toSend', but the previous clipboard instead, because we didn't give the application enough time to process the action.
+
       This time depends on the app, discord seems to be one of the slowest ones (don't break TOS guys), but a safe time for untilRevert seems to be 50ms. This time might be lower or higher on your machine, configure as needed
     */
    if isClipReverted
       prevClip := ClipboardAll()	;We keep the previous clipboard
 
-   A_Clipboard := ""	;We free the clipboard...
+   A_Clipboard := ''	;We free the clipboard...
    A_Clipboard := toSend endChar	;Now the clipboard is what we want to send + and ending character. I often need a space after so I add a space by default, you can change what it is in the second parameter
    ClipWait(1)	;...so we can make sure we filled the clipboard with what we want before we send it
-   Send("{ctrl down}v{ctrl up}")	;We send it. Not ^v because this variant is more consistent
+   Send('{ctrl down}v{ctrl up}')	;We send it. Not ^v because this variant is more consistent
 
    if isClipReverted
       SetTimer(() => A_Clipboard := prevClip, -untilRevert)	;We revert the clipboard in 50ms. This doesn't occupy the thread, so the clipsend itself doesn't take 50ms, only the revert of the clipboard does.
@@ -35,12 +35,12 @@ ClipSend(toSend, endChar := " ", isClipReverted := true, untilRevert := 100) {
 
 RunLink(link) => (
    Run(link),
-   WinWait("Google Chrome ahk_exe chrome.exe"),
-   WinActivate("Google Chrome ahk_exe chrome.exe")
+   WinWait('Google Chrome ahk_exe chrome.exe'),
+   WinActivate('Google Chrome ahk_exe chrome.exe')
 )
 
 WaitUntilImage(imageFile, coordObj?) {
-   var := 0 
+   var := 0
    if !IsSet(coordObj) {
       coordObj := {
          x1: 0,
@@ -57,11 +57,11 @@ WaitUntilImage(imageFile, coordObj?) {
 
 WaitClick(imageFile) => (
    coords := WaitUntilImage(imageFile),
-   ControlClick("X" coords[1] " Y" coords[2], "A")
+   ControlClick('X' coords[1] ' Y' coords[2], 'A')
 )
 
 TransAndProud(whatCrement) {
-   howTrans := WinGetTransparent("A")
+   howTrans := WinGetTransparent('A')
 
    if !howTrans
       howTrans := 255
@@ -69,15 +69,15 @@ TransAndProud(whatCrement) {
    etgServer := howTrans + whatCrement
 
    Switch {
-      Case etgServer >= 255: etgServer := "Off"
+      Case etgServer >= 255: etgServer := 'Off'
       Case etgServer <= 1: etgServer := 1
    }
 
-   try WinSetTransparent(etgServer, "A")
+   try WinSetTransparent(etgServer, 'A')
 }
 
 Cis() {
-   try WinSetTransparent(255, "A")
+   try WinSetTransparent(255, 'A')
 }
 
 GetTooltipIndex() {
@@ -88,7 +88,7 @@ GetTooltipIndex() {
    return tooltipIndex
 }
 
-ToolPeek(text, timeout := 1, x := "", y := "") {
+ToolPeek(text, timeout := 1, x := '', y := '') {
    tooltipIndex := GetTooltipIndex()
    if !x && !y
       MouseGetPos(&x, &y)
@@ -99,7 +99,7 @@ ToolPeek(text, timeout := 1, x := "", y := "") {
 ToolStay(text, winTitle?, x := 0, y := 0) {
    static tooltipsAtOneTime := 0
    tooltipIndex := GetTooltipIndex()
-   winTitle := winTitle ?? WinGetID("A")
+   winTitle := winTitle ?? WinGetID('A')
 
    if !x && !y {
       y := tooltipsAtOneTime * 25
@@ -128,52 +128,52 @@ RunWith(with, runFile) => Run(with ' "' runFile '"')
 
 RunSpec(commands, AsAdmin := false, seeCmd := false) {
 
-   commands_converted := IsObject(commands) ? "" : commands
-   AsAdmin := AsAdmin ? "*RunAs " : ""
-   seeCmd := seeCmd ? "Max" : "hide"
+   commands_converted := IsObject(commands) ? '' : commands
+   AsAdmin := AsAdmin ? '*RunAs ' : ''
+   seeCmd := seeCmd ? 'Max' : 'hide'
 
    if IsObject(commands) {
 
-      commands_concoct := " & "	;to run multiple lines using Run, you concoct them together using &
+      commands_concoct := ' & '	;to run multiple lines using Run, you concoct them together using &
       for key, value in commands {
-      
+
          if key = commands.Length	;if it's the last command
-            commands_concoct := ""	;we don't need to append the commands together anymore
+            commands_concoct := ''	;we don't need to append the commands together anymore
 
          commands_converted .= value commands_concoct
       }
    }
 
-   RunWait(AsAdmin A_ComSpec " /c " commands_converted, , seeCmd)
+   RunWait(AsAdmin A_ComSpec ' /c ' commands_converted, , seeCmd)
 }
 
-WriteFile(whichFile, text := "") => (
-   fileObj := FileOpen(whichFile, "w"),
+WriteFile(whichFile, text := '') => (
+   fileObj := FileOpen(whichFile, 'w'),
    fileObj.Write(text),
    fileObj.Close()
 )
 
-AppendFile(whichFile, text) { 
+AppendFile(whichFile, text) {
    if FileExist(whichFile)
-      fileObj := FileOpen(whichFile, "a")
+      fileObj := FileOpen(whichFile, 'a')
    else
-      fileObj := FileOpen(whichFile, "w")
+      fileObj := FileOpen(whichFile, 'w')
    fileObj.Seek(0, 2)
    fileObj.Write(text)
    fileObj.Close()
 }
 
-ReadFile(whichFile) { 
-   fileObj := FileOpen(whichFile, "r")
+ReadFile(whichFile) {
+   fileObj := FileOpen(whichFile, 'r')
    fileObj.Seek(0, 0)
    text := fileObj.Read()
    fileObj.Close()
    return text
 }
 
-ControlClick_Here(winTitle := "A", whichButton := "L") => ( 
+ControlClick_Here(winTitle := 'A', whichButton := 'L') => (
       MouseGetPos(&locX, &locY),
-      ControlClick("X" locX " Y" locY, winTitle, , whichButton)
+      ControlClick('X' locX ' Y' locY, winTitle, , whichButton)
    )
 
 WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
@@ -183,14 +183,14 @@ WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
    time := A_TickCount
 
    for key, value in r_RelPos {
-      if !RegexMatch(value, "(-?\d+),? (-?\d+)", &init_coords)
+      if !RegexMatch(value, '(-?\d+),? (-?\d+)', &init_coords)
          return false
       initPix.Push(PixelGetColor(locX + init_coords[1], locY + init_coords[2]))
    }
 
    Loop {
       for key, value in r_RelPos {
-         if !RegexMatch(value, "(-?\d*),? (-?\d*)", &end_coords)
+         if !RegexMatch(value, '(-?\d*),? (-?\d*)', &end_coords)
             return false
          endPix.Push(PixelGetColor(locX + end_coords[1], locY + end_coords[2]))
       }
@@ -209,15 +209,15 @@ SystemReboot := Shutdown.Bind(2)
 
 SystemPowerDown := Shutdown.Bind(1)
 
-GetDateAndTime() => FormatTime(, "yy.MM.dd HH:mm")
+GetDateAndTime() => FormatTime(, 'yy.MM.dd HH:mm')
 
-GetTimeAndSec() => FormatTime(, "HH:mm:ss")
+GetTimeAndSec() => FormatTime(, 'HH:mm:ss')
 
-RegexInFile(filePath, regex) { 
+RegexInFile(filePath, regex) {
    fileText := ReadFile(filePath)
    if !IsObject(regex) {
       if !RegexMatch(fileText, regex, &match) {
-         TrayTip(regex " not found in " filePath)
+         TrayTip(regex ' not found in ' filePath)
          return false
       }
       return match
@@ -225,7 +225,7 @@ RegexInFile(filePath, regex) {
    Matches := {}
    for key, value in regex {
       if !RegexMatch(fileText, value, &match) {
-         TrayTip(value " not found in " filePath)
+         TrayTip(value ' not found in ' filePath)
          continue
       }
       Matches.%key% := match

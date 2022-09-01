@@ -4,29 +4,29 @@
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 chrome_CopyLink() => (
-   Send("^l"),
-   KeyWait(A_ThisHotkey_Formatted(), "U"),
+   Send('^l'),
+   KeyWait(A_ThisHotkey_Formatted(), 'U'),
    Copy()
 )
 
-chrome_CloseAllTabs := Send.Bind("+!w")
+chrome_CloseAllTabs := Send.Bind('+!w')
 
 ;SPOTIFY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-spotify_Like := Send.Bind("+!b")
+spotify_Like := Send.Bind('+!b')
 
-spotify_Shuffle := Send.Bind("^s")
+spotify_Shuffle := Send.Bind('^s')
 
-spotify_SkipNext := Send.Bind("^{Right}")
+spotify_SkipNext := Send.Bind('^{Right}')
 
-spotify_SkipPrev := Send.Bind("^{Left}")
+spotify_SkipPrev := Send.Bind('^{Left}')
 
-spotify_LikedPlaylist := Send.Bind("+!s")
+spotify_LikedPlaylist := Send.Bind('+!s')
 
-spotify_Close := Send.Bind("^+q")
+spotify_Close := Send.Bind('^+q')
 
 spotify_Discovery() {
    static isStarted := false
@@ -38,7 +38,7 @@ spotify_Discovery() {
    }
 
    onRightClick(*) {
-      ControlClick_Here("ahk_exe Spotify.exe", "R")
+      ControlClick_Here('ahk_exe Spotify.exe', 'R')
       var++
       g_added_text.Text := var
       if var >= 15 {
@@ -47,34 +47,34 @@ spotify_Discovery() {
    }
 
    Destruction(*) {
-      HotIfWinActive("ahk_exe Spotify.exe")
-      Hotkey("RButton", "Off")
-      Hotkey("Escape", "Off")
+      HotIfWinActive('ahk_exe Spotify.exe')
+      Hotkey('RButton', 'Off')
+      Hotkey('Escape', 'Off')
       g_added.Destroy()
       var := 0
       isStarted := false
    }
 
    static g_added
-   g_added := Gui("AlwaysOnTop -caption")
-   g_added.backColor := "171717"
-   g_added.SetFont("s50 c0xC5C5C5", "Consolas")
-   g_added_text := g_added.Add("Text", "W200 X0 Y60 Center", "0")
-   g_added.Show("W200 H200 X0 Y0 NA")
+   g_added := Gui('AlwaysOnTop -caption')
+   g_added.backColor := '171717'
+   g_added.SetFont('s50 c0xC5C5C5', 'Consolas')
+   g_added_text := g_added.Add('Text', 'W200 X0 Y60 Center', '0')
+   g_added.Show('W200 H200 X0 Y0 NA')
 
-   HotIfWinActive("ahk_exe Spotify.exe")
-   Hotkey("RButton", onRightClick.Bind(), "On")
-   Hotkey("Escape", Destruction.Bind(), "On")
-   g_added.OnEvent("Close", Destruction.Bind())
-   g_added_text.OnEvent("Click", (*) => var := g_added_text.Text := g_added_text.Text - 1)	;We update the number we *see* with the one just lower than it, and also update the amount of tracks until destruction (var)
-   g_added_text.OnEvent("DoubleClick", Destruction.Bind())
+   HotIfWinActive('ahk_exe Spotify.exe')
+   Hotkey('RButton', onRightClick.Bind(), 'On')
+   Hotkey('Escape', Destruction.Bind(), 'On')
+   g_added.OnEvent('Close', Destruction.Bind())
+   g_added_text.OnEvent('Click', (*) => var := g_added_text.Text := g_added_text.Text - 1)	;We update the number we *see* with the one just lower than it, and also update the amount of tracks until destruction (var)
+   g_added_text.OnEvent('DoubleClick', Destruction.Bind())
 
    isStarted := true
 }
 
 spotify_GetCurrSong() {
-   currSong := WinGetTitle("ahk_exe Spotify.exe")
-   if currSong = "Spotify Free"
+   currSong := WinGetTitle('ahk_exe Spotify.exe')
+   if currSong = 'Spotify Free'
       return false
    return currSong
 }
@@ -84,63 +84,63 @@ spotify_GetCurrSong_ToClip() => A_Clipboard := spotify_GetCurrSong()
 spotify_NewDiscovery() {
    currSong := spotify_GetCurrSong()
    if !currSong {
-      Traytip("No track is playing")
+      Traytip('No track is playing')
       return
    }
-   artistName := RegexReplace(currSong, " - .*", "")
-   AppendFile(Paths.Ptf["Discovery log"], GetDateAndTime() " - " artistName "`n")
-   TrayTip(artistName " just discovered! 🌎")
+   artistName := RegexReplace(currSong, ' - .*', '')
+   AppendFile(Paths.Ptf['Discovery log'], GetDateAndTime() ' - ' artistName '`n')
+   TrayTip(artistName ' just discovered! 🌎')
 }
 
 spotify_NewRapper(name) {
-   isTouched := ReadFile(Paths.Ptf["Unfinished"])
-   isTouched .= ReadFile(Paths.Ptf["Rappers"])
-   isTouched := RegexReplace(isTouched, " - .*", "")
+   isTouched := ReadFile(Paths.Ptf['Unfinished'])
+   isTouched .= ReadFile(Paths.Ptf['Rappers'])
+   isTouched := RegexReplace(isTouched, ' - .*', '')
    if Instr(isTouched, name) {
       TrayTip("You've already started listening to this rapper")
       return
    }
-   AppendFile(Paths.Ptf["Rappers"], name "`n")
-   TrayTip("New rapper to discover! 📃")
+   AppendFile(Paths.Ptf['Rappers'], name '`n')
+   TrayTip('New rapper to discover! 📃')
 }
 
 spotify_SendTrackToKristi() {
    currSong := spotify_GetCurrSong()
    if !currSong {
-      TrayTip("No track is playing")
+      TrayTip('No track is playing')
       return
    }
-   win_RunAct("Telegram", Paths.Apps["Telegram"])
-   telegram_Channel("кристина")
-   WaitUntilImage(Paths.Ptf["Kristi"])
+   win_RunAct('Telegram', Paths.Apps['Telegram'])
+   telegram_Channel('кристина')
+   WaitUntilImage(Paths.Ptf['Kristi'])
    ClipSend(currSong)
-   Send("{Enter}")
+   Send('{Enter}')
 }
 
 spotify_Context() => (
-   ControlClick("X22 Y1015", "ahk_exe Spotify.exe", , "R"),
-   Send("{Up 2}")
+   ControlClick('X22 Y1015', 'ahk_exe Spotify.exe', , 'R'),
+   Send('{Up 2}')
 )
 
 spotify_FavRapper_Auto() {
    currSong := spotify_GetCurrSong()
    if !currSong {
-      Traytip("No track is playing")
+      Traytip('No track is playing')
       return
    }
-   currArtist := RegexReplace(currSong, " -.*")
+   currArtist := RegexReplace(currSong, ' -.*')
    spotify_FavRapper_Manual(currArtist)
 }
 
 spotify_FavRapper_Manual(artistName) {
-   artists := ReadFile(Paths.Ptf["Artists"])
-   artists := RegexReplace(artists, "1\. ")
+   artists := ReadFile(Paths.Ptf['Artists'])
+   artists := RegexReplace(artists, '1\. ')
    if InStr(artists, artistName) {
-      TrayTip(artistName " is already added 😨")
+      TrayTip(artistName ' is already added 😨')
       return
    }
-   AppendFile(Paths.Ptf["Artists"], "1. " artistName "`n")
-   TrayTip(artistName " is now your favorite! 🥰")
+   AppendFile(Paths.Ptf['Artists'], '1. ' artistName '`n')
+   TrayTip(artistName ' is now your favorite! 🥰')
 }
 
 ;YOUTUBE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -148,76 +148,76 @@ spotify_FavRapper_Manual(artistName) {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-youtube_SkipNext := Send.Bind("+n")
+youtube_SkipNext := Send.Bind('+n')
 
-youtube_SkipPrev := Send.Bind("+p")
+youtube_SkipPrev := Send.Bind('+p')
 
 youtube_Seek(direction) {
    Switch direction {
-      Case "right": Send("l")
-      Case "left": Send("j")
+      Case 'right': Send('l')
+      Case 'left': Send('j')
    }
 }
 
-youtube_Fullscreen() => (LanguageEng(), Send("f"))
+youtube_Fullscreen() => (LanguageEng(), Send('f'))
 
-youtube_Miniscreen() => (LanguageEng(), Send("i"))
+youtube_Miniscreen() => (LanguageEng(), Send('i'))
 
-youtube_MiniscreenClose := ControlClick.Bind("X1858 Y665")
+youtube_MiniscreenClose := ControlClick.Bind('X1858 Y665')
 
 youtube_ChannelSwitch() => (
-   ControlClick("X1823 Y133"),
-   WaitUntilImage(Paths.Ptf["switch account ytt"]),
-   ControlClick("X1524 Y400")
+   ControlClick('X1823 Y133'),
+   WaitUntilImage(Paths.Ptf['switch account ytt']),
+   ControlClick('X1524 Y400')
 )
 
 youtube_ToYouTube() => (
-   ControlClick("X1865 Y130"),
-   WaitClick(Paths.Ptf["youtube logo"])
+   ControlClick('X1865 Y130'),
+   WaitClick(Paths.Ptf['youtube logo'])
 )
 
-youtube_isWatchingVid() => WinActive(" - YouTube ahk_exe chrome.exe")
-   && !WinActive("Watch later ahk_exe chrome.exe")
-   && !WinActive("Subscriptions ahk_exe chrome.exe")
+youtube_isWatchingVid() => WinActive(' - YouTube ahk_exe chrome.exe')
+   && !WinActive('Watch later ahk_exe chrome.exe')
+   && !WinActive('Subscriptions ahk_exe chrome.exe')
 
-youtube_isNotWatchingVid() => WinActive("Watch later ahk_exe chrome.exe")
-   || WinActive("Subscriptions ahk_exe chrome.exe")
-   || (WinActive("YouTube ahk_exe chrome.exe")
-      && !WinActive(" - YouTube"))
+youtube_isNotWatchingVid() => WinActive('Watch later ahk_exe chrome.exe')
+   || WinActive('Subscriptions ahk_exe chrome.exe')
+   || (WinActive('YouTube ahk_exe chrome.exe')
+      && !WinActive(' - YouTube'))
 
 ;VK~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-vk_Notifications := ControlClick.Bind("X788 Y126")
+vk_Notifications := ControlClick.Bind('X788 Y126')
 
-vk_Voice := ControlClick.Bind("X1757 Y1014")
+vk_Voice := ControlClick.Bind('X1757 Y1014')
 
-vk_Scroll := ControlClick.Bind("X1750 Y903")
+vk_Scroll := ControlClick.Bind('X1750 Y903')
 
 ;TELEGRAM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-telegram_Voice := ClickThenGoBack_Event.Bind("1452 1052")
+telegram_Voice := ClickThenGoBack_Event.Bind('1452 1052')
 
-telegram_Scroll := ControlClick.Bind("X1434 Y964")
+telegram_Scroll := ControlClick.Bind('X1434 Y964')
 
 telegram_Channel(channelToFind) => (
-   ControlClick("X456 Y74"),
+   ControlClick('X456 Y74'),
    Send(channelToFind),
-   Send("{Enter}")
+   Send('{Enter}')
 )
 
 telegram_Diary() {
-   diary := ReadFile(Paths.Ptf["Diary"])
-   WriteFile(Paths.Ptf["Diary"])
-   win_RunAct("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
-   telegram_Channel("Diary")
+   diary := ReadFile(Paths.Ptf['Diary'])
+   WriteFile(Paths.Ptf['Diary'])
+   win_RunAct('Telegram ahk_exe Telegram.exe', Paths.Apps['Telegram'])
+   telegram_Channel('Diary')
    ClipSend(diary)
-   Send("{Enter}")
+   Send('{Enter}')
 }
 
 ;DISCORD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -225,50 +225,50 @@ telegram_Diary() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-discord_Emoji := Send.Bind("^e")
+discord_Emoji := Send.Bind('^e')
 
-discord_Gif := Send.Bind("^g")
+discord_Gif := Send.Bind('^g')
 
 discord_Reply := CtrlClick
 
 discord_React() {
-   ImageSearch(&reactX, &reactY, 1730, 88, 1820, 995, Paths.Ptf["react"])
-   try ControlClick("X" reactX " Y" reactY, "ahk_exe Discord.exe")
+   ImageSearch(&reactX, &reactY, 1730, 88, 1820, 995, Paths.Ptf['react'])
+   try ControlClick('X' reactX ' Y' reactY, 'ahk_exe Discord.exe')
 }
 
-discord_DeleteMessage := Send.Bind("{Delete Down}{Click}{Delete Up}")
+discord_DeleteMessage := Send.Bind('{Delete Down}{Click}{Delete Up}')
 
-vscode_IndentRight := Send.Bind("^!{Right}")
+vscode_IndentRight := Send.Bind('^!{Right}')
 
-vscode_IndentLeft := Send.Bind("^!{Left}")
+vscode_IndentLeft := Send.Bind('^!{Left}')
 
-vscode_Comment := Send.Bind("#{End}")
+vscode_Comment := Send.Bind('#{End}')
 
-vscode_RunCurrentFile := Send.Bind("+!o")
+vscode_RunCurrentFile := Send.Bind('+!o')
 
-vscode_KillTerminal := Send.Bind("^!o")
+vscode_KillTerminal := Send.Bind('^!o')
 
-vscode_Debug := Send.Bind("^+9")
+vscode_Debug := Send.Bind('^+9')
 
-vscode_CloseAllTabs := Send.Bind("+!w")
+vscode_CloseAllTabs := Send.Bind('+!w')
 
-vscode_DeleteLine := Send.Bind("+{Delete}")
+vscode_DeleteLine := Send.Bind('+{Delete}')
 
-vscode_Reload := Send.Bind("+!y")
+vscode_Reload := Send.Bind('+!y')
 
-vscode_FoldCodeBlock := Send.Bind("{Click}^l")
+vscode_FoldCodeBlock := Send.Bind('{Click}^l')
 
-vscode_CloseTab := Send.Bind("!w")
+vscode_CloseTab := Send.Bind('!w')
 
-vscode_CursorBack := Send.Bind("!{PgUp}")
+vscode_CursorBack := Send.Bind('!{PgUp}')
 
-vscode_CursorForward := Send.Bind("!{PgDn}")
+vscode_CursorForward := Send.Bind('!{PgDn}')
 
 vscode_GetCurrentFileFullPath(keepClip := true) {
    if keepClip
       prevClip := ClipboardAll()
-   A_Clipboard := ""
-   Send("^+k")
+   A_Clipboard := ''
+   Send('^+k')
    ClipWait(3, 1)
    fileFullPath := A_Clipboard
    if keepClip
@@ -280,7 +280,7 @@ vscode_ToEndOfCurrFile() {
    selection := str_GetSelection()
    file_Path := vscode_GetCurrentFileFullPath()
    file_Text := ReadFile(file_Path)
-   file_Text := StrReplace(file_Text, selection, "")
+   file_Text := StrReplace(file_Text, selection, '')
    file_Text .= selection
    WriteFile(file_Path, file_Text)
 }
@@ -289,20 +289,20 @@ vscode_ToEndOfOthrFile(otherFilePath) {
    selection := str_GetSelection()
    file_Path := vscode_GetCurrentFileFullPath()
    file_Text := ReadFile(file_Path)
-   file_Text := StrReplace(file_Text, selection, "")
+   file_Text := StrReplace(file_Text, selection, '')
    WriteFile(file_Path, file_Text)
    AppendFile(otherFilePath, selection)
 }
 
 vscode_WorkSpace(wkspName) {
    vscode_CloseAllTabs()
-   win_Close("ahk_exe Code.exe")
-   Run(Paths.Ptf[wkspName], , "Max")
+   win_Close('ahk_exe Code.exe')
+   Run(Paths.Ptf[wkspName], , 'Max')
 }
 
 vscode_toCommitMessage(changeNotes_rawFile) {
    if !changeNotes_rawFile
-      return ""
+      return ''
 
    /*
       Making it easy to work with regex
@@ -310,23 +310,23 @@ vscode_toCommitMessage(changeNotes_rawFile) {
       I know going step by step is inefficient, but this improves mantainability and stability, since if I take care of things one at a time, I won't be able to miss anything. It's so fast that I can't notice anyway. I'd rather be able to change things more easily
     */
 
-   changeNotes := StrReplace(changeNotes_rawFile, "`t", " ")	;Replacing tabs with spaces
-   changeNotes := StrReplace(changeNotes, "`r`n", "`n")	;Removing the annoying \r (returns), to not have to care about them in the regex
-   changeNotes := RegexReplace(changeNotes, " *\n", "`n")	;Removing all trailing whitespace
-   changeNotes := RegexReplace(changeNotes, " {2,}", " ")	;Only one space instead of potentially many (inline)
-   changeNotes := RegexReplace(changeNotes, "\n{3,}", "`n`n")	;Only two newlines instead of potentially many
+   changeNotes := StrReplace(changeNotes_rawFile, '`t', ' ')	;Replacing tabs with spaces
+   changeNotes := StrReplace(changeNotes, '`r`n', '`n')	;Removing the annoying \r (returns), to not have to care about them in the regex
+   changeNotes := RegexReplace(changeNotes, ' *\n', '`n')	;Removing all trailing whitespace
+   changeNotes := RegexReplace(changeNotes, ' {2,}', ' ')	;Only one space instead of potentially many (inline)
+   changeNotes := RegexReplace(changeNotes, '\n{3,}', '`n`n')	;Only two newlines instead of potentially many
 
-   changeNotes := RegexReplace(changeNotes, "\n#+ ", "`n")	;I can use the # character as normal, unless it's at the start and with a space, meaning is a md label
-   changeNotes := RegexReplace(changeNotes, "\n>+ ", "`n")
-   changeNotes := RegexReplace(changeNotes, "^#+ ")	;The first label won't have a newline before it and it is also the beginning of the text, so that's why we can use ^
-   changeNotes := RegexReplace(changeNotes, "^>+ ")
+   changeNotes := RegexReplace(changeNotes, '\n#+ ', '`n')	;I can use the # character as normal, unless it's at the start and with a space, meaning is a md label
+   changeNotes := RegexReplace(changeNotes, '\n>+ ', '`n')
+   changeNotes := RegexReplace(changeNotes, '^#+ ')	;The first label won't have a newline before it and it is also the beginning of the text, so that's why we can use ^
+   changeNotes := RegexReplace(changeNotes, '^>+ ')
 
-   changeNotes := StrReplace(changeNotes, ":`n* ", ": ")	;When a line ends with :, it's a marker for a list
-   changeNotes := StrReplace(changeNotes, "`n* ", ", ")	;All the following items in the list will have commas between them, even if I forget a :, there will just be commas between all of them
+   changeNotes := StrReplace(changeNotes, ':`n* ', ': ')	;When a line ends with :, it's a marker for a list
+   changeNotes := StrReplace(changeNotes, '`n* ', ', ')	;All the following items in the list will have commas between them, even if I forget a :, there will just be commas between all of them
 
-   changeNotes := RegexReplace(changeNotes, "(?<![.:!?])\n\n", ". ")	;Double newlines are connected by a dot
-   changeNotes := StrReplace(changeNotes, "`n`n", " ")	;If I added the dot myself, we just replace those two newlines with a space
-   changeNotes := StrReplace(changeNotes, "`n", " ")	;On the off-chance I missed something, or something broke
+   changeNotes := RegexReplace(changeNotes, '(?<![.:!?])\n\n', '. ')	;Double newlines are connected by a dot
+   changeNotes := StrReplace(changeNotes, '`n`n', ' ')	;If I added the dot myself, we just replace those two newlines with a space
+   changeNotes := StrReplace(changeNotes, '`n', ' ')	;On the off-chance I missed something, or something broke
 
    changeNotes := StrReplace(changeNotes, '"', "'")	;double quotes are not allowed in cmd, or rather they will cause trouble
 
@@ -334,25 +334,25 @@ vscode_toCommitMessage(changeNotes_rawFile) {
 }
 
 vscode_CleanText() {
-   clean := ReadFile(Paths.Ptf["Raw"])
-   clean := StrReplace(clean, "`r`n", "`n")	;making it easy for regex to work its magic by removing returns
-   clean := RegexReplace(clean, "m)^\* .*\n(\n)?")	;removing bullets and their additional newlines
+   clean := ReadFile(Paths.Ptf['Raw'])
+   clean := StrReplace(clean, '`r`n', '`n')	;making it easy for regex to work its magic by removing returns
+   clean := RegexReplace(clean, 'm)^\* .*\n(\n)?')	;removing bullets and their additional newlines
 
-   RegexMatch(clean, "s)---\n(.*)", &description_regexed)	;Getting the description that's manually written
+   RegexMatch(clean, 's)---\n(.*)', &description_regexed)	;Getting the description that's manually written
 
-   clean := RegexReplace(clean, "s)---\n.*")	;deleting the description part of the script
-   clean := RegexReplace(clean, "\n{3,}")	;removing spammed newlines
-   clean := RegexReplace(clean, "m) *$")	;removing leading spaces
-   clean := RegexReplace(clean, "(?<!\.)\n{2}(?=[^A-Z])", " ")	;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
+   clean := RegexReplace(clean, 's)---\n.*')	;deleting the description part of the script
+   clean := RegexReplace(clean, '\n{3,}')	;removing spammed newlines
+   clean := RegexReplace(clean, 'm) *$')	;removing leading spaces
+   clean := RegexReplace(clean, '(?<!\.)\n{2}(?=[^A-Z])', ' ')	;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
 
-   clean_compact := StrReplace(clean, "`n`n", "`n")
+   clean_compact := StrReplace(clean, '`n`n', '`n')
 
    if !description_regexed
       description_manual := ''
    else
       description_manual := description_regexed[1]
 
-   description := description_manual "`n`n" "
+   description := description_manual '`n`n' '
    (
       Learn about autohotkey v2 in the documentation: https://lexikos.github.io/v2/docs/AutoHotkey.htm
       IDE used in the video: https://code.visualstudio.com/
@@ -364,29 +364,29 @@ vscode_CleanText() {
       https://discord.com/invite/Aat7KHmG7v
 
       The video script:
-   )" "`n`n" clean_compact
+   )' '`n`n' clean_compact
 
-   WriteFile(Paths.Ptf["Clean"], clean)
-   WriteFile(Paths.Ptf["Description"], description)
-   Info("Text cleaned")
+   WriteFile(Paths.Ptf['Clean'], clean)
+   WriteFile(Paths.Ptf['Description'], description)
+   Info('Text cleaned')
 }
 
 vscode_VideoUp() {
    files := [
-      Paths.Ptf["Raw"],
-      Paths.Ptf["Clean"],
-      Paths.Ptf["Description"],
+      Paths.Ptf['Raw'],
+      Paths.Ptf['Clean'],
+      Paths.Ptf['Description'],
    ]
    for key, value in files {
       WriteFile(value)
    }
-   FileDelete(Paths.Materials "\*.*")
+   FileDelete(Paths.Materials '\*.*')
 }
 
 vscode_JsTutorial() {
-   WriteFile(Paths.Ptf["index.js"])
-   WriteFile(Paths.Ptf["styles.css"])
-   WriteFile(Paths.Ptf["index.html"], "
+   WriteFile(Paths.Ptf['index.js'])
+   WriteFile(Paths.Ptf['styles.css'])
+   WriteFile(Paths.Ptf['index.html'], '
    (
       <!DOCTYPE html>
       <html>
@@ -404,7 +404,7 @@ vscode_JsTutorial() {
             <script src="jsm.js"></script>
          </body>
       </html>
-   )")
+   )')
 
 }
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -423,8 +423,8 @@ git_CommitRepo(changeNote_file, repo_path, andPush := true) {
    ]
 
    if andPush {
-      program.Push("pause")
-      program.Push("git push")
+      program.Push('pause')
+      program.Push('git push')
    }
 
    RunSpec(program, , andPush)
@@ -438,66 +438,66 @@ git_Link() {
    shouldContinue := false
 
    g_selectType := Gui()
-   g_selectType.BackColor := "171717"
-   g_selectType.SetFont("s20 cC5C5C5", "Consolas")
+   g_selectType.BackColor := '171717'
+   g_selectType.SetFont('s20 cC5C5C5', 'Consolas')
 
    selectType_hwnd := g_selectType.hwnd
 
-   g_selectType_prompt := g_selectType.Add("Text", , "What do you want to get the link of?")
+   g_selectType_prompt := g_selectType.Add('Text', , 'What do you want to get the link of?')
 
-   g_selectType.SetFont("s15")
+   g_selectType.SetFont('s15')
 
    Destruction := (*) => (
-      HotIfWinActive("ahk_id " selectType_hwnd),
-      Hotkey("Escape", "Off"),
+      HotIfWinActive('ahk_id ' selectType_hwnd),
+      Hotkey('Escape', 'Off'),
       g_selectType.Destroy()
    )
 
-   static selection_type := "File"
+   static selection_type := 'File'
    SelectType := (type_to_select, *) => (
       selection_type := type_to_select,
       shouldContinue := true,
       Destruction()
    )
 
-   g_selectType_file := g_selectType.Add("Button", "Default background171717", "File")
-      .OnEvent("Click", SelectType.Bind("file"))
-   g_selectType_folder := g_selectType.Add("Button", "x+m background171717", "Folder")
-      .OnEvent("Click", SelectType.Bind("folder"))
+   g_selectType_file := g_selectType.Add('Button', 'Default background171717', 'File')
+      .OnEvent('Click', SelectType.Bind('file'))
+   g_selectType_folder := g_selectType.Add('Button', 'x+m background171717', 'Folder')
+      .OnEvent('Click', SelectType.Bind('folder'))
 
-   HotIfWinActive("ahk_id " selectType_hwnd)
-   Hotkey("Escape", Destruction)
+   HotIfWinActive('ahk_id ' selectType_hwnd)
+   Hotkey('Escape', Destruction)
 
-   g_selectType.OnEvent("Close", Destruction)
-   g_selectType.Show("AutoSize")
+   g_selectType.OnEvent('Close', Destruction)
+   g_selectType.Show('AutoSize')
 
    WinWaitClose(selectType_hwnd)
 
    if !shouldContinue
       return
 
-   if selection_type = "File" {
-      flag := "S"
-      blobbie := "/blob/main/"
-   } else if selection_type = "Folder" {
-      flag := "D"
-      blobbie := "/tree/main/"
+   if selection_type = 'File' {
+      flag := 'S'
+      blobbie := '/blob/main/'
+   } else if selection_type = 'Folder' {
+      flag := 'D'
+      blobbie := '/tree/main/'
    }
 
-   selected_path := FileSelect(flag, programming_path, "Select a " selection_type " to get the github link of: ")
+   selected_path := FileSelect(flag, programming_path, 'Select a ' selection_type ' to get the github link of: ')
 
    if !selected_path
       return
 
-   relative_path := StrReplace(selected_path, programming_path "\")	;C:\Programming\Main\Lib\Win.ahk => Main\Lib\Win.ahk
+   relative_path := StrReplace(selected_path, programming_path '\')	;C:\Programming\Main\Lib\Win.ahk => Main\Lib\Win.ahk
 
-   RegexMatch(relative_path, "(\w+)\\(.*)", &match_split)
+   RegexMatch(relative_path, '(\w+)\\(.*)', &match_split)
    project_folder := match_split[1]
-   project_file := StrReplace(match_split[2], " ", "%20")
+   project_file := StrReplace(match_split[2], ' ', '%20')
 
-   account := "https://github.com/Axlefublr/"
+   account := 'https://github.com/Axlefublr/'
 
-   link := StrReplace(account project_folder blobbie project_file, "\", "/")
+   link := StrReplace(account project_folder blobbie project_file, '\', '/')
 
    return link
 }
@@ -507,7 +507,7 @@ git_Link() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-player_SkipOpening := Send.Bind("{F12 8}")
+player_SkipOpening := Send.Bind('{F12 8}')
 
 ;SHOW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -518,12 +518,12 @@ Show_GetLink(show) {
    shows := JSON.parse(ReadFile(Paths.Ptf['Shows']))
    try shows[show]
    catch Any {
-      Info("No " show "!🎬")
-      return "" ;There for sure won't be a link nor an episode if the object doesn't exist yet, because if I either set the link or the episode, the show object will exist along with the properties, even if one of them doesn't have a non-zero value
+      Info('No ' show '!🎬')
+      return '' ;There for sure won't be a link nor an episode if the object doesn't exist yet, because if I either set the link or the episode, the show object will exist along with the properties, even if one of them doesn't have a non-zero value
    }
    if !shows[show]['link'] {
-      Info("No link!🔗")
-      return "" ;If the object exists, so does the link property, which will be blank if I only set the episode (somehow). The episode always starts out being 0 though, no need to check for it
+      Info('No link!🔗')
+      return '' ;If the object exists, so does the link property, which will be blank if I only set the episode (somehow). The episode always starts out being 0 though, no need to check for it
    }
    return shows[show]['link'] shows[show]['episode'] + 1
 }
@@ -538,10 +538,10 @@ Show_GetShows() {
 Show_Run(show) {
    try Run(Show_GetLink(show))
    catch any {
-      Info("Fucked up link :(")
+      Info('Fucked up link :(')
       return
    }
-   win_Activate("Google Chrome ahk_exe chrome.exe")
+   win_Activate('Google Chrome ahk_exe chrome.exe')
 }
 
 Show_DeleteShow(show) {
@@ -551,10 +551,10 @@ Show_DeleteShow(show) {
 }
 
 Show_SetLink(show_and_link) {
-   show_and_link := RegexReplace(show_and_link, " {2,}", " ")
-   RegexMatch(show_and_link, "(.+) (https:\/\/[^ ]+)", &show_and_link_match)
+   show_and_link := RegexReplace(show_and_link, ' {2,}', ' ')
+   RegexMatch(show_and_link, '(.+) (https:\/\/[^ ]+)', &show_and_link_match)
    if !show_and_link_match {
-      Info("No show / link")
+      Info('No show / link')
       return
    }
 
@@ -570,12 +570,12 @@ Show_SetLink(show_and_link) {
    else shows[show]['link'] := link
 
    WriteFile(Paths.Ptf['Shows'], JSON.stringify(shows))
-   Info(show ": link set")
+   Info(show ': link set')
 }
 
 Show_SetEpisode(show_and_episode) {
-   show_and_episode := RegexReplace(show_and_episode, " {2,}", " ")
-   RegexMatch(show_and_episode, "(.+) (\d+)", &show_and_episode_match)
+   show_and_episode := RegexReplace(show_and_episode, ' {2,}', ' ')
+   RegexMatch(show_and_episode, '(.+) (\d+)', &show_and_episode_match)
 
    show := show_and_episode_match[1]
    episode := show_and_episode_match[2]
@@ -583,12 +583,12 @@ Show_SetEpisode(show_and_episode) {
    shows := JSON.parse(ReadFile(Paths.Ptf['Shows']))
    try shows[show]
    catch Any {
-      shows.Set(show, {episode: episode, link: ""})
+      shows.Set(show, {episode: episode, link: ''})
    }
    else shows[show]['episode'] := episode
 
    WriteFile(Paths.Ptf['Shows'], JSON.stringify(shows))
-   Info(show ": " episode)
+   Info(show ': ' episode)
 }
 
 ;VIDEO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -597,11 +597,11 @@ Show_SetEpisode(show_and_episode) {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 video_EditScreenshot() {
-   selectedFile := FileSelect("S", Paths.Materials, "Select a file to edit in gimp")
+   selectedFile := FileSelect('S', Paths.Materials, 'Select a file to edit in gimp')
    if !selectedFile
       return
 
-   RunWith(Paths.Apps["Gimp"], selectedFile)
+   RunWith(Paths.Apps['Gimp'], selectedFile)
 }
 
 video_DuplicateScreenshot() {
@@ -611,7 +611,7 @@ video_DuplicateScreenshot() {
    file_name := RegexReplace(file_fullname, '\d+')
 
    screenshot_numbers := []
-   Loop Files Paths.Materials "\*.png" {
+   Loop Files Paths.Materials '\*.png' {
       RegexMatch(A_LoopFileName, '\d+', &currentFile_number)
       screenshot_numbers.Push(currentFile_number[0])
    }
@@ -619,7 +619,7 @@ video_DuplicateScreenshot() {
 
    nextNumber := screenshot_numbers[-1] + 1
 
-   newFile_path := Paths.Materials "\" nextNumber file_name
+   newFile_path := Paths.Materials '\' nextNumber file_name
 
    FileCopy(file_path, newFile_path, 1)
    win_RunAct_Folders(Paths.Materials)
@@ -631,16 +631,16 @@ video_DuplicateScreenshot() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 davinci_Insert() {
-   ControlClick("X79 Y151", "ahk_exe Resolve.exe", , "R")
-   Send("{Down 2}{Enter}")
-   WinWaitActive("New Timeline Properties")
-   Send("{Enter}")
+   ControlClick('X79 Y151', 'ahk_exe Resolve.exe', , 'R')
+   Send('{Down 2}{Enter}')
+   WinWaitActive('New Timeline Properties')
+   Send('{Enter}')
 }
 
-screenshot_Rectangle := ClickThenGoBack.Bind("839 6")
+screenshot_Rectangle := ClickThenGoBack.Bind('839 6')
 
-screenshot_Window := ClickThenGoBack.Bind("959 6")
+screenshot_Window := ClickThenGoBack.Bind('959 6')
 
-screenshot_Fullscreen := ClickThenGoBack.Bind("1019 6")
+screenshot_Fullscreen := ClickThenGoBack.Bind('1019 6')
 
-explorer_Rename := Send.Bind("{F2}")
+explorer_Rename := Send.Bind('{F2}')

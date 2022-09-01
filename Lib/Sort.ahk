@@ -5,17 +5,17 @@
 
    Some sorting algorithms will have been tested in terms of real time taken to sort 100000 indexes
    Take the time coming from the tests with a huge rock of salt, it's there simply to have a rough comparison between sorting algorithms
-   
+
    Terms:
    Rising array   -- every index matches its value
    Shuffled array -- a shuffled rising array (Fisher-Yates shuffle)
-   Random array   -- array filled with random numbers. the range of each number starts at 1 and ends at the length of the array multiplied by 7 (check the preset parameter of variation in GenerateRandomArray()) 
+   Random array   -- array filled with random numbers. the range of each number starts at 1 and ends at the length of the array multiplied by 7 (check the preset parameter of variation in GenerateRandomArray())
 
    The time it takes to sort 100k indexes is measured by sorting *shuffled* arrays
 */
 
-ArrToStr(arrayObj, delimiter := ", ") { 
-   str := ""
+ArrToStr(arrayObj, delimiter := ', ') {
+   str := ''
    for key, value in arrayObj {
       if key = arrayObj.Length {
          str .= value
@@ -26,7 +26,7 @@ ArrToStr(arrayObj, delimiter := ", ") {
    return str
 }
 
-GenerateRandomArray(indexes, variation := 7) { 
+GenerateRandomArray(indexes, variation := 7) {
    arrayObj := []
    Loop indexes {
       arrayObj.Push(Random(1, indexes * variation))
@@ -34,7 +34,7 @@ GenerateRandomArray(indexes, variation := 7) {
    return arrayObj
 }
 
-GenerateRisingArray(indexes) { 
+GenerateRisingArray(indexes) {
    arrayObj := []
    i := 1
    Loop indexes {
@@ -44,13 +44,13 @@ GenerateRisingArray(indexes) {
    return arrayObj
 }
 
-GenerateShuffledArray(indexes) { 
+GenerateShuffledArray(indexes) {
    risingArray := GenerateRisingArray(indexes)
    shuffledArray := FisherYatesShuffle(risingArray)
    return shuffledArray
 }
 
-FisherYatesShuffle(arrayObj) { 
+FisherYatesShuffle(arrayObj) {
    shufflerIndex := 0
    While --shufflerIndex > -arrayObj.Length {
       randomIndex := Random(-arrayObj.Length, shufflerIndex)
@@ -66,10 +66,10 @@ FisherYatesShuffle(arrayObj) {
 /*
    O(n^2) -- worst case
    O(n^2) -- average case
-   O(n)   -- best case 
+   O(n)   -- best case
    Sorts 100k indexes in: 1 hour 40 minutes
 */
-BubbleSort(arrayObj) { 
+BubbleSort(arrayObj) {
    finishedIndex := -1
    Loop arrayObj.Length - 1 {
       swaps := 0
@@ -78,7 +78,7 @@ BubbleSort(arrayObj) {
             break
          if value <= arrayObj[key + 1]
             continue
-            
+
          firstComp := arrayObj[key]
          secondComp := arrayObj[key + 1]
          arrayObj[key] := secondComp
@@ -96,12 +96,12 @@ BubbleSort(arrayObj) {
    O(n^2) -- all cases
    Sorts 100k indexes in: 1 hour 3 minutes
 */
-SelectionSort(arrayObj) { 
+SelectionSort(arrayObj) {
    sortedIndex := 0
    Loop arrayObj.Length - 1 {
       sortedIndex++
       NewMinInts := 0
-      
+
       for key, value in arrayObj {
          if key < sortedIndex
             continue
@@ -113,9 +113,9 @@ SelectionSort(arrayObj) {
          }
       }
 
-      if !NewMinInts 
+      if !NewMinInts
          continue
-      
+
       temp := arrayObj[sortedIndex]
       arrayObj[sortedIndex] := min.value
       arrayObj[min.key] := temp
@@ -126,10 +126,10 @@ SelectionSort(arrayObj) {
 /*
    O(n^2) -- worst case
    O(n^2) -- average case
-   O(n)   -- best case 
+   O(n)   -- best case
    Sorts 100k indexes in: 40 minutes
 */
-InsertionSort(arrayObj) { 
+InsertionSort(arrayObj) {
    for key, value in arrayObj {
       if key = 1
          continue
@@ -148,7 +148,7 @@ InsertionSort(arrayObj) {
    O(n logn) -- all cases
    Sorts 100k indexes in: 4 seconds
 */
-MergeSort(arrayObj) { 
+MergeSort(arrayObj) {
    Merge(leftArray, rightArray, fullArrayLength) {
       leftArraySize := fullArrayLength // 2
       rightArraySize := fullArrayLength - leftArraySize
@@ -175,10 +175,10 @@ MergeSort(arrayObj) {
       }
       return fullArray
    }
-   
+
    arrayLength := arrayObj.Length
 
-   if arrayLength <= 1 
+   if arrayLength <= 1
       return arrayObj
 
    middle := arrayLength // 2
@@ -187,7 +187,7 @@ MergeSort(arrayObj) {
 
    i := 1
    While i <= arrayLength {
-      if i <= middle 
+      if i <= middle
          leftArray.Push(arrayObj[i])
       else if i > middle
          rightArray.Push(arrayObj[i])
@@ -201,17 +201,17 @@ MergeSort(arrayObj) {
 
 /*
    O(n + k) -- all cases
-   Where "k" is the highest integer in the array
-   The more indexes you want to sort, the bigger "thread delay" will have to be
+   Where 'k' is the highest integer in the array
+   The more indexes you want to sort, the bigger 'thread delay' will have to be
    This sorting algorithm is *not* practical, use it exclusively for fun!
 */
-SleepSort(arrayObj, threadDelay := 30) { 
+SleepSort(arrayObj, threadDelay := 30) {
    sortedArrayObj := []
 
    _PushIndex(passedValue) {
       Settimer(() => sortedArrayObj.Push(passedValue), -passedValue * threadDelay)
    }
-   
+
    for key, value in arrayObj {
       _PushIndex(value)
    }
