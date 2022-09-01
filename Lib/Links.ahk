@@ -84,6 +84,7 @@ Linker(linkName) {
       'repo static',  'https://github.com/Axlefublr/Static_var_examples',
       'repo qa course', 'https://github.com/Axlefublr/QA_Course',
       'repo v2 extension', 'https://github.com/thqby/vscode-autohotkey2-lsp',
+      'repo vscode-setup-for-v2', 'https://github.com/Axlefublr/vscode-setup-for-v2',
 
       'fold lib', 'https://github.com/Axlefublr/Main/tree/main/Lib',
 

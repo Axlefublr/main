@@ -1,13 +1,11 @@
-Now both \n\n and \n between the : and the first * are supported thanks to regex
+mkdir and rmdir in runner
 
-Vs code now automatically trims trailing whitespace
+function that lets you have a look at which folders are currently in your workspace, in the same order
 
-Objects are back!
+this is useful for later removing them from there
 
-Not 1.1234 numbers though
+wksp_FoldersInWorkSpace() returns an array of folders currently in the workspace
 
-prog in runner runacts the programming folder
+wksp_FoldersInWorkSpace_Show() shows that array in a bunch of Infos()s
 
-tmlanguage back in paths and runner
-
-backup file for while this isn't pulled / implemented yet
+wksp_FoldersInProg() shows folders in the Programming folder that *aren't* added to the workspace in Infos()s

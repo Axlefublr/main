@@ -412,6 +412,45 @@ vscode_JsTutorial() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+wksp_FoldersInWorkSpace() {
+   workspace_folders := JSON.parse(ReadFile(Paths.Ptf['Main']))
+   inWksp := []
+   for key, value in workspace_folders['folders'] {
+      inWksp.Push(StrReplace(workspace_folders['folders'][key]['path'], Paths.Prog '\'))
+   }
+   return inWksp
+}
+
+wksp_FoldersInWorkSpace_Show() {
+   inWksp := wksp_FoldersInWorkSpace()
+   for key, value in inWksp {
+      Infos(value)
+   }
+}
+
+wksp_FoldersInProg() {
+   inWskp := wksp_FoldersInWorkSpace()
+   loop files Paths.Prog "\*", "D" {
+      if A_LoopFileName = ".pytest_cache"
+         continue
+      for key, value in inWskp {
+         if A_LoopFileName = value
+            continue 2
+      }
+      Infos(StrReplace(A_LoopFileFullPath, Paths.Prog "\"))
+   }
+}
+
+wksp_AddFolderToWorkspace(newFolder) {
+   workspace_folders := JSON.parse(ReadFile(Paths.Ptf['Main']))
+   ;in progress
+}
+
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 git_CommitRepo(changeNote_file, repo_path, andPush := true) {
 
    commitMessage := vscode_toCommitMessage(ReadFile(changeNote_file))
