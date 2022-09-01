@@ -430,20 +430,21 @@ wksp_FoldersInWorkSpace_Show() {
 
 wksp_FoldersInProg() {
    inWskp := wksp_FoldersInWorkSpace()
-   loop files Paths.Prog "\*", "D" {
-      if A_LoopFileName = ".pytest_cache"
+   loop files Paths.Prog '\*', 'D' {
+      if A_LoopFileName = '.pytest_cache'
          continue
       for key, value in inWskp {
          if A_LoopFileName = value
             continue 2
       }
-      Infos(StrReplace(A_LoopFileFullPath, Paths.Prog "\"))
+      Infos(StrReplace(A_LoopFileFullPath, Paths.Prog '\'))
    }
 }
 
 wksp_AddFolderToWorkspace(newFolder) {
    workspace_folders := JSON.parse(ReadFile(Paths.Ptf['Main']))
-   ;in progress
+   workspace_folders['folders'].Push({path: Paths.Prog '\' newFolder})
+   WriteFile(Paths.Ptf['Main'], JSON.stringify(workspace_folders))
 }
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

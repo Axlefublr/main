@@ -14,7 +14,7 @@
 	 * @param text A valid JSON string.
 	 * @param keepbooltype convert true/false/null to JSON.true / JSON.false / JSON.null where it's true, otherwise 1 / 0 / ''
 	 */
-	static parse(text, keepbooltype := false) {
+	static parse(text, keepbooltype := true) {
 		keepbooltype ? (_true := JSON.true, _false := JSON.false, _null := JSON.null) : (_true := true, _false := false, _null := "")
 		NQ := "", LF := "", LP := 0, P := "", R := ""
 		D := [C := (A := InStr(text := LTrim(text, " `t`r`n"), "[") = 1) ? [] : Map()], text := LTrim(SubStr(text, 2), " `t`r`n"), L := 1, N := 0, V := K := "", J := C, !(Q := InStr(text, '"') != 1) ? text := LTrim(text, '"') : ""

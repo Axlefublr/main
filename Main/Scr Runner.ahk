@@ -82,6 +82,9 @@
 
 			;GITHUB
 			;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			'wk in', () => wksp_FoldersInWorkSpace_Show(),
+			'wk out', () => wksp_FoldersInProg(),
+
 			'gitlink', () => ClipSend(git_Link(), "", false),
 			'gitopen', () => RunLink(git_Link()),
 
