@@ -1,5 +1,7 @@
-Safety check for wksp_AddFolderToWorkspace(): won't add a folder if it's already there
+entry for wksp_AddFolderToWorkspace() in runner: wk+
 
-If you try to add a folder that doesn't exist, the function will not work and will say so
+if the folder doesn't exist, creates it
 
-If you added the folder successfully, you'll get an Info() about it
+rmdir => f-
+
+mkdir removed because usually I'd just want to immediately add it to the workspace

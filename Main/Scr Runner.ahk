@@ -100,7 +100,7 @@
 
 	try runner_commands[val].Call()
 	catch any {
-		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|rmdir|mkdir) (.+)', &result)
+		RegexMatch(val, '^(p|o|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|f-|wk+) (.+)', &result)
 		runner_regex := Map(
 			'p', () => ClipSend(Linker(result[2]), , false),
 			'o', () => RunLink(Linker(result[2])),
@@ -119,8 +119,8 @@
 			'counter', () => Counter(result[2]),
 			'dw', () => GetWeekDay(result[2]),
 			'wd', () => GetDayFromWeekDay(result[2]),
-			'rmdir', () => DirDelete(Paths.Prog '\' result[2], true),
-			'mkdir', () => DirCreate(Paths.Prog '\' result[2]),
+			'f-', () => DirDelete(Paths.Prog '\' result[2], true),
+			'wk+', () => wksp_AddFolderToWorkspace(result[2]),
 		)
 		try runner_regex[result[1]].Call()
 	}

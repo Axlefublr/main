@@ -101,7 +101,7 @@ spotify_NewRapper(name) {
       return
    }
    AppendFile(Paths.Ptf['Rappers'], name '`n')
-   TrayTip('New rapper to discover! 📃')
+   TrayTip(name 'yet to be discovered! 📃')
 }
 
 spotify_SendTrackToKristi() {
@@ -443,8 +443,7 @@ wksp_FoldersInProg() {
 
 wksp_AddFolderToWorkspace(newFolder) {
    if !DirExist(Paths.Prog '\' newFolder) {
-      Info("Folder doesn't exist")
-      return
+      DirCreate(Paths.Prog '\' newFolder)
    }
    inWksp := wksp_FoldersInWorkSpace()
    for key, value in inWksp {
@@ -457,6 +456,10 @@ wksp_AddFolderToWorkspace(newFolder) {
    workspace_folders['folders'].Push({path: Paths.Prog '\' newFolder})
    WriteFile(Paths.Ptf['Main'], JSON.stringify(workspace_folders))
    Info(newFolder " added to workspace")
+}
+
+wksp_RemoveFolderFromWorkSpace() {
+
 }
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
