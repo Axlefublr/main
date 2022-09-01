@@ -1,7 +1,9 @@
-entry for wksp_AddFolderToWorkspace() in runner: wk+
+\ => \\\\ in wksp_AddFolderToWorkspace()
 
-if the folder doesn't exist, creates it
+\\\\ => \\ in vscode_toCommitMessage()
 
-rmdir => f-
+wksp_RemoveFolderFromWorkSpace() takes an index and removes the folder of that index from the workspace
 
-mkdir removed because usually I'd just want to immediately add it to the workspace
+index safety in wksp_RemoveFolderFromWorkSpace()
+
+entry in runner: wk-

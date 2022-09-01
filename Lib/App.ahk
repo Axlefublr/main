@@ -329,6 +329,7 @@ vscode_toCommitMessage(changeNotes_rawFile) {
    changeNotes := StrReplace(changeNotes, '`n', ' ')	;On the off-chance I missed something, or something broke
 
    changeNotes := StrReplace(changeNotes, '"', "'")	;double quotes are not allowed in cmd, or rather they will cause trouble
+   changeNotes := StrReplace(changeNotes, '\\', '\')
 
    return changeNotes
 }
@@ -442,8 +443,9 @@ wksp_FoldersInProg() {
 }
 
 wksp_AddFolderToWorkspace(newFolder) {
-   if !DirExist(Paths.Prog '\' newFolder) {
-      DirCreate(Paths.Prog '\' newFolder)
+   newFolderValue := Paths.Prog '\' newFolder
+   if !DirExist(newFolderValue) {
+      DirCreate(newFolderValue)
    }
    inWksp := wksp_FoldersInWorkSpace()
    for key, value in inWksp {
@@ -453,13 +455,19 @@ wksp_AddFolderToWorkspace(newFolder) {
       }
    }
    workspace_folders := JSON.parse(ReadFile(Paths.Ptf['Main']))
-   workspace_folders['folders'].Push({path: Paths.Prog '\' newFolder})
+   workspace_folders['folders'].Push({path: newFolderValue})
    WriteFile(Paths.Ptf['Main'], JSON.stringify(workspace_folders))
    Info(newFolder " added to workspace")
 }
 
-wksp_RemoveFolderFromWorkSpace() {
-
+wksp_RemoveFolderFromWorkSpace(index) {
+   workspace_folders := JSON.parse(ReadFile(Paths.Ptf['Main']))
+   try workspace_folders['folders'].RemoveAt(index)
+   catch Any {
+      Info("No such index")
+      return
+   }
+   WriteFile(Paths.Ptf['Main'], JSON.stringify(workspace_folders))
 }
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
