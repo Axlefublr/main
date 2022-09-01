@@ -43,11 +43,13 @@
 			;FOLDERS
 			;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			'extensions', () => win_RunAct_Folders(Paths.VsCodeExtensions),
+			'prog', () => win_RunAct_Folders(Paths.Prog),
 
 			;FILES
 			;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			'package', Run.Bind(Paths.Ptf['Ahk++\package']),
-			'config', Run.Bind(Paths.Ptf['Ahk++\configuration']),
+			'package',    Run.Bind(Paths.Ptf['Ahk++\package']),
+			'config',     Run.Bind(Paths.Ptf['Ahk++\configuration']),
+			'tmlanguage', Run.Bind(Paths.Ptf['Ahk++\tmlanguage']),
 
 			;VIDEO MAKING
 			;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -118,3 +120,6 @@
 		try runner_regex[result[1]].Call()
 	}
 }
+
+#Include <Paths>
+#Include <Win>

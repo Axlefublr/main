@@ -194,7 +194,7 @@ m — Calendar
 
 ^+ Format document
 
-^! Trim trailing whitespace
+^!
 
 +! +! Toggle autosave
 
@@ -238,7 +238,7 @@ l Search by keybind
 
 ^ New untitled file
 
-! 
+!
 
 ## PgUp / PgDn
 

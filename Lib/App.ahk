@@ -321,7 +321,7 @@ vscode_toCommitMessage(changeNotes_rawFile) {
    changeNotes := RegexReplace(changeNotes, '^#+ ')	;The first label won't have a newline before it and it is also the beginning of the text, so that's why we can use ^
    changeNotes := RegexReplace(changeNotes, '^>+ ')
 
-   changeNotes := StrReplace(changeNotes, ':`n* ', ': ')	;When a line ends with :, it's a marker for a list
+   changeNotes := RegexReplace(changeNotes, ':\n+\* ', ': ')	;When a line ends with :, it's a marker for a list
    changeNotes := StrReplace(changeNotes, '`n* ', ', ')	;All the following items in the list will have commas between them, even if I forget a :, there will just be commas between all of them
 
    changeNotes := RegexReplace(changeNotes, '(?<![.:!?])\n\n', '. ')	;Double newlines are connected by a dot

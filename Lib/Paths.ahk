@@ -22,7 +22,7 @@ Class Paths {
    static Content   := this.Pictures '\Content'
 
    static VsCodeExtensions := 'C:\Users\' A_UserName '\.vscode\extensions'
-   static AhkPlusPlusExtension := this.VsCodeExtensions '\thqby.vscode-autohotkey2-lsp-1.5.7'
+   static AhkPlusPlusExtension := this.VsCodeExtensions '\thqby.vscode-autohotkey2-lsp-1.5.9'
 
    static Ptf := Map(
       'Main', this.Main '\Backups\Main.code-workspace',
@@ -70,17 +70,18 @@ Class Paths {
       'styles.css', this.JSDir '\css.css',
 
 
-       'FL preset',        this.Pictures '\Editing\Tools\FL preset.flp',
+      'FL preset',        this.Pictures '\Editing\Tools\FL preset.flp',
       'Thumbnail preset', this.Pictures '\Editing\Tools\Thumbnail preset.xcf',
 
 
-      'VsCode\settings',      A_AppData '\Code\User\settings.json',
-      'VsCode\ahk snippets',  A_AppData '\Code\User\snippets\ahk.json',
-      'VsCode\keybindings',   A_AppData '\Code\User\keybindings.json',
+      'VsCode\settings',     A_AppData '\Code\User\settings.json',
+      'VsCode\ahk snippets', A_AppData '\Code\User\snippets\ahk.json',
+      'VsCode\keybindings',  A_AppData '\Code\User\keybindings.json',
 
 
-      'Ahk++\package', this.AhkPlusPlusExtension '\package.json',
+      'Ahk++\package',       this.AhkPlusPlusExtension '\package.json',
       'Ahk++\configuration', this.AhkPlusPlusExtension '\ahk2.configuration.json',
+      'Ahk++\tmlanguage',    this.AhkPlusPlusExtension "\syntaxes\ahk2.tmLanguage.json",
 
       'Eva\Dark', this.VsCodeExtensions '\fisheva.eva-theme-1.8.7\themes\Eva-Dark.json',
 

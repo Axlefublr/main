@@ -1,15 +1,15 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "..\\..\\QA_Course"
-		}
-	],
-	"settings": {
+   "folders": [
+      {
+         "path": ".."
+      },
+      {
+         "path": "..\\..\\QA_Course"
+      }
+   ],
+   "settings": {
       "liveServer.settings.multiRootWorkspaceName": "JS",
-      "typewriterAutoScroll.enable": true,
+      "typewriterAutoScroll.enable": false,
       "AutoHotkey2.InterpreterPath": "c:\\Program Files\\Autohotkey\\v2.0-beta.7\\AutoHotkey64.exe"
-   },
+   }
 }

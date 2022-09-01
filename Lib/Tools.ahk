@@ -175,7 +175,7 @@ tool_FileSearch(caseSense := 'Off') {	;Case sense is off by default, but may nee
    Loop Files folder . '\*.*', 'FDR' {
       /*
          'But ternary is faster!' -- No, suprisingly enough, it's not. An if with no else is faster than ternary with : '' (which you *have to* have in v2) ((better to cum in the sink than to sink in the cum))
-      
+
          Because of how compiling logic works, if the first condition on the left of the && is false, everything to the right will not even be evaluated (looked at), so instead of nesting two ifs we can use the AND statement without losing any speed.
          The trend continues with the later || -- the slowest to check file will be a *file* with no extension, then a folder, then a file, then something that didn't match
        */
@@ -704,7 +704,7 @@ Counter(startingNum, singleKey := 'Tab') {
    }
 
    _DeleteBothHotkeys := (*) => (
-      Hotkey(singleKey, 'Off'), 
+      Hotkey(singleKey, 'Off'),
       Hotkey('+' singleKey, 'Off'),
       Info('Counter disabled')
    )

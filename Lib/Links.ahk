@@ -83,6 +83,7 @@ Linker(linkName) {
       'repo function objects', 'https://github.com/Axlefublr/Function_Objects',
       'repo static',  'https://github.com/Axlefublr/Static_var_examples',
       'repo qa course', 'https://github.com/Axlefublr/QA_Course',
+      'repo v2 extension', 'https://github.com/thqby/vscode-autohotkey2-lsp',
 
       'fold lib', 'https://github.com/Axlefublr/Main/tree/main/Lib',
 
