@@ -1,5 +1,15 @@
-﻿#Include <Main>
-
+﻿#Include <Paths>
+#Include <Links>
+#Include <Char>
+#Include <Base>
+#Include <Global>
+#Include <Press>
+#Include <Sort>
+#Include <Win>
+#Include <Eval>
+#Include <Json>
+#Include <StrMan>
+#Include <Tools>
 #Include <App>
 #Include <Other>
 #Include <Script>

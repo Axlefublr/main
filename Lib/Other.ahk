@@ -1,6 +1,4 @@
-﻿#Include <Main>
-
-Googler(searchRequest) {
+﻿Googler(searchRequest) {
    searchRequest := StrReplace(searchRequest, "+", "%2B")
    searchRequest := StrReplace(searchRequest, " ", "+")
    RunLink("https://www.google.com/search?q=" searchRequest)

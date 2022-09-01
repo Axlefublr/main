@@ -1,15 +1,13 @@
-﻿#Include <Main>
-
-;CHROME~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+﻿;CHROME~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 chrome_CopyLink() => (
-      Send("^l"),
-      KeyWait(A_ThisHotkey_Formatted(), "U"),
-      Copy()
-   )
+   Send("^l"),
+   KeyWait(A_ThisHotkey_Formatted(), "U"),
+   Copy()
+)
 
 chrome_CloseAllTabs := Send.Bind("+!w")
 
@@ -120,9 +118,9 @@ spotify_SendTrackToKristi() {
 }
 
 spotify_Context() => (
-      ControlClick("X22 Y1015", "ahk_exe Spotify.exe", , "R"),
-      Send("{Up 2}")
-   )
+   ControlClick("X22 Y1015", "ahk_exe Spotify.exe", , "R"),
+   Send("{Up 2}")
+)
 
 spotify_FavRapper_Auto() {
    currSong := spotify_GetCurrSong()
@@ -168,15 +166,15 @@ youtube_Miniscreen() => (LanguageEng(), Send("i"))
 youtube_MiniscreenClose := ControlClick.Bind("X1858 Y665")
 
 youtube_ChannelSwitch() => (
-      ControlClick("X1823 Y133"),
-      WaitUntilImage(Paths.Ptf["switch account ytt"]),
-      ControlClick("X1524 Y400")
-   )
+   ControlClick("X1823 Y133"),
+   WaitUntilImage(Paths.Ptf["switch account ytt"]),
+   ControlClick("X1524 Y400")
+)
 
 youtube_ToYouTube() => (
-      ControlClick("X1865 Y130"),
-      WaitClick(Paths.Ptf["youtube logo"])
-   )
+   ControlClick("X1865 Y130"),
+   WaitClick(Paths.Ptf["youtube logo"])
+)
 
 youtube_isWatchingVid() => WinActive(" - YouTube ahk_exe chrome.exe")
    && !WinActive("Watch later ahk_exe chrome.exe")
@@ -208,10 +206,10 @@ telegram_Voice := ClickThenGoBack_Event.Bind("1452 1052")
 telegram_Scroll := ControlClick.Bind("X1434 Y964")
 
 telegram_Channel(channelToFind) => (
-      ControlClick("X456 Y74"),
-      Send(channelToFind),
-      Send("{Enter}")
-   )
+   ControlClick("X456 Y74"),
+   Send(channelToFind),
+   Send("{Enter}")
+)
 
 telegram_Diary() {
    diary := ReadFile(Paths.Ptf["Diary"])
@@ -419,10 +417,10 @@ git_CommitRepo(changeNote_file, repo_path, andPush := true) {
    commitMessage := vscode_toCommitMessage(ReadFile(changeNote_file))
 
    program := [
-         'cd "' repo_path '"',
-         'git add .',
-         'git commit -m "' commitMessage '"',
-      ]
+      'cd "' repo_path '"',
+      'git add .',
+      'git commit -m "' commitMessage '"',
+   ]
 
    if andPush {
       program.Push("pause")
@@ -450,17 +448,17 @@ git_Link() {
    g_selectType.SetFont("s15")
 
    Destruction := (*) => (
-         HotIfWinActive("ahk_id " selectType_hwnd),
-         Hotkey("Escape", "Off"),
-         g_selectType.Destroy()
-      )
+      HotIfWinActive("ahk_id " selectType_hwnd),
+      Hotkey("Escape", "Off"),
+      g_selectType.Destroy()
+   )
 
    static selection_type := "File"
    SelectType := (type_to_select, *) => (
-         selection_type := type_to_select,
-         shouldContinue := true,
-         Destruction()
-      )
+      selection_type := type_to_select,
+      shouldContinue := true,
+      Destruction()
+   )
 
    g_selectType_file := g_selectType.Add("Button", "Default background171717", "File")
       .OnEvent("Click", SelectType.Bind("file"))
@@ -518,13 +516,13 @@ player_SkipOpening := Send.Bind("{F12 8}")
 
 Show_GetLink(show) {
    shows := JSON.parse(ReadFile(Paths.Ptf['Shows']))
-   try shows[show] 
+   try shows[show]
    catch Any {
       Info("No " show "!🎬")
       return "" ;There for sure won't be a link nor an episode if the object doesn't exist yet, because if I either set the link or the episode, the show object will exist along with the properties, even if one of them doesn't have a non-zero value
    }
    if !shows[show]['link'] {
-      Info("No link!🔗") 
+      Info("No link!🔗")
       return "" ;If the object exists, so does the link property, which will be blank if I only set the episode (somehow). The episode always starts out being 0 though, no need to check for it
    }
    return shows[show]['link'] shows[show]['episode'] + 1
@@ -570,7 +568,7 @@ Show_SetLink(show_and_link) {
       shows.Set(show, {episode: 0, link: link})
    }
    else shows[show]['link'] := link
-   
+
    WriteFile(Paths.Ptf['Shows'], JSON.stringify(shows))
    Info(show ": link set")
 }

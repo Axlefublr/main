@@ -21,12 +21,12 @@ Linker(linkName) {
       ;Courses
       "metta",         "https://mettalife.ru/pl/my?gcmes=5779290672&gcmlg=-4",
       "skill factory", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+QAP-3.0+2021/course/",
-      
+
       ;Learning
       "simplilearn",         "https://www.simplilearn.com/tutorials/data-structure-tutorial",
       "leetcode",            "https://leetcode.com/problems/two-sum/",
       "learn git branching", "https://learngitbranching.js.org/",
-      
+
       ;Tools
       "share files",     "https://files.fm/",
       "regex",           "https://regex101.com/",
@@ -49,11 +49,11 @@ Linker(linkName) {
       "ahk wiki",    "https://autohotkey.wiki/",
       "dll calls",   "https://docs.microsoft.com/en-us/windows/win32/api/",
       "ahk v1 docs", "https://www.autohotkey.com/docs/Tutorial.htm",
-      
+
       ;Potentially useful
       "vpn gate",     "https://www.vpngate.net/en/download.aspx",
       "fl studio 20", "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
-      
+
       ;Potentially info
       "discord highlighting", "https://gist.github.com/kkrypt0nn/a02506f3712ff2d1c8ca7c9e0aed7c06",
       "trading",              "https://minecraft.fandom.com/wiki/Trading",
@@ -85,7 +85,7 @@ Linker(linkName) {
       "repo qa course", "https://github.com/Axlefublr/QA_Course",
 
       "fold lib", "https://github.com/Axlefublr/Main/tree/main/Lib",
-   
+
       "file scr runner", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Runner.ahk",
       "file scr mouse", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Mouse.ahk",
       "file scr keys", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Keys.ahk",
@@ -94,6 +94,7 @@ Linker(linkName) {
 
       "file global", "https://github.com/Axlefublr/Main/blob/main/Lib/Global.ahk",
       "file tools", "https://github.com/Axlefublr/Main/blob/main/Lib/Tools.ahk",
+      "file app", "https://github.com/Axlefublr/Main/blob/main/Lib/App.ahk",
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       ;My tutorials
