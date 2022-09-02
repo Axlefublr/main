@@ -304,10 +304,10 @@ l Search by keybind
 
 ^+ Multiple cursors
 
-^! Expand / shrink selection
+^! Move line
 
 +! Duplicate line
 
 ^ Scroll
 
-! Move line
+! Expand / shrink selection
