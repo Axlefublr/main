@@ -196,7 +196,7 @@ m — Calendar
 
 ^+ Format document
 
-^!
+^! Quote flipper
 
 +! +! Toggle autosave
 

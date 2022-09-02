@@ -10,9 +10,9 @@ tool_KeyCodeGetter() {
       return
    }
 
-   g_values := Gui(, 'Key code getter')
-   g_values.BackColor := '171717'
-   g_values.SetFont('s30 cC5C5C5', 'Consolas')
+   g_values := Gui(, "Key code getter")
+   g_values.BackColor := "171717"
+   g_values.SetFont("s30 cC5C5C5", "Consolas")
 
    values_hwnd := g_values.hwnd
 
@@ -330,11 +330,11 @@ tool_CoordGetter() {
    g_CrdGet.Add('Text', 'x+', 'x' CliX ' ')
       .OnEvent('Click', toClip.Bind(CliX))
    g_CrdGet.Add('Text', 'x+', 'y' CliY ' ')
-      .OnEvent('Click', toClip.Bind(CliY))
+      .OnEvent("Click", toClip.Bind(CliY))
    g_CrdGet.Add('Text', 'xm', 'Pixel: ' pixel)
       .OnEvent('Click', toClip.Bind(pixel))
-   g_CrdGet.Add('Text', 'xm', 'CtrlClick Format')
-      .OnEvent('Click', toClip.Bind("'x" CliX ' y' CliY "'"))
+   g_CrdGet.Add("Text", 'xm', 'CtrlClick Format')
+      .OnEvent("Click", toClip.Bind("'x" CliX ' y' CliY "'"))
 
    Destruction := (*) => (
       HotIfWinActive('ahk_id ' CrdGet_hwnd),
