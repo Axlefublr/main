@@ -222,7 +222,7 @@ l Search by keybind
 
 ^+
 
-^!
+^! Select line range
 
 +! Show view
 
