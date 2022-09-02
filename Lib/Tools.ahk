@@ -16,25 +16,25 @@ tool_KeyCodeGetter() {
 
    values_hwnd := g_values.hwnd
 
-   g_values_input := g_values.Add('Edit', 'background171717')
+   g_values_input := g_values.Add("Edit", "background171717")
 
-   g_values_name := g_values.Add('Text', 'w400', 'Key name')
-   g_values_SC := g_values.Add('Text', , 'SC code')
-   g_values_VK := g_values.Add('Text', 'x+100', 'VK code')
+   g_values_name := g_values.Add("Text", "w400", "Key name")
+   g_values_SC := g_values.Add("Text", , "SC code")
+   g_values_VK := g_values.Add("Text", "x+100", "VK code")
 
    Destruction(*) {
-      HotIfWinActive('ahk_id ' values_hwnd)
-      Hotkey('Escape', 'Off')
-      Hotkey('Enter', 'Off')
+      HotIfWinActive("ahk_id " values_hwnd)
+      Hotkey("Escape", "Off")
+      Hotkey("Enter", "Off")
       values_hwnd := false
       g_values.Destroy()
 
       if !used
          return
 
-      Hotkey('1', 'Off')
-      Hotkey('2', 'Off')
-      Hotkey('3', 'Off')
+      Hotkey("1", "Off")
+      Hotkey("2", "Off")
+      Hotkey("3", "Off")
       used := false
    }
 
@@ -51,29 +51,29 @@ tool_KeyCodeGetter() {
       key_SC := GetKeySC(input)
       key_VK := GetKeyVK(input)
 
-      key_SC := 'sc' Format('{:x}', key_SC)	;getkey sc/vk returns a base 10 value, when both of those are actually base 16. This makes absolutely no fucking sense. So, we use format to format a base 10 integer into a base 16 int for both of them
-      key_VK := 'vk' Format('{:x}', key_VK)
+      key_SC := "sc" Format("{:x}", key_SC)	;getkey sc/vk returns a base 10 value, when both of those are actually base 16. This makes absolutely no fucking sense. So, we use format to format a base 10 integer into a base 16 int for both of them
+      key_VK := "vk" Format("{:x}", key_VK)
 
       g_values_name.Text := key_name
       g_values_SC.Text := key_SC
       g_values_VK.Text := key_VK
 
-      HotIfWinActive('ahk_id ' values_hwnd)	;If a hotkey to call this function is under a #HotIf, the hotkeys created in this functions will be affected by that. So, we have to specify that they should have no condition.
-      Hotkey('1', toClip.Bind(g_values_name.text), 'On')
-      Hotkey('2', toClip.Bind(g_values_SC.text), 'On')
-      Hotkey('3', toClip.Bind(g_values_VK.text), 'On')
+      HotIfWinActive("ahk_id " values_hwnd)	;If a hotkey to call this function is under a #HotIf, the hotkeys created in this functions will be affected by that. So, we have to specify that they should have no condition.
+      Hotkey("1", toClip.Bind(g_values_name.text), "On")
+      Hotkey("2", toClip.Bind(g_values_SC.text), "On")
+      Hotkey("3", toClip.Bind(g_values_VK.text), "On")
 
-      g_values_name.OnEvent('Click', toClip.Bind(g_values_name.text))
-      g_values_SC.OnEvent('Click', toClip.Bind(g_values_SC.text))
-      g_values_VK.OnEvent('Click', toClip.Bind(g_values_VK.text))
+      g_values_name.OnEvent("Click", toClip.Bind(g_values_name.text))
+      g_values_SC.OnEvent("Click", toClip.Bind(g_values_SC.text))
+      g_values_VK.OnEvent("Click", toClip.Bind(g_values_VK.text))
    }
 
-   HotIfWinActive('ahk_id ' values_hwnd)
-   Hotkey('Enter', Submit, 'On')
-   Hotkey('Escape', Destruction, 'On')
-   g_values.OnEvent('Close', Destruction)
+   HotIfWinActive("ahk_id " values_hwnd)
+   Hotkey("Enter", Submit, "On")
+   Hotkey("Escape", Destruction, "On")
+   g_values.OnEvent("Close", Destruction)
 
-   g_values.Show('AutoSize y0 x' A_ScreenWidth / 20 * 12.95)
+   g_values.Show("AutoSize y0 x" A_ScreenWidth / 20 * 12.95)
 
 }
 
@@ -83,7 +83,7 @@ tool_RelativeCoordGetter() {
    static initY
    if !var {
       MouseGetPos(&locX, &locY)
-      ToolTip('Initial position')
+      ToolTip("Initial position")
       initX := locX
       initY := locY
       var := !var
@@ -99,22 +99,22 @@ tool_RelativeCoordGetter() {
    initY := 0
    var := !var
 
-   g_relative := Gui(, 'Relative coord getter')
-   g_relative.BackColor := '171717'
-   g_relative.SetFont('s30 cC5C5C5', 'Consolas')
+   g_relative := Gui(, "Relative coord getter")
+   g_relative.BackColor := "171717"
+   g_relative.SetFont("s30 cC5C5C5", "Consolas")
 
-   g_relative_textX := g_relative.Add('Text', , 'Relative X: ' relPosX)
-   g_relative_textY := g_relative.Add('Text', , 'Relative Y: ' relPosY)
+   g_relative_textX := g_relative.Add("Text", , "Relative X: " relPosX)
+   g_relative_textY := g_relative.Add("Text", , "Relative Y: " relPosY)
 
    topRightCorner := A_ScreenWidth / 20 * 14.3
 
    g_relative_hwnd := g_relative.hwnd
 
    Destruction := (*) => (
-      HotIfWinActive('ahk_id ' g_relative_hwnd),
-      Hotkey('Escape', 'Off'),
-      Hotkey('1', 'Off'),
-      Hotkey('2', 'Off'),
+      HotIfWinActive("ahk_id " g_relative_hwnd),
+      Hotkey("Escape", "Off"),
+      Hotkey("1", "Off"),
+      Hotkey("2", "Off"),
       g_relative.Destroy()
    )
 
@@ -122,57 +122,57 @@ tool_RelativeCoordGetter() {
       static var := 0
       var++
       A_Clipboard := text
-      Info('copied ' text)
+      Info("copied " text)
       if var >= 2
          Destruction()
    }
 
-   HotIfWinActive('ahk_id ' g_relative_hwnd)
-   Hotkey('1', toClip.Bind(relPosX), 'On')
-   Hotkey('2', toClip.Bind(relPosY), 'On')
-   Hotkey('Escape', Destruction, 'On')
+   HotIfWinActive("ahk_id " g_relative_hwnd)
+   Hotkey("1", toClip.Bind(relPosX), "On")
+   Hotkey("2", toClip.Bind(relPosY), "On")
+   Hotkey("Escape", Destruction, "On")
 
-   g_relative_textX.OnEvent('Click', toClip.Bind(relPosX))
-   g_relative_textY.OnEvent('Click', toClip.Bind(relPosY))
+   g_relative_textX.OnEvent("Click", toClip.Bind(relPosX))
+   g_relative_textY.OnEvent("Click", toClip.Bind(relPosY))
 
-   g_relative.OnEvent('Close', Destruction)
+   g_relative.OnEvent("Close", Destruction)
 
-   g_relative.Show('AutoSize y0 x' topRightCorner)
+   g_relative.Show("AutoSize y0 x" topRightCorner)
 
 }
 
-tool_FileSearch(caseSense := 'Off') {	;Case sense is off by default, but may need to be changed to locale if you intend to search for files named not in English.
+tool_FileSearch(caseSense := "Off") {	;Case sense is off by default, but may need to be changed to locale if you intend to search for files named not in English.
 
-   search := InputBox('What file do you want to search for?:', 'File Search')
+   search := InputBox("What file do you want to search for?:", "File Search")
    search_value := search.Value	;Just a rename so the InStr in the loop doesn't have to access a property and instead just checks a variable's value
-   if search.Result = 'Cancel' || !search_value	;code doesn't continue to run if you cancel the inputbox or don't type in anything
+   if search.Result = "Cancel" || !search_value	;code doesn't continue to run if you cancel the inputbox or don't type in anything
       return
 
-   folder := DirSelect('C:', 6, 'What folder do you want to search?:')	;'6' makes it so you can type in / paste in the path to the folder you want to choose
+   folder := DirSelect("C:", 6, "What folder do you want to search?:")	;"6" makes it so you can type in / paste in the path to the folder you want to choose
    if !folder {
       MsgBox("You didn't select a valid folder")	;if you fucked up the pasting of the folder (or just pressed cancel or picked nothing)
       return
    }
 
-   if folder = 'C:\'
-      folder := 'C:'
+   if folder = "C:\"
+      folder := "C:"
 
-   if search_value ~= '[а-яА-Я]' && caseSense != 'Locale'	;If your search request you just did contains russian, caseSense for the search in InStr() is automatically made to Locale, so it actually *is* case insensitive. Likely the same case for other languages with different writing systems and doesn't matter for stuff like spanish and french (just a baseless hunch)
-      caseSense := 'Locale'
+   if search_value ~= "[а-яА-Я]" && caseSense != "Locale"	;If your search request you just did contains russian, caseSense for the search in InStr() is automatically made to Locale, so it actually *is* case insensitive. Likely the same case for other languages with different writing systems and doesn't matter for stuff like spanish and french (just a baseless hunch)
+      caseSense := "Locale"
 
    guiWidth := 750
    guiHeight := 350
 
-   g_found := Gui('AlwaysOnTop +Resize', 'These files match your search:')
-   g_found.SetFont('s10', 'Consolas')
-   g_found.Add('Text', , 'Right click on a result to copy its full path. Double click to open it in explorer.')
-   g_found_list := g_found.Add('ListView', 'W' guiWidth - 25 ' H' guiHeight - 45 ' Count50', ['File', 'Folder', 'Directory'])	;Count50 -- we're not losing much by allocating more memory than needed, and on the other hand we improve the performance by a lot by doing so
+   g_found := Gui("AlwaysOnTop +Resize", "These files match your search:")
+   g_found.SetFont("s10", "Consolas")
+   g_found.Add("Text", , "Right click on a result to copy its full path. Double click to open it in explorer.")
+   g_found_list := g_found.Add("ListView", "W" guiWidth - 25 " H" guiHeight - 45 " Count50", ["File", "Folder", "Directory"])	;Count50 -- we're not losing much by allocating more memory than needed, and on the other hand we improve the performance by a lot by doing so
 
-   g_found_list.Opt('-Redraw')	;improves performance rather than keeping on adding rows and redrawing for each one of them
+   g_found_list.Opt("-Redraw")	;improves performance rather than keeping on adding rows and redrawing for each one of them
 
-   ToolTip('Search in progress', 0, 0)	;to remove the worry of 'did I really start the search?'
+   ToolTip("Search in progress", 0, 0)	;to remove the worry of 'did I really start the search?'
 
-   Loop Files folder . '\*.*', 'FDR' {
+   Loop Files folder . "\*.*", "FDR" {
       /*
         'But ternary is faster!' -- No, suprisingly enough, it's not. An if with no else is faster than ternary with : '' (which you *have to* have in v2) ((better to cum in the sink than to sink in the cum))
 
@@ -180,7 +180,7 @@ tool_FileSearch(caseSense := 'Off') {	;Case sense is off by default, but may nee
         The trend continues with the later || -- the slowest to check file will be a *file* with no extension, then a folder, then a file, then something that didn't match
        */
       if InStr(A_LoopFileName, search_value, caseSense) {
-         if InStr(A_LoopFileAttrib, 'D')
+         if InStr(A_LoopFileAttrib, "D")
             g_found_list.Add(, , A_LoopFileName, A_LoopFileDir)
          else if A_LoopFileExt
             g_found_list.Add(, A_LoopFileName, , A_LoopFileDir)
@@ -189,15 +189,15 @@ tool_FileSearch(caseSense := 'Off') {	;Case sense is off by default, but may nee
 
    ToolTip()
 
-   g_found_list.Opt('+Redraw')
+   g_found_list.Opt("+Redraw")
    g_found_list.ModifyCol()	;it makes the columns fit the data -- @rbstrachan
 
-   g_found_list.OnEvent('DoubleClick', ShowInFolder)
-   g_found_list.OnEvent('ContextMenu', CopyFull_path.Bind(0))	;Funniest shit I've ever seen: all the other parameters of CopyFull_path are automatically passed into the function and the *only* parameter you have to set yourself is Y. Seriously, you don't need to specify X and Y, *just* Y. *Y* does it work like that???
+   g_found_list.OnEvent("DoubleClick", ShowInFolder)
+   g_found_list.OnEvent("ContextMenu", CopyFull_path.Bind(0))	;Funniest shit I've ever seen: all the other parameters of CopyFull_path are automatically passed into the function and the *only* parameter you have to set yourself is Y. Seriously, you don't need to specify X and Y, *just* Y. *Y* does it work like that???
 
-   g_found.Show('W' guiWidth ' H' guiHeight)
-   g_found.OnEvent('Size', AutoResize)	;When you resize the gui window, the new size gets passed into AutoResize, that takes care of the list that's inside the gui
-   g_found.OnEvent('Close', (*) => g_found.Destroy())	;You can pass an asterisk instead of the parameters that are expected to be here, regardless of whether you use them
+   g_found.Show("W" guiWidth " H" guiHeight)
+   g_found.OnEvent("Size", AutoResize)	;When you resize the gui window, the new size gets passed into AutoResize, that takes care of the list that's inside the gui
+   g_found.OnEvent("Close", (*) => g_found.Destroy())	;You can pass an asterisk instead of the parameters that are expected to be here, regardless of whether you use them
 
    AutoResize(g_found, minMax, width, height) {	;The parameters listed here are automatically passed by the OnEvent and you have to list them regardless of whether you're gonna use them
       g_found_list.Move(, , width - 25, height - 45)
@@ -216,7 +216,7 @@ tool_FileSearch(caseSense := 'Off') {	;Case sense is off by default, but may nee
    }	;i.e. => when you right click on a row, the full path gets copied to your clipboard
 
    ShowInFolder(g_found_list, RowNumber) {
-      try Run('explorer.exe /select,' GetFull_path(RowNumber))	;By passing select, we achieve the cool highlighting thing when the file / folder gets opened. (You can pass command line parameters into the run function)
+      try Run("explorer.exe /select," GetFull_path(RowNumber))	;By passing select, we achieve the cool highlighting thing when the file / folder gets opened. (You can pass command line parameters into the run function)
    }
 
    GetFull_path(rowInfo) {
@@ -232,7 +232,7 @@ tool_FileSearch(caseSense := 'Off') {	;Case sense is off by default, but may nee
       dir := g_found_list.GetText(rowInfo, 2)
       path := g_found_list.GetText(rowInfo, 3)
 
-      return path '\' file dir	;no explanation required, it's just logic -- @rbstrachan
+      return path "\" file dir	;no explanation required, it's just logic -- @rbstrachan
    }
 }
 
@@ -250,31 +250,31 @@ tool_Clock() {
    }
 
    ;Get the time variables
-   clock_Time := FormatTime(, ' HH:mm:ss')
-   , clock_Week := FormatTime(, 'dddd')
-   , clock_Date := FormatTime(, 'd MMMM')
+   clock_Time := FormatTime(, " HH:mm:ss")
+   , clock_Week := FormatTime(, "dddd")
+   , clock_Date := FormatTime(, "d MMMM")
 
    ;Create the gui
-   g_Clock := Gui(, 'Clock')
-   g_Clock.BackColor := '171717'
+   g_Clock := Gui(, "Clock")
+   g_Clock.BackColor := "171717"
 
    clock_hwnd := g_Clock.hwnd
 
    ;Add text
-   g_Clock.SetFont('S40 cC5C5C5', 'Consolas')
-   g_Clock_Time := g_Clock.Add('Text', 'w237 y-20', clock_Time)
+   g_Clock.SetFont("S40 cC5C5C5", "Consolas")
+   g_Clock_Time := g_Clock.Add("Text", "w237 y-20", clock_Time)
 
-   g_Clock.SetFont('S30')
-   g_Clock_Week := g_Clock.Add('Text', 'w237 y+35 Center', clock_Week)
+   g_Clock.SetFont("S30")
+   g_Clock_Week := g_Clock.Add("Text", "w237 y+35 Center", clock_Week)
 
-   g_Clock.SetFont('S26')
-   g_Clock_Date := g_Clock.Add('Text', 'w237 Center', clock_Date)
+   g_Clock.SetFont("S26")
+   g_Clock_Date := g_Clock.Add("Text", "w237 Center", clock_Date)
 
    ;The func obj is separate because we'll need to disable the timer outside of it
    timeCheck := () => (
-      g_Clock_Time.Text := FormatTime(, ' HH:mm:ss'),
-      g_Clock_Week.Text := FormatTime(, 'dddd'),
-      g_Clock_Date.Text := FormatTime(, 'd MMMM')
+      g_Clock_Time.Text := FormatTime(, " HH:mm:ss"),
+      g_Clock_Week.Text := FormatTime(, "dddd"),
+      g_Clock_Date.Text := FormatTime(, "d MMMM")
    )
 
    ;Change the time text every half a second for better accuracy
@@ -286,111 +286,111 @@ tool_Clock() {
       g_Clock.Destroy()
    )
 
-   g_Clock.OnEvent('Close', Destruction)
+   g_Clock.OnEvent("Close", Destruction)
 
-   g_Clock.Show('W350 H320 y0 x' A_ScreenWidth / 20 * 15.3)
+   g_Clock.Show("W350 H320 y0 x" A_ScreenWidth / 20 * 15.3)
 
 }
 
 tool_CoordGetter() {
-   CoordMode('Mouse', 'Screen')
+   CoordMode("Mouse", "Screen")
    MouseGetPos(&ScrX, &ScrY)
 
-   CoordMode('Mouse', 'Window')
+   CoordMode("Mouse", "Window")
    MouseGetPos(&WinX, &WinY)
 
-   CoordMode('Mouse', 'Client')
+   CoordMode("Mouse", "Client")
    MouseGetPos(&CliX, &CliY)
 
-   CoordMode('Pixel', 'Screen')
-   pixel := PixelGetColor(ScrX, ScrY, 'Alt Slow')
+   CoordMode("Pixel", "Screen")
+   pixel := PixelGetColor(ScrX, ScrY, "Alt Slow")
 
-   g_CrdGet := Gui(, 'Coord Getter')
-   g_CrdGet.Backcolor := '171717'
-   g_CrdGet.SetFont('S30 cC5C5C5', 'Consolas')
+   g_CrdGet := Gui(, "Coord Getter")
+   g_CrdGet.Backcolor := "171717"
+   g_CrdGet.SetFont("S30 cC5C5C5", "Consolas")
 
    CrdGet_hwnd := g_CrdGet.hwnd
 
    toClip := (text, *) => A_Clipboard := text
 
-   g_CrdGet.Add('Text', , 'Screen: ')
-      .OnEvent('Click', toClip.Bind(ScrX ' ' ScrY))
-   g_CrdGet.Add('Text', 'x+', 'x' ScrX ' ')
-      .OnEvent('Click', toClip.Bind(ScrX))
-   g_CrdGet.Add('Text', 'x+', 'y' ScrY ' ')
-      .OnEvent('Click', toClip.Bind(ScrY))
-   g_CrdGet.Add('Text', 'xm', 'Window: ')
-      .OnEvent('Click', toClip.Bind(WinX ' ' WinY))
-   g_CrdGet.Add('Text', 'x+', 'x' WinX ' ')
-      .OnEvent('Click', toClip.Bind(WinX))
-   g_CrdGet.Add('Text', 'x+', 'y' WinY ' ')
-      .OnEvent('Click', toClip.Bind(WinY))
-   g_CrdGet.Add('Text', 'xm', 'Client: ')
-      .OnEvent('Click', toClip.Bind(CliX ' ' CliY))
-   g_CrdGet.Add('Text', 'x+', 'x' CliX ' ')
-      .OnEvent('Click', toClip.Bind(CliX))
-   g_CrdGet.Add('Text', 'x+', 'y' CliY ' ')
+   g_CrdGet.Add("Text", , "Screen: ")
+      .OnEvent("Click", toClip.Bind(ScrX " " ScrY))
+   g_CrdGet.Add("Text", "x+", "x" ScrX " ")
+      .OnEvent("Click", toClip.Bind(ScrX))
+   g_CrdGet.Add("Text", "x+", "y" ScrY " ")
+      .OnEvent("Click", toClip.Bind(ScrY))
+   g_CrdGet.Add("Text", "xm", "Window: ")
+      .OnEvent("Click", toClip.Bind(WinX " " WinY))
+   g_CrdGet.Add("Text", "x+", "x" WinX " ")
+      .OnEvent("Click", toClip.Bind(WinX))
+   g_CrdGet.Add("Text", "x+", "y" WinY " ")
+      .OnEvent("Click", toClip.Bind(WinY))
+   g_CrdGet.Add("Text", "xm", "Client: ")
+      .OnEvent("Click", toClip.Bind(CliX " " CliY))
+   g_CrdGet.Add("Text", "x+", "x" CliX " ")
+      .OnEvent("Click", toClip.Bind(CliX))
+   g_CrdGet.Add("Text", "x+", "y" CliY " ")
       .OnEvent("Click", toClip.Bind(CliY))
-   g_CrdGet.Add('Text', 'xm', 'Pixel: ' pixel)
-      .OnEvent('Click', toClip.Bind(pixel))
-   g_CrdGet.Add("Text", 'xm', 'CtrlClick Format')
-      .OnEvent("Click", toClip.Bind("'x" CliX ' y' CliY "'"))
+   g_CrdGet.Add("Text", "xm", "Pixel: " pixel)
+      .OnEvent("Click", toClip.Bind(pixel))
+   g_CrdGet.Add("Text", "xm", "CtrlClick Format")
+      .OnEvent("Click", toClip.Bind("'x" CliX " y" CliY "'"))
 
    Destruction := (*) => (
-      HotIfWinActive('ahk_id ' CrdGet_hwnd),
-      Hotkey('Escape', 'Off'),
-      Hotkey('1', 'Off'),
-      Hotkey('2', 'Off'),
-      Hotkey('3', 'Off'),
-      Hotkey('4', 'Off'),
-      Hotkey('5', 'Off'),
+      HotIfWinActive("ahk_id " CrdGet_hwnd),
+      Hotkey("Escape", "Off"),
+      Hotkey("1", "Off"),
+      Hotkey("2", "Off"),
+      Hotkey("3", "Off"),
+      Hotkey("4", "Off"),
+      Hotkey("5", "Off"),
       g_CrdGet.Destroy()
    )
 
-   HotIfWinActive('ahk_id ' CrdGet_hwnd)
-   Hotkey('Escape', Destruction, 'On')
-   Hotkey('1', toClip.Bind(ScrX ' ' ScrY), 'On')
-   Hotkey('2', toClip.Bind(WinX ' ' WinY), 'On')
-   Hotkey('3', toClip.Bind(CliX ' ' CliY), 'On')
-   Hotkey('4', toClip.Bind(pixel), 'On')
-   Hotkey('5', toClip.Bind("'x" CliX ' y' CliY "'"), 'On')
-   g_CrdGet.OnEvent('Close', Destruction)
+   HotIfWinActive("ahk_id " CrdGet_hwnd)
+   Hotkey("Escape", Destruction, "On")
+   Hotkey("1", toClip.Bind(ScrX " " ScrY), "On")
+   Hotkey("2", toClip.Bind(WinX " " WinY), "On")
+   Hotkey("3", toClip.Bind(CliX " " CliY), "On")
+   Hotkey("4", toClip.Bind(pixel), "On")
+   Hotkey("5", toClip.Bind("'x" CliX " y" CliY "'"), "On")
+   g_CrdGet.OnEvent("Close", Destruction)
 
-   g_CrdGet.Show('AutoSize y0 x' A_ScreenWidth / 20 * 13.5)
+   g_CrdGet.Show("AutoSize y0 x" A_ScreenWidth / 20 * 13.5)
 }
 
 tool_WindowGetter() {
 
    ;Getting the current window's info
-   winTitle := WinGetTitle('A')
-   winExePath := WinGetProcessPath('A')
-   winExe := WinGetProcessName('A')
-   winID := WinGetID('A')
-   winPID := WinGetPID('A')
+   winTitle := WinGetTitle("A")
+   winExePath := WinGetProcessPath("A")
+   winExe := WinGetProcessName("A")
+   winID := WinGetID("A")
+   winPID := WinGetPID("A")
 
       ;Gui creation
-   g_WinGet := Gui(, 'WindowGetter')
-   g_WinGet.Backcolor := '171717'
-   g_WinGet.SetFont('S20 cC5C5C5', 'Consolas')
+   g_WinGet := Gui(, "WindowGetter")
+   g_WinGet.Backcolor := "171717"
+   g_WinGet.SetFont("S20 cC5C5C5", "Consolas")
 
    WinGet_hwnd := g_WinGet.hwnd
 
       ;Show the window's info
-   g_WinGet_WinTitle := g_WinGet.Add('Text', 'Center', winTitle)
-   g_WinGet_WinExePath := g_WinGet.Add('Text', 'Center', winExePath)
-   g_WinGet_WinExe := g_WinGet.Add('Text', 'Center', winExe)
-   g_WinGet_WinID := g_WinGet.Add('Text', 'Center', 'id: ' winID)
-   g_WinGet_WinPID := g_WinGet.Add('Text', 'Center', 'pid: ' winPID)
+   g_WinGet_WinTitle := g_WinGet.Add("Text", "Center", winTitle)
+   g_WinGet_WinExePath := g_WinGet.Add("Text", "Center", winExePath)
+   g_WinGet_WinExe := g_WinGet.Add("Text", "Center", winExe)
+   g_WinGet_WinID := g_WinGet.Add("Text", "Center", "id: " winID)
+   g_WinGet_WinPID := g_WinGet.Add("Text", "Center", "pid: " winPID)
 
       ;Destroys the gui as well as every previously created hotkeys
    FlushHotkeys := (*) => (
-         HotIfWinActive('ahk_id ' WinGet_hwnd),
-         Hotkey('1', 'Off'),
-         Hotkey('2', 'Off'),
-         Hotkey('3', 'Off'),
-         Hotkey('4', 'Off'),
-         Hotkey('5', 'Off'),
-         Hotkey('Escape', 'Off'),
+         HotIfWinActive("ahk_id " WinGet_hwnd),
+         Hotkey("1", "Off"),
+         Hotkey("2", "Off"),
+         Hotkey("3", "Off"),
+         Hotkey("4", "Off"),
+         Hotkey("5", "Off"),
+         Hotkey("Escape", "Off"),
          g_WinGet.Destroy()
       )
 
@@ -407,24 +407,24 @@ tool_WindowGetter() {
    ToClip_ID := ToClip.Bind(winID)
    ToClip_PID := ToClip.Bind(winPID)
 
-   HotIfWinActive('ahk_id ' WinGet_hwnd)
-   Hotkey('1', ToClip_Title, 'On')
-   Hotkey('2', ToClip_path, 'On')
-   Hotkey('3', ToClip_Exe, 'On')
-   Hotkey('4', ToClip_ID, 'On')
-   Hotkey('5', ToClip_PID, 'On')
+   HotIfWinActive("ahk_id " WinGet_hwnd)
+   Hotkey("1", ToClip_Title, "On")
+   Hotkey("2", ToClip_path, "On")
+   Hotkey("3", ToClip_Exe, "On")
+   Hotkey("4", ToClip_ID, "On")
+   Hotkey("5", ToClip_PID, "On")
 
-   Hotkey('Escape', FlushHotkeys, 'On')
+   Hotkey("Escape", FlushHotkeys, "On")
 
-   g_WinGet_WinTitle.OnEvent('Click', ToClip_Title)
-   g_WinGet_WinExePath.OnEvent('Click', ToClip_Path)
-   g_WinGet_WinExe.OnEvent('Click', ToClip_Exe)
-   g_WinGet_WinID.OnEvent('Click', ToClip_ID)
-   g_WinGet_WinPID.OnEvent('Click', ToClip_PID)
+   g_WinGet_WinTitle.OnEvent("Click", ToClip_Title)
+   g_WinGet_WinExePath.OnEvent("Click", ToClip_Path)
+   g_WinGet_WinExe.OnEvent("Click", ToClip_Exe)
+   g_WinGet_WinID.OnEvent("Click", ToClip_ID)
+   g_WinGet_WinPID.OnEvent("Click", ToClip_PID)
 
-   g_WinGet.OnEvent('Close', FlushHotkeys)	;Destroys the gui when you close the X button on it
+   g_WinGet.OnEvent("Close", FlushHotkeys)	;Destroys the gui when you close the X button on it
 
-   g_WinGet.Show('Center H300 W1000 y0')
+   g_WinGet.Show("Center H300 W1000 y0")
 }
 
 tool_Timer(minutes, shouldExit := false) {
@@ -438,26 +438,26 @@ tool_Timer(minutes, shouldExit := false) {
 
       SetTimer(_isItTime, 0)
 
-      timeUp := Gui('AlwaysOnTop')
-      timeUp.BackColor := '171717'
-      timeUp.SetFont('s20 cC5C5C5', 'Consolas')
-      timeUp.Add('Text', , "Time's up!`n" minutes ' minutes have passed')
+      timeUp := Gui("AlwaysOnTop")
+      timeUp.BackColor := "171717"
+      timeUp.SetFont("s20 cC5C5C5", "Consolas")
+      timeUp.Add("Text", , "Time's up!`n" minutes " minutes have passed")
 
       guiHwnd := timeUp.hwnd
 
-      timeUp.Show('AutoSize')
+      timeUp.Show("AutoSize")
 
-      timeUp.OnEvent('Close', (*) => timeUp.Destroy())
-      HotIfWinActive('ahk_id ' guiHwnd)
-      Hotkey('Escape', (*) => timeUp.Destroy(), 'On')
+      timeUp.OnEvent("Close", (*) => timeUp.Destroy())
+      HotIfWinActive("ahk_id " guiHwnd)
+      Hotkey("Escape", (*) => timeUp.Destroy(), "On")
 
       _Timer() {
          SoundBeep(800, 200)
          if WinExist(guiHwnd)
             return
          Settimer(_Timer, 0)
-         HotIfWinActive('ahk_id ' guiHwnd)
-         Hotkey('Escape', 'Off')
+         HotIfWinActive("ahk_id " guiHwnd)
+         Hotkey("Escape", "Off")
          if shouldExit
             ExitApp()
       }
@@ -466,41 +466,41 @@ tool_Timer(minutes, shouldExit := false) {
    }
 
    SetTimer(_isItTime, 500)
-   Info('Timer set for ' minutes ' minutes!')
+   Info("Timer set for " minutes " minutes!")
 }
 
 ;Select a file to run on startup
 tool_StartupRun() {
-   selectedFile := FileSelect('S', A_WorkingDir)
+   selectedFile := FileSelect("S", A_WorkingDir)
    SplitPath(selectedFile, &fileName)
-   FileCreateShortcut(selectedFile, A_StartMenu '\Programs\Startup\' fileName '.lnk')
+   FileCreateShortcut(selectedFile, A_StartMenu "\Programs\Startup\" fileName ".lnk")
 }
 
 tool_SomeLockHint(whatLock) {
 
-   newState := !GetKeyState(whatLock, 'T')
+   newState := !GetKeyState(whatLock, "T")
 
-   newState_Word := newState ? 'On' : 'Off'
+   newState_Word := newState ? "On" : "Off"
    whatLock := StrTitle(whatLock)
 
    Set%whatLock%State(newState)
 
-   g_SomeLock := Gui('AlwaysOnTop -caption')
-   g_SomeLock.BackColor := '171717'
-   g_SomeLock.SetFont('s20 cC5C5C5', 'Consolas')
-   g_SomeLock.Add('Text', , whatLock ' ' newState_Word)
+   g_SomeLock := Gui("AlwaysOnTop -caption")
+   g_SomeLock.BackColor := "171717"
+   g_SomeLock.SetFont("s20 cC5C5C5", "Consolas")
+   g_SomeLock.Add("Text", , whatLock " " newState_Word)
 
    SetTimer(() => g_SomeLock.Destroy(), -1000)
 
-   g_SomeLock.Show('W225 NA x1595 y640')
+   g_SomeLock.Show("W225 NA x1595 y640")
 }
 
 ;Another alternative to outputdebug
 Info(text, disappear := true) {
-   g_Info := Gui('AlwaysOnTop -caption')
-   g_Info.BackColor := '171717'
-   g_Info.SetFont('s20 cC5C5C5', 'Consolas')
-   g_Info_Text := g_Info.Add('Text', , text)
+   g_Info := Gui("AlwaysOnTop -caption")
+   g_Info.BackColor := "171717"
+   g_Info.SetFont("s20 cC5C5C5", "Consolas")
+   g_Info_Text := g_Info.Add("Text", , text)
 
    static infos := []
    static index := 0
@@ -519,9 +519,9 @@ Info(text, disappear := true) {
 
       if infos.Length <= 1 {
          if !disappear {
-            HotIfWinExist('ahk_id ' Info_hwnd)
-            Hotkey('Escape', 'Off')
-            Hotkey('+Escape', 'Off')
+            HotIfWinExist("ahk_id " Info_hwnd)
+            Hotkey("Escape", "Off")
+            Hotkey("+Escape", "Off")
          }
          index := 0
       }
@@ -538,18 +538,18 @@ Info(text, disappear := true) {
       }
    }
 
-   g_Info.OnEvent('Close', (*) => g_Info.Destroy())
+   g_Info.OnEvent("Close", (*) => g_Info.Destroy())
 
    if !disappear {
-      HotIfWinExist('ahk_id ' Info_hwnd)
-      Hotkey('Escape', Destruction, 'On')
-      Hotkey('+Escape', FullDestruction, 'On')
+      HotIfWinExist("ahk_id " Info_hwnd)
+      Hotkey("Escape", Destruction, "On")
+      Hotkey("+Escape", FullDestruction, "On")
    }
 
    if disappear
       SetTimer(Destruction, -2000)
 
-   g_Info.Show('AutoSize NA x0 y' yCoord)
+   g_Info.Show("AutoSize NA x0 y" yCoord)
 
    return Info_hwnd
 }
@@ -561,7 +561,7 @@ Snake(SquareSide, delay, timeout) {
    static isSlithering := false
 
    if isSlithering {
-      Info('Press escape to disable snake first')
+      Info("Press escape to disable snake first")
       return
    }
 
@@ -574,12 +574,12 @@ Snake(SquareSide, delay, timeout) {
    timeout := timeout * 1000
 
    static colors := [
-      'D12229',	;Red
-      'F68A1E',	;Orange
-      'FDE01A',	;Yellow
-      '007940',	;Green
-      '24408E',	;Blue
-      '732982'	;Purple
+      "D12229",	;Red
+      "F68A1E",	;Orange
+      "FDE01A",	;Yellow
+      "007940",	;Green
+      "24408E",	;Blue
+      "732982"	;Purple
    ]
 
    static Columns := A_ScreenWidth // SquareSide
@@ -592,7 +592,7 @@ Snake(SquareSide, delay, timeout) {
       ;How much client you'll get from a margin
    static ClientRelativity := 0.81
 
-   static direction := 'down'
+   static direction := "down"
 
       ;The actual visible margins of the gui
    static ClientMarginX := MarginX * ClientRelativity
@@ -604,7 +604,7 @@ Snake(SquareSide, delay, timeout) {
    stopped := false
 
    ChangeDirection() {
-      direction := (direction = 'down' ? 'up' : 'down')
+      direction := (direction = "down" ? "up" : "down")
    }
 
    Stop(*) => (
@@ -614,23 +614,23 @@ Snake(SquareSide, delay, timeout) {
       colorIndex := 0
    )
 
-   startSnake := Gui(, 'Snake')
-   startSnake.BackColor := '171717'
+   startSnake := Gui(, "Snake")
+   startSnake.BackColor := "171717"
 
-   startSnake.SetFont('s25 cC5C5C5', 'Consolas')
+   startSnake.SetFont("s25 cC5C5C5", "Consolas")
 
-   startSnake.Add('Text', 'Center', 'You can press Escape to exit the snake')
+   startSnake.Add("Text", "Center", "You can press Escape to exit the snake")
 
-   startSnake.SetFont('s15')
+   startSnake.SetFont("s15")
 
-   startSnake.Add('Button', 'Default Center', 'Start')
-      .OnEvent('Click', (*) => startSnake.Destroy())
-   startSnake.Add('Button', 'x+m', 'Cancel')
-      .OnEvent('Click', Stop)
+   startSnake.Add("Button", "Default Center", "Start")
+      .OnEvent("Click", (*) => startSnake.Destroy())
+   startSnake.Add("Button", "x+m", "Cancel")
+      .OnEvent("Click", Stop)
 
-   startSnake.OnEvent('Close', Stop)
+   startSnake.OnEvent("Close", Stop)
 
-   startSnake.Show('AutoSize')
+   startSnake.Show("AutoSize")
    WinWaitClose(startSnake.hwnd)
 
    if stopped
@@ -646,14 +646,14 @@ Snake(SquareSide, delay, timeout) {
       HotIf(),
       SetTimer(GoSsss, 0),
       isSlithering := false,
-      Hotkey('Escape', 'Off')
+      Hotkey("Escape", "Off")
    )
    HotIf()
-   Hotkey('Escape', stopSlithering, 'On')
+   Hotkey("Escape", stopSlithering, "On")
 
    GoSsss() {
 
-      snake := Gui('AlwaysOnTop -caption +E0x20 +ToolWindow')
+      snake := Gui("AlwaysOnTop -caption +E0x20 +ToolWindow")
       WinSetTransparent(255, snake.Hwnd)
 
          ;An array of ID's of guis
@@ -678,25 +678,25 @@ Snake(SquareSide, delay, timeout) {
          ChangeDirection()
       }
 
-      if direction = 'down'
+      if direction = "down"
          yCoord := index * MarginY - MarginY
-      else if direction = 'up'
+      else if direction = "up"
          yCoord := (Rows - index + 1) * MarginY - MarginY
 
-      snake.Show('W ' ClientMarginX ' H' ClientMarginY ' NA x' xCoord ' y' yCoord)
+      snake.Show("W " ClientMarginX " H" ClientMarginY " NA x" xCoord " y" yCoord)
 
       KillLastSnake := (*) => (
          SetTimer(KillLastSnake, 0),
          lastGui := aliveSnakes.RemoveAt(1),
          win_Close(lastGui)
       )
-      snake.OnEvent('Close', (*) => snake.Destroy())
+      snake.OnEvent("Close", (*) => snake.Destroy())
       SetTimer(KillLastSnake, -timeout)
    }
 
 }
 
-Counter(startingNum, singleKey := 'Tab') {
+Counter(startingNum, singleKey := "Tab") {
 
    _SendNum(*) {
       static num := startingNum
@@ -704,11 +704,11 @@ Counter(startingNum, singleKey := 'Tab') {
    }
 
    _DeleteBothHotkeys := (*) => (
-      Hotkey(singleKey, 'Off'),
-      Hotkey('+' singleKey, 'Off'),
-      Info('Counter disabled')
+      Hotkey(singleKey, "Off"),
+      Hotkey("+" singleKey, "Off"),
+      Info("Counter disabled")
    )
 
-   Hotkey(singleKey, _SendNum, 'On')
-   Hotkey('+' singleKey, _DeleteBothHotkeys, 'On')
+   Hotkey(singleKey, _SendNum, "On")
+   Hotkey("+" singleKey, _DeleteBothHotkeys, "On")
 }
