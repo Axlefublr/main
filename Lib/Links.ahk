@@ -39,6 +39,7 @@ Linker(linkName) {
       'regex one',       'https://regexone.com/',
       'color picker',    'https://docs.microsoft.com/en-us/windows/powertoys/color-picker',
       'svg export',      'https://chrome.google.com/webstore/detail/svg-export/naeaaedieihlkmdajjefioajbbdbdjgp',
+      '1secmail',        'https://www.1secmail.com/',
 
       ;Databases
       'sounds',      'https://www.myinstants.com/index/ru/',

@@ -1,3 +1,3 @@
-Runner back to double quotes, and overall I'm back to double quotes for consistency
+Push added back because **apparently** the vs code setting for +push is only for for the gui version of the command, the usual commit stays the same
 
-Big reason also being github not recognizing ahk sinlge quote strings
+1secmail link added: website for creating fake emails quickly
