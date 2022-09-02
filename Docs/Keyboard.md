@@ -124,7 +124,9 @@ m — Calendar
 
 ^! Editor tokens
 
-+! Keybindings
++! +! Keybindings
+
++! . Keybindings json
 
 ^ Go to next change
 
