@@ -1,3 +1,11 @@
+# "Documentation"
+
+Check out Notes\Change notes.md for a rundown of that commit's changes, in a more palatable format than the actual commit message
+
+Generally, the commit message is a concise explanation for the commit's changes, Change notes expand on that and explain the choices made along with, potentially, my personal thoughts about them
+
+So, it's a way for you to look into my development process
+
 # What is this repository for?
 
 This is my main repository, for stuff I work on and use most
