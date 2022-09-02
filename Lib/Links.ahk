@@ -100,6 +100,8 @@ Linker(linkName) {
       'file global', 'https://github.com/Axlefublr/Main/blob/main/Lib/Global.ahk',
       'file tools', 'https://github.com/Axlefublr/Main/blob/main/Lib/Tools.ahk',
       'file app', 'https://github.com/Axlefublr/Main/blob/main/Lib/App.ahk',
+
+      'file import v1 lib', 'https://github.com/thqby/ahk2_lib/blob/master/import_v1lib.ahk',
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       ;My tutorials
