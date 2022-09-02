@@ -240,8 +240,12 @@ tool_Clock() {
 
    static clock_hwnd
 
+   if IsSet(clock_hwnd) && WinExist(clock_hwnd) && !WinActive(clock_hwnd) {
+      win_Activate(clock_hwnd)
+      return
+   }
    if IsSet(clock_hwnd) && WinExist(clock_hwnd) {
-      win_MinMax(clock_hwnd)
+      win_Close(clock_hwnd)
       return
    }
 
@@ -279,13 +283,9 @@ tool_Clock() {
    ;Takes care of all the trash
    Destruction := (*) => (	;the * takes care of the required parameters for hotkey and onevent
       SetTimer(timeCheck, 0),	;Since it references a function object, it can be outside of the settimer's thread
-      HotIfWinActive('ahk_id ' clock_hwnd),
-      Hotkey('Escape', 'Off'),
       g_Clock.Destroy()
    )
 
-   HotIfWinActive('ahk_id ' clock_hwnd)
-   Hotkey('Escape', Destruction, 'On')
    g_Clock.OnEvent('Close', Destruction)
 
    g_Clock.Show('W350 H320 y0 x' A_ScreenWidth / 20 * 15.3)
