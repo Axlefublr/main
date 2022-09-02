@@ -270,7 +270,7 @@ tool_Clock() {
    g_Clock.SetFont('S26')
    g_Clock_Date := g_Clock.Add('Text', 'w237 Center', clock_Date)
 
-      ;The func obj is separate because we'll need to disable the timer outside of it
+   ;The func obj is separate because we'll need to disable the timer outside of it
    timeCheck := () => (
       g_Clock_Time.Text := FormatTime(, ' HH:mm:ss'),
       g_Clock_Week.Text := FormatTime(, 'dddd'),

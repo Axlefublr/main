@@ -258,9 +258,7 @@ l Search by keybind
 
 ^+ Select until start / end of file
 
-^+# Focus prev / next cursor
-
-^! Go to prev / next folding range; Got to prev / next found result
+^! Go to prev / next folding range; Got to prev / next found result; Focus next / prev cursor
 
 +! Move editor left / right
 
