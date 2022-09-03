@@ -16,7 +16,7 @@ m — Gmail
 
 , — My github
 
-. — CMD
+. — Regex
 
 / —
 
@@ -36,7 +36,7 @@ n —
 
 m —
 
-, — Regex
+, — 
 
 . —
 

@@ -8,11 +8,11 @@
 #m::RunLink(Linker("gmail"))
 #sc28::RunLink(Linker("weather"))
 #sc33::RunLink(Linker("github"))
-#^sc33::RunLink(Linker("regex"))
+#sc34::RunLink(Linker("regex"))
 
 ;Command prompt
-#sc34::win_App("ahk_exe cmd.exe", "cmd.exe")
-#^sc34::Run("*RunAs cmd.exe",, "Max")
+; #sc34::win_App("ahk_exe cmd.exe", "cmd.exe")
+; #^sc34::Run("*RunAs cmd.exe",, "Max")
 
 ;Monkeytype
 #n::win_App("Monkeytype ahk_exe chrome.exe", Paths.Apps["Monkeytype"])
