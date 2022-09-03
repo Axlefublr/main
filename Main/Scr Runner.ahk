@@ -31,57 +31,52 @@
 
    static runner_commands := Map(
 
-         ;APPS
-         ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         "ahk v1 docs", () => win_RunAct("AutoHotkey Help", Paths.Apps["Ahk v1 docs"]),
-         "sort algos", Run.Bind(Paths.Apps["Sort algos"]),
+         ;Main
+         "format table to array", () => str_FormatTableToArray(),
+         "remove comments",       () => str_RemoveComments(),
+         "convert to json",       () => str_ConvertToJson(),
+         "main",                  () => vscode_WorkSpace("Main"),
+         "str len",               () => Infos(StrLen(str_GetSelection())),
+         "radnum",                () => ClipSend(RadNum(), ""),
+         "fs",                    () => tool_FileSearch(),
+         "startup",               () => tool_StartupRun(),
+         "shows",                 () => Show_GetShows(),
+
+         ;Apps
+         "ahk v1 docs",     () => win_RunAct("AutoHotkey Help", Paths.Apps["Ahk v1 docs"]),
+         "sort algos",      Run.Bind(Paths.Apps["Sort algos"]),
          "shell menu view", Run.Bind(Paths.Apps["Shell Menu View"]),
-         "symlink", Run.Bind(Paths.Ptf["Symlink creator"]),
-         "sm", Run.Bind(Paths.Apps["Sound mixer"]),
-         "slack", () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
+         "symlink",         Run.Bind(Paths.Ptf["Symlink creator"]),
+         "sm",              Run.Bind(Paths.Apps["Sound mixer"]),
+         "slack",           () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
 
-         ;FOLDERS
-         ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         ;Win
+         "apps",       () => MainApps(),
+         "close apps", () => CloseMainApps(),
+         "rel",        () => scr_Reload(),
+
+         ;Folders
          "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),
-         "prog", () => win_RunAct_Folders(Paths.Prog),
+         "prog",       () => win_RunAct_Folders(Paths.Prog),
 
-         ;FILES
-         ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         ;Files
          "package",    Run.Bind(Paths.Ptf["Ahk++\package"]),
          "config",     Run.Bind(Paths.Ptf["Ahk++\configuration"]),
          "tmlanguage", Run.Bind(Paths.Ptf["Ahk++\tmlanguage"]),
 
-         ;VIDEO MAKING
-         ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         ;Video production
          "clean text", () => vscode_CleanText(),
-         "edit", () => video_EditScreenshot(),
-         "video up", () => vscode_VideoUp(),
-         "dupl", () => video_DuplicateScreenshot(),
+         "edit",       () => video_EditScreenshot(),
+         "video up",   () => vscode_VideoUp(),
+         "dupl",       () => video_DuplicateScreenshot(),
 
-         "format table to array", () => str_FormatTableToArray(),
-         "remove comments", () => str_RemoveComments(),
-         "convert to json", () => str_ConvertToJson(),
-         "main", () => vscode_WorkSpace("Main"),
-         "str len", () => Infos(StrLen(str_GetSelection())),
-         "radnum", () => ClipSend(RadNum(), ""),
-         "fs", () => tool_FileSearch(),
-         "startup", () => tool_StartupRun(),
-         "shows", () => Show_GetShows(),
-
-         ;MUSIC
-         ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         "track", () => spotify_GetCurrSong_ToClip(),
+         ;Music
+         "track",  () => spotify_GetCurrSong_ToClip(),
          "kristi", () => spotify_SendTrackToKristi(),
 
-         ;WIN
+         ;Github
          ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         "apps", () => MainApps(),
-         "close apps", () => CloseMainApps(),
-         "rel", () => scr_Reload(),
-
-         ;GITHUB
-         ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         "wk in", () => wksp_FoldersInWorkSpace_Show(),
+         "wk in",  () => wksp_FoldersInWorkSpace_Show(),
          "wk out", () => wksp_FoldersInProg(),
 
          "gitlink", () => ClipSend(git_Link(), "", false),
@@ -94,6 +89,7 @@
          ;Commit repos
          "com main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main, false),
          "psh main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main),
+         ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       )
 
