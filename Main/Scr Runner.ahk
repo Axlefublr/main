@@ -95,30 +95,30 @@
    try runner_commands[val].Call()
    catch any {
       RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|cmd) (.+)", &result)
-      runner_regex := Map(
-         "p", () => ClipSend(Linker(result[2])),
-         "o", () => RunLink(Linker(result[2])),
-         "c", () => (A_Clipboard := Linker(result[2]), Info("Copied: " A_Clipboard)),
-         "g", () => Googler(result[2]),
-         "s", () => SoundPlay(Paths.Sounds "\" result[2] ".mp3"),
-         "r", () => spotify_NewRapper(result[2]),
-         "t", () => (WriteFile(Paths.Ptf["Timer.txt"], result[2]), Run(Paths.Ptf["Timer.ahk"])),
-         "a", () => spotify_FavRapper_Manual(result[2]),
-         "e", () => Infos(Round(Eval(result[2]), 3)),
-         "i", () => Infos(result[2]),
-         ">", () => Skipper(result[2]),
-         "show",  () => Show_Run(result[2]),
-         "link",  () => Show_SetLink(result[2]),
-         "ep",    () => Show_SetEpisode(result[2]),
-         "delow", () => Show_DeleteShow(result[2]),
-         "counter", () => Counter(result[2]),
-         "dw", () => GetWeekDay(result[2]),
-         "wd", () => GetDayFromWeekDay(result[2]),
-         "fr", () => (DirDelete(Paths.Prog "\" result[2], true), Info(result[2] " deleted")),
-         "wka", () => wksp_AddFolderToWorkspace(result[2]),
-         "wkr", () => wksp_RemoveFolderFromWorkSpace(result[2]),
-         "cmd", () => RunSpec_StringWrapper(result[2]),
+      static runner_regex := Map(
+         "p", (input) => ClipSend(Linker(input)),
+         "o", (input) => RunLink(Linker(input)),
+         "c", (input) => (A_Clipboard := Linker(input), Info("Copied: " A_Clipboard)),
+         "g", (input) => Googler(input),
+         "s", (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
+         "r", (input) => spotify_NewRapper(input),
+         "t", (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
+         "a", (input) => spotify_FavRapper_Manual(input),
+         "e", (input) => Infos(Round(Eval(input), 3)),
+         "i", (input) => Infos(input),
+         ">", (input) => Skipper(input),
+         "show",  (input) => Show_Run(input),
+         "link",  (input) => Show_SetLink(input),
+         "ep",    (input) => Show_SetEpisode(input),
+         "delow", (input) => Show_DeleteShow(input),
+         "counter", (input) => Counter(input),
+         "dw", (input) => GetWeekDay(input),
+         "wd", (input) => GetDayFromWeekDay(input),
+         "fr", (input) => (DirDelete(Paths.Prog "\" input, true), Info(input " deleted")),
+         "wka", (input) => wksp_AddFolderToWorkspace(input),
+         "wkr", (input) => wksp_RemoveFolderFromWorkSpace(input),
+         "cmd", (input) => RunSpec_StringWrapper(input),
       )
-      try runner_regex[result[1]].Call()
+      try runner_regex[result[1]].Call(result[2])
    }
 }
