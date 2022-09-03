@@ -41,10 +41,6 @@ Class Paths {
       'Timer.txt', this.Main '\Files\Innit\Timer.txt',
       'Shows',     this.Main '\Files\Innit\Shows.jsonc',
 
-      'vine boom sound effect', this.Main '\Files\Sounds\vine boom.mp3',
-
-      'MethFunc', this.Main '\Lib\MethFunc.ahk',
-
       'Keys', this.Main '\Main\Scr Keys.ahk',
 
       'Change notes', this.Main '\Notes\Change notes.md',
@@ -56,28 +52,20 @@ Class Paths {
       'Output',      this.Main '\Notes temp\Output.txt',
 
       'AhkTest',  this.Main '\Test\AhkTest.ahk',
-      'AhkTest2', this.Main '\Test\1.ahk',
-      'AhkTest3', this.Main '\Test\2.ahk',
-      'BatTest',  this.Main '\Test\BatTest.bat',
 
       'Timer.ahk',       this.Main '\Tools\Timer.ahk',
       'Symlink creator', this.Main '\Tools\Symlink creator.ahk',
 
-
       'FL preset',        this.Pictures '\Editing\Tools\FL preset.flp',
       'Thumbnail preset', this.Pictures '\Editing\Tools\Thumbnail preset.xcf',
-
 
       'VsCode\settings',     A_AppData '\Code\User\settings.json',
       'VsCode\ahk snippets', A_AppData '\Code\User\snippets\ahk.json',
       'VsCode\keybindings',  A_AppData '\Code\User\keybindings.json',
 
-
       'Ahk++\package',       this.AhkPlusPlusExtension '\package.json',
       'Ahk++\configuration', this.AhkPlusPlusExtension '\ahk2.configuration.json',
       'Ahk++\tmlanguage',    this.AhkPlusPlusExtension "\syntaxes\ahk2.tmLanguage.json",
-
-      'Eva\Dark', this.VsCodeExtensions '\fisheva.eva-theme-1.8.7\themes\Eva-Dark.json',
 
    )
 
@@ -89,7 +77,6 @@ Class Paths {
       'Ahk v2 docs',       A_ProgramFiles '\AutoHotkey\v2.0-beta.7\AutoHotkey.chm',
       'Ahk compiler',      A_ProgramFiles '\AutoHotkey\Compiler\Ahk2Exe.exe',
 
-      'Debug log',         A_ProgramFiles '\Debug view\Dbgview.exe',
       'Shell Menu View',   A_ProgramFiles '\Shell Menu View\shmnview.exe',
 
       'Google Chrome',     A_ProgramFiles '\Google\Chrome\Application\chrome.exe',
@@ -105,7 +92,6 @@ Class Paths {
 
       'Viber',             this.LocalAppData '\Viber\Viber.exe',
       'VS Code',           this.LocalAppData '\Programs\Microsoft VS Code\Code.exe',
-      'Todoist',           this.LocalAppData '\Programs\todoist\Todoist.exe',
       'WPS',               this.LocalAppData '\Kingsoft\WPS Office\ksolaunch.exe',
       'Discord',           this.LocalAppData '\Discord\app-1.0.9006\Discord.exe',
       'Slack',             this.LocalAppData '\slack\app-4.28.171\slack.exe',
