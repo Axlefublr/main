@@ -36,7 +36,7 @@ n —
 
 m —
 
-, — 
+, —
 
 . —
 
@@ -150,11 +150,11 @@ m —
 
 ^! Unfold all
 
-+! Toggle fold
++! Go to last edit location
 
 ! Replace
 
-^ Go to last edit location
+^ Toggle fold
 
 ## J
 
