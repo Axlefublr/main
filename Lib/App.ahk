@@ -38,7 +38,7 @@ spotify_Discovery() {
    }
 
    onRightClick(*) {
-      ControlClick_Here('ahk_exe Spotify.exe', "R")
+      ControlClick_Here("ahk_exe Spotify.exe", "R")
       var++
       g_added_text.Text := var
       if var >= 15 {
@@ -48,8 +48,8 @@ spotify_Discovery() {
 
    Destruction(*) {
       HotIfWinActive("ahk_exe Spotify.exe")
-      Hotkey('RButton', "Off")
-      Hotkey('Escape', "Off")
+      Hotkey("RButton", "Off")
+      Hotkey("Escape", "Off")
       g_added.Destroy()
       var := 0
       isStarted := false
@@ -58,13 +58,13 @@ spotify_Discovery() {
    static g_added
    g_added := Gui("AlwaysOnTop -caption")
    g_added.backColor := "171717"
-   g_added.SetFont('s50 c0xC5C5C5', "Consolas")
-   g_added_text := g_added.Add('Text', 'W200 X0 Y60 Center', "0")
+   g_added.SetFont("s50 c0xC5C5C5", "Consolas")
+   g_added_text := g_added.Add("Text", "W200 X0 Y60 Center", "0")
    g_added.Show("W200 H200 X0 Y0 NA")
 
    HotIfWinActive("ahk_exe Spotify.exe")
-   Hotkey('RButton', onRightClick.Bind(), "On")
-   Hotkey('Escape', Destruction.Bind(), "On")
+   Hotkey("RButton", onRightClick.Bind(), "On")
+   Hotkey("Escape", Destruction.Bind(), "On")
    g_added.OnEvent("Close", Destruction.Bind())
    g_added_text.OnEvent("Click", (*) => var := g_added_text.Text := g_added_text.Text - 1)	;We update the number we *see* with the one just lower than it, and also update the amount of tracks until destruction (var)
    g_added_text.OnEvent("DoubleClick", Destruction.Bind())
@@ -87,20 +87,20 @@ spotify_NewDiscovery() {
       Traytip("No track is playing")
       return
    }
-   artistName := RegexReplace(currSong, ' - .*', "")
-   AppendFile(Paths.Ptf['Discovery log'], GetDateAndTime() ' - ' artistName "`n")
+   artistName := RegexReplace(currSong, " - .*", "")
+   AppendFile(Paths.Ptf["Discovery log"], GetDateAndTime() " - " artistName "`n")
    TrayTip(artistName " just discovered! 🌎")
 }
 
 spotify_NewRapper(name) {
    isTouched := ReadFile(Paths.Ptf["Unfinished"])
    isTouched .= ReadFile(Paths.Ptf["Rappers"])
-   isTouched := RegexReplace(isTouched, ' - .*', "")
+   isTouched := RegexReplace(isTouched, " - .*", "")
    if Instr(isTouched, name) {
       TrayTip("You've already started listening to this rapper")
       return
    }
-   AppendFile(Paths.Ptf['Rappers'], name "`n")
+   AppendFile(Paths.Ptf["Rappers"], name "`n")
    TrayTip(name "yet to be discovered! 📃")
 }
 
@@ -110,7 +110,7 @@ spotify_SendTrackToKristi() {
       TrayTip("No track is playing")
       return
    }
-   win_RunAct('Telegram', Paths.Apps["Telegram"])
+   win_RunAct("Telegram", Paths.Apps["Telegram"])
    telegram_Channel("кристина")
    WaitUntilImage(Paths.Ptf["Kristi"])
    ClipSend(currSong)
@@ -118,7 +118,7 @@ spotify_SendTrackToKristi() {
 }
 
 spotify_Context() => (
-   ControlClick('X22 Y1015', 'ahk_exe Spotify.exe', , "R"),
+   ControlClick("X22 Y1015", "ahk_exe Spotify.exe", , "R"),
    Send("{Up 2}")
 )
 
@@ -139,7 +139,7 @@ spotify_FavRapper_Manual(artistName) {
       TrayTip(artistName " is already added 😨")
       return
    }
-   AppendFile(Paths.Ptf['Artists'], '1. ' artistName "`n")
+   AppendFile(Paths.Ptf["Artists"], "1. " artistName "`n")
    TrayTip(artistName " is now your favorite! 🥰")
 }
 
@@ -154,8 +154,8 @@ youtube_SkipPrev := Send.Bind("+p")
 
 youtube_Seek(direction) {
    Switch direction {
-      Case 'right': Send("l")
-      Case 'left': Send("j")
+      Case "right": Send("l")
+      Case "left": Send("j")
    }
 }
 
@@ -214,7 +214,7 @@ telegram_Channel(channelToFind) => (
 telegram_Diary() {
    diary := ReadFile(Paths.Ptf["Diary"])
    WriteFile(Paths.Ptf["Diary"])
-   win_RunAct('Telegram ahk_exe Telegram.exe', Paths.Apps["Telegram"])
+   win_RunAct("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
    telegram_Channel("Diary")
    ClipSend(diary)
    Send("{Enter}")
@@ -233,7 +233,7 @@ discord_Reply := CtrlClick
 
 discord_React() {
    ImageSearch(&reactX, &reactY, 1730, 88, 1820, 995, Paths.Ptf["react"])
-   try ControlClick('X' reactX ' Y' reactY, "ahk_exe Discord.exe")
+   try ControlClick("X" reactX " Y" reactY, "ahk_exe Discord.exe")
 }
 
 discord_DeleteMessage := Send.Bind("{Delete Down}{Click}{Delete Up}")
@@ -310,33 +310,33 @@ vscode_toCommitMessage(changeNotes_rawFile) {
       I know going step by step is inefficient, but this improves mantainability and stability, since if I take care of things one at a time, I won't be able to miss anything. It's so fast that I can't notice anyway. I'd rather be able to change things more easily
     */
 
-   changeNotes := StrReplace(changeNotes_rawFile, '`t', " ")	;Replacing tabs with spaces
-   changeNotes := StrReplace(changeNotes, '`r`n', "`n")	;Removing the annoying \r (returns), to not have to care about them in the regex
-   changeNotes := RegexReplace(changeNotes, ' *\n', "`n")	;Removing all trailing whitespace
-   changeNotes := RegexReplace(changeNotes, ' {2,}', " ")	;Only one space instead of potentially many (inline)
-   changeNotes := RegexReplace(changeNotes, '\n{3,}', "`n`n")	;Only two newlines instead of potentially many
+   changeNotes := StrReplace(changeNotes_rawFile, "`t", " ")	;Replacing tabs with spaces
+   changeNotes := StrReplace(changeNotes, "`r`n", "`n")	;Removing the annoying \r (returns), to not have to care about them in the regex
+   changeNotes := RegexReplace(changeNotes, " *\n", "`n")	;Removing all trailing whitespace
+   changeNotes := RegexReplace(changeNotes, " {2,}", " ")	;Only one space instead of potentially many (inline)
+   changeNotes := RegexReplace(changeNotes, "\n{3,}", "`n`n")	;Only two newlines instead of potentially many
 
-   changeNotes := RegexReplace(changeNotes, '\n#+ ', "`n")	;I can use the # character as normal, unless it's at the start and with a space, meaning is a md label
-   changeNotes := RegexReplace(changeNotes, '\n>+ ', "`n")
+   changeNotes := RegexReplace(changeNotes, "\n#+ ", "`n")	;I can use the # character as normal, unless it's at the start and with a space, meaning is a md label
+   changeNotes := RegexReplace(changeNotes, "\n>+ ", "`n")
    changeNotes := RegexReplace(changeNotes, "^#+ ")	;The first label won"t have a newline before it and it is also the beginning of the text, so that's why we can use ^
    changeNotes := RegexReplace(changeNotes, "^>+ ")
 
-   changeNotes := RegexReplace(changeNotes, ':\n+\* ', ": ")	;When a line ends with :, it"s a marker for a list
-   changeNotes := StrReplace(changeNotes, '`n* ', ", ")	;All the following items in the list will have commas between them, even if I forget a :, there will just be commas between all of them
+   changeNotes := RegexReplace(changeNotes, ":\n+\* ", ": ")	;When a line ends with :, it"s a marker for a list
+   changeNotes := StrReplace(changeNotes, "`n* ", ", ")	;All the following items in the list will have commas between them, even if I forget a :, there will just be commas between all of them
 
-   changeNotes := RegexReplace(changeNotes, '(?<![.:!?])\n\n', ". ")	;Double newlines are connected by a dot
-   changeNotes := StrReplace(changeNotes, '`n`n', " ")	;If I added the dot myself, we just replace those two newlines with a space
-   changeNotes := StrReplace(changeNotes, '`n', " ")	;On the off-chance I missed something, or something broke
+   changeNotes := RegexReplace(changeNotes, "(?<![.:!?])\n\n", ". ")	;Double newlines are connected by a dot
+   changeNotes := StrReplace(changeNotes, "`n`n", " ")	;If I added the dot myself, we just replace those two newlines with a space
+   changeNotes := StrReplace(changeNotes, "`n", " ")	;On the off-chance I missed something, or something broke
 
    changeNotes := StrReplace(changeNotes, '"', "'")	;double quotes are not allowed in cmd, or rather they will cause trouble
-   changeNotes := StrReplace(changeNotes, '\\', "\")
+   changeNotes := StrReplace(changeNotes, "\\", "\")
 
    return changeNotes
 }
 
 vscode_CleanText() {
    clean := ReadFile(Paths.Ptf["Raw"])
-   clean := StrReplace(clean, '`r`n', "`n")	;making it easy for regex to work its magic by removing returns
+   clean := StrReplace(clean, "`r`n", "`n")	;making it easy for regex to work its magic by removing returns
    clean := RegexReplace(clean, "m)^\* .*\n(\n)?")	;removing bullets and their additional newlines
 
    RegexMatch(clean, "s)---\n(.*)", &description_regexed)	;Getting the description that's manually written
@@ -344,9 +344,9 @@ vscode_CleanText() {
    clean := RegexReplace(clean, "s)---\n.*")	;deleting the description part of the script
    clean := RegexReplace(clean, "\n{3,}")	;removing spammed newlines
    clean := RegexReplace(clean, "m) *$")	;removing leading spaces
-   clean := RegexReplace(clean, '(?<!\.)\n{2}(?=[^A-Z])', " ")	;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it"s ignored
+   clean := RegexReplace(clean, "(?<!\.)\n{2}(?=[^A-Z])", " ")	;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it"s ignored
 
-   clean_compact := StrReplace(clean, '`n`n', "`n")
+   clean_compact := StrReplace(clean, "`n`n", "`n")
 
    if !description_regexed
       description_manual := ""
@@ -393,7 +393,7 @@ wksp_FoldersInWorkSpace() {
    workspace_folders := JSON.parse(ReadFile(Paths.Ptf["Main"]))
    inWksp := []
    for key, value in workspace_folders["folders"] {
-      inWksp.Push(StrReplace(workspace_folders['folders'][key]['path'], Paths.Prog "\"))
+      inWksp.Push(StrReplace(workspace_folders["folders"][key]["path"], Paths.Prog "\"))
    }
    return inWksp
 }
@@ -407,7 +407,7 @@ wksp_FoldersInWorkSpace_Show() {
 
 wksp_FoldersInProg() {
    inWskp := wksp_FoldersInWorkSpace()
-   loop files Paths.Prog '\*', "D" {
+   loop files Paths.Prog "\*", "D" {
       if A_LoopFileName = ".pytest_cache"
          continue
       for key, value in inWskp {
@@ -457,9 +457,9 @@ git_CommitRepo(changeNote_file, repo_path, andPush := true) {
    commitMessage := vscode_toCommitMessage(ReadFile(changeNote_file))
 
    program := [
-      'cd "' repo_path '"',
+      'cd "" repo_path ""',
       "git add .",
-      'git commit -m "' commitMessage '"',
+      'git commit -m "" commitMessage ""',
    ]
 
    if andPush {
@@ -558,14 +558,14 @@ Show_GetLink(show) {
    shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
    try shows[show]
    catch Any {
-      Info('No ' show "!🎬")
+      Info("No " show "!🎬")
       return "" ;There for sure won't be a link nor an episode if the object doesn't exist yet, because if I either set the link or the episode, the show object will exist along with the properties, even if one of them doesn't have a non-zero value
    }
    if !shows[show]["link"] {
       Info("No link!🔗")
       return "" ;If the object exists, so does the link property, which will be blank if I only set the episode (somehow). The episode always starts out being 0 though, no need to check for it
    }
-   return shows[show]['link'] shows[show]["episode"] + 1
+   return shows[show]["link"] shows[show]["episode"] + 1
 }
 
 Show_GetShows() {
@@ -591,7 +591,7 @@ Show_DeleteShow(show) {
 }
 
 Show_SetLink(show_and_link) {
-   show_and_link := RegexReplace(show_and_link, ' {2,}', " ")
+   show_and_link := RegexReplace(show_and_link, " {2,}", " ")
    RegexMatch(show_and_link, "(.+) (https:\/\/[^ ]+)", &show_and_link_match)
    if !show_and_link_match {
       Info("No show / link")
@@ -614,7 +614,7 @@ Show_SetLink(show_and_link) {
 }
 
 Show_SetEpisode(show_and_episode) {
-   show_and_episode := RegexReplace(show_and_episode, ' {2,}', " ")
+   show_and_episode := RegexReplace(show_and_episode, " {2,}", " ")
    RegexMatch(show_and_episode, "(.+) (\d+)", &show_and_episode_match)
 
    show := show_and_episode_match[1]
@@ -637,7 +637,7 @@ Show_SetEpisode(show_and_episode) {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 video_EditScreenshot() {
-   selectedFile := FileSelect('S', Paths.Materials, "Select a file to edit in gimp")
+   selectedFile := FileSelect("S", Paths.Materials, "Select a file to edit in gimp")
    if !selectedFile
       return
 
@@ -645,7 +645,7 @@ video_EditScreenshot() {
 }
 
 video_DuplicateScreenshot() {
-   file_path := FileSelect('s', Paths.Materials, "Choose a screenshot to duplicate")
+   file_path := FileSelect("s", Paths.Materials, "Choose a screenshot to duplicate")
 
    SplitPath(file_path, &file_fullname)
    file_name := RegexReplace(file_fullname, "\d+")
@@ -671,7 +671,7 @@ video_DuplicateScreenshot() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 davinci_Insert() {
-   ControlClick('X79 Y151', 'ahk_exe Resolve.exe', , "R")
+   ControlClick("X79 Y151", "ahk_exe Resolve.exe", , "R")
    Send("{Down 2}{Enter}")
    WinWaitActive("New Timeline Properties")
    Send("{Enter}")

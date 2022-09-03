@@ -57,7 +57,7 @@ WaitUntilImage(imageFile, coordObj?) {
 
 WaitClick(imageFile) => (
    coords := WaitUntilImage(imageFile),
-   ControlClick('X' coords[1] " Y" coords[2], "A")
+   ControlClick("X" coords[1] " Y" coords[2], "A")
 )
 
 TransAndProud(whatCrement) {
