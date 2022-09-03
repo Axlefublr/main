@@ -12,7 +12,7 @@
 	/**
 	 * Converts a AutoHotkey Object Notation JSON string into an object.
 	 * @param text A valid JSON string.
-	 * @param keepbooltype convert true/false/null to JSON.true / JSON.false / JSON.null where it's true, otherwise 1 / 0 / ''
+	 * @param keepbooltype convert true/false/null to JSON.true / JSON.false / JSON.null where it's true, otherwise 1 / 0 / ""
 	 */
 	static parse(text, keepbooltype := true) {
 		keepbooltype ? (_true := JSON.true, _false := JSON.false, _null := JSON.null) : (_true := true, _false := false, _null := "")
@@ -52,7 +52,7 @@
 								throw Error("Malformed JSON - unrecognized character-", 0, A_LoopField " in " t)
 						}
 					}
-				} else if InStr(t, ':') > 1
+				} else if InStr(t, ":") > 1
 					throw Error("Malformed JSON - unrecognized character-", 0, SubStr(t, 1, 1) " in " t)
 			} else if NQ && (P .= A_LoopField '"', 1)
 				continue
@@ -113,7 +113,7 @@
 			static ascii := Map("\", "\", "`a", "a", "`b", "b", "`t", "t", "`n", "n", "`v", "v", "`f", "f", "`r", "r", Chr(0x1B), "e", "`"", "`"", Chr(0x85), "N", Chr(0x2029), "P", Chr(0x2028), "L", "", "0", Chr(0xA0), "_")
 			switch Type(S) {
 				case "Float":
-					if (v := '', d := InStr(S, 'e'))
+					if (v := "", d := InStr(S, "e"))
 						v := SubStr(S, d), S := SubStr(S, 1, d - 1)
 					if ((StrLen(S) > 17) && (d := RegExMatch(S, "(99999+|00000+)\d{0,3}$")))
 						S := Round(S, Max(1, d - InStr(S, ".") - 1))

@@ -8,7 +8,7 @@ scr_Reload() => Run(A_ScriptFullPath)
 scr_HardReload() {
 
    _onExit(ExitReason, ExitCode) {
-      if ExitReason = 'Exit' {
+      if ExitReason = "Exit" {
          Run(A_ScriptFullPath)
       }
    }
@@ -20,10 +20,10 @@ scr_HardReload() {
 scr_Suspend() {
    if A_IsSuspended {
       Suspend(false)
-      Info('Script unsuspended')
+      Info("Script unsuspended")
    } else {
       Suspend(true)
-      Info('Script suspended')
+      Info("Script suspended")
    }
 }
 
@@ -35,11 +35,11 @@ scr_RunAsAdmin() {
    }
 }
 
-scr_Test() => Run(Paths.Ptf['AhkTest'])
+scr_Test() => Run(Paths.Ptf["AhkTest"])
 
 ;Alternative to outputdebug
-Out(put := '', endChar := '`n', overwrite := false) {
-   filePath := Paths.Ptf['Output']
+Out(put := "", endChar := "`n", overwrite := false) {
+   filePath := Paths.Ptf["Output"]
    static wasRan := false
    if !wasRan || overwrite
       WriteFile(filePath, put endChar), wasRan := true

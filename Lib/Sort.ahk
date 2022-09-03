@@ -14,8 +14,8 @@
    The time it takes to sort 100k indexes is measured by sorting *shuffled* arrays
 */
 
-ArrToStr(arrayObj, delimiter := ', ') {
-   str := ''
+ArrToStr(arrayObj, delimiter := ", ") {
+   str := ""
    for key, value in arrayObj {
       if key = arrayObj.Length {
          str .= value
@@ -201,8 +201,8 @@ MergeSort(arrayObj) {
 
 /*
    O(n + k) -- all cases
-   Where 'k' is the highest integer in the array
-   The more indexes you want to sort, the bigger 'thread delay' will have to be
+   Where "k" is the highest integer in the array
+   The more indexes you want to sort, the bigger "thread delay" will have to be
    This sorting algorithm is *not* practical, use it exclusively for fun!
 */
 SleepSort(arrayObj, threadDelay := 30) {

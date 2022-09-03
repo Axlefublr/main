@@ -251,7 +251,7 @@ const foo = 5;
 switch (foo) {
 	case 2:
 		console.log(2);
-		break; // it encounters this break so will not continue into 'default:'
+		break; // it encounters this break so will not continue into "default:"
 	default:
 		console.log("default");
 	// no break, so it will continue to case 1

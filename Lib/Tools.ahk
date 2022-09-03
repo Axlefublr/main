@@ -45,7 +45,7 @@ tool_KeyCodeGetter() {
       used := true
 
       input := g_values_input.value
-      g_values_input.value := ''
+      g_values_input.value := ""
 
       key_name := GetKeyName(input)
       key_SC := GetKeySC(input)
@@ -170,11 +170,11 @@ tool_FileSearch(caseSense := "Off") {	;Case sense is off by default, but may nee
 
    g_found_list.Opt("-Redraw")	;improves performance rather than keeping on adding rows and redrawing for each one of them
 
-   ToolTip("Search in progress", 0, 0)	;to remove the worry of 'did I really start the search?'
+   ToolTip("Search in progress", 0, 0)	;to remove the worry of "did I really start the search?"
 
    Loop Files folder . "\*.*", "FDR" {
       /*
-        'But ternary is faster!' -- No, suprisingly enough, it's not. An if with no else is faster than ternary with : '' (which you *have to* have in v2) ((better to cum in the sink than to sink in the cum))
+        "But ternary is faster!" -- No, suprisingly enough, it's not. An if with no else is faster than ternary with : "" (which you *have to* have in v2) ((better to cum in the sink than to sink in the cum))
 
         Because of how compiling logic works, if the first condition on the left of the && is false, everything to the right will not even be evaluated (looked at), so instead of nesting two ifs we can use the AND statement without losing any speed.
         The trend continues with the later || -- the slowest to check file will be a *file* with no extension, then a folder, then a file, then something that didn't match

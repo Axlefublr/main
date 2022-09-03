@@ -1,19 +1,19 @@
 ﻿;No dependencies
 
-win_Close(winTitle := 'A') {
-   try PostMessage('0x0010', , , , winTitle)
+win_Close(winTitle := "A") {
+   try PostMessage("0x0010", , , , winTitle)
 }
 
-win_RestoreDown(winTitle := 'A') {
-   try PostMessage('0x112', '0xF120', , , winTitle)
+win_RestoreDown(winTitle := "A") {
+   try PostMessage("0x112", "0xF120", , , winTitle)
 }
 
-win_Maximize(winTitle := 'A') {
-   try PostMessage('0x112', '0xF030', , , winTitle)
+win_Maximize(winTitle := "A") {
+   try PostMessage("0x112", "0xF030", , , winTitle)
 }
 
-win_Minimize(winTitle := 'A') {
-   try PostMessage('0x112', '0xF020', , , winTitle)
+win_Minimize(winTitle := "A") {
+   try PostMessage("0x112", "0xF020", , , winTitle)
 }
 
 win_Activate(winTitle) {
@@ -35,7 +35,7 @@ win_MinMax(winTitle) {
 win_Run(winTitle, exePath, runOpt?, winTitleAdditional?) {
    if WinExist(winTitle)
       return 0
-   Run(exePath, , runOpt ?? 'Max')
+   Run(exePath, , runOpt ?? "Max")
    WinWait(winTitle, , 120)
    if winTitleAdditional ?? false {
       WinWait(winTitleAdditional, , 120)
@@ -50,8 +50,8 @@ win_RunAct(winTitle, exePath, runOpt?, winTitleAdditional?) {
 }
 
 win_RunAct_Folders(folderPath, runOpt?) {
-   winTitle := folderPath ' ahk_exe explorer.exe'
-   win_RunAct(winTitle, folderPath, runOpt ?? 'Min')
+   winTitle := folderPath " ahk_exe explorer.exe"
+   win_RunAct(winTitle, folderPath, runOpt ?? "Min")
 }
 
 win_App(winTitle, exePath, runOpt?, winTitleAdditional?) {
@@ -61,7 +61,7 @@ win_App(winTitle, exePath, runOpt?, winTitleAdditional?) {
 }
 
 win_App_Folders(folderPath, runOpt?) {
-   winTitle := folderPath ' ahk_exe explorer.exe'
+   winTitle := folderPath " ahk_exe explorer.exe"
    win_App(winTitle, folderPath, runOpt?)
 }
 
@@ -71,17 +71,17 @@ win_CloseOnceInactive(winTitle, closedAfter := 5) {
 }
 
 win_AutoCloseFolder(folderPath) {
-   winTitle := folderPath ' ahk_exe explorer.exe'
-   win_RunAct(winTitle, folderPath, 'Min')
+   winTitle := folderPath " ahk_exe explorer.exe"
+   win_RunAct(winTitle, folderPath, "Min")
    win_CloseOnceInactive(winTitle)
 }
 
-win_RestoreLeftRight(direction, winTitle := 'A') {
+win_RestoreLeftRight(direction, winTitle := "A") {
 
    _WinMove() {
       Switch direction {
-         Case 'right': direction := 960
-         Case 'left': direction := 0
+         Case "right": direction := 960
+         Case "left": direction := 0
       }
       WinMove(direction, 0, 960, 1079, winTitle)
    }
