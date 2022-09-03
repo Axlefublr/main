@@ -141,3 +141,17 @@ git merge branch-name
 ```
 
 You first have to checkout to the main branch
+
+## Squashing
+
+```
+git merge branch-name --squash
+```
+
+Squashes the multiple commits on the side branch into one commit, as to not clutter up main
+
+## Pushing the pull request
+
+```
+git push origin branch-name
+```
