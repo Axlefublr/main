@@ -50,6 +50,8 @@
          "gimp",    () => win_RunAct("Thumbnail preset.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
          "fl",      () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
          "davinci", () => win_RunAct("Project Manager", Paths.Apps["Davinci Resolve"]),
+         "cmd", () => win_RunAct("ahk_exe cmd.exe", "cmd.exe"),
+         "cmad", Run.Bind("*RunAs cmd.exe",, "Max"),
 
          ;Win
          "apps",       () => MainApps(),

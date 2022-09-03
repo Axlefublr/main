@@ -10,10 +10,6 @@
 #sc33::RunLink(Linker("github"))
 #sc34::RunLink(Linker("regex"))
 
-;Command prompt
-; #sc34::win_App("ahk_exe cmd.exe", "cmd.exe")
-; #^sc34::Run("*RunAs cmd.exe",, "Max")
-
 ;Monkeytype
 #n::win_App("Monkeytype ahk_exe chrome.exe", Paths.Apps["Monkeytype"])
 
@@ -74,3 +70,6 @@
 <!g::win_MinMax("ahk_group Game")
 
 #HotIf
+
+
+#Include <Win>
