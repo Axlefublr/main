@@ -100,7 +100,6 @@ GroupAdd("Game", "ahk_exe EtG.exe")
 +CapsLock::Cis()
 
 RAlt::LAlt
-AppsKey::LCtrl
 
 #HotIf !WinActive("ahk_exe Code.exe")
 ^Space::Send("{Down}")
