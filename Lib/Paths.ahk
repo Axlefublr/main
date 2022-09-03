@@ -90,7 +90,6 @@ Class Paths {
       'Ahk compiler',      A_ProgramFiles '\AutoHotkey\Compiler\Ahk2Exe.exe',
 
       'Debug log',         A_ProgramFiles '\Debug view\Dbgview.exe',
-      'Sort algos',        A_ProgramFiles '\Sort Algos\ArrayV-5.0.jar',
       'Shell Menu View',   A_ProgramFiles '\Shell Menu View\shmnview.exe',
 
       'Google Chrome',     A_ProgramFiles '\Google\Chrome\Application\chrome.exe',
