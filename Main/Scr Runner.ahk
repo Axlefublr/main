@@ -35,7 +35,6 @@
          "format table to array", () => str_FormatTableToArray(),
          "remove comments",       () => str_RemoveComments(),
          "convert to json",       () => str_ConvertToJson(),
-         "main",                  () => vscode_WorkSpace("Main"),
          "str len",               () => Infos(StrLen(str_GetSelection())),
          "radnum",                () => ClipSend(RadNum(), ""),
          "fs",                    () => tool_FileSearch(),
@@ -44,10 +43,10 @@
 
          ;Apps
          "ahk v1 docs",     () => win_RunAct("AutoHotkey Help", Paths.Apps["Ahk v1 docs"]),
+         "slack",           () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
          "shell menu view", Run.Bind(Paths.Apps["Shell Menu View"]),
          "symlink",         Run.Bind(Paths.Ptf["Symlink creator"]),
          "sm",              Run.Bind(Paths.Apps["Sound mixer"]),
-         "slack",           () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
 
          ;Win
          "apps",       () => MainApps(),
@@ -77,6 +76,7 @@
          ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
          "wk in",  () => wksp_FoldersInWorkSpace_Show(),
          "wk out", () => wksp_FoldersInProg(),
+         "main",   () => vscode_WorkSpace("Main"),
 
          "gitlink", () => ClipSend(git_Link(), "", false),
          "gitopen", () => RunLink(git_Link()),
