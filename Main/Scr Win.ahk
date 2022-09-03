@@ -40,19 +40,6 @@
 ;Telegram
 <!t::win_App("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
 
-;Gimp
-#h::win_App("Thumbnail preset.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe")
-
-;Video editor
-#j:: {
-	GroupAdd("DavinciResolve", "DaVinci Resolve - Untitled Project")
-	GroupAdd("DavinciResolve", "Project Manager")
-	win_App("ahk_group DavinciResolve", Paths.Apps["Davinci Resolve"])
-}
-
-;Fl Studio
-#k::win_App("ahk_exe FL64.exe", Paths.Ptf["FL preset"])
-
 #MaxThreadsBuffer true
 ;Explorer
 <!d:: {
