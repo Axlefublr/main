@@ -1,10 +1,10 @@
 # Windows
 
-h — Gimp
+h —
 
-j — Davinci Resolve
+j —
 
-k — FL Studio
+k —
 
 ' — Weather
 
@@ -32,9 +32,9 @@ k —
 
 b —
 
-n — Twitch
+n —
 
-m — Calendar
+m —
 
 , — Regex
 

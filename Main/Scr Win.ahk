@@ -5,9 +5,7 @@
 #HotIf !WinActive("ahk_group Game")
 
 ;Links
-#^n::RunLink(Linker("twitch"))
 #m::RunLink(Linker("gmail"))
-#^m::RunLink(Linker("calendar"))
 #sc28::RunLink(Linker("weather"))
 #sc33::RunLink(Linker("github"))
 #^sc33::RunLink(Linker("regex"))
