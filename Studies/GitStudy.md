@@ -110,3 +110,34 @@ git lop -p file
 ```
 git rm --cached
 ```
+
+## Uninitialize git
+
+```
+rm -rf .git
+```
+
+## Unstage stages files
+
+```
+git reset .
+git reset file
+```
+
+> you can multiline the commit message
+
+## New branch
+
+```
+git checkout -b branch-name
+```
+
+The b flag creates the branch
+
+## Merge when on the master branch
+
+```
+git merge branch-name
+```
+
+You first have to checkout to the main branch

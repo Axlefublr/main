@@ -58,11 +58,11 @@ m — Calendar
 
 ## U
 
-^+ Push
+^+
 
 ^!
 
-+! Commit all changes
++! Commit
 
 ^
 
