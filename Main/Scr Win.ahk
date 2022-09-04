@@ -1,5 +1,5 @@
 #HotIf !WinExist("ahk_group Game")
-#MaxThreadsPerHotkey 2
+#MaxThreadsBuffer true
 
 <!g:: {
 	if WinExist("ahk_group Game")
@@ -48,5 +48,5 @@
 	try WinActivateBottom("ahk_group MinMax")
 }
 
-#MaxThreadsPerHotkey 1
+#MaxThreadsBuffer false
 #HotIf

@@ -1,5 +1,5 @@
 #HotIf !WinActive("ahk_group Game")
-#MaxThreadsPerHotkey 2
+#MaxThreadsBuffer true
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,7 +170,7 @@ XButton1:: {
 		Case WinActive("Discord ahk_exe Discord.exe") && down:Send("{Esc}")
 	}
 }
-#MaxThreadsPerHotkey 1
+#MaxThreadsBuffer false
 #HotIf
 
 
