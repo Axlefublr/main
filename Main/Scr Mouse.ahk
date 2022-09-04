@@ -1,4 +1,5 @@
 #HotIf !WinActive("ahk_group Game")
+#MaxThreadsPerHotkey 2
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -94,20 +95,13 @@ Media_Stop:: {
 	, bottomLeft  := ((sectionX < 263) && (sectionY > 849))
 	, bottomRight := ((sectionX > 1673) && (sectionY > 839))
 	Switch {
-		Case bottomRight:
-			async(win_App.Bind("Telegram ahk_exe Telegram.exe",       Paths.Apps["Telegram"]))
-		Case right:
-			async(win_App.Bind("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"]))
-		Case topLeft:
-			async(win_App.Bind("ahk_exe WindowsTerminal.exe",         Paths.Apps["Terminal"]))
-		Case bottomLeft:
-			async(win_App.Bind("AutoHotkey v2 Help",                  Paths.Apps["Ahk v2 docs"]))
-		Case left:
-			async(win_App.Bind("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"]))
-		Case down:
-			async(win_App.Bind("ahk_exe Spotify.exe",                 Paths.Apps["Spotify"]))
-		Case up:
-			async(win_App.Bind("Google Chrome ahk_exe chrome.exe",    Paths.Apps["Google Chrome"]))
+		Case bottomRight:win_App("Telegram ahk_exe Telegram.exe",       Paths.Apps["Telegram"])
+		Case right:      win_App("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"])
+		Case topLeft:    win_App("ahk_exe WindowsTerminal.exe",         Paths.Apps["Terminal"])
+		Case bottomLeft: win_App("AutoHotkey v2 Help",                  Paths.Apps["Ahk v2 docs"])
+		Case left:       win_App("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
+		Case down:       win_App("ahk_exe Spotify.exe",                 Paths.Apps["Spotify"])
+		Case up:         win_App("Google Chrome ahk_exe chrome.exe",    Paths.Apps["Google Chrome"])
 		Default:         AltTab()
 	}
 }
@@ -134,52 +128,49 @@ XButton2:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 XButton1:: {
-	async(MouseAction)
-	MouseAction() {
-		MouseGetPos &sectionX, &sectionY
-		right         := (sectionX > 1368)
-		, left        := (sectionX < 568)
-		, down        := (sectionY > 747)
-		, up          := (sectionY < 347)
-		, topRight    := ((sectionX > 1707) && (sectionY < 233))
-		, topLeft     := ((sectionX < 252) && (sectionY < 229))
-		, bottomLeft  := ((sectionX < 263) && (sectionY > 849))
-		, bottomRight := ((sectionX > 1673) && (sectionY > 839))
-		, deffault    := !right && !left && !down && !up
-		Switch {
-			Case deffault:Copy()
-			Case WinActive("Google Chrome"):
-				Switch {
-				Case right:   NextTab()
-				Case left:    PrevTab()
-				Case up:      RestoreTab()
-				Case WinActive("Messenger ahk_exe chrome.exe"):vk_Scroll()
-				Case down:    CloseTab()
-			}
-			Case WinActive("ahk_exe Code.exe") || WinActive("ahk_exe WindowsTerminal.exe"):
-				Switch {
-					Case bottomRight:scr_Reload()
-					Case right:      NextTab()
-					Case bottomLeft: scr_Test()
-					Case left:       PrevTab()
-					Case down:       vscode_CloseTab()
-					Case up:         RestoreTab()
-				}
-			Case WinActive("ahk_exe Spotify.exe"):
-				Switch {
-					Case topRight:   spotify_NewDiscovery()
-					Case bottomRight:spotify_Discovery()
-					Case topLeft:    spotify_Context()
-					Case bottomLeft: spotify_FavRapper_Auto()
-					Case up:         spotify_Like()
-					Case down:       spotify_Shuffle()
-				}
-			Case WinActive("Telegram ahk_exe Telegram.exe") && down:telegram_Scroll()
-			Case WinActive("Discord ahk_exe Discord.exe") && down:Send("{Esc}")
+	MouseGetPos &sectionX, &sectionY
+	right         := (sectionX > 1368)
+	, left        := (sectionX < 568)
+	, down        := (sectionY > 747)
+	, up          := (sectionY < 347)
+	, topRight    := ((sectionX > 1707) && (sectionY < 233))
+	, topLeft     := ((sectionX < 252) && (sectionY < 229))
+	, bottomLeft  := ((sectionX < 263) && (sectionY > 849))
+	, bottomRight := ((sectionX > 1673) && (sectionY > 839))
+	, deffault    := !right && !left && !down && !up
+	Switch {
+		Case deffault:Copy()
+		Case WinActive("Google Chrome"):
+			Switch {
+			Case right:   NextTab()
+			Case left:    PrevTab()
+			Case up:      RestoreTab()
+			Case WinActive("Messenger ahk_exe chrome.exe"):vk_Scroll()
+			Case down:    CloseTab()
 		}
+		Case WinActive("ahk_exe Code.exe") || WinActive("ahk_exe WindowsTerminal.exe"):
+			Switch {
+				Case bottomRight:scr_Reload()
+				Case right:      NextTab()
+				Case bottomLeft: scr_Test()
+				Case left:       PrevTab()
+				Case down:       vscode_CloseTab()
+				Case up:         RestoreTab()
+			}
+		Case WinActive("ahk_exe Spotify.exe"):
+			Switch {
+				Case topRight:   spotify_NewDiscovery()
+				Case bottomRight:spotify_Discovery()
+				Case topLeft:    spotify_Context()
+				Case bottomLeft: spotify_FavRapper_Auto()
+				Case up:         spotify_Like()
+				Case down:       spotify_Shuffle()
+			}
+		Case WinActive("Telegram ahk_exe Telegram.exe") && down:telegram_Scroll()
+		Case WinActive("Discord ahk_exe Discord.exe") && down:Send("{Esc}")
 	}
 }
-
+#MaxThreadsPerHotkey 1
 #HotIf
 
 

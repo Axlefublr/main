@@ -1,5 +1,7 @@
-async is a far better idea than I anticipated
+no, actually I wasn't looking for async
 
-I've turned some things into async and they started behaving far faster, although maybe less smoothly? Could be bias
+I was looking for a plain and simple #MaxThreadsPerHotkey
 
-I should consider using async more often, even this goofy ahh implementation
+That completely removes the issue of things sometimes being slow to execute
+
+and is smoother than async
