@@ -146,7 +146,7 @@ XButton1:: {
 				Case WinActive("Messenger ahk_exe chrome.exe"):vk_Scroll()
 				Case down:    CloseTab()
 			}
-		Case WinActive("ahk_exe Code.exe"):
+		Case WinActive("ahk_exe Code.exe") || WinActive("ahk_exe WindowsTerminal.exe"):
 			Switch {
 				Case bottomRight:scr_Reload()
 				Case right:      NextTab()
