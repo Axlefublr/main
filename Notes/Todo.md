@@ -1,5 +1,25 @@
 ﻿Rewrite symlink creator in a function
 
+if linux, ^bs = ^<del
+
+top left is terminal for mouse media_stop hotkeys
+
+# Youtube video links
+
+links to main, not personal in descriptions
+
+update repo links
+
+# Apps
+
+Telegram close closes the process too
+
+No apps or close apps
+
+Async function
+
+WinApp is asynced
+
 # Built-ins
 
 Change the token for built in matches by adding "builtin" at the end of it
