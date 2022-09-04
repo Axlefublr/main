@@ -94,13 +94,20 @@ Media_Stop:: {
 	, bottomLeft  := ((sectionX < 263) && (sectionY > 849))
 	, bottomRight := ((sectionX > 1673) && (sectionY > 839))
 	Switch {
-		Case bottomRight:async(win_App.Bind("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"]))
-		Case right:      async(win_App.Bind("Discord ahk_exe Discord.exe", Paths.Apps["Discord"]))
-		Case topLeft:    async(win_App.Bind("ahk_exe WindowsTerminal.exe", Paths.Apps["Terminal"]))
-		Case bottomLeft: async(win_App.Bind("AutoHotkey v2 Help", Paths.Apps["Ahk v2 docs"]))
-		Case left:       async(win_App.Bind("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"]))
-		Case down:       async(win_App.Bind("ahk_exe Spotify.exe", Paths.Apps["Spotify"]))
-		Case up:         async(win_App.Bind("Google Chrome ahk_exe chrome.exe", Paths.Apps["Google Chrome"]))
+		Case bottomRight:
+			async(win_App.Bind("Telegram ahk_exe Telegram.exe",       Paths.Apps["Telegram"]))
+		Case right:
+			async(win_App.Bind("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"]))
+		Case topLeft:
+			async(win_App.Bind("ahk_exe WindowsTerminal.exe",         Paths.Apps["Terminal"]))
+		Case bottomLeft:
+			async(win_App.Bind("AutoHotkey v2 Help",                  Paths.Apps["Ahk v2 docs"]))
+		Case left:
+			async(win_App.Bind("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"]))
+		Case down:
+			async(win_App.Bind("ahk_exe Spotify.exe",                 Paths.Apps["Spotify"]))
+		Case up:
+			async(win_App.Bind("Google Chrome ahk_exe chrome.exe",    Paths.Apps["Google Chrome"]))
 		Default:         AltTab()
 	}
 }
