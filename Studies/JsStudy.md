@@ -439,3 +439,7 @@ nummie.toLocaleString(undefined, {style: "percent"})
 ```
 
 There are a few units you can choose from, such as temperature, weight, distance, etc
+
+# Immutable objects
+
+![](img/2022-09-04-13-18-54.png)

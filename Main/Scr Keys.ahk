@@ -134,6 +134,9 @@ Insert:: {
 }
 #Insert::WinPaste()
 
+AppsKey & PgUp::PrevTab()
+AppsKey & PgDn::NextTab()
+
 ;Media hotkeys
 >^Home::Volume_Up
 >^End::Volume_Down

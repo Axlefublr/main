@@ -1,5 +1,7 @@
 ﻿Rewrite symlink creator in a function
 
+Hotkey !r for terminals
+
 # Built-ins
 
 Change the token for built in matches by adding "builtin" at the end of it

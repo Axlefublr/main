@@ -1,11 +1,31 @@
-Folding and unfolding feels far more like a one modifier type of action that going to last edit location is, so switching them up feels like it makes a lot of sense
+# Terminal
 
-I've done a few commits through the normal git method (not the change notes function thing), and I actually like it quite a lot!
+New terminal app installed
 
-So if it's something small, I just explain the run-down in the commit message (shortly)
+Currently runacts with the runner
 
-But now I actually had more to say so I went ahead and did! I can use this place from time to time to elaborate on my decisions and thoughts and use this lowkey like a diary
+Path in paths
 
-The people who might be looking into my repo would have a nice way to follow my development process thoughts, and I get to lay the stress from being unprecise off my chest
+Planning to make a hotkey instead and delete the entries in the runner
 
-The difficulty of developing something like an ahk project is the fact that you're not 100% sure what you want, and elaborating on your desires *really* helps understand how to build the process in a more healthy way
+WindowsApps was restricted at first, so I couldn't launch the terminal using ahk
+
+Thankfully, I resolved that issue using some random powershell script, and now I have ownership of that folder and can do whatever with it
+
+Also, I disabled the admin prompt, now all admin actions are executed automatically, with no need to select yes for the more risky options
+
+Yes, I know, this is removing security. Oh well, it's slightly more comfortable, and I'd rather have comfortability over security
+
+# AppsKey
+
+Appskey with pg dn / up used to be app specific, but now it's global
+
+This change was made to be able to use it in the terminal app, but also I'm so used to this hotkey that I'd rather be able to immediately use it wherever else I might want to
+
+# IT Terminology
+
+After watching Firebase's video, I've taken notes, and one of them is a picture in JsStudy
+
+I think I'm actually fine with having pictures for markdown in a img folder right where it is, rather than having a global one
+
+Let's not forget how much more organized that is, and I'm okay with a little bit of "trash" in my project. It's a personal project after all
