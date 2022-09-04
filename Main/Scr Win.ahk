@@ -14,7 +14,7 @@
 #n::win_App("Monkeytype ahk_exe chrome.exe", Paths.Apps["Monkeytype"])
 
 ;Media
-<!r::win_MinMax("ahk_group Media")
+<!r::win_App("ahk_exe WindowsTerminal.exe", Paths.Apps["Terminal"])
 
 ;Spotify
 <!s::win_App("ahk_exe Spotify.exe", Paths.Apps["Spotify"])
