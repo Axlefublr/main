@@ -12,8 +12,6 @@ Telegram close closes the process too
 
 No apps or close apps
 
-Async function
-
 WinApp is asynced
 
 # Built-ins

@@ -13,26 +13,14 @@
 ;Monkeytype
 #n::win_App("Monkeytype ahk_exe chrome.exe", Paths.Apps["Monkeytype"])
 
-;Media
-<!r::win_App("ahk_exe WindowsTerminal.exe", Paths.Apps["Terminal"])
-
-;Spotify
-<!s::win_App("ahk_exe Spotify.exe", Paths.Apps["Spotify"])
-
-;Autohotkey v2 help file
-<!x::win_App("AutoHotkey v2 Help", Paths.Apps["Ahk v2 docs"])
-
-;Visual studio code
-<!a::win_App("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
-
-;Chrome
-<!c::win_App("Google Chrome ahk_exe chrome.exe", Paths.Apps["Google Chrome"])
-
-;Discord
-<!q::win_App("Discord ahk_exe Discord.exe", Paths.Apps["Discord"])
-
-;Telegram
-<!t::win_App("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
+;Main apps
+<!r::async(win_App.Bind("ahk_exe WindowsTerminal.exe",         Paths.Apps["Terminal"]))
+<!s::async(win_App.Bind("ahk_exe Spotify.exe",                 Paths.Apps["Spotify"]))
+<!x::async(win_App.Bind("AutoHotkey v2 Help",                  Paths.Apps["Ahk v2 docs"]))
+<!a::async(win_App.Bind("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"]))
+<!c::async(win_App.Bind("Google Chrome ahk_exe chrome.exe",    Paths.Apps["Google Chrome"]))
+<!q::async(win_App.Bind("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"]))
+<!t::async(win_App.Bind("Telegram ahk_exe Telegram.exe",       Paths.Apps["Telegram"]))
 
 #MaxThreadsBuffer true
 ;Explorer
