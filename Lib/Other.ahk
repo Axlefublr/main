@@ -55,6 +55,10 @@ CloseButForSure() {
             return
          win_Activate(closeWindow)
          Send("{Left 2}{Enter}")
+      Case WinActive("Telegram ahk_exe Telegram.exe"):
+         telegram_pid := WinGetPID("Telegram ahk_exe Telegram.exe")
+         win_Close()
+         ProcessClose(telegram_pid)
       Default: win_Close()
    }
 }

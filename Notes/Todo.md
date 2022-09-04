@@ -12,8 +12,6 @@ Telegram close closes the process too
 
 No apps or close apps
 
-WinApp is asynced
-
 # Built-ins
 
 Change the token for built in matches by adding "builtin" at the end of it
