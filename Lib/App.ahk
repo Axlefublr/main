@@ -101,7 +101,7 @@ spotify_NewRapper(name) {
       return
    }
    AppendFile(Paths.Ptf["Rappers"], name "`n")
-   TrayTip(name "yet to be discovered! 📃")
+   TrayTip(name " yet to be discovered! 📃")
 }
 
 spotify_SendTrackToKristi() {
