@@ -1,7 +1,5 @@
 ﻿Rewrite symlink creator in a function
 
-top left is terminal for mouse media_stop hotkeys
-
 # Youtube video links
 
 links to main, not personal in descriptions

@@ -237,3 +237,5 @@ RegexToFile(filePath_From, filePath_To, regex) => (
    match := RegexInFile(filePath_From, regex),
    WriteFile(filePath_To, match[0])
 )
+
+async(funcObj) => SetTimer(funcObj, -1)
