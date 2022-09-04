@@ -155,3 +155,9 @@ Squashes the multiple commits on the side branch into one commit, as to not clut
 ```
 git push origin branch-name
 ```
+
+## How to not have to put in your credentials all the time:
+
+```
+git config --global credential.helper store
+```
