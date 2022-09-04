@@ -10,16 +10,16 @@
    val := ""
 
    Destruction(*) => (
-         WinActivate(prevWin),
-         g_terminal.Destroy(),
-         Hotkey("Escape", "Off"),
-         Hotkey("Enter", "Off")
-      )
+      WinActivate(prevWin),
+      g_terminal.Destroy(),
+      Hotkey("Escape", "Off"),
+      Hotkey("Enter", "Off")
+   )
 
    ValueIs(*) => (
-         val := g_terminal_edit.Value,
-         Destruction()
-      )
+      val := g_terminal_edit.Value,
+      Destruction()
+   )
 
    Hotkey("Enter", ValueIs, "On")
    Hotkey("Escape", Destruction, "On")
@@ -31,71 +31,71 @@
 
    static runner_commands := Map(
 
-         ;Main
-         "format table to array", () => str_FormatTableToArray(),
-         "remove comments",       () => str_RemoveComments(),
-         "convert to json",       () => str_ConvertToJson(),
-         "str len",               () => Infos(StrLen(str_GetSelection())),
-         "radnum",                () => ClipSend(RadNum(), ""),
-         "fs",                    () => tool_FileSearch(),
-         "startup",               () => tool_StartupRun(),
-         "shows",                 () => Show_GetShows(),
+      ;Main
+      "format table to array", () => str_FormatTableToArray(),
+      "remove comments",       () => str_RemoveComments(),
+      "convert to json",       () => str_ConvertToJson(),
+      "str len",               () => Infos(StrLen(str_GetSelection())),
+      "radnum",                () => ClipSend(RadNum(), ""),
+      "fs",                    () => tool_FileSearch(),
+      "startup",               () => tool_StartupRun(),
+      "shows",                 () => Show_GetShows(),
 
-         ;Apps
-         "ahk v1 docs",     () => win_RunAct("AutoHotkey Help", Paths.Apps["Ahk v1 docs"]),
-         "slack",           () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
-         "shell menu view", Run.Bind(Paths.Apps["Shell Menu View"]),
-         "symlink",         Run.Bind(Paths.Ptf["Symlink creator"]),
-         "sm",              Run.Bind(Paths.Apps["Sound mixer"]),
-         "gimp",    () => win_RunAct("Thumbnail preset.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
-         "fl",      () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
-         "davinci", () => win_RunAct("Project Manager", Paths.Apps["Davinci Resolve"]),
-         "cmd",     () => win_RunAct("ahk_exe cmd.exe", "cmd.exe"),
-         "cmad",    Run.Bind("*RunAs cmd.exe",, "Max"),
+      ;Apps
+      "ahk v1 docs",     () => win_RunAct("AutoHotkey Help", Paths.Apps["Ahk v1 docs"]),
+      "slack",           () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
+      "shell menu view", Run.Bind(Paths.Apps["Shell Menu View"]),
+      "symlink",         Run.Bind(Paths.Ptf["Symlink creator"]),
+      "sm",              Run.Bind(Paths.Apps["Sound mixer"]),
+      "gimp",    () => win_RunAct("Thumbnail preset.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
+      "fl",      () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
+      "davinci", () => win_RunAct("Project Manager", Paths.Apps["Davinci Resolve"]),
+      "cmd",     () => win_RunAct("ahk_exe cmd.exe", "cmd.exe"),
+      "cmad",    Run.Bind("*RunAs cmd.exe",, "Max"),
 
-         ;Win
-         "apps",       () => MainApps(),
-         "close apps", () => CloseMainApps(),
-         "rel",        () => scr_Reload(),
+      ;Win
+      "apps",       () => MainApps(),
+      "close apps", () => CloseMainApps(),
+      "rel",        () => scr_Reload(),
 
-         ;Folders
-         "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),
-         "prog",       () => win_RunAct_Folders(Paths.Prog),
+      ;Folders
+      "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),
+      "prog",       () => win_RunAct_Folders(Paths.Prog),
 
-         ;Files
-         "package",    Run.Bind(Paths.Ptf["Ahk++\package"]),
-         "config",     Run.Bind(Paths.Ptf["Ahk++\configuration"]),
-         "tmlanguage", Run.Bind(Paths.Ptf["Ahk++\tmlanguage"]),
+      ;Files
+      "package",    Run.Bind(Paths.Ptf["Ahk++\package"]),
+      "config",     Run.Bind(Paths.Ptf["Ahk++\configuration"]),
+      "tmlanguage", Run.Bind(Paths.Ptf["Ahk++\tmlanguage"]),
 
-         ;Video production
-         "clean text", () => vscode_CleanText(),
-         "edit",       () => video_EditScreenshot(),
-         "video up",   () => vscode_VideoUp(),
-         "dupl",       () => video_DuplicateScreenshot(),
+      ;Video production
+      "clean text", () => vscode_CleanText(),
+      "edit",       () => video_EditScreenshot(),
+      "video up",   () => vscode_VideoUp(),
+      "dupl",       () => video_DuplicateScreenshot(),
 
-         ;Music
-         "track",  () => spotify_GetCurrSong_ToClip(),
-         "kristi", () => spotify_SendTrackToKristi(),
+      ;Music
+      "track",  () => spotify_GetCurrSong_ToClip(),
+      "kristi", () => spotify_SendTrackToKristi(),
 
-         ;Github
-         ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         "wk in",  () => wksp_FoldersInWorkSpace_Show(),
-         "wk out", () => wksp_FoldersInProg(),
-         "main",   () => vscode_WorkSpace("Main"),
+      ;Github
+      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      "wk in",  () => wksp_FoldersInWorkSpace_Show(),
+      "wk out", () => wksp_FoldersInProg(),
+      "main",   () => vscode_WorkSpace("Main"),
 
-         "gitlink", () => ClipSend(git_Link(), "", false),
-         "gitopen", () => RunLink(git_Link()),
+      "gitlink", () => ClipSend(git_Link(), "", false),
+      "gitopen", () => RunLink(git_Link()),
 
-         ;Github nicknames
-         "github micha", () => ClipSend("@Micha-ohne-el"),
-         "github reiwa", () => ClipSend("@rbstrachan"),
+      ;Github nicknames
+      "github micha", () => ClipSend("@Micha-ohne-el"),
+      "github reiwa", () => ClipSend("@rbstrachan"),
 
-         ;Commit repos
-         "com main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main, false),
-         "psh main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main),
-         ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ;Commit repos
+      "com main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main, false),
+      "psh main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main),
+      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      )
+   )
 
    try runner_commands[val].Call()
    catch any {

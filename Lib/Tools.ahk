@@ -334,7 +334,7 @@ tool_CoordGetter() {
    g_CrdGet.Add("Text", "xm", "Pixel: " pixel)
       .OnEvent("Click", toClip.Bind(pixel))
    g_CrdGet.Add("Text", "xm", "CtrlClick Format")
-      .OnEvent("Click", toClip.Bind("'x" CliX " y" CliY "'"))
+      .OnEvent("Click", toClip.Bind('"x' CliX " y" CliY '"'))
 
    Destruction := (*) => (
       HotIfWinActive("ahk_id " CrdGet_hwnd),
@@ -402,10 +402,10 @@ tool_WindowGetter() {
 
    ;Making the func objects to later call in two separate instances
    ToClip_Title := ToClip.Bind(winTitle) ;We pass the params of winSmth
-   ToClip_Path := ToClip.Bind(winExePath) ;To copy it, disable the hotkeys and destroy the gui
-   ToClip_Exe := ToClip.Bind(winExe)
-   ToClip_ID := ToClip.Bind(winID)
-   ToClip_PID := ToClip.Bind(winPID)
+   ToClip_Path  := ToClip.Bind(winExePath) ;To copy it, disable the hotkeys and destroy the gui
+   ToClip_Exe   := ToClip.Bind(winExe)
+   ToClip_ID    := ToClip.Bind(winID)
+   ToClip_PID   := ToClip.Bind(winPID)
 
    HotIfWinActive("ahk_id " WinGet_hwnd)
    Hotkey("1", ToClip_Title, "On")

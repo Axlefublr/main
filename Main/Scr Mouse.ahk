@@ -10,7 +10,7 @@ Media_Stop & XButton1:: {
 	, down        := (sectionY > 747)
 	, up          := (sectionY < 347)
 	, deffault    := !right && !left && !down && !up
-	, fullScreenable := WinActive("YouTube ahk_exe chrome.exe") 
+	, fullScreenable := WinActive("YouTube ahk_exe chrome.exe")
 	|| WinActive("Skillfactory ahk_exe chrome.exe")
 	|| WinActive("Gogoanime ahk_exe chrome.exe")
 	Switch {
@@ -164,7 +164,8 @@ XButton1:: {
 				Case up:         spotify_Like()
 				Case down:       spotify_Shuffle()
 			}
-		Case WinActive("ahk_exe Telegram.exe") && down:telegram_Scroll()
+		Case WinActive("Telegram ahk_exe Telegram.exe") && down:telegram_Scroll()
+		Case WinActive("Discord ahk_exe Discord.exe") && down:Send("{Esc}")
 	}
 }
 
