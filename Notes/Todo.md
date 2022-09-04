@@ -1,7 +1,5 @@
 ﻿Rewrite symlink creator in a function
 
-if linux, ^bs = ^<del
-
 top left is terminal for mouse media_stop hotkeys
 
 # Youtube video links

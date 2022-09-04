@@ -90,12 +90,13 @@ Media_Stop:: {
 	, down        := (sectionY > 747)
 	, up          := (sectionY < 347)
 	; , topRight    := ((sectionX > 1707) && (sectionY < 233))
-	; , topLeft     := ((sectionX < 252) && (sectionY < 229))
+	, topLeft     := ((sectionX < 252) && (sectionY < 229))
 	, bottomLeft  := ((sectionX < 263) && (sectionY > 849))
 	, bottomRight := ((sectionX > 1673) && (sectionY > 839))
 	Switch {
 		Case bottomRight:win_App("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
 		Case right:      win_App("Discord ahk_exe Discord.exe", Paths.Apps["Discord"])
+		Case topLeft:    win_App("ahk_exe WindowsTerminal.exe", Paths.Apps["Terminal"])
 		Case bottomLeft: win_App("AutoHotkey v2 Help", Paths.Apps["Ahk v2 docs"])
 		Case left:       win_App("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
 		Case down:       win_App("ahk_exe Spotify.exe", Paths.Apps["Spotify"])
@@ -170,3 +171,6 @@ XButton1:: {
 }
 
 #HotIf
+
+
+#Include <Win>
