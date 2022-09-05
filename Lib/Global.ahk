@@ -172,9 +172,9 @@ ReadFile(whichFile) {
 }
 
 ControlClick_Here(winTitle := "A", whichButton := "L") => (
-      MouseGetPos(&locX, &locY),
-      ControlClick("X" locX " Y" locY, winTitle, , whichButton)
-   )
+   MouseGetPos(&locX, &locY),
+   ControlClick("X" locX " Y" locY, winTitle, , whichButton)
+)
 
 WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
    MouseGetPos(&locX, &locY)

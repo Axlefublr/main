@@ -503,6 +503,17 @@ git_CommitRepo(changeNote_file, repo_path, andPush := true) {
    return github_link
 }
 
+git_InstallAhkLibrary(link) {
+   static standardLibLocation := Paths.Lib "\"
+   link := StrReplace(link, "https://github.com/")
+   link := StrReplace(link, "blob/",,,, 1)
+   file_html := GetHtml("https://raw.githubusercontent.com/" link)
+   RegExMatch(link, "\/([^.\/]+\.\w+)$", &match)
+   newFile := match[1]
+   WriteFile(standardLibLocation newFile, file_html)
+   Info(newFile " library installed in: " standardLibLocation)
+}
+
 ;SHOW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

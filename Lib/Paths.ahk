@@ -8,6 +8,7 @@ Class Paths {
    static Docs           := this.Main "\Docs"
    static Music          := this.Main "\Docs\Music"
    static Files          := this.Main "\Files"
+   static Lib            := this.Main "\Lib"
    static Images         := this.Main "\Files\Images"
    static Sounds         := this.Main "\Files\Sounds"
    static Notes          := this.Main "\Notes"
