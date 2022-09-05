@@ -27,6 +27,8 @@ GetUnicode(name) {
          "middle dot",               0x00B7,
          "discord escape",           0x001B,
          "long dash",                0x2014,
+         "sun",                      0x2600,
+         "cloud",                    0x2601,
       )
 
    return Unicodes[name]

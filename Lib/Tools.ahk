@@ -250,7 +250,7 @@ tool_Clock() {
    }
 
    ;Get the time variables
-   clock_Time := FormatTime(, " HH:mm:ss")
+   clock_Time := FormatTime(, "HH:mm:ss")
    clock_Week := FormatTime(, "dddd")
    clock_Date := FormatTime(, "d MMMM")
 
@@ -262,20 +262,21 @@ tool_Clock() {
 
    ;Add text
    g_Clock.SetFont("S40 cC5C5C5", "Consolas")
-   g_Clock_Time := g_Clock.Add("Text", "w237 y-20", clock_Time)
-
-   g_Clock.SetFont("s30")
-   g_Clock_Weather := g_Clock.AddText("w237 Center", "null")
-   async(() => g_Clock_Weather.Text := GetWeather())
+   g_Clock_Time := g_Clock.Add("Text",, clock_Time)
 
    g_Clock.SetFont("S30")
-   g_Clock_Week := g_Clock.Add("Text", "w237 y+35 Center", clock_Week)
+   g_Clock_Week := g_Clock.Add("Text",, clock_Week)
 
    g_Clock.SetFont("S26")
-   g_Clock_Date := g_Clock.Add("Text", "w237 Center", clock_Date)
+   g_Clock_Date := g_Clock.Add("Text",, clock_Date)
+
+   static initial_empty_space := "             `n         "
+   g_Clock.SetFont("s25")
+   g_Clock_Weather := g_Clock.Add("Text",, initial_empty_space)
+   async(() => g_Clock_Weather.Text := GetWeather())
 
    ;The func obj is separate because we'll need to disable the timer outside of it
-   timeCheck := () => g_Clock_Time.Text := FormatTime(, " HH:mm:ss")
+   timeCheck := () => g_Clock_Time.Text := FormatTime(, "HH:mm:ss")
 
    dateCheck := () => (
       g_Clock_Week.Text := FormatTime(, "dddd"),
@@ -297,7 +298,7 @@ tool_Clock() {
 
    g_Clock.OnEvent("Close", Destruction)
 
-   g_Clock.Show("W350 H410 y0 x" A_ScreenWidth / 20 * 15.3)
+   g_Clock.Show("AutoSize y0 x" A_ScreenWidth / 20 * 15.45)
 
 }
 

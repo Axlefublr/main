@@ -254,15 +254,27 @@ GetHtml(link) {
 PrimDefineProp := Object().DefineProp
 
 GetWeather() {
-   if !weather_html := GetHtml("https://yandex.ru/pogoda/")
+   if !weather_html := GetHtml(Linker("weather"))
       return "null"
+
    RegExMatch(weather_html, "Текущая температура (-?\d+.)", &temp_match)
    temp := temp_match[1]
+
+   RegExMatch(weather_html, "Влажность: (\d+%)", &wetness_match)
+   wetness := wetness_match[1]
+
+   RegExMatch(weather_html, "Ясно|Пасмурно", &atmosphere_match)
+   if atmosphere_match
+      atmosphere := atmosphere_match[]
+   else
+      atmosphere := "Непонятно"
+
    if InStr(weather_html, "Штиль")
       wind := "Штиль"
    else {
-      RegExMatch(weather_html, "(?:Ветер: (\d+\.?\d+?))|(?:Штиль)", &wind_match)
+      RegExMatch(weather_html, "Ветер: (\d+\.?\d+?)", &wind_match)
       wind := wind_match[1] "м/с"
    }
-   return temp " " wind
+
+   return temp " " wind " " wetness "`n" atmosphere
 }

@@ -45,6 +45,7 @@ Linker(linkName) {
       "sounds",      "https://www.myinstants.com/index/ru/",
       "ascii codes", "https://theasciicode.com.ar/",
       "glossary",    "https://glossary.istqb.org/en/search/",
+      "emoji unicodes", "https://unicode.org/emoji/charts-14.0/full-emoji-list.html",
 
       ;Docs
       "ahk wiki",    "https://autohotkey.wiki/",
