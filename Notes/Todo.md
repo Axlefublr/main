@@ -1,5 +1,7 @@
 ﻿Rewrite symlink creator in a function
 
+open repo
+
 # Youtube video links
 
 links to main, not personal in descriptions
@@ -15,6 +17,8 @@ Test it: every single one of them should stay the default regardless
 Check what happens if you don't set a color at all in settings
 
 Make a pull request for that
+
+Links
 
 # Workspace
 

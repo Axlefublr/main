@@ -51,7 +51,7 @@
       "fl",      () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
       "davinci", () => win_RunAct("Project Manager", Paths.Apps["Davinci Resolve"]),
       "rel",     () => scr_Reload(),
-      "vpn", () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe", Paths.Apps["VPN"]),
+      "vpn",     () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe", Paths.Apps["VPN"]),
 
       ;Folders
       "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),
@@ -82,8 +82,8 @@
       "gitopen", () => RunLink(git_Link()),
 
       ;Github nicknames
-      "github micha", () => ClipSend("@Micha-ohne-el"),
-      "github reiwa", () => ClipSend("@rbstrachan"),
+      "gh micha", () => ClipSend("@Micha-ohne-el"),
+      "gh reiwa", () => ClipSend("@rbstrachan"),
 
       ;Commit repos
       "com main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main, false),
@@ -96,7 +96,7 @@
    catch any {
       RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|cmd) (.+)", &result)
       static runner_regex := Map(
-         "p", (input) => ClipSend(Linker(input)),
+         "p", (input) => ClipSend(Linker(input), ""),
          "o", (input) => RunLink(Linker(input)),
          "c", (input) => (A_Clipboard := Linker(input), Info("Copied: " A_Clipboard)),
          "g", (input) => Googler(input),

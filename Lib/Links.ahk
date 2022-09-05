@@ -74,32 +74,24 @@ Linker(linkName) {
 
       ;Github
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      "github",    "https://github.com/Axlefublr",
+      "gh",       "https://github.com/",
+      "gh me",    "https://github.com/Axlefublr/",
+      "gh thqby", "https://github.com/thqby/",
+      "gh reiwa", "https://github.com/rbstrachan/",
 
-      "repo main",    "https://github.com/Axlefublr/Main",
-      "repo synhigh", "https://github.com/Axlefublr/Ahk_v2_Syntax_Highlighting",
-      "repo startup", "https://github.com/Axlefublr/StartupRun",
-      "repo arrow",   "https://github.com/Axlefublr/Fat_Arrow_Functions",
-      "repo tools",   "https://github.com/Axlefublr/tools",
-      "repo function objects", "https://github.com/Axlefublr/Function_Objects",
-      "repo static",  "https://github.com/Axlefublr/Static_var_examples",
-      "repo qa course", "https://github.com/Axlefublr/qa-course",
       "repo v2 extension", "https://github.com/thqby/vscode-autohotkey2-lsp",
-      "repo vscode-setup-for-v2", "https://github.com/Axlefublr/vscode-setup-for-v2",
-      "repo ahk-clock", "https://github.com/rbstrachan/ahk-clock",
-      "repo kristi", "https://github.com/Axlefublr/kristi",
 
       "fold lib", "https://github.com/Axlefublr/Main/tree/main/Lib",
 
       "file scr runner", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Runner.ahk",
-      "file scr mouse", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Mouse.ahk",
-      "file scr keys", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Keys.ahk",
-      "file scr app", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20App.ahk",
-      "file scr win", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Win.ahk",
+      "file scr mouse",  "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Mouse.ahk",
+      "file scr keys",   "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Keys.ahk",
+      "file scr app",    "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20App.ahk",
+      "file scr win",    "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Win.ahk",
 
       "file global", "https://github.com/Axlefublr/Main/blob/main/Lib/Global.ahk",
-      "file tools", "https://github.com/Axlefublr/Main/blob/main/Lib/Tools.ahk",
-      "file app", "https://github.com/Axlefublr/Main/blob/main/Lib/App.ahk",
+      "file tools",  "https://github.com/Axlefublr/Main/blob/main/Lib/Tools.ahk",
+      "file app",    "https://github.com/Axlefublr/Main/blob/main/Lib/App.ahk",
 
       "file import v1 lib", "https://github.com/thqby/ahk2_lib/blob/master/import_v1lib.ahk",
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
