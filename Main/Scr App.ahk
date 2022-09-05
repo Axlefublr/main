@@ -10,8 +10,6 @@
 PgDn::spotify_SkipNext()
 PgUp::spotify_SkipPrev()
 
-Up::Send("{Volume_Up}")
-Down::Send("{Volume_Down}")
 ;YOUTUBE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,9 +67,6 @@ XButton2 & MButton::discord_React()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("ahk_exe WindowsTerminal.exe",, "Command Prompt")
-^BackSpace::Send("{Ctrl Down}{Left}{Delete}{Ctrl Up}")
-
 #HotIf WinActive(Paths.Ptf["Diary"] " ahk_exe Code.exe")
 !e::telegram_Diary()
 
@@ -100,15 +95,11 @@ NumpadDel & NumpadClear::vscode_CursorForward()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("ahk_exe KMPlayer64.exe")
-Up::Send "{Volume_Up}"
-Down::Send "{Volume_Down}"
-
-#HotIf WinActive("WatchMoviesHD ahk_exe chrome.exe")
-Up::Send "{Volume_Up}"
-Down::Send "{Volume_Down}"
-
-#HotIf WinActive("Gogoanime ahk_exe chrome.exe")
+GroupAdd("Players", "ahk_exe Spotify.exe")
+GroupAdd("Players", "ahk_exe KMPlayer64.exe")
+GroupAdd("Players", "WatchMoviesHD ahk_exe chrome.exe")
+GroupAdd("Players", "Gogoanime ahk_exe chrome.exe")
+#HotIf WinActive("ahk_group Players")
 Up::Send "{Volume_Up}"
 Down::Send "{Volume_Down}"
 ;EDITING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,18 +114,18 @@ Down::Send "{Volume_Down}"
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("ahk_group AutoHotkey_Help")
 !j::Send "!s"
-
-#HotIf WinActive("ahk_exe AutoHotkey64_UIA.exe") || WinActive("ahk_exe explorer.exe")
+;BACKSPACE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#HotIf WinActive("ahk_exe AutoHotkey64_UIA.exe") || WinActive("ahk_exe explorer.exe") || WinActive("ahk_exe WindowsTerminal.exe",, "Command Prompt")
 ^BackSpace::DeleteWord()
-+!r::explorer_Rename()
 ;SCREENSHOT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("Snip & Sketch")
 XButton1 & LButton::Save()
-
-;Use the scroll wheel to choose among modes of the screenshot tool
 #HotIf WinActive("ahk_exe ScreenClippingHost.exe")
 WheelUp::screenshot_Window()
 WheelDown::screenshot_Rectangle()
