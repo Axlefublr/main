@@ -22,6 +22,8 @@ Make a pull request for that
 
 Links
 
+Params for StrReplace and possibly more
+
 # Workspace
 
 Gui shows both wk in & out with numbers

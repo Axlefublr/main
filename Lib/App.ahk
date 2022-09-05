@@ -359,7 +359,7 @@ vscode_CleanText() {
       IDE used in the video: https://code.visualstudio.com/
 
       My github:
-      https://github.com/Axlefublr/Personal
+      https://github.com/Axlefublr/main
 
       Catch me on the ahk discord server as Axlefublr:
       https://discord.com/invite/Aat7KHmG7v

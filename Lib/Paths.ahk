@@ -25,7 +25,7 @@ Class Paths {
    static AhkPlusPlusExtension := this.VsCodeExtensions "\thqby.vscode-autohotkey2-lsp-1.5.9"
 
    static Ptf := Map(
-      "Main", this.Main "\Backups\Main.code-workspace",
+      "Main", this.Main "\Backups\main.code-workspace",
 
       "Discovery log", this.Main "\Docs\Music\Discovery log.txt",
       "Unfinished",    this.Main "\Docs\Music\Unfinished.txt",
