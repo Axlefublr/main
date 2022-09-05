@@ -91,7 +91,7 @@
 
    try runner_commands[val].Call()
    catch any {
-      RegexMatch(val, "^(p|o|orepo|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|cmd|gitlink|gitopen) (.+)", &result)
+      RegexMatch(val, "^(p|o|orepo|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen) (.+)", &result)
       static runner_regex := Map(
          "p", (input) => ClipSend(Linker(input), ""),
          "o", (input) => RunLink(Linker(input)),
@@ -115,7 +115,6 @@
          "fr", (input) => (DirDelete(Paths.Prog "\" input, true), Info(input " deleted")),
          "wka", (input) => wksp_AddFolderToWorkspace(input),
          "wkr", (input) => wksp_RemoveFolderFromWorkSpace(input),
-         "cmd", (input) => RunSpec_StringWrapper(input),
          "gitlink", (input) => ClipSend(git_Link(input), ""),
          "gitopen", (input) => RunLink(git_Link(input)),
       )
