@@ -1,6 +1,8 @@
 ﻿Rewrite symlink creator in a function
 
-open repo
+# Gitlink
+
+pass the path as a parameter, instead of choosing it
 
 # Youtube video links
 

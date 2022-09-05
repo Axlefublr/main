@@ -74,12 +74,11 @@ Linker(linkName) {
 
       ;Github
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      "gh",       "https://github.com/",
-      "gh me",    "https://github.com/Axlefublr/",
-      "gh thqby", "https://github.com/thqby/",
-      "gh reiwa", "https://github.com/rbstrachan/",
+      "gh",  "https://github.com/",
+      "ghm", "https://github.com/Axlefublr/",
 
-      "repo v2 extension", "https://github.com/thqby/vscode-autohotkey2-lsp",
+      "lib v2 extension", "https://github.com/thqby/vscode-autohotkey2-lsp",
+      "libf import v1 lib", "https://github.com/thqby/ahk2_lib/blob/master/import_v1lib.ahk",
 
       "fold lib", "https://github.com/Axlefublr/Main/tree/main/Lib",
 
@@ -93,7 +92,6 @@ Linker(linkName) {
       "file tools",  "https://github.com/Axlefublr/Main/blob/main/Lib/Tools.ahk",
       "file app",    "https://github.com/Axlefublr/Main/blob/main/Lib/App.ahk",
 
-      "file import v1 lib", "https://github.com/thqby/ahk2_lib/blob/master/import_v1lib.ahk",
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       ;My tutorials

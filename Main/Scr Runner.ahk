@@ -78,12 +78,9 @@
       "wk out", () => wksp_FoldersInProg(),
       "main",   () => vscode_WorkSpace("Main"),
 
-      "gitlink", () => ClipSend(git_Link(), "", false),
-      "gitopen", () => RunLink(git_Link()),
-
       ;Github nicknames
-      "gh micha", () => ClipSend("@Micha-ohne-el"),
-      "gh reiwa", () => ClipSend("@rbstrachan"),
+      "gh micha", () => ClipSend("Micha-ohne-el"),
+      "gh reiwa", () => ClipSend("rbstrachan"),
 
       ;Commit repos
       "com main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main, false),
@@ -94,11 +91,11 @@
 
    try runner_commands[val].Call()
    catch any {
-      RegexMatch(val, "^(p|o|orepo|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|cmd) (.+)", &result)
+      RegexMatch(val, "^(p|o|orepo|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|cmd|gitlink|gitopen) (.+)", &result)
       static runner_regex := Map(
          "p", (input) => ClipSend(Linker(input), ""),
          "o", (input) => RunLink(Linker(input)),
-         "orepo", (input) => RunLink(Linker("gh me") input),
+         "orepo", (input) => RunLink(Linker("ghm") input),
          "c", (input) => (A_Clipboard := Linker(input), Info("Copied: " A_Clipboard)),
          "g", (input) => Googler(input),
          "s", (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
@@ -119,6 +116,8 @@
          "wka", (input) => wksp_AddFolderToWorkspace(input),
          "wkr", (input) => wksp_RemoveFolderFromWorkSpace(input),
          "cmd", (input) => RunSpec_StringWrapper(input),
+         "gitlink", (input) => ClipSend(git_Link(input), ""),
+         "gitopen", (input) => RunLink(git_Link(input)),
       )
       try runner_regex[result[1]].Call(result[2])
    }

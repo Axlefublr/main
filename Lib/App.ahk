@@ -472,74 +472,35 @@ git_CommitRepo(changeNote_file, repo_path, andPush := true) {
    Out(commitMessage)
 }
 
-git_Link() {
-   static programming_path := Paths.Prog
+/**
+ * Specify a file path and get the github link for it
+ * @param path {str} Path to the file / folder you want the link to. In Main/Folder/file.txt, Main is the name of the repo (so the path is relative to your gh profile, basically)
+ * @returns {str} the github link
+ */
+ git_Link(path) {
+   static github := Linker("ghm") ;Specify you github link (https://github.com/yourNickname/)
+   static fileBlob := "/blob/main/" ;The part between the name of the repo and the other file path is different depending on whether it's a file or a folder
+   static folderBlob := "/tree/main/"
 
-   shouldContinue := false
+   path := StrReplace(path, "\", "/") ;The link uses forward slashes, this replace is made so you can use whatever slashes you feel like
 
-   g_selectType := Gui()
-   g_selectType.BackColor := "171717"
-   g_selectType.SetFont("s20 cC5C5C5", "Consolas")
+   if InStr(path, "C:/Programming/")
+      path := StrReplace(path, "C:/Programming/") ;For the if I specify the full path, ignore this, will be removed in the public release of the function
 
-   selectType_hwnd := g_selectType.hwnd
+   if !InStr(path, "/") ;You can just specify the name of the repo to get a link for it
+      return github path
 
-   g_selectType_prompt := g_selectType.Add("Text", , "What do you want to get the link of?")
+   if !RegExMatch(path, "\/$") && RegExMatch(path, "\.\w+$") ;If the passed path ends with a /, it will be considered a path to a folder. If the passed path ends with a `.extension`, it will be considered a file
+      currentBlob := fileBlob
+   else
+      currentBlob := folderBlob
 
-   g_selectType.SetFont("s15")
+   RegExMatch(path, "([^\/]+)\/(.*)", &match) ;Everything before the first / will be considered the name of the repo. Everything after - the relative path in this repo
+   repo := match[1]
+   relPath := match[2]
 
-   Destruction := (*) => (
-      HotIfWinActive("ahk_id " selectType_hwnd),
-      Hotkey("Escape", "Off"),
-      g_selectType.Destroy()
-   )
-
-   static selection_type := "File"
-   SelectType := (type_to_select, *) => (
-      selection_type := type_to_select,
-      shouldContinue := true,
-      Destruction()
-   )
-
-   g_selectType_file := g_selectType.Add("Button", "Default background171717", "File")
-      .OnEvent("Click", SelectType.Bind("file"))
-   g_selectType_folder := g_selectType.Add("Button", "x+m background171717", "Folder")
-      .OnEvent("Click", SelectType.Bind("folder"))
-
-   HotIfWinActive("ahk_id " selectType_hwnd)
-   Hotkey("Escape", Destruction)
-
-   g_selectType.OnEvent("Close", Destruction)
-   g_selectType.Show("AutoSize")
-
-   WinWaitClose(selectType_hwnd)
-
-   if !shouldContinue
-      return
-
-   if selection_type = "File" {
-      flag := "S"
-      blobbie := "/blob/main/"
-   } else if selection_type = "Folder" {
-      flag := "D"
-      blobbie := "/tree/main/"
-   }
-
-   selected_path := FileSelect(flag, programming_path, "Select a " selection_type " to get the github link of: ")
-
-   if !selected_path
-      return
-
-   relative_path := StrReplace(selected_path, programming_path "\")	;C:\Programming\Main\Lib\Win.ahk => Main\Lib\Win.ahk
-
-   RegexMatch(relative_path, "(\w+)\\(.*)", &match_split)
-   project_folder := match_split[1]
-   project_file := StrReplace(match_split[2], " ", "%20")
-
-   account := "https://github.com/Axlefublr/"
-
-   link := StrReplace(account project_folder blobbie project_file, "\", "/")
-
-   return link
+   github_link := StrReplace(github repo currentBlob relPath, " ", "%20")
+   return github_link
 }
 
 ;PLAYER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

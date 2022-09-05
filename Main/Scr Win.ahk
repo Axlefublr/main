@@ -9,7 +9,7 @@
 
 #m::RunLink(Linker("gmail"))
 #sc28::RunLink(Linker("weather"))
-#sc33::RunLink(Linker("github"))
+#sc33::RunLink(Linker("ghm"))
 #sc34::RunLink(Linker("regex"))
 
 #n::win_App("Monkeytype ahk_exe chrome.exe", Paths.Apps["Monkeytype"])
