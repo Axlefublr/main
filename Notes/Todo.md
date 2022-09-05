@@ -1,9 +1,5 @@
 ﻿Rewrite symlink creator in a function
 
-# Gitlink
-
-pass the path as a parameter, instead of choosing it
-
 # Youtube video links
 
 links to main, not personal in descriptions
