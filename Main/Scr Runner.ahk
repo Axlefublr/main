@@ -91,11 +91,10 @@
 
    try runner_commands[val].Call()
    catch any {
-      RegexMatch(val, "^(p|o|orepo|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen) (.+)", &result)
+      RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen) (.+)", &result)
       static runner_regex := Map(
          "p", (input) => ClipSend(Linker(input), ""),
          "o", (input) => RunLink(Linker(input)),
-         "orepo", (input) => RunLink(Linker("ghm") input),
          "c", (input) => (A_Clipboard := Linker(input), Info("Copied: " A_Clipboard)),
          "g", (input) => Googler(input),
          "s", (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
