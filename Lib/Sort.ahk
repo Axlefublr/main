@@ -25,6 +25,7 @@ ArrToStr(arrayObj, delimiter := ", ") {
    }
    return str
 }
+Array.Prototype.DefineProp("toString", {Call: ArrToStr})
 
 GenerateRandomArray(indexes, variation := 7) {
    arrayObj := []
@@ -62,6 +63,7 @@ FisherYatesShuffle(arrayObj) {
    }
    return arrayObj
 }
+Array.Prototype.DefineProp("FisherYatesShuffle", {Call: FisherYatesShuffle})
 
 /*
    O(n^2) -- worst case
@@ -91,6 +93,7 @@ BubbleSort(arrayObj) {
    }
    return arrayObj
 }
+Array.Prototype.DefineProp("BubbleSort", {Call: BubbleSort})
 
 /*
    O(n^2) -- all cases
@@ -122,6 +125,7 @@ SelectionSort(arrayObj) {
    }
    return arrayObj
 }
+Array.Prototype.DefineProp("SelectionSort", {Call: SelectionSort})
 
 /*
    O(n^2) -- worst case
@@ -143,6 +147,7 @@ InsertionSort(arrayObj) {
    }
    return arrayObj
 }
+Array.Prototype.DefineProp("InsertionSort", {Call: InsertionSort})
 
 /*
    O(n logn) -- all cases
@@ -198,6 +203,7 @@ MergeSort(arrayObj) {
    rightArray := MergeSort(rightArray)
    return Merge(leftArray, rightArray, arrayLength)
 }
+Array.Prototype.DefineProp("MergeSort", {Call: MergeSort})
 
 /*
    O(n + k) -- all cases
@@ -221,3 +227,4 @@ SleepSort(arrayObj, threadDelay := 30) {
    }
    return sortedArrayObj
 }
+Array.Prototype.DefineProp("SleepSort", {Call: SleepSort})
