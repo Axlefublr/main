@@ -263,9 +263,9 @@ GetWeather() {
    RegExMatch(weather_html, "Влажность: (\d+%)", &wetness_match)
    wetness := wetness_match[1]
 
-   RegExMatch(weather_html, "Ясно|Пасмурно", &atmosphere_match)
+   RegExMatch(weather_html, "(?i)Ясно|Пасмурно|Облачно|Дождь", &atmosphere_match)
    if atmosphere_match
-      atmosphere := atmosphere_match[]
+      atmosphere := StrTitle(atmosphere_match[])
    else
       atmosphere := "Непонятно"
 
@@ -276,5 +276,5 @@ GetWeather() {
       wind := wind_match[1] "м/с"
    }
 
-   return temp " " wind " " wetness "`n" atmosphere
+   return temp " " wind " " wetness " " atmosphere
 }

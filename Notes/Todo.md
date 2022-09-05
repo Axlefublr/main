@@ -1,5 +1,11 @@
 ﻿Rewrite symlink creator in a function
 
+# Methods
+
+* toTitle
+* toLower
+* toUpper
+
 # Youtube video links
 
 links to main, not personal in descriptions

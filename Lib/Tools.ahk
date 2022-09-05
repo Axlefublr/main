@@ -267,12 +267,10 @@ tool_Clock() {
    g_Clock.SetFont("S30")
    g_Clock_Week := g_Clock.Add("Text",, clock_Week)
 
-   g_Clock.SetFont("S26")
+   g_Clock.SetFont("S25")
    g_Clock_Date := g_Clock.Add("Text",, clock_Date)
 
-   static initial_empty_space := "             `n         "
-   g_Clock.SetFont("s25")
-   g_Clock_Weather := g_Clock.Add("Text",, initial_empty_space)
+   g_Clock_Weather := g_Clock.Add("Text", "r2 w" g_Clock.MarginX * 5)
    async(() => g_Clock_Weather.Text := GetWeather())
 
    ;The func obj is separate because we'll need to disable the timer outside of it
@@ -287,7 +285,7 @@ tool_Clock() {
 
    SetTimer(timeCheck, 1000)
    SetTimer(dateCheck, 1000 * 30)
-   SetTimer(weatherCheck, 1000 * 60 * 30) ;30 minutes
+   SetTimer(weatherCheck, 1000 * 60 * 10) ;10 minutes
 
    ;Takes care of all the trash
    Destruction := (*) => ( ;the * takes care of the required parameters for hotkey and onevent
@@ -298,7 +296,7 @@ tool_Clock() {
 
    g_Clock.OnEvent("Close", Destruction)
 
-   g_Clock.Show("AutoSize y0 x" A_ScreenWidth / 20 * 15.45)
+   g_Clock.Show("AutoSize y0 x" A_ScreenWidth / 20 * 15.3)
 
 }
 
