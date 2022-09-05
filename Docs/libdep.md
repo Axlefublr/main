@@ -1,7 +1,6 @@
 # External libraries
 * Eval
 * Json
-* Json2
 
 # No dependencies
 * Paths
@@ -12,6 +11,7 @@
 * Press
 * Sort
 * Win
+* Gui
 
 # Dependencies
 * StrMan
