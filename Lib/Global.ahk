@@ -242,10 +242,12 @@ async(funcObj) => SetTimer(funcObj, -1)
 
 GetHtml(link) {
    HTTP := ComObject("WinHttp.WinHttpRequest.5.1")
-   if !HTTP.Open("GET", link, true)
-      return ""
+   HTTP.Open("GET", link, true)
    HTTP.Send()
-   HTTP.WaitForResponse()
+   try HTTP.WaitForResponse()
+   catch Any {
+      return ""
+   }
    return HTTP.ResponseText
 }
 
@@ -253,7 +255,7 @@ PrimDefineProp := Object().DefineProp
 
 GetWeather() {
    if !weather_html := GetHtml("https://yandex.ru/pogoda/")
-      return ""
+      return "null"
    RegExMatch(weather_html, "Текущая температура (-?\d+.)", &temp_match)
    temp := temp_match[1]
    if InStr(weather_html, "Штиль")
