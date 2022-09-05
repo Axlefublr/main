@@ -8,7 +8,7 @@
 #HotIf !WinActive("ahk_group Game")
 
 #m::RunLink(Linker("gmail"))
-#sc28::RunLink(Linker("weather"))
+#sc28::Info(GetWeather())
 #sc33::RunLink(Linker("ghm"))
 #sc34::RunLink(Linker("regex"))
 

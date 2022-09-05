@@ -251,8 +251,9 @@ tool_Clock() {
 
    ;Get the time variables
    clock_Time := FormatTime(, " HH:mm:ss")
-   , clock_Week := FormatTime(, "dddd")
-   , clock_Date := FormatTime(, "d MMMM")
+   clock_Week := FormatTime(, "dddd")
+   clock_Date := FormatTime(, "d MMMM")
+   clock_Weather := GetWeather()
 
    ;Create the gui
    g_Clock := Gui(, "Clock")
@@ -263,6 +264,9 @@ tool_Clock() {
    ;Add text
    g_Clock.SetFont("S40 cC5C5C5", "Consolas")
    g_Clock_Time := g_Clock.Add("Text", "w237 y-20", clock_Time)
+
+   g_Clock.SetFont("s30")
+   g_Clock_Weather := g_Clock.AddText("w237 Center", clock_Weather)
 
    g_Clock.SetFont("S30")
    g_Clock_Week := g_Clock.Add("Text", "w237 y+35 Center", clock_Week)
@@ -277,8 +281,11 @@ tool_Clock() {
       g_Clock_Date.Text := FormatTime(, "d MMMM")
    )
 
+   weatherCheck := () => g_Clock_Weather.Text := GetWeather()
+
    ;Change the time text every half a second for better accuracy
    SetTimer(timeCheck, 500)
+   SetTimer(weatherCheck, 1000 * 60 * 30) ;30 minutes
 
    ;Takes care of all the trash
    Destruction := (*) => ( ;the * takes care of the required parameters for hotkey and onevent
@@ -288,7 +295,7 @@ tool_Clock() {
 
    g_Clock.OnEvent("Close", Destruction)
 
-   g_Clock.Show("W350 H320 y0 x" A_ScreenWidth / 20 * 15.3)
+   g_Clock.Show("W350 H410 y0 x" A_ScreenWidth / 20 * 15.3)
 
 }
 

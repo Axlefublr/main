@@ -249,3 +249,16 @@ GetHtml(link) {
 }
 
 PrimDefineProp := Object().DefineProp
+
+GetWeather() {
+   weather_html := GetHtml("https://yandex.ru/pogoda/")
+   RegExMatch(weather_html, "Текущая температура (-?\d+.)", &temp_match)
+   temp := temp_match[1]
+   if InStr(weather_html, "Штиль")
+      wind := "Штиль"
+   else {
+      RegExMatch(weather_html, "(?:Ветер: (\d+\.?\d+?))|(?:Штиль)", &wind_match)
+      wind := wind_match[1] "м/с"
+   }
+   return temp " " wind
+}
