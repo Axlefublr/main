@@ -12,6 +12,7 @@
 * Sort
 * Win
 * Gui
+* String
 
 # Dependencies
 * StrMan

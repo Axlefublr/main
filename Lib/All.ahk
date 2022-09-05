@@ -14,3 +14,4 @@
 #Include <Other>
 #Include <Script>
 #Include <Gui>
+#Include <String>

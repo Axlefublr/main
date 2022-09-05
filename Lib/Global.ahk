@@ -247,3 +247,5 @@ GetHtml(link) {
    HTTP.WaitForResponse()
    return HTTP.ResponseText
 }
+
+PrimDefineProp := Object().DefineProp
