@@ -428,9 +428,7 @@ tool_WindowGetter() {
 }
 
 tool_Timer(minutes, shouldExit := false) {
-   minutes := Eval(minutes)
    endTime := Round(A_TickCount + minutes * 60000)
-   minutes := Round(minutes, 1)
 
    _isItTime() {
       if A_TickCount < endTime

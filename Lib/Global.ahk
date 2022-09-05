@@ -239,3 +239,11 @@ RegexToFile(filePath_From, filePath_To, regex) => (
 )
 
 async(funcObj) => SetTimer(funcObj, -1)
+
+GetHtml(link) {
+   HTTP := ComObject("WinHttp.WinHttpRequest.5.1")
+   HTTP.Open("GET", link, true)
+   HTTP.Send()
+   HTTP.WaitForResponse()
+   return HTTP.ResponseText
+}
