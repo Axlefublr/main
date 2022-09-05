@@ -1,4 +1,5 @@
 ﻿#Include <Tools>
+#Include <String>
 
 ;Takes multiline text and turns every line into a key in an array
 str_FormatTableToArray() {

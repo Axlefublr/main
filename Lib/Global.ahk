@@ -251,8 +251,6 @@ GetHtml(link) {
    return HTTP.ResponseText
 }
 
-PrimDefineProp := Object().DefineProp
-
 GetWeather() {
    if !weather_html := GetHtml(Linker("weather"))
       return "null"
