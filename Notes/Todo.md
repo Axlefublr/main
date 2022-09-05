@@ -6,12 +6,6 @@ links to main, not personal in descriptions
 
 update repo links
 
-# Apps
-
-Telegram close closes the process too
-
-No apps or close apps
-
 # Built-ins
 
 Change the token for built in matches by adding "builtin" at the end of it

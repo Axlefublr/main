@@ -172,6 +172,3 @@ XButton1:: {
 }
 #MaxThreadsBuffer false
 #HotIf
-
-
-#Include <Win>

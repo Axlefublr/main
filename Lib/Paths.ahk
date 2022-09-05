@@ -83,6 +83,8 @@ Class Paths {
       "Google Chrome",     A_ProgramFiles "\Google\Chrome\Application\chrome.exe",
       "Monkeytype",        A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna",
 
+      "VPN", "C:\Program Files (x86)\Proton Technologies\ProtonVPN\ProtonVPN.exe",
+
       "Spotify",           A_AppData "\Spotify\Spotify.exe",
       "Telegram",          A_AppData "\Telegram Desktop\Telegram.exe",
 

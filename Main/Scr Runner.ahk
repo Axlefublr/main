@@ -51,6 +51,7 @@
       "fl",      () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
       "davinci", () => win_RunAct("Project Manager", Paths.Apps["Davinci Resolve"]),
       "rel",     () => scr_Reload(),
+      "vpn", () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe", Paths.Apps["VPN"]),
 
       ;Folders
       "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),

@@ -69,7 +69,7 @@ XButton2 & MButton::discord_React()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("ahk_exe WindowsTerminal.exe")
+#HotIf WinActive("ahk_exe WindowsTerminal.exe") && !WinActive("Command Prompt")
 ^BackSpace::Send("{Ctrl Down}{Left}{Delete}{Ctrl Up}")
 
 #HotIf WinActive(Paths.Ptf["Diary"] " ahk_exe Code.exe")

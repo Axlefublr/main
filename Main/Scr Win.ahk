@@ -2,9 +2,7 @@
 #MaxThreadsBuffer true
 
 <!g:: {
-	if WinExist("ahk_group Game")
-		win_MinMax("ahk_group Game")
-	else
+	if !win_MinMax("ahk_group Game")
 		win_App("ahk_exe steam.exe", Paths.Apps["Steam"], , "Steam - News")
 }
 
@@ -42,7 +40,6 @@
 	GroupAdd("MinMax", "ahk_exe FL64.exe")
 	GroupAdd("MinMax", "ahk_exe Resolve.exe")
 	GroupAdd("MinMax", "GIMP ahk_exe gimp-2.10.exe")
-	GroupAdd("MinMax", "Monkeytype ahk_exe chrome.exe")
 	GroupAdd("MinMax", "ahk_exe wps.exe")
 
 	try WinActivateBottom("ahk_group MinMax")
