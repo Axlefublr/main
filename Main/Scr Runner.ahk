@@ -1,3 +1,4 @@
+#Include <App>
 +!l:: {
    prevWin := WinGetID("A")
 
@@ -90,8 +91,8 @@
    )
 
    try runner_commands[val].Call()
-   catch any {
-      RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen) (.+)", &result)
+   catch Any {
+      RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen|install) (.+)", &result)
       static runner_regex := Map(
          "p", (input) => ClipSend(Linker(input), ""),
          "o", (input) => RunLink(Linker(input)),
@@ -116,6 +117,7 @@
          "wkr", (input) => wksp_RemoveFolderFromWorkSpace(input),
          "gitlink", (input) => ClipSend(git_Link(input), ""),
          "gitopen", (input) => RunLink(git_Link(input)),
+         "install", (input) => git_InstallAhkLibrary(input),
       )
       try runner_regex[result[1]].Call(result[2])
    }
