@@ -40,24 +40,16 @@ Pause::scr_Test()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GroupAdd("Game", "ahk_exe EtG.exe")
-, GroupAdd("Game", "ahk_exe isaac-ng.exe")
-, GroupAdd("Game", "ahk_exe nuclearthrone.exe")
-, GroupAdd("Game", "Minecraft ahk_exe javaw.exe")
-, GroupAdd("Game", "ahk_exe METAL GEAR RISING REVENGEANCE.exe")
-, GroupAdd("Game", "ahk_exe Chair Simulator.exe")
-, GroupAdd("Game", "ahk_exe dontstarve_steam.exe")
+GroupAdd("Game_M", "ahk_exe nuclearthrone.exe")
 
-, GroupAdd("Game_M", "ahk_exe EtG.exe")
-, GroupAdd("Game_M", "ahk_exe isaac-ng.exe")
-, GroupAdd("Game_M", "ahk_exe nuclearthrone.exe")
-, GroupAdd("Game_M", "ahk_exe METAL GEAR RISING REVENGEANCE.exe")
+GroupAdd("Game", "ahk_group Game_M")
+GroupAdd("Game", "Minecraft ahk_exe javaw.exe")
 
-, GroupAdd("Media", "Photos ahk_exe ApplicationFrameHost.exe")
-, GroupAdd("Media", "ahk_exe KMPlayer64.exe")
+GroupAdd("Media", "Photos ahk_exe ApplicationFrameHost.exe")
+GroupAdd("Media", "ahk_exe KMPlayer64.exe")
 
-, GroupAdd("AutoHotkey_Help", "AutoHotkey Help")
-, GroupAdd("AutoHotkey_Help", "AutoHotkey v2 Help")
+GroupAdd("AutoHotkey_Help", "AutoHotkey Help")
+GroupAdd("AutoHotkey_Help", "AutoHotkey v2 Help")
 
 ;SPECIAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -215,10 +207,6 @@ NumpadEnter::return
 
 #HotIf WinActive("Minecraft ahk_group Game")
 <+f::F3
-
-#HotIf WinActive("ahk_exe METAL GEAR RISING REVENGEANCE.exe")
-CapsLock::Enter
-XButton2::Ctrl
 
 ;Makes sure the side mouse buttons work as intended ingame, despite their remapping outside of game
 #HotIf WinActive("ahk_group Game_M")

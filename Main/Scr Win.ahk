@@ -1,4 +1,3 @@
-#HotIf !WinExist("ahk_group Game")
 #MaxThreadsBuffer true
 
 <!g:: {
