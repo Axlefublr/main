@@ -17,3 +17,4 @@
 #Include <String>
 #Include <print>
 #Include <Win-full>
+#Include <Info>

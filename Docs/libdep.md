@@ -21,3 +21,4 @@
 * Other
 * Script
 * Win-full
+* Info
