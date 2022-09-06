@@ -11,28 +11,6 @@ ClickThenGoBack_Event(coordinates) {
    MouseMove(initX, initY)
 }
 
-;A faster send. Sending stuff can take too long, but if you copy and paste it, it's much faster. Retains your clipboard as well
-ClipSend(toSend, endChar := " ", isClipReverted := true, untilRevert := 100) {
-   /*
-      Because there's no way to know whether an application has received the input we sent it with ^v
-      We revert the clipboard after a certain time (untilRevert)
-
-      If we reverted the clipboard immidiately, we'd end up sending not "toSend", but the previous clipboard instead, because we didn't give the application enough time to process the action.
-
-      This time depends on the app, discord seems to be one of the slowest ones (don't break TOS guys), but a safe time for untilRevert seems to be 50ms. This time might be lower or higher on your machine, configure as needed
-    */
-   if isClipReverted
-      prevClip := ClipboardAll()	;We keep the previous clipboard
-
-   A_Clipboard := ""	;We free the clipboard...
-   A_Clipboard := toSend endChar	;Now the clipboard is what we want to send + and ending character. I often need a space after so I add a space by default, you can change what it is in the second parameter
-   ClipWait(1)	;...so we can make sure we filled the clipboard with what we want before we send it
-   Send("{ctrl down}v{ctrl up}")	;We send it. Not ^v because this variant is more consistent
-
-   if isClipReverted
-      SetTimer(() => A_Clipboard := prevClip, -untilRevert)	;We revert the clipboard in 50ms. This doesn't occupy the thread, so the clipsend itself doesn't take 50ms, only the revert of the clipboard does.
-}
-
 RunLink(link) => (
    Run(link),
    WinWait("Google Chrome ahk_exe chrome.exe"),
@@ -122,29 +100,6 @@ ToolStay(text, winTitle?, x := 0, y := 0) {
    /*
       We can't use WinWaitNotActive here because it occupies the thread, blocking the next toolstay that might come while still using the first one. If we check the winTitle activity with a settimer, we can use as many ToolStays as we want and they will all disappear once the window is inactive.
     */
-}
-
-RunWith(with, runFile) => Run(with ' "' runFile '"')
-
-RunSpec(commands, AsAdmin := false, seeCmd := false) {
-
-   commands_converted := IsObject(commands) ? "" : commands
-   AsAdmin := AsAdmin ? "*RunAs " : ""
-   seeCmd := seeCmd ? "Max" : "hide"
-
-   if IsObject(commands) {
-
-      commands_concoct := " & "	;to run multiple lines using Run, you concoct them together using &
-      for key, value in commands {
-
-         if key = commands.Length	;if it's the last command
-            commands_concoct := ""	;we don't need to append the commands together anymore
-
-         commands_converted .= value commands_concoct
-      }
-   }
-
-   RunWait(AsAdmin A_ComSpec " /c " commands_converted, , seeCmd)
 }
 
 WriteFile(whichFile, text := "") => (

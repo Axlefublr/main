@@ -1,4 +1,5 @@
-﻿#Include <Tools>
+﻿#Include <ClipSend>
+#Include <Info>
 #Include <String>
 
 ;Takes multiline text and turns every line into a key in an array
@@ -9,7 +10,7 @@ str_FormatTableToArray() {
 
 str_RemoveComments := ClipSend.Bind(RegexReplace(str_GetSelection(), 'm)(\s;.*)|(^;.*)', ""), "")
 
-str_GetSelection_Length() => StrLen(str_GetSelection())
+str_GetSelection_Length() => str_GetSelection().Length
 
 str_GetSelection(keepClip := true) {
    if keepClip

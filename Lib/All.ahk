@@ -18,3 +18,5 @@
 #Include <print>
 #Include <Win-full>
 #Include <Info>
+#Include <ClipSend>
+#Include <Cmd>
