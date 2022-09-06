@@ -33,7 +33,7 @@
    static runner_commands := Map(
 
       ;Main
-      "format table to array", () => str_FormatTableToArray(),
+      "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
       "remove comments",       () => str_RemoveComments(),
       "convert to json",       () => str_ConvertToJson(),
       "str len",               () => Infos(StrLen(str_GetSelection())),
