@@ -59,8 +59,12 @@ git stash apply indexNumber
 ## To change the name of your main branch
 
 ```
-git branch -M name
+git branch -m oldName newName
 ```
+
+## To change the name of current branch
+
+`git branch -M newName`
 
 ## To merge your different branch commits into the main branch
 
@@ -161,3 +165,13 @@ git push origin branch-name
 ```
 git config --global credential.helper store
 ```
+
+## Change the default branch name
+```
+git config --global init.defaultBranch main
+```
+
+## Sync the credential manager
+
+`git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"`
+

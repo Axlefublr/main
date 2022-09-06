@@ -46,9 +46,9 @@ m —
 
 ## Y
 
-^+
+^+ Add folder to workspace
 
-^!
+^! Remove folder from workspace
 
 +! Reload window
 
