@@ -34,7 +34,7 @@
 
       ;Main
       "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
-      "remove comments",       () => str_RemoveComments(),
+      "remove comments",       () => str_RemoveLineComments(),
       "convert to json",       () => str_ConvertToJson(),
       "str len",               () => Infos(StrLen(str_GetSelection())),
       "radnum",                () => ClipSend(RadNum(), ""),
