@@ -1,7 +1,5 @@
-no, actually I wasn't looking for async
+When a library starts getting more complex, requiring more dependencies
 
-I was looking for a plain and simple #MaxThreadsPerHotkey
+It should be split into its base form and LibName-full, meaning, the full version of the library, that might have more functions with more dependencies, for when you just wanna get it all
 
-That completely removes the issue of things sometimes being slow to execute
-
-and is smoother than async
+Sometimes, a library can instead be split (Tools into Clock, Info, FileSearch, so on), and just "Tools" for what was split and more

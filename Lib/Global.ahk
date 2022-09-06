@@ -270,7 +270,7 @@ GetWeather() {
    if InStr(weather_html, "Штиль")
       wind := "Штиль"
    else {
-      RegExMatch(weather_html, "Ветер: (\d+\.?\d+?)", &wind_match)
+      RegExMatch(weather_html, "Ветер: (\d+(\.\d+)?)", &wind_match)
       wind := wind_match[1] "м/с"
    }
 

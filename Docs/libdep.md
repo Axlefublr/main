@@ -20,3 +20,4 @@
 * App
 * Other
 * Script
+* Win-full
