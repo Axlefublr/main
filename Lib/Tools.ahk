@@ -1,6 +1,5 @@
 ﻿#Include <Global>
 #Include <Win>
-#Include <Info>
 
 tool_KeyCodeGetter() {
 

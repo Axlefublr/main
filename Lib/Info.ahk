@@ -1,11 +1,10 @@
 #Include <Win> ;https://github.com/Axlefublr/main/blob/main/Lib/Win.ahk
+#Include <Gui> ;https://github.com/Axlefublr/main/blob/main/Lib/Gui.ahk
 
 ;Another alternative to outputdebug
 Info(text, disappear := true) {
-   g_Info := Gui("AlwaysOnTop -caption")
-   g_Info.BackColor := "171717"
-   g_Info.SetFont("s20 cC5C5C5", "Consolas")
-   g_Info_Text := g_Info.Add("Text", , text)
+   g_Info := Gui("AlwaysOnTop -caption").DarkMode()
+   g_Info.Add("Text", , text)
 
    static infos := []
    static index := 0
