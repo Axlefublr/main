@@ -90,12 +90,8 @@
       "track",  () => ClipSend(spotify_GetCurrSong()),
       "kristi", () => spotify_SendTrackToKristi(),
 
-      ;Github
+      ;Workspace
       "main",   () => vscode_WorkSpace("Main"),
-
-      ;Commit repos
-      "com main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main, false),
-      "psh main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main),
 
    )
 
