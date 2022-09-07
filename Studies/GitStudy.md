@@ -4,7 +4,7 @@
 git config --global alias.aliasName "command"
 ```
 
-## This is how you change the message of the last commit
+## This is how you change the message of the last commit (amend)
 
 ```
 git commit --amend -m "new commit message"
@@ -173,5 +173,5 @@ git config --global init.defaultBranch main
 
 ## Sync the credential manager
 
-`git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"`
+`git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"`
 
