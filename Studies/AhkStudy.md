@@ -1,24 +1,17 @@
-﻿# Clickthrough
-```
-+E0x20
-```
+﻿## Clickthrough
+
+`+E0x20`
 
 Makes a gui clickthrough, but also requires
 
-```js
-WinSetTransparent(255, guiWinTitle)
-```
+`WinSetTransparent(255, guiWinTitle)`
 
-# Gui doesn't appear in taskbar
+## Gui doesn't appear in taskbar
 
-```
-+ToolWindow
-```
+`+ToolWindow`
 
 Even though it's a plus, it really means -
 
-# Windows doesn't have borders
+## Window doesn't have borders
 
-```
--E0x200
-```
+`-E0x200`
