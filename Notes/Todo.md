@@ -4,12 +4,6 @@
 * toLower
 * toUpper
 
-# Youtube video links
-
-links to main, not personal in descriptions
-
-update repo links
-
 # Built-ins
 
 Change the token for built in matches by adding "builtin" at the end of it
