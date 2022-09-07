@@ -1,4 +1,22 @@
 #Include <App>
+#Include <ClipSend>
+#Include <Links>
+
+#Hotstring EndChars `t
+
+;Pasting random values
+:X:radnum::Send(RadNum())
+:X:uclanr::Send(GetRandomWord("english"))
+:X:ilandh::Send(GetRandomWord("russian"))
+
+;Terminal completions
+:X:gh::ClipSend(Linker("gh"))
+:X:ghm::ClipSend(Linker("ghm"))
+
+;Github nicknames
+::micha::Micha-ohne-el
+::reiwa::rbstrachan
+
 +!l:: {
    prevWin := WinGetID("A")
 
@@ -37,7 +55,6 @@
       "remove comments",       () => str_RemoveLineComments(),
       "convert to json",       () => ClipSend(str_ConvertToJsonSnippet(str_GetSelection()), ""),
       "str len",               () => Infos(StrLen(str_GetSelection())),
-      "radnum",                () => ClipSend(RadNum(), ""),
       "fs",                    () => tool_FileSearch(),
       "startup",               () => tool_StartupRun(),
       "shows",                 () => Show_GetShows(),
@@ -78,10 +95,6 @@
       "wk in",  () => wksp_FoldersInWorkSpace_Show(),
       "wk out", () => wksp_FoldersInProg(),
       "main",   () => vscode_WorkSpace("Main"),
-
-      ;Github nicknames
-      "gh micha", () => ClipSend("Micha-ohne-el"),
-      "gh reiwa", () => ClipSend("rbstrachan"),
 
       ;Commit repos
       "com main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main, false),

@@ -1,7 +1,6 @@
 ﻿#Requires AutoHotkey v2.0-a
 #SingleInstance Force ;Launches the new instance of the script always, instead of asking whether it should
 #WinActivateForce ;Forces windows to be activated, skipping the gentle method
-#Hotstring EndChars `t ;Decides the characters that can finish a hotstring
 #InputLevel 5 ;Makes sure hotkeys can't activate themselves (effectively $ on every hotkey)
 #HotIf ;At the start to autoresolve "this hotkey already exists" conflicts
 CoordMode "Mouse", "Screen" ;Uses the coordinates of the screen rather than of the window's
@@ -60,9 +59,6 @@ GroupAdd("Terminal", "Git Bash ahk_exe WindowsTerminal.exe")
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-:XB0*?:uclanr::Send("{BackSpace 6}" GetRandomWord("english"))
-:XB0*?:ilandh::Send("{BackSpace 6}" GetRandomWord("russian"))
 
 ;Alt + number sends the Unicode for a specific Symbol, making that work anywhere. These hotkeys only work in windows that are messengers
 ;🥺😋🤯😼😎😩🤤👉👈
