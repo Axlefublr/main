@@ -1,6 +1,7 @@
 #Include <App>
 #Include <ClipSend>
 #Include <Links>
+#Include <String>
 
 #Hotstring EndChars `t
 
@@ -54,7 +55,7 @@
       "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
       "remove comments",       () => str_RemoveLineComments(),
       "convert to json",       () => ClipSend(str_ConvertToJsonSnippet(str_GetSelection()), ""),
-      "str len",               () => Infos(StrLen(str_GetSelection())),
+      "str len",               () => Infos(str_GetSelection().Length),
       "fs",                    () => tool_FileSearch(),
       "startup",               () => tool_StartupRun(),
       "shows",                 () => Show_GetShows(),
@@ -63,7 +64,6 @@
       "ahk v1 docs",     () => win_RunAct("AutoHotkey Help", Paths.Apps["Ahk v1 docs"]),
       "slack",           () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
       "shell menu view", Run.Bind(Paths.Apps["Shell Menu View"]),
-      "symlink",         Run.Bind(Paths.Ptf["Symlink creator"]),
       "sm",              Run.Bind(Paths.Apps["Sound mixer"]),
       "gimp",    () => win_RunAct("Thumbnail preset.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
       "fl",      () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
@@ -87,7 +87,7 @@
       "dupl",       () => video_DuplicateScreenshot(),
 
       ;Music
-      "track",  () => spotify_GetCurrSong_ToClip(),
+      "track",  () => ClipSend(spotify_GetCurrSong()),
       "kristi", () => spotify_SendTrackToKristi(),
 
       ;Github
