@@ -11,31 +11,6 @@ SetScrollLockState "AlwaysOff"
 SetWorkingDir A_ScriptDir "\..\" ;Ensures a consistent A_WorkingDir.
 A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
 
-;INCLUDES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-;Libraries
-#Include <All>
-
-;Script parts
-#Include Scr Runner.ahk
-#Include Scr App.ahk
-#Include Scr Mouse.ahk
-#Include Scr Win.ahk
-#Include <Base>
-
-;Script hotkeys
-#SuspendExempt true
-ScrollLock::scr_Reload()
-!ScrollLock::scr_HardReload()
-+ScrollLock::scr_Suspend()
-#ScrollLock::SystemReboot()
-#Pause::SystemPowerDown()
-Pause::scr_Test()
-#SuspendExempt false
-
 ;GROUPS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,6 +30,31 @@ GroupAdd("Terminal", "Linux ahk_exe WindowsTerminal.exe")
 GroupAdd("Terminal", "Cmd ahk_exe WindowsTerminal.exe")
 GroupAdd("Terminal", "PowerShell ahk_exe WindowsTerminal.exe")
 GroupAdd("Terminal", "Git Bash ahk_exe WindowsTerminal.exe")
+GroupAdd("Terminal", "Settings ahk_exe WindowsTerminal.exe")
+
+;INCLUDES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+;Libraries
+#Include <All>
+
+;Script hotkeys
+#SuspendExempt true
+ScrollLock::scr_Reload()
+!ScrollLock::scr_HardReload()
++ScrollLock::scr_Suspend()
+#ScrollLock::SystemReboot()
+#Pause::SystemPowerDown()
+Pause::scr_Test()
+#SuspendExempt false
+
+;Script parts
+#Include Scr Runner.ahk
+#Include Scr App.ahk
+#Include Scr Mouse.ahk
+#Include Scr Win.ahk
 
 ;SPECIAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
