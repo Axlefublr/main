@@ -98,7 +98,7 @@ GroupAdd("Terminal", "Git Bash ahk_exe WindowsTerminal.exe")
 
 RAlt::LAlt
 
-#HotIf !WinActive("ahk_exe Code.exe")
+#HotIf !WinActive("ahk_exe Code.exe",, "Add Folder to Workspace")
 ^Space::Send("{Down}")
 ^+Space::Send("{Up}")
 
