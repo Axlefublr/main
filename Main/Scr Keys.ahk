@@ -24,6 +24,7 @@ A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
 #Include Scr App.ahk
 #Include Scr Mouse.ahk
 #Include Scr Win.ahk
+#Include <Base>
 
 ;Script hotkeys
 #SuspendExempt true
@@ -109,6 +110,8 @@ RAlt::LAlt
 !Insert::Cut()
 
 PrintScreen::ScreenSnip()
+
+!j::Find()
 #HotIf
 
 #Up::win_Maximize()
