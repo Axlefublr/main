@@ -28,17 +28,11 @@ Params for StrReplace and possibly more
 
 # Workspace
 
-Gui shows both wk in & out with numbers
+Just use the vs code commands bucko, you can type in there too, with no mouse
 
-For loop of the array returned by the functions that get them, with a static counter that does the thing only
+Delete the workspace functions
 
-The base path is passed, is Programming by default
-
-> That default is not in the parameter: IsSet(path) ? Paths.%path% : "C:\Programming\" path
-
-You can also add a workspace with Paths: `wka paths ` and then the key of the property to a folder
-
-> That way you can use the vs code command for stuff you would only put in once or so, and the nicer runner command for stuff you potentially add enough to want to have a paths entry of
+Delete Shows
 
 # Runner
 
