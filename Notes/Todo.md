@@ -1,6 +1,4 @@
-﻿Rewrite symlink creator in a function
-
-# Methods
+﻿# Methods
 
 * toTitle
 * toLower
@@ -33,6 +31,8 @@ Just use the vs code commands bucko, you can type in there too, with no mouse
 Delete the workspace functions
 
 Delete Shows
+
+Delete commit things
 
 # Runner
 

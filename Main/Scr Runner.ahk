@@ -91,15 +91,11 @@
       "kristi", () => spotify_SendTrackToKristi(),
 
       ;Github
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      "wk in",  () => wksp_FoldersInWorkSpace_Show(),
-      "wk out", () => wksp_FoldersInProg(),
       "main",   () => vscode_WorkSpace("Main"),
 
       ;Commit repos
       "com main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main, false),
       "psh main", () => git_CommitRepo(Paths.Ptf["Change notes"], Paths.Main),
-      ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    )
 
@@ -107,7 +103,7 @@
    catch Any {
       RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen|install) (.+)", &result)
       static runner_regex := Map(
-         "p", (input) => ClipSend(Linker(input), ""),
+         "p", (input) => ClipSend(Linker(input)),
          "o", (input) => RunLink(Linker(input)),
          "c", (input) => (A_Clipboard := Linker(input), Info("Copied: " A_Clipboard)),
          "g", (input) => Googler(input),
@@ -125,9 +121,6 @@
          "counter", (input) => Counter(input),
          "dw", (input) => GetWeekDay(input),
          "wd", (input) => GetDayFromWeekDay(input),
-         "fr", (input) => (DirDelete(Paths.Prog "\" input, true), Info(input " deleted")),
-         "wka", (input) => wksp_AddFolderToWorkspace(input),
-         "wkr", (input) => wksp_RemoveFolderFromWorkSpace(input),
          "gitlink", (input) => ClipSend(git_Link(input), ""),
          "gitopen", (input) => RunLink(git_Link(input)),
          "install", (input) => git_InstallAhkLibrary(input),
