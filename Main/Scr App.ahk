@@ -120,7 +120,7 @@ Down::Send "{Volume_Down}"
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("ahk_exe AutoHotkey64_UIA.exe") || WinActive("ahk_exe explorer.exe")
 ^BackSpace::DeleteWord()
-#HotIf WinActive("Terminal ahk_exe WindowsTerminal.exe")
+#HotIf WinActive("Linux ahk_exe WindowsTerminal.exe")
 ^BackSpace::term_DeleteWord()
 ;SCREENSHOT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
