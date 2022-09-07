@@ -108,7 +108,7 @@ m —
 
 ^+
 
-^!
+^! Align by regex
 
 +!
 
@@ -170,9 +170,9 @@ m —
 
 ## K
 
-^+
+^+ Copy full path
 
-^!
+^! Copy relative path
 
 +! Get key code
 

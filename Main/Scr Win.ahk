@@ -1,10 +1,5 @@
 #MaxThreadsBuffer true
 
-<!g:: {
-	if !win_MinMax("ahk_group Game")
-		win_App("ahk_exe steam.exe", Paths.Apps["Steam"], , "Steam - News")
-}
-
 #HotIf !WinActive("ahk_group Game")
 
 #m::RunLink(Linker("gmail"))

@@ -70,6 +70,7 @@
       "davinci", () => win_RunAct("Project Manager", Paths.Apps["Davinci Resolve"]),
       "rel",     () => scr_Reload(),
       "vpn",     () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe", Paths.Apps["VPN"]),
+      "steam",   () => win_RunAct("ahk_exe steam.exe", Paths.Apps["Steam"], , "Steam - News"),
 
       ;Folders
       "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),
