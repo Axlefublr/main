@@ -220,7 +220,7 @@ l Search by keybind
 
 ## '
 
-^+
+^+ Go to absolute line
 
 ^! Select line range
 
@@ -228,7 +228,7 @@ l Search by keybind
 
 ^ Show opened editors
 
-! Go to line
+! Go to relative line
 
 ## N
 

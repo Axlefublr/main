@@ -24,16 +24,6 @@ Links
 
 Params for StrReplace and possibly more
 
-# Workspace
-
-Just use the vs code commands bucko, you can type in there too, with no mouse
-
-Delete the workspace functions
-
-Delete Shows
-
-Delete commit things
-
 # Runner
 
 What the runner actually can do is enclosed in its own function
