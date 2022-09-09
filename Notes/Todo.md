@@ -1,33 +1,9 @@
-﻿# Methods
-
-* toTitle
-* toLower
-* toUpper
+﻿switch to profile on github
 
 # Built-ins
 
-Change the token for built in matches by adding "builtin" at the end of it
-
-Test it: every single one of them should stay the default regardless
-
-Check what happens if you don't set a color at all in settings
-
-Make a pull request for that
+MethProp, if thqby says he'd merge that
 
 Links
 
 Params for StrReplace and possibly more
-
-# Runner
-
-What the runner actually can do is enclosed in its own function
-
-On enter, the function object of it is executed
-
-Before that, the runner gui is first hidden / minimized
-
-After that, it's destroyed
-
-> This will achieve better performance
-
-There can be multiple runner instances at the same time, with logic similar to Info()
