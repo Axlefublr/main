@@ -3,6 +3,7 @@
 #Include <Links>
 #Include <String>
 #Include <Win>
+#Include <Paths>
 
 #Hotstring EndChars `t
 
@@ -60,8 +61,7 @@
          "rel",     () => scr_Reload(),
 
          ;Apps
-         "shell menu view", Run.Bind(Paths.Apps["Shell Menu View"]),
-         "sm",              Run.Bind(Paths.Apps["Sound mixer"]),
+         "sm", Run.Bind(Paths.Apps["Sound mixer"]),
          "ahk v1 docs", () => win_RunAct("AutoHotkey Help", Paths.Apps["Ahk v1 docs"]),
          "davinci", () => win_RunAct("Project Manager", Paths.Apps["Davinci Resolve"]),
          "slack",   () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
@@ -69,6 +69,7 @@
          "gimp",    () => win_RunAct("Thumbnail preset.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
          "vpn", () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe", Paths.Apps["VPN"]),
          "fl",  () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
+         "ds4", () => win_RunAct("DS4Windows ahk_exe DS4Windows.exe", Paths.Apps["DS4 Windows"]),
 
          ;Folders
          "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),

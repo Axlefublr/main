@@ -118,7 +118,7 @@ XButton2:: {
 	Switch {
 		Case right:Send("{Media_Next}")
 		Case left:Send("{Media_Prev}")
-		Case down:CloseButForSure()
+		Case down:CloseButActually()
 		Case up:win_Minimize()
 		Default:Paste()
 	}
