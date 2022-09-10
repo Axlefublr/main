@@ -28,17 +28,18 @@
 
    gui_hwnd := g_terminal.Hwnd
 
-   Destruction(*) => (
-      WinMinimize(gui_hwnd),
-      _Runner_Enclose(g_terminal_edit.Value),
-      g_terminal.Destroy(),
-      HotIfWinactive("ahk_id " gui_hwnd),
-      Hotkey("Escape", "Off"),
+   Destruction(thisHotkey, shouldContinue := false) {
+      WinMinimize(gui_hwnd)
+      if shouldContinue
+         _Runner_Enclose(g_terminal_edit.Value)
+      g_terminal.Destroy()
+      HotIfWinactive("ahk_id " gui_hwnd)
+      Hotkey("Escape", "Off")
       Hotkey("Enter", "Off")
-   )
+   }
 
    HotIfWinactive("ahk_id " gui_hwnd)
-   Hotkey("Enter", Destruction, "On")
+   Hotkey("Enter", Destruction.Bind(, true), "On")
    Hotkey("Escape", Destruction, "On")
 
    g_terminal.Show("W400 H50 y20")
@@ -70,6 +71,7 @@
          "vpn", () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe", Paths.Apps["VPN"]),
          "fl",  () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
          "ds4", () => win_RunAct("DS4Windows ahk_exe DS4Windows.exe", Paths.Apps["DS4 Windows"]),
+         "obs", () => win_RunAct("OBS ahk_exe obs64.exe", Paths.Apps["OBS"]),
 
          ;Folders
          "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),
