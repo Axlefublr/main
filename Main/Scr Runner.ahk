@@ -68,6 +68,7 @@
          "slack",   () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
          "steam",   () => win_RunAct("ahk_exe steam.exe", Paths.Apps["Steam"], , "Steam - News"),
          "gimp",    () => win_RunAct("Thumbnail preset.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
+         "gimp2",   () => win_RunAct("Thumbnail preset down.xcf-1.0", Paths.Ptf["Thumbnail preset down"]),
          "vpn", () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe", Paths.Apps["VPN"]),
          "fl",  () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
          "ds4", () => win_RunAct("DS4Windows ahk_exe DS4Windows.exe", Paths.Apps["DS4 Windows"]),
