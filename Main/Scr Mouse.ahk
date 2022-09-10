@@ -45,6 +45,7 @@ Media_Stop & XButton2:: {
 		Case down:Send("{Browser_Back}")
 		Case WinActive("YouTube Studio"):youtube_ToYouTube()
 		Case WinActive("YouTube"):youtube_ChannelSwitch()
+		Case WinActive("GitHub ahk_exe chrome.exe"):github_Profile()
 		Case WinActive("Messenger ahk_exe chrome.exe"):vk_Voice()
 		Case WinActive("ahk_exe Telegram.exe"):telegram_Voice()
 		Case WinActive("ahk_exe Discord.exe"):discord_Gif()
