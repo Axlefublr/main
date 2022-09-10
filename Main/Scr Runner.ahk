@@ -71,7 +71,7 @@
          "vpn", () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe", Paths.Apps["VPN"]),
          "fl",  () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
          "ds4", () => win_RunAct("DS4Windows ahk_exe DS4Windows.exe", Paths.Apps["DS4 Windows"]),
-         "obs", () => win_RunAct("OBS ahk_exe obs64.exe", Paths.Apps["OBS"]),
+         "obs", () => win_RunAct("OBS ahk_exe obs64.exe", Paths.Apps["OBS"],,, Paths.OBSFolder),
 
          ;Folders
          "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),

@@ -2,6 +2,4 @@
 
 switch to profile on github
 
-# Built-ins
-
-Params for StrReplace and possibly more
+Linker is just a global map
