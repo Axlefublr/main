@@ -50,3 +50,18 @@ There *have* to be `[]` with spaces between them
 
 `date`
 
+## Find lines in a file that contain a certain text
+
+`grep -i "to search for" file.txt`
+
+## See how big a file is
+
+`du -h file.txt`
+
+## Change the owner of a file
+
+`chown diff-user file.txt`
+
+## See what commands you've execute
+
+`history`
