@@ -1,11 +1,10 @@
-#Include C:\Programming\lib-v2\
-#Include Win.ahk
-#Include Win-full.ahk
-#Include Global.ahk
-#Include Links.ahk
-#Include Info.ahk
-#Include Press.ahk
-#Include Paths.ahk
+#Include <Win>
+#Include <Win-full>
+#Include <Global>
+#Include <Links>
+#Include <Info>
+#Include <Press>
+#Include <Paths>
 
 #MaxThreadsBuffer true
 

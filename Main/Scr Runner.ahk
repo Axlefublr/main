@@ -1,18 +1,17 @@
-#Include C:\Programming\lib-v2\
-#Include App.ahk
-#Include ClipSend.ahk
-#Include Links.ahk
-#Include String.ahk
-#Include Win.ahk
-#Include Paths.ahk
-#Include Char.ahk
-#Include String-full.ahk
-#Include Info.ahk
-#Include Tools.ahk
-#Include Script.ahk
-#Include Win-full.ahk
-#Include Global.ahk
-#Include Other.ahk
+#Include <App>
+#Include <ClipSend>
+#Include <Links>
+#Include <String>
+#Include <Win>
+#Include <Paths>
+#Include <Char>
+#Include <String-full>
+#Include <Info>
+#Include <Tools>
+#Include <Script>
+#Include <Win-full>
+#Include <Global>
+#Include <Other>
 
 #Hotstring EndChars `t
 

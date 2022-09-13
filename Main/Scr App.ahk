@@ -1,9 +1,8 @@
-#Include C:\Programming\lib-v2\
-#Include App.ahk
-#Include Base.ahk
-#Include ClipSend.ahk
-#Include Global.ahk
-#Include Paths.ahk
+#Include <App>
+#Include <Base>
+#Include <ClipSend>
+#Include <Global>
+#Include <Paths>
 
 ;SPOTIFY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

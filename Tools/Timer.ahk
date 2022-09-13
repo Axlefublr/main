@@ -1,10 +1,9 @@
 #SingleInstance Off
 Persistent true
-#Include C:\Programming\lib-v2\
-#Include Links.ahk
-#Include Paths.ahk
-#Include Global.ahk
-#Include Tools.ahk
-#Include Eval.ahk
+#Include <Links>
+#Include <Paths>
+#Include <Global>
+#Include <Tools>
+#Include <Eval>
 
 tool_Timer(ReadFile(Paths.Ptf["Timer.txt"]), true)

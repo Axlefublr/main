@@ -38,8 +38,7 @@ GroupAdd("Terminal", "Settings ahk_exe WindowsTerminal.exe")
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ;Libraries
-#Include C:\Programming\lib-v2\
-#Include All.ahk
+#Include <All>
 
 ;Script hotkeys
 #SuspendExempt true
@@ -52,7 +51,6 @@ Pause::scr_Test()
 #SuspendExempt false
 
 ;Script parts
-#Include %A_LineFile%\..\
 #Include Scr Runner.ahk
 #Include Scr App.ahk
 #Include Scr Mouse.ahk
