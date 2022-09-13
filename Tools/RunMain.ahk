@@ -1,7 +1,8 @@
 #Requires AutoHotkey v2.0-a
 #SingleInstance Force
-#Include <Paths>
-#Include <Win>
+#Include C:\Programming\lib-v2\
+#Include Paths.ahk
+#Include Win.ahk
 Run(Paths.Ptf["Keys"])
 
 GroupAdd("Terminal", "Linux ahk_exe WindowsTerminal.exe")

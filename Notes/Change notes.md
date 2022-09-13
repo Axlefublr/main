@@ -1,43 +1,13 @@
-## OBS
+For the extension, it's important to have the #include in the file for "go to definition" to work. If the include is going to happen anyway through the main script, but isn't present in this current file, there's a high chance that the command won't work
 
-To launch obs programmatically, it needs to start in its folder, rather than just anywhere
+For this reason, I'm making Includes that are far more elaboratory than they were before
 
-I guess it uses some files and is programmed in this wacky way to make it easier in some other fashion
+The decision to make file includes rather than standard library might be overreacting, but first I'll complete it this way, test it, then go back to standard and see if it works the same way
 
-Well, that just means that I have to launch obs in that working directory
+The only pretty annoying thing would be the fact that the libraries would get doubled when I work on them. I go to definition and I'm in the standard library folder. I open a file and I'll discern which is *not* the standard library (adding on to the annoyance)
 
-I first programmed it with my own tools, but turns out the Run function has the functionality itself, which is really neat
+Maybe it will actually be better to have file includes, this way it's consistently one file per file
 
-So, it's just a matter of adding a parameter in two functions, not a big deal
+Or a different solution: adding the standard library to the workspace and working with it from there, git and all. That also works, might be the way I end up taking.
 
-I liked how smoothly the process of fixing this issue of mine went
-
-Installing obs again, setting it up, figuring out its limitations and going over them
-
-All without worry or anxiety about it not working potentially
-
-And would you look at that: now it does work!
-
-Taking a good ass walk really makes a difference, that's for sure
-
-I feel so calm and relaxed, implementing or experimenting with something new feels really easy
-
-## Github
-
-I had this issue that I was constantly checking github to see the status of my pull request.
-
-The amount of times I opened the damn website is insane
-
-Turns out, github has a mobile app, which is actually well polished and is good!
-
-With a phone app, I can just receive the notifications on my phone and see the updates like that, much much better
-
-Now I won't be polluted with the thoughts of creating my own email tracker (because yes, the mail notifications *also* don't work for me, for whatever reason, and have been for a long time now (how do you even formulate this sentence properly? english majors please pull request))
-
-## Global variables
-
-As any good programmer, I hate global variables. But to be fair, I can sometimes go to great lengths just to not use a global variable.
-
-And example of that is my Links library, which is just a function that returns the value
-
-I mean, I could just have a variable for that? What's the difference anyway?
+Only annoyance with that is that the repo name will be different from the folder name, but that's *okay* I **think**

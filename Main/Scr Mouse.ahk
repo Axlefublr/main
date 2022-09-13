@@ -1,3 +1,13 @@
+#Include C:\Programming\lib-v2\
+#Include Base.ahk
+#Include App.ahk
+#Include Press.ahk
+#Include Global.ahk
+#Include Script.ahk
+#Include Win.ahk
+#Include Win-full.ahk
+#Include Other.ahk
+
 #HotIf !WinActive("ahk_group Game")
 #MaxThreadsBuffer true
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

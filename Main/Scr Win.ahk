@@ -1,3 +1,12 @@
+#Include C:\Programming\lib-v2\
+#Include Win.ahk
+#Include Win-full.ahk
+#Include Global.ahk
+#Include Links.ahk
+#Include Info.ahk
+#Include Press.ahk
+#Include Paths.ahk
+
 #MaxThreadsBuffer true
 
 #HotIf !WinActive("ahk_group Game")
@@ -9,7 +18,7 @@
 
 #n::win_App("Monkeytype ahk_exe chrome.exe", Paths.Apps["Monkeytype"])
 
-<!r::win_App("ahk_group Terminal", Paths.Apps["Terminal"])
+<!r::win_App("ahk_group Terminal",                   Paths.Apps["Terminal"])
 <!s::win_App("ahk_exe Spotify.exe",                  Paths.Apps["Spotify"])
 <!x::win_App("AutoHotkey v2 Help",                   Paths.Apps["Ahk v2 docs"])
 <!a::win_App("Visual Studio Code ahk_exe Code.exe",  Paths.Apps["VS Code"])
