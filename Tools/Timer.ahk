@@ -1,6 +1,7 @@
 #SingleInstance Off
 Persistent true
 
+#Include <Links>
 #Include <Paths>
 #Include <Global>
 #Include <Tools>
