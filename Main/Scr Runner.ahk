@@ -13,8 +13,8 @@
 :X:ilandh::Send(GetRandomWord("russian"))
 
 ;Terminal completions
-:X:gh::ClipSend(Linker("gh"))
-:X:ghm::ClipSend(Linker("ghm"))
+:X:gh::ClipSend(Links["gh"])
+:X:ghm::ClipSend(Links["ghm"])
 
 ;Github nicknames
 ::micha::Micha-ohne-el
@@ -103,9 +103,9 @@
       catch Any {
          RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen|install) (.+)", &result)
          static runner_regex := Map(
-            "p", (input) => ClipSend(Linker(input)),
-            "o", (input) => RunLink(Linker(input)),
-            "c", (input) => (A_Clipboard := Linker(input), Info("Copied: " A_Clipboard)),
+            "p", (input) => ClipSend(Links[input]),
+            "o", (input) => RunLink(Links[input]),
+            "c", (input) => (A_Clipboard := Links[input], Info("Copied: " A_Clipboard)),
             "g", (input) => Googler(input),
             "s", (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
             "r", (input) => spotify_NewRapper(input),

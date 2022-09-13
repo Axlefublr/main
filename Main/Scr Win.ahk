@@ -2,10 +2,10 @@
 
 #HotIf !WinActive("ahk_group Game")
 
-#m::RunLink(Linker("gmail"))
+#m::RunLink(Links["gmail"])
 #sc28::Info(GetWeather())
-#sc33::RunLink(Linker("ghm"))
-#sc34::RunLink(Linker("regex"))
+#sc33::RunLink(Links["ghm"])
+#sc34::RunLink(Links["regex"])
 
 #n::win_App("Monkeytype ahk_exe chrome.exe", Paths.Apps["Monkeytype"])
 
