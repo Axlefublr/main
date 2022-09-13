@@ -4,23 +4,26 @@ alias prog="cd /mnt/c/Programming"
 alias del="rm -rf"
 
 # Scripts
-alias crp="~/lib/sh/crp.zsh"
+alias scripts="~/lib/sh/"
 
 # Files
+alias configCrp="
+scripts
+code crp.zsh
+cd -
+"
 alias configAliases="
-pushd
 cd $ZSH/custom
 code aliases.zsh
-popd
-popd
+cd -
 "
 alias configZsh="
-pushd
+cd ~
 code ~/.zshrc
-popd
+cd -
 "
 alias configP10k="
-pushd
+cd ~
 code ~/.p10k.zsh
-popd
+cd -
 "
