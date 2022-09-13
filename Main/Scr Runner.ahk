@@ -25,9 +25,9 @@
 :X:ghm::ClipSend(Links["ghm"])
 
 ;Github nicknames
-::micha::Micha-ohne-el
-::reiwa::rbstrachan
-::me::Axlefublr
+:O:micha::Micha-ohne-el
+:O:reiwa::rbstrachan
+:O:me::Axlefublr
 
 +!l:: {
    g_terminal := Gui("AlwaysOnTop -caption")
