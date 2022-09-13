@@ -27,6 +27,7 @@
 ;Github nicknames
 ::micha::Micha-ohne-el
 ::reiwa::rbstrachan
+::me::Axlefublr
 
 +!l:: {
    g_terminal := Gui("AlwaysOnTop -caption")
