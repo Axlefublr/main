@@ -1,6 +1,12 @@
+# Commands
 alias gh="gh.exe"
 alias prog="cd /mnt/c/Programming"
 alias del="rm -rf"
+
+# Scripts
+alias crp="~/lib/sh/crp.zsh"
+
+# Files
 alias configAliases="
 pushd
 cd $ZSH/custom
