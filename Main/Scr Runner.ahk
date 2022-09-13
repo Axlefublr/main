@@ -68,6 +68,7 @@
          "startup", () => tool_StartupRun(),
          "shows",   () => Show_GetShows(),
          "rel",     () => scr_Reload(),
+         "track",   () => ClipSend(spotify_GetCurrSong()),
 
          ;Apps
          "sm", Run.Bind(Paths.Apps["Sound mixer"]),
@@ -97,10 +98,6 @@
          "edit",       () => video_EditScreenshot(),
          "video up",   () => vscode_VideoUp(),
          "dupl",       () => video_DuplicateScreenshot(),
-
-         ;Music
-         "track",  () => ClipSend(spotify_GetCurrSong()),
-         "kristi", () => spotify_SendTrackToKristi(),
 
          ;Workspace
          "main",   () => vscode_WorkSpace("Main"),
