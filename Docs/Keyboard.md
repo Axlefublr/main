@@ -60,7 +60,7 @@ m —
 
 ^+
 
-^!
+^! Open all changes
 
 +! Commit
 
