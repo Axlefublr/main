@@ -1,1 +1,1 @@
-﻿
+﻿Multiline comments should be multiline: fix and pull request to @Descolada
