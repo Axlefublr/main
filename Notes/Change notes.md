@@ -1,13 +1,11 @@
-For the extension, it's important to have the #include in the file for "go to definition" to work. If the include is going to happen anyway through the main script, but isn't present in this current file, there's a high chance that the command won't work
+Now instead of putting the transcript of the video into the description, it's in a repo, to which I leave a link
 
-For this reason, I'm making Includes that are far more elaboratory than they were before
+Meaning, the only changing part of the description is the top part, so I can just paste the changing bit at the top, leaving the rest to be a preset on youtube itself
 
-The decision to make file includes rather than standard library might be overreacting, but first I'll complete it this way, test it, then go back to standard and see if it works the same way
+And because of this, I don't need to keep the description in the raw file, I can instead just write it down in the description file itself
 
-The only pretty annoying thing would be the fact that the libraries would get doubled when I work on them. I go to definition and I'm in the standard library folder. I open a file and I'll discern which is *not* the standard library (adding on to the annoyance)
+The "paste description" hotkey on youtube studio just grabs that file, so I don't need to change much of anything to make this change
 
-Maybe it will actually be better to have file includes, this way it's consistently one file per file
+Since now I don't have to reconstruct it every time, so it's a bit more organized that it was before, more efficient you could say
 
-Or a different solution: adding the standard library to the workspace and working with it from there, git and all. That also works, might be the way I end up taking.
-
-Only annoyance with that is that the repo name will be different from the folder name, but that's *okay* I **think**
+Now, all that CleanText() does is convert the editing file into a reading file, that's it
