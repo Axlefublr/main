@@ -2,7 +2,7 @@
 
 This is my main repository, for stuff I work on and use most
 
-It's not meant to be used for anyone other than me, due to endless dependencies and so what would seem like clutter to someone who's, once again, not me
+It's not meant to be used for anyone other than me, due to endless dependencies and what would seem like clutter to someone who's, once again, not me
 
 # You _will_ get an error
 
