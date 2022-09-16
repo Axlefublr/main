@@ -17,10 +17,10 @@
 #Hotstring EndChars `t
 
 ;Pasting random values
-:X:radnum::Send(RadNum())
-:X:uclanr::Send(GetRandomWord("english"))
-:X:ilandh::Send(GetRandomWord("russian"))
-:X:chrs::Send(GetStringOfRandChars(15))
+:X:radnum::ClipSend(RadNum())
+:X:uclanr::ClipSend(GetRandomWord("english"))
+:X:ilandh::ClipSend(GetRandomWord("russian"))
+:X:chrs::ClipSend(GetStringOfRandChars(15))
 
 ;Terminal completions
 :X:gh::ClipSend(Links["gh"])
