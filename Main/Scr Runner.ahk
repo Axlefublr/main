@@ -12,6 +12,7 @@
 #Include <Win-full>
 #Include <Global>
 #Include <Other>
+#Include <Get>
 
 #Hotstring EndChars `t
 
@@ -107,7 +108,7 @@
 
       try runner_commands[val].Call()
       catch Any {
-         RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|>|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen|install) (.+)", &result)
+         RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen|install) (.+)", &result)
          static runner_regex := Map(
             "p", (input) => ClipSend(Links[input]),
             "o", (input) => RunLink(Links[input]),
@@ -119,7 +120,6 @@
             "a", (input) => spotify_FavRapper_Manual(input),
             "e", (input) => Infos(Round(Eval(input), 3)),
             "i", (input) => Infos(input),
-            ">", (input) => Skipper(input),
             "show",  (input) => Show_Run(input),
             "link",  (input) => Show_SetLink(input),
             "ep",    (input) => Show_SetEpisode(input),
