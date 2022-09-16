@@ -20,6 +20,7 @@
 :X:radnum::Send(RadNum())
 :X:uclanr::Send(GetRandomWord("english"))
 :X:ilandh::Send(GetRandomWord("russian"))
+:X:chrs::Send(GetStringOfRandChars(15))
 
 ;Terminal completions
 :X:gh::ClipSend(Links["gh"])
@@ -108,7 +109,7 @@
 
       try runner_commands[val].Call()
       catch Any {
-         RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen|install) (.+)", &result)
+         RegexMatch(val, "^(p|o|c|g|s|r|t|a|e|i|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen|install|chrs) (.+)", &result)
          static runner_regex := Map(
             "p", (input) => ClipSend(Links[input]),
             "o", (input) => RunLink(Links[input]),
@@ -130,6 +131,7 @@
             "gitlink", (input) => ClipSend(git_Link(input), ""),
             "gitopen", (input) => RunLink(git_Link(input)),
             "install", (input) => git_InstallAhkLibrary(input),
+            "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
          )
          try runner_regex[result[1]].Call(result[2])
       }
