@@ -7,7 +7,6 @@
 #Include <Win-full>
 #Include <Other>
 
-#HotIf !WinActive("ahk_group Game")
 #MaxThreadsBuffer true
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -70,7 +69,7 @@ WheelUp::WheelLeft
 WheelDown::WheelRight
 CapsLock & WheelUp::WheelUp
 CapsLock & WheelDown::WheelDown
-#HotIf !WinActive("ahk_group Game")
+#HotIf
 
 XButton2 & XButton1::Escape
 XButton1 & XButton2::Media_Play_Pause
@@ -184,4 +183,3 @@ XButton1:: {
 	}
 }
 #MaxThreadsBuffer false
-#HotIf

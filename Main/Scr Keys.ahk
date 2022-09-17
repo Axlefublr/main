@@ -15,11 +15,6 @@ A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GroupAdd("Game_M", "ahk_exe nuclearthrone.exe")
-
-GroupAdd("Game", "ahk_group Game_M")
-GroupAdd("Game", "Minecraft ahk_exe javaw.exe")
-
 GroupAdd("Media", "Photos ahk_exe ApplicationFrameHost.exe")
 GroupAdd("Media", "ahk_exe KMPlayer64.exe")
 
@@ -209,21 +204,7 @@ NumpadMult::return
 NumpadDiv::return
 NumpadEnter::return
 
-#HotIf WinActive("Minecraft ahk_group Game")
-<+f::F3
-
-;Makes sure the side mouse buttons work as intended ingame, despite their remapping outside of game
-#HotIf WinActive("ahk_group Game_M")
-XButton1::u
-XButton2::y
-
-#HotIf WinActive("ahk_group Game")
-Media_Stop::i
-CapsLock::o
-
-#HotIf !WinActive("ahk_group Game")
 CapsLock::tool_SomeLockHint("CapsLock")
-#HotIf
 
 ;TOOLS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
