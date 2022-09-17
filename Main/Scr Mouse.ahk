@@ -59,13 +59,21 @@ Media_Stop & XButton2:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-XButton2 & XButton1::Escape
-XButton1 & XButton2::Media_Play_Pause
+SCROLL_VERTICALLY := true
+CapsLock & LAlt::global SCROLL_VERTICALLY := !SCROLL_VERTICALLY
 
+#HotIf SCROLL_VERTICALLY
 CapsLock & WheelUp::WheelLeft
 CapsLock & WheelDown::WheelRight
+#HotIf !SCROLL_VERTICALLY
+WheelUp::WheelLeft
+WheelDown::WheelRight
+CapsLock & WheelUp::WheelUp
+CapsLock & WheelDown::WheelDown
+#HotIf !WinActive("ahk_group Game")
 
-CapsLock & Media_Stop::ScreenSnip()
+XButton2 & XButton1::Escape
+XButton1 & XButton2::Media_Play_Pause
 
 XButton1 & WheelUp::Redo()
 XButton1 & WheelDown::Undo()
