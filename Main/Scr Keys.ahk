@@ -11,22 +11,6 @@ SetScrollLockState "AlwaysOff"
 SetWorkingDir A_ScriptDir "\..\" ;Ensures a consistent A_WorkingDir.
 A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
 
-;GROUPS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GroupAdd("Media", "Photos ahk_exe ApplicationFrameHost.exe")
-GroupAdd("Media", "ahk_exe KMPlayer64.exe")
-
-GroupAdd("AutoHotkey_Help", "AutoHotkey Help")
-GroupAdd("AutoHotkey_Help", "AutoHotkey v2 Help")
-
-GroupAdd("Terminal", "Linux ahk_exe WindowsTerminal.exe")
-GroupAdd("Terminal", "Cmd ahk_exe WindowsTerminal.exe")
-GroupAdd("Terminal", "PowerShell ahk_exe WindowsTerminal.exe")
-GroupAdd("Terminal", "Git Bash ahk_exe WindowsTerminal.exe")
-GroupAdd("Terminal", "Settings ahk_exe WindowsTerminal.exe")
-
 ;INCLUDES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,6 +30,7 @@ Pause::scr_Test()
 #SuspendExempt false
 
 ;Script parts
+#Include Scr Groups.ahk
 #Include Scr Runner.ahk
 #Include Scr App.ahk
 #Include Scr Mouse.ahk

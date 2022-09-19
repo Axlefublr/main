@@ -2,6 +2,4 @@
 
 Convert winTitles to regex (sttm regex)
 
-Add regexed winTitles to winGetter
-
-Instead of a group for games, manually suspend instead
+Better task kills

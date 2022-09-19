@@ -35,13 +35,6 @@
 <!z::win_App_Folders(Paths.Content, "Max")
 <!b::win_App_Folders(Paths.Editing, "Min")
 
-<!f:: {
-	GroupAdd("MinMax", "ahk_exe FL64.exe")
-	GroupAdd("MinMax", "ahk_exe Resolve.exe")
-	GroupAdd("MinMax", "GIMP ahk_exe gimp-2.10.exe")
-	GroupAdd("MinMax", "ahk_exe wps.exe")
-
-	try WinActivateBottom("ahk_group MinMax")
-}
+<!f::GroupDeactivate("Main")
 
 #MaxThreadsBuffer false

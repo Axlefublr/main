@@ -102,11 +102,12 @@ Media_Stop:: {
 	, left        := (sectionX < 568)
 	, down        := (sectionY > 747)
 	, up          := (sectionY < 347)
-	; , topRight    := ((sectionX > 1707) && (sectionY < 233))
+	, topRight    := ((sectionX > 1707) && (sectionY < 233))
 	, topLeft     := ((sectionX < 252) && (sectionY < 229))
 	, bottomLeft  := ((sectionX < 263) && (sectionY > 849))
 	, bottomRight := ((sectionX > 1673) && (sectionY > 839))
 	Switch {
+		Case topRight:   GroupDeactivate("Main")
 		Case bottomRight:win_App("Telegram ahk_exe Telegram.exe",       Paths.Apps["Telegram"])
 		Case right:      win_App("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"],,, "Updater")
 		Case topLeft:    win_App("ahk_group Terminal",                  Paths.Apps["Terminal"])
