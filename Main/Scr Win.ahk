@@ -22,14 +22,7 @@
 <!q::win_App("Discord ahk_exe Discord.exe",          Paths.Apps["Discord"])
 <!t::win_App("Telegram ahk_exe Telegram.exe",        Paths.Apps["Telegram"])
 
-<!d:: {
-	if press_Hold() {
-		Run("explorer.exe C:\")
-		WinWait("C:\ ahk_exe explorer.exe")
-		win_Activate("C:\ ahk_exe explorer.exe")
-	} else
-		win_App_Folders("C:\", "Min")
-}
+<!d::win_App_Folders("C:\", "Min")
 
 <!v::win_App_Folders(Paths.Pictures, "Min")
 <!z::win_App_Folders(Paths.Content, "Max")
