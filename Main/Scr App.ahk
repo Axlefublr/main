@@ -54,13 +54,6 @@ PgUp::youtube_SkipPrev()
 
 #!Delete::chrome_CloseAllTabs()
 
-AppsKey & Insert::RestoreTab()
-AppsKey & Delete::chrome_CopyLink()
-
-NumpadDel & NumpadLeft::chrome_CopyLink()
-NumpadDel & NumpadHome::RestoreTab()
-NumpadDel & NumpadPgUp::PrevTab()
-NumpadDel & NumpadPgDn::NextTab()
 ;DISCORD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,18 +78,6 @@ XButton2 & MButton::discord_React()
 #HotIf WinActive("ahk_exe Code.exe")
 
 Media_Stop & MButton::vscode_Reload()
-
-AppsKey & Delete::vscode_Comment()
-AppsKey & Insert::RestoreTab()
-AppsKey & Home::vscode_CursorBack()
-AppsKey & End::vscode_CursorForward()
-
-NumpadDel & NumpadLeft::vscode_Comment()
-NumpadDel & NumpadHome::RestoreTab()
-NumpadDel & NumpadPgUp::PrevTab()
-NumpadDel & NumpadRight::NextTab()
-NumpadDel & NumpadUp::vscode_CursorBack()
-NumpadDel & NumpadClear::vscode_CursorForward()
 ;PLAYERS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
