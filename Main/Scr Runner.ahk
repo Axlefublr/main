@@ -44,14 +44,16 @@
       if shouldContinue
          _Runner_Enclose(g_terminal_edit.Value)
       g_terminal.Destroy()
-      HotIfWinactive("ahk_id " gui_hwnd)
+      HotIfWinExist("ahk_id " gui_hwnd)
       Hotkey("Escape", "Off")
+      HotIfWinactive("ahk_id " gui_hwnd)
       Hotkey("Enter", "Off")
    }
 
-   HotIfWinactive("ahk_id " gui_hwnd)
-   Hotkey("Enter", Destruction.Bind(, true), "On")
+   HotIfWinExist("ahk_id " gui_hwnd)
    Hotkey("Escape", Destruction, "On")
+   HotIfWinActive("ahk_id " gui_hwnd)
+   Hotkey("Enter", Destruction.Bind(, true), "On")
 
    g_terminal.Show("W400 H50 y20")
 
