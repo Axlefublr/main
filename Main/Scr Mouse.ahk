@@ -23,7 +23,7 @@ Media_Stop & XButton1:: {
 	|| WinActive("Skillfactory ahk_exe chrome.exe")
 	|| WinActive("Gogoanime ahk_exe chrome.exe")
 	Switch {
-		Case deffault:Cut()
+		Case deffault:WinActive("Visual Studio Code ahk_exe Code.exe") ? Send("!{Insert}") : Cut()
 		Case WinActive("Visual Studio Code ahk_exe Code.exe"):
 			Switch {
 				Case right:vscode_IndentRight()
@@ -59,7 +59,7 @@ Media_Stop & XButton2:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 SCROLL_VERTICALLY := true
-CapsLock & LAlt::global SCROLL_VERTICALLY := !SCROLL_VERTICALLY
+CapsLock & f::global SCROLL_VERTICALLY := !SCROLL_VERTICALLY
 
 #HotIf SCROLL_VERTICALLY
 CapsLock & WheelUp::WheelLeft

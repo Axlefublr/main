@@ -6,7 +6,7 @@ j —
 
 k —
 
-' — Weather
+' —
 
 b —
 
@@ -66,29 +66,29 @@ m —
 
 ^
 
-!
+! Maximize panel
 
-## I
+## i
 
-^+ Configure snippets
+^+ configure snippets
 
-^! Clear terminal
+^!
 
-+! Focus terminal
++!
 
-^ Maximize panel
+^
 
-! Toggle panel
+! toggle panel
 
 ## O
 
-^+ New terminal
+^+
 
-^! Delete terminal
+^!
 
 +! Run code
 
-^ Jump with selection
+^
 
 ! Jump
 
@@ -164,7 +164,7 @@ m —
 
 +! Select all occurrences
 
-^ Center cursor
+^
 
 ! Find
 
@@ -184,7 +184,7 @@ m —
 
 ^+ Typewriter
 
-^! Scroll to cursor
+^!
 
 +! Runner
 
@@ -220,15 +220,15 @@ l Search by keybind
 
 ## '
 
-^+ Go to absolute line
+^+
 
-^! Select line range
+^!
 
 +! Show view
 
 ^ Show opened editors
 
-! Go to relative line
+!
 
 ## N
 

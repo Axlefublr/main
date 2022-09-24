@@ -70,8 +70,8 @@ Pause::scr_Test()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#InputLevel 6
 !Escape::CloseButActually()
-+CapsLock::Cis()
 
 RAlt::LAlt
 
@@ -110,8 +110,9 @@ Insert:: {
 }
 #Insert::WinPaste()
 
-AppsKey & PgUp::PrevTab()
-AppsKey & PgDn::NextTab()
+AppsKey::LCtrl
+CapsLock & k::tool_SomeLockHint("CapsLock")
+CapsLock::Esc
 
 ;Media hotkeys
 >^Home::Volume_Up
@@ -189,8 +190,7 @@ NumpadMult::return
 NumpadDiv::return
 NumpadEnter::return
 
-CapsLock::tool_SomeLockHint("CapsLock")
-
+#InputLevel 5
 ;TOOLS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -198,7 +198,7 @@ CapsLock::tool_SomeLockHint("CapsLock")
 
 +!f::tool_CoordGetter()
 +!g::tool_WindowGetter()
-!CapsLock::tool_Clock()
+CapsLock & s::tool_Clock()
 +!v::tool_RelativeCoordGetter()
 ^+s::Snake(20, 50, 1.7)
 +!k::tool_KeyCodeGetter()

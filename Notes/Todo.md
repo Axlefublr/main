@@ -9,3 +9,5 @@ On escape ***OR*** !Capslock, the gui is destroyed
 No autoupdates because I don't keep the gui open ever
 
 No wd and dw because there's a visual calendar to look at
+
+Tries to activate the last window after destruction
