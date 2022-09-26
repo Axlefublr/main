@@ -150,7 +150,7 @@ m —
 
 ^! Unfold all
 
-+! Go to last edit location
++!
 
 ! Replace
 
@@ -170,9 +170,9 @@ m —
 
 ## K
 
-^+ Copy full path
+^+
 
-^! Copy relative path
+^!
 
 +! Get key code
 
@@ -232,11 +232,11 @@ l Search by keybind
 
 ## N
 
-^+ New folder in root
+^+
 
-^! New file in root
+^!
 
-+!
++! Advanced new file
 
 ^ New untitled file
 
@@ -266,15 +266,25 @@ l Search by keybind
 
 ! Delete to the left / right of cursor
 
+## 7
+
+^+
+
+^!
+
++!
+
+^
+
 ## 8
 
-^+ Case sensitive
+^+
 
-^! Search whole word
+^!
 
-+! Regex
++!
 
-^ Open search in editor
+^
 
 ## 9
 
@@ -285,6 +295,18 @@ l Search by keybind
 +! Start debugging / Continue
 
 ^ Toggle breakpoint
+
+## 0
+
+^+
+
+^!
+
++!
+
+^ Open search in editor
+
+! Go to the last tab
 
 ## Arrows
 

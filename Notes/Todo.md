@@ -2,9 +2,9 @@
 
 ## Weather gui
 
-!Capslock hotkey now triggers #!d *and* the weather gui, which now only has the weather
+!Capslock hotkey now triggers `#!d` *and* the weather gui, which now only has the weather
 
-On escape ***OR*** !Capslock, the gui is destroyed
+On escape ***or*** Capslock & s, the gui is destroyed
 
 No autoupdates because I don't keep the gui open ever
 

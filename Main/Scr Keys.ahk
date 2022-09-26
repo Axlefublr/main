@@ -7,6 +7,10 @@ CoordMode "Mouse", "Screen" ;Uses the coordinates of the screen rather than of t
 CoordMode "Pixel", "Client" ;Because controlclick also uses client
 SetControlDelay -1 ;Even faster controlclick
 KeyHistory 0
+Send("{Ctrl Up}")
+Send("{Shift Up}")
+Send("{Win Up}")
+Send("{Alt Up}")
 SetScrollLockState "AlwaysOff"
 SetWorkingDir A_ScriptDir "\..\" ;Ensures a consistent A_WorkingDir.
 A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
@@ -111,10 +115,11 @@ Insert:: {
 #Insert::WinPaste()
 
 AppsKey::LCtrl
-CapsLock & k::tool_SomeLockHint("CapsLock")
-CapsLock::Esc
+RAlt::LAlt
+CapsLock & F5::ToggleModifier("Ctrl")
+CapsLock & Enter::tool_SomeLockHint("CapsLock")
+CapsLock::Send("{Escape}")
 
-;Media hotkeys
 >^Home::Volume_Up
 >^End::Volume_Down
 >^Insert::Volume_Mute
@@ -201,6 +206,5 @@ NumpadEnter::return
 CapsLock & s::tool_Clock()
 +!v::tool_RelativeCoordGetter()
 ^+s::Snake(20, 50, 1.7)
-+!k::tool_KeyCodeGetter()
 
 Info("Script reloaded")

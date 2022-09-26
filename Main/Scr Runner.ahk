@@ -74,6 +74,7 @@
          "shows",   () => Show_GetShows(),
          "rel",     () => scr_Reload(),
          "track",   () => ClipSend(spotify_GetCurrSong()),
+         "kb",      () => tool_KeyCodeGetter(),
 
          ;Apps
          "sm", Run.Bind(Paths.Apps["Sound mixer"]),
