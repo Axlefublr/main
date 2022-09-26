@@ -21,7 +21,6 @@ A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
 ;Script hotkeys
 #SuspendExempt true
 ScrollLock::scr_Reload()
-!ScrollLock::scr_HardReload()
 +ScrollLock::scr_Suspend()
 #ScrollLock::SystemReboot()
 #Pause::SystemPowerDown()
