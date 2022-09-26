@@ -7,11 +7,6 @@ CoordMode "Mouse", "Screen" ;Uses the coordinates of the screen rather than of t
 CoordMode "Pixel", "Client" ;Because controlclick also uses client
 SetControlDelay -1 ;Even faster controlclick
 KeyHistory 0
-Send("{Ctrl Up}")
-Send("{Shift Up}")
-Send("{Win Up}")
-Send("{Alt Up}")
-SetScrollLockState "AlwaysOff"
 SetWorkingDir A_ScriptDir "\..\" ;Ensures a consistent A_WorkingDir.
 A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
 
@@ -75,10 +70,6 @@ Pause::scr_Test()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
 
-!Escape::CloseButActually()
-
-RAlt::LAlt
-
 #HotIf !WinActive("ahk_exe Code.exe",, "Add Folder to Workspace")
 ^Space::Send("{Down}")
 ^+Space::Send("{Up}")
@@ -98,6 +89,18 @@ PrintScreen::ScreenSnip()
 !j::Find()
 #HotIf
 
+RAlt::LAlt
+
+!Space::return
+CapsLock::SomeLockHint("CapsLock")
+!CapsLock::CloseButActually()
+
+Insert:: {
+   if press_Hold()
+      SelectAll()
+}
+#Insert::WinPaste()
+
 #Up::win_Maximize()
 #Down::win_RestoreDown()
 #Right::win_RestoreLeftRight("right")
@@ -108,27 +111,14 @@ PrintScreen::ScreenSnip()
 #^Right::Send "{WheelRight}"
 #^Left::Send "{WheelLeft}"
 
-Insert:: {
-   if press_Hold()
-      SelectAll()
-}
-#Insert::WinPaste()
-
-AppsKey::LCtrl
-RAlt::LAlt
-!Space::return
-CapsLock & F5::ToggleModifier("Ctrl")
-CapsLock & Enter::tool_SomeLockHint("CapsLock")
-CapsLock::Escape
-
 >^Home::Volume_Up
 >^End::Volume_Down
 >^Insert::Volume_Mute
 >^Delete::Media_Play_Pause
 >^PgUp::Media_Prev
 >^Pgdn::Media_Next
-
 #InputLevel 5
+
 ;REMAP~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -164,7 +154,7 @@ NumpadIns & NumpadLeft::Media_Play_Pause
 NumpadIns & NumpadPgUp::Media_Prev
 NumpadIns & NumpadRight::Media_Next
 
-NumLock::tool_SomeLockHint("NumLock")
+NumLock::SomeLockHint("NumLock")
 
 NumpadAdd::WheelUp
 NumpadSub::WheelDown
@@ -181,7 +171,7 @@ Numpad8::8
 Numpad9::9
 
 Launch_Media::Launch_App1 ;F1
-Media_Play_Pause::Launch_App1 ;F2
+Media_Play_Pause::Launch_App2 ;F2
 ; Media_Stop::return ;F3
 Media_Prev::return ;F4
 Media_Next::return ;F5
@@ -204,7 +194,7 @@ NumpadEnter::return
 
 +!f::tool_CoordGetter()
 +!g::tool_WindowGetter()
-CapsLock & s::WeatherClock()
+!Escape::WeatherClock()
 +!v::tool_RelativeCoordGetter()
 ^+s::Snake(20, 50, 1.7)
 
