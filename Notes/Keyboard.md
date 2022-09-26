@@ -146,19 +146,19 @@ m —
 
 ## H
 
-^+ Fold all
+^+
 
-^! Unfold all
+^! Outdent
 
 +!
 
-! Replace
+!
 
 ^ Toggle fold
 
 ## J
 
-^+ Refactor
+^+ Insert smart cursor down
 
 ^! Rename symbol
 
@@ -166,15 +166,15 @@ m —
 
 ^
 
-! Find
+!
 
 ## K
 
-^+
+^+ Insert smart cursor up
 
 ^!
 
-+! Get key code
++!
 
 ^ Go to previous occurrence
 
@@ -184,7 +184,7 @@ m —
 
 ^+ Typewriter
 
-^!
+^! Indent line
 
 +! Runner
 
@@ -204,7 +204,7 @@ m —
 
 !
 
-### ;^
+### ^;^
 
 p Pin active tab
 
@@ -244,21 +244,21 @@ l Search by keybind
 
 ## PgUp / PgDn
 
-^+ Multi-cursor
+^+
 
-^! Move editor into prev / next group
+^!
 
-+! Activate prev / next group
++!
 
 ^ Go to prev / next editor
 
-! Go back / forward
+!
 
 ## Home / End
 
 ^+ Select until start / end of file
 
-^! Go to prev / next folding range; Got to prev / next found result; Focus next / prev cursor
+^! Got to prev / next found result
 
 +! Move editor left / right
 
@@ -268,23 +268,23 @@ l Search by keybind
 
 ## 7
 
-^+
+^+ Move editor left
 
 ^!
 
-+!
++! Focus prev editor group
 
-^
+^ Prev tab
 
 ## 8
 
-^+
+^+ Move editor right
 
 ^!
 
-+!
++! Focus next editor group
 
-^
+^ Next tab
 
 ## 9
 

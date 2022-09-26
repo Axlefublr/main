@@ -203,7 +203,7 @@ NumpadEnter::return
 
 +!f::tool_CoordGetter()
 +!g::tool_WindowGetter()
-CapsLock & s::tool_Clock()
+CapsLock & s::WeatherClock()
 +!v::tool_RelativeCoordGetter()
 ^+s::Snake(20, 50, 1.7)
 
