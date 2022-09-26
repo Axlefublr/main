@@ -160,9 +160,9 @@ m —
 
 ^+ Insert smart cursor down
 
-^! Rename symbol
+^! Move line down
 
-+! Select all occurrences
++! Rename symbol
 
 ^
 
@@ -172,7 +172,7 @@ m —
 
 ^+ Insert smart cursor up
 
-^!
+^! Move line up
 
 +!
 
@@ -196,7 +196,7 @@ m —
 
 ^+ Format document
 
-^! Quote flipper
+^! Select all o
 
 +! +! Toggle autosave
 

@@ -118,7 +118,7 @@ AppsKey::LCtrl
 RAlt::LAlt
 CapsLock & F5::ToggleModifier("Ctrl")
 CapsLock & Enter::tool_SomeLockHint("CapsLock")
-CapsLock::Send("{Escape}")
+CapsLock::Escape
 
 >^Home::Volume_Up
 >^End::Volume_Down

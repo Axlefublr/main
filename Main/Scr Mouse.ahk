@@ -23,7 +23,7 @@ Media_Stop & XButton1:: {
 	|| WinActive("Skillfactory ahk_exe chrome.exe")
 	|| WinActive("Gogoanime ahk_exe chrome.exe")
 	Switch {
-		Case deffault:WinActive("Visual Studio Code ahk_exe Code.exe") ? Send("!{Insert}") : Cut()
+		Case deffault:Cut()
 		Case WinActive("Visual Studio Code ahk_exe Code.exe"):
 			Switch {
 				Case right:vscode_IndentRight()
