@@ -25,6 +25,7 @@ ScrollLock::scr_Reload()
 #ScrollLock::SystemReboot()
 #Pause::SystemPowerDown()
 Pause::scr_Test()
+!Pause::scr_ExitTest()
 #SuspendExempt false
 
 ;Script parts
@@ -129,7 +130,7 @@ NumpadDown::scr_Reload()
 #NumpadDown::SystemReboot()
 
 NumpadPgDn::scr_Test()
-!NumpadPgDn::Send "!{Pause}"
+!NumpadPgDn::scr_ExitTest()
 
 NumpadLeft::Delete
 NumpadClear::End
