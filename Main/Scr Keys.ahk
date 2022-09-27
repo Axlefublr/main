@@ -70,10 +70,10 @@ Pause::scr_Test()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
 
-#HotIf !WinActive("ahk_exe Code.exe",, "Add Folder to Workspace")
+#HotIf !win_ActiveRegex("i)ahk_exe Code.exe i)Linux ahk_exe WindowsTerminal\.exe",, "Add Folder to Workspace")
 ^Space::Send("{Down}")
 ^+Space::Send("{Up}")
-
+#HotIf !WinActive("ahk_exe Code.exe",, "Add Folder to Workspace")
 !End::DeleteInDirection("right")
 !Home::DeleteInDirection("left")
 

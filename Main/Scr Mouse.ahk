@@ -59,7 +59,7 @@ Media_Stop & XButton2:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 SCROLL_VERTICALLY := true
-CapsLock & f::global SCROLL_VERTICALLY := !SCROLL_VERTICALLY
+CapsLock & F1::global SCROLL_VERTICALLY := !SCROLL_VERTICALLY
 
 #HotIf SCROLL_VERTICALLY
 CapsLock & WheelUp::WheelLeft
