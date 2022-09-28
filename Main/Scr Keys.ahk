@@ -70,10 +70,12 @@ Pause::scr_Test()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
 
-#HotIf !win_ActiveRegex("i)ahk_exe Code.exe i)Linux ahk_exe WindowsTerminal\.exe",, "Add Folder to Workspace")
+GroupAdd("builtin_vertical", "Linux ahk_exe WindowsTerminal.exe")
+GroupAdd("builtin_vertical", "Visual Studio Code ahk_exe Code.exe")
+#HotIf !WinActive("ahk_group builtin_vertical")
 ^Space::Send("{Down}")
 ^+Space::Send("{Up}")
-#HotIf !WinActive("ahk_exe Code.exe",, "Add Folder to Workspace")
+#HotIf !WinActive("Visual Studio Code ahk_exe Code.exe")
 !End::DeleteInDirection("right")
 !Home::DeleteInDirection("left")
 

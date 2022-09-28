@@ -150,7 +150,7 @@ m —
 
 ^! Outdent
 
-+!
++! Rename symbol
 
 !
 
@@ -162,7 +162,7 @@ m —
 
 ^! Move line down
 
-+! Rename symbol
++!
 
 ^
 
