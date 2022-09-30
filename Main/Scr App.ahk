@@ -18,7 +18,7 @@ PgUp::spotify_SkipPrev()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf youtube_isNotWatchingVid()
+#HotIf win_ActiveRegex("(?<! - )Watch later|Subscriptions|Youtube ahk_exe chrome\.exe")
 Escape::youtube_MiniscreenClose()
 
 #HotIf WinActive("YouTube")

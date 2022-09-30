@@ -108,10 +108,14 @@ Insert:: {
 #Right::win_RestoreLeftRight("right")
 #Left::win_RestoreLeftRight("left")
 
-#^Up::Send "{WheelUp}"
-#^Down::Send "{WheelDown}"
-#^Right::Send "{WheelRight}"
-#^Left::Send "{WheelLeft}"
+#^Up::   Send("{WheelUp}")
+#^k::    Send("{WheelUp}")
+#^Down:: Send("{WheelDown}")
+#^j::    Send("{WheelDown}")
+#^Right::Send("{WheelRight}")
+#^l::    Send("{WheelRight}")
+#^Left:: Send("{WheelLeft}")
+#^h::    Send("{WheelLeft}")
 
 >^Home::Volume_Up
 >^End::Volume_Down

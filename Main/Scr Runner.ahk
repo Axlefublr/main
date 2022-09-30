@@ -115,7 +115,7 @@
 
       try runner_commands[val].Call()
       catch Any {
-         RegexMatch(val, "^(p|o|c|s|r|t|a|e|i|show|link|ep|delow|counter|wd|dw|fr|wka|wkr|gitlink|gitopen|install|chrs) (.+)", &result)
+         RegexMatch(val, "^(p|o|c|s|r|t|a|e|i|show|link|ep|delow|counter|fr|wka|wkr|gitlink|gitopen|install|chrs) (.+)", &result)
          static runner_regex := Map(
             "p", (input) => ClipSend(Links[input]),
             "o", (input) => RunLink(Links[input]),
@@ -131,8 +131,6 @@
             "ep",    (input) => Show_SetEpisode(input),
             "delow", (input) => Show_DeleteShow(input),
             "counter", (input) => Counter(input),
-            "dw", (input) => Info(GetWeekDay(input)),
-            "wd", (input) => Info(GetDayFromWeekDay(input)),
             "gitlink", (input) => ClipSend(git_Link(input), ""),
             "gitopen", (input) => RunLink(git_Link(input)),
             "install", (input) => git_InstallAhkLibrary(input),
