@@ -94,6 +94,8 @@ PrintScreen::ScreenSnip()
 RAlt::LAlt
 
 !Space::return
+#c::return
+
 CapsLock::SomeLockHint("CapsLock")
 !CapsLock::CloseButActually()
 
