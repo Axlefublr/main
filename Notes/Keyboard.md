@@ -70,7 +70,7 @@ m —
 
 ## i
 
-^+ configure snippets
+^+ Configure snippets
 
 ^!
 
@@ -78,7 +78,7 @@ m —
 
 ^
 
-! toggle panel
+! Toggle panel
 
 ## O
 
@@ -217,6 +217,10 @@ l Search by keybind
 . Go to keybind search
 
 ' Go to keybinds
+
+f Copy full file path
+
+r Copy relative file path
 
 ## '
 
