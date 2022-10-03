@@ -72,7 +72,7 @@
          "fs",      () => tool_FileSearch(),
          "startup", () => tool_StartupRun(),
          "shows",   () => Show_GetShows(),
-         "rel",     () => scr_Reload(),
+         "rel",     () => Reload(),
          "track",   () => ClipSend(spotify_GetCurrSong()),
          "kb",      () => tool_KeyCodeGetter(),
 
@@ -94,11 +94,6 @@
          ;Folders
          "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),
          "prog",       () => win_RunAct_Folders(Paths.Prog),
-
-         ;Files
-         "package",    Run.Bind(Paths.Ptf["Ahk++\package"]),
-         "config",     Run.Bind(Paths.Ptf["Ahk++\configuration"]),
-         "tmlanguage", Run.Bind(Paths.Ptf["Ahk++\tmlanguage"]),
 
          ;Video production
          "clean text", () => vscode_CleanText(),
