@@ -202,7 +202,9 @@ m —
 
 +! . Save all
 
-!
+^ Toggle fold
+
+! 
 
 ### ^;^
 
@@ -253,6 +255,8 @@ r Copy relative file path
 ^!
 
 +!
+
+#! 
 
 ^ Go to prev / next editor
 
@@ -324,16 +328,16 @@ r Copy relative file path
 
 ^ Skip a word
 
-! Skip a camel word; Move selection
+!
 
 ### Vertical
 
-^+ Multiple cursors
+^+
 
-^! Move line
+^!
 
-+! Duplicate line
++!
 
-^ Scroll
+^
 
-! Expand / shrink selection
+!
