@@ -92,8 +92,8 @@
          "vs", () => win_RunAct("ahk_exe devenv.exe", Paths.Apps["Visual Studio"]),
 
          ;Folders
-         "extensions", () => win_RunAct_Folders(Paths.VsCodeExtensions),
-         "prog",       () => win_RunAct_Folders(Paths.Prog),
+         "ext", () => win_RunAct_Folders(Paths.VsCodeExtensions),
+         "prog", () => win_RunAct_Folders(Paths.Prog),
 
          ;Video production
          "clean text", () => vscode_CleanText(),

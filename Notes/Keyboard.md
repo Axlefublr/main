@@ -148,49 +148,49 @@ m —
 
 ^+
 
-^! Outdent
+^!
 
 +! Rename symbol
 
 !
 
-^ Toggle fold
+^ Focus previous group
 
 ## J
 
-^+ Insert smart cursor down
+^+
 
 ^! Move line down
 
 +!
 
-^
+^ Select next suggestion
 
 !
 
 ## K
 
-^+ Insert smart cursor up
+^+
 
 ^! Move line up
 
 +!
 
-^ Go to previous occurrence
+^ Select previous suggestion
 
-! Select previous occurrence
+!
 
 ## L
 
 ^+ Typewriter
 
-^! Indent line
+^!
 
 +! Runner
 
-^ Go to next occurrence
+^ Focus next group
 
-! Select next occurrence
+!
 
 ## ;
 
