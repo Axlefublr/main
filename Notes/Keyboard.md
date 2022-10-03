@@ -68,7 +68,7 @@ m —
 
 ! Maximize panel
 
-## i
+## I
 
 ^+ Configure snippets
 
@@ -154,7 +154,7 @@ m —
 
 !
 
-^ Focus previous group
+^
 
 ## J
 
@@ -188,7 +188,7 @@ m —
 
 +! Runner
 
-^ Focus next group
+^
 
 !
 
@@ -272,21 +272,21 @@ r Copy relative file path
 
 ## 7
 
-^+
+^+ Move editor into prev group
 
-^!
+^! Move editor left
 
-+!
++! Focus previous group
 
 ^ Prev tab
 
 ## 8
 
-^+
+^+ Move editor into next group
 
-^!
+^! Move editor right
 
-+!
++! Focus next group
 
 ^ Next tab
 
