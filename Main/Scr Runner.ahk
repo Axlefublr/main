@@ -110,7 +110,7 @@
 
       try runner_commands[val].Call()
       catch Any {
-         RegexMatch(val, "^(p|o|c|s|r|t|a|e|i|show|link|ep|delow|counter|fr|wka|wkr|gitlink|gitopen|install|chrs) (.+)", &result)
+         RegexMatch(val, "^(p|o|c|s|r|t|a|e|i|show|link|ep|delow|counter|fr|wka|wkr|gitlink|gitopen|install|chrs|dd|down) (.+)", &result)
          static runner_regex := Map(
             "p", (input) => ClipSend(Links[input]),
             "o", (input) => RunLink(Links[input]),
@@ -122,8 +122,10 @@
             "e", (input) => Infos(Round(Eval(input), 3)),
             "i", (input) => Infos(input),
             "show",  (input) => Show_Run(input),
+            "down",   (input) => Show_Run(input, "downloaded"),
             "link",  (input) => Show_SetLink(input),
             "ep",    (input) => Show_SetEpisode(input),
+            "dd",    (input) => Show_SetDownloaded(input),
             "delow", (input) => Show_DeleteShow(input),
             "counter", (input) => Counter(input),
             "gitlink", (input) => ClipSend(git_Link(input), ""),
