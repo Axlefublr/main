@@ -25,8 +25,6 @@
 <!d::win_App_Folders("C:\", "Min")
 
 <!v::win_App_Folders(Paths.Pictures, "Min")
-<!z::win_App_Folders(Paths.Content, "Max")
-<!b::win_App_Folders(Paths.Editing, "Min")
 
 <!f::GroupDeactivate("Main")
 
