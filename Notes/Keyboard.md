@@ -158,7 +158,7 @@ m —
 
 ## J
 
-^+
+^+ Add cursor down
 
 ^! Move line down
 
@@ -170,7 +170,7 @@ m —
 
 ## K
 
-^+
+^+ Add cursor up
 
 ^! Move line up
 
@@ -196,7 +196,7 @@ m —
 
 ^+ Format document
 
-^! Select all o
+^!
 
 +! +! Toggle autosave
 
@@ -272,21 +272,21 @@ r Copy relative file path
 
 ## 7
 
-^+ Move editor left
+^+
 
 ^!
 
-+! Focus prev editor group
++!
 
 ^ Prev tab
 
 ## 8
 
-^+ Move editor right
+^+
 
 ^!
 
-+! Focus next editor group
++!
 
 ^ Next tab
 
