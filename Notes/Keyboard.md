@@ -158,7 +158,7 @@ m —
 
 ## J
 
-^+ Add cursor down
+^+
 
 ^! Move line down
 
@@ -170,7 +170,7 @@ m —
 
 ## K
 
-^+ Add cursor up
+^+
 
 ^! Move line up
 
