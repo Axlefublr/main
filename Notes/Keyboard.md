@@ -224,6 +224,12 @@ f Copy full file path
 
 r Copy relative file path
 
+### ^;.
+
+b bold
+
+i italic
+
 ## '
 
 ^+
