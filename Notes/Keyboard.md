@@ -202,9 +202,9 @@ m —
 
 +! . Save all
 
-^ Toggle fold
+^
 
-! 
+! Toggle fold 
 
 ### ^;^
 
