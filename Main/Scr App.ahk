@@ -58,7 +58,7 @@ PgUp::youtube_SkipPrev()
 +MButton::
 MButton:: {
    MouseGetPos(&xCoord)
-   left := xCoord < 844
+   left := xCoord < 973
    right := xCoord > 1182
    center := !left && !right
    switch {
@@ -109,7 +109,7 @@ Down::Send "{Volume_Down}"
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf win_ActiveRegex("ahk_exe )AutoHotkey64_(UIA)?\.exe )ahk_exe explorer\.exe i)Options ahk_exe devenv\.exe")
+#HotIf win_ActiveRegex("ahk_exe AutoHotkey64_(UIA)?\.exe|explorer\.exe")
 ^BackSpace::DeleteWord()
 #HotIf WinActive("Linux ahk_exe WindowsTerminal.exe")
 ^BackSpace::term_DeleteWord()
