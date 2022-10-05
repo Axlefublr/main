@@ -87,6 +87,7 @@ GroupAdd("builtin_vertical", "Visual Studio Code ahk_exe Code.exe")
 !Insert::Cut()
 
 PrintScreen::ScreenSnip()
++PrintScreen::ScreenSnip()
 
 !j::Find()
 #HotIf
