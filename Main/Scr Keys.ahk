@@ -86,8 +86,6 @@ GroupAdd("builtin_vertical", "Visual Studio Code ahk_exe Code.exe")
 
 !Insert::Cut()
 
-*PrintScreen::ScreenSnip()
-
 !j::Find()
 #HotIf
 
@@ -102,6 +100,8 @@ RAlt::LAlt
 CapsLock::SomeLockHint("CapsLock")
 !CapsLock::CloseButActually()
 +Capslock::Counter()
+
+*PrintScreen::ScreenSnip()
 
 Insert:: {
    if press_Hold()

@@ -230,6 +230,8 @@ b bold
 
 i italic
 
+j focus editor
+
 ## '
 
 ^+
