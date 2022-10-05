@@ -1,3 +1,5 @@
-﻿Map russian to vim
+﻿## Video ideas
 
-Go to end of the line and then visual block? Where do cursors appear?
+Spotify
+
+Info
