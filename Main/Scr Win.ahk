@@ -26,6 +26,6 @@
 
 <!v::win_App_Folders(Paths.Pictures, "Min")
 
-<!f::GroupDeactivate("Main")
+<!Escape::GroupDeactivate("Main")
 
 #MaxThreadsBuffer false

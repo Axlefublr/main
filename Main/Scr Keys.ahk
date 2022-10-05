@@ -86,8 +86,7 @@ GroupAdd("builtin_vertical", "Visual Studio Code ahk_exe Code.exe")
 
 !Insert::Cut()
 
-PrintScreen::ScreenSnip()
-+PrintScreen::ScreenSnip()
+*PrintScreen::ScreenSnip()
 
 !j::Find()
 #HotIf
@@ -96,6 +95,9 @@ RAlt::LAlt
 
 !Space::return
 #c::return
+
++Escape::WindowsClock()
+#Escape::Infos(GetWeather())
 
 CapsLock::SomeLockHint("CapsLock")
 !CapsLock::CloseButActually()
@@ -206,7 +208,6 @@ NumpadEnter::return
 
 +!f::tool_CoordGetter()
 +!g::tool_WindowGetter()
-!Escape::WeatherClock()
 +!v::tool_RelativeCoordGetter()
 ^+s::Snake(20, 50, 1.7)
 
