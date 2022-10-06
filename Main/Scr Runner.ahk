@@ -21,6 +21,8 @@
 :X:uclanr::Send(GetRandomWord("english"))
 :X:ilandh::Send(GetRandomWord("russian"))
 :X:chrs::Send(GetStringOfRandChars(15))
+:X:date::Send(GetDate())
+:X:time::Send(GetDateAndTime())
 
 ;Terminal completions
 :X:gh::Send(Links["gh"])

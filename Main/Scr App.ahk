@@ -66,10 +66,14 @@ PgUp::youtube_SkipPrev()
 !e::telegram_Diary()
 
 #HotIf WinActive(Paths.Ptf["Rappers"] " ahk_exe Code.exe")
-!e::vscode_ToEndOfOthrFile(Paths.Ptf["Unfinished"]), NextTab()
+!e:: {
+   text := GetDateAndTime() " - " RemoveDateAndTime(A_Clipboard)
+   AppendFile(Paths.Ptf["Unfinished"], text)
+   Run(Paths.Ptf["Unfinished"])
+}
 
 #HotIf WinActive(Paths.Ptf["Unfinished"] " ahk_exe Code.exe")
-!e::vscode_ToEndOfCurrFile(), PrevTab()
+!e::AppendFile(Paths.Ptf["Unfinished"], A_Clipboard), Run(Paths.Ptf["Rappers"])
 
 #HotIf WinActive("ahk_exe Code.exe")
 Media_Stop & MButton::vscode_Reload()
