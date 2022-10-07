@@ -55,7 +55,8 @@ PgUp::youtube_SkipPrev()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("ahk_exe Discord.exe")
-+LButton::discord_Reply()
+MButton::discord_Reply()
++MButton::discord_Reply()
 ^LButton::discord_React()
 !LButton::discord_Edit()
 ;VSCODE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,11 +70,11 @@ PgUp::youtube_SkipPrev()
 !e:: {
    text := GetDateAndTime() " - " RemoveDateAndTime(A_Clipboard)
    AppendFile(Paths.Ptf["Unfinished"], text)
-   Run(Paths.Ptf["Unfinished"])
+   NextTab()
 }
 
 #HotIf WinActive(Paths.Ptf["Unfinished"] " ahk_exe Code.exe")
-!e::AppendFile(Paths.Ptf["Unfinished"], A_Clipboard), Run(Paths.Ptf["Rappers"])
+!e::AppendFile(Paths.Ptf["Unfinished"], A_Clipboard), PrevTab()
 
 #HotIf WinActive("ahk_exe Code.exe")
 Media_Stop & MButton::vscode_Reload()

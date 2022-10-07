@@ -1,6 +1,4 @@
-﻿Music organization provides dates in almost all places
-
-RegexMatch returns match
+﻿RegexMatch returns match
 
 ## Video ideas
 

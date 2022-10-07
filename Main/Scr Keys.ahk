@@ -94,7 +94,7 @@ RAlt::LAlt
 !Space::return
 #c::return
 
-+Escape::WindowsClock()
+<+Escape::WindowsClock()
 #Escape::Infos(GetWeather())
 
 CapsLock::SomeLockHint("CapsLock")
