@@ -77,6 +77,7 @@
          "rel",                   () => Reload(),
          "track",                 () => ClipSend(spotify_GetCurrSong()),
          "kb",                    () => tool_KeyCodeGetter(),
+         "eat",                   () => EatingLogger(),
 
          ;Apps
          "sm",          Run.Bind(Paths.Apps["Sound mixer"]),
