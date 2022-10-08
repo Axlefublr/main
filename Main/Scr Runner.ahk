@@ -111,11 +111,10 @@
 
       try runner_commands[val].Call()
       catch Any {
-         RegexMatch(val, "^(p|o|c|s|r|t|a|e|i|show|link|ep|delow|counter|fr|wka|wkr|gitlink|gitopen|install|chrs|dd|down) (.+)", &result)
+         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|fr|wka|wkr|gitlink|gitopen|install|chrs|dd|down) (.+)", &result)
          static runner_regex := Map(
-            "p",       (input) => ClipSend(Links[input]),
+            "p",       (input) => ClipSend(Links[input],, false),
             "o",       (input) => RunLink(Links[input]),
-            "c",       (input) => (A_Clipboard := Links[input], Info("Copied: " A_Clipboard)),
             "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
             "r",       (input) => spotify_NewRapper(input),
             "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
@@ -129,7 +128,7 @@
             "dd",      (input) => Show_SetDownloaded(input),
             "delow",   (input) => Show_DeleteShow(input),
             "counter", (input) => Counter(input),
-            "gitlink", (input) => ClipSend(git_Link(input), ""),
+            "gitlink", (input) => ClipSend(git_Link(input), "", false),
             "gitopen", (input) => RunLink(git_Link(input)),
             "install", (input) => git_InstallAhkLibrary(input),
             "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
