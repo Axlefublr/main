@@ -9,7 +9,3 @@ InputHook for hotstrings, clipsends them
 Spotify
 
 Info
-
-Eating logger
-
-Runner
