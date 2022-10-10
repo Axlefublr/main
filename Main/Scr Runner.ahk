@@ -17,16 +17,16 @@
 #Hotstring EndChars `t
 
 ;Pasting random values
-:X:radnum::Send(RadNum())
-:X:uclanr::Send(GetRandomWord("english"))
-:X:ilandh::Send(GetRandomWord("russian"))
-:X:chrs::Send(GetStringOfRandChars(15))
-:X:date::Send(GetDate())
-:X:time::Send(GetDateAndTime())
+:X:radnum::ClipSend(RadNum())
+:X:uclanr::ClipSend(GetRandomWord("english"))
+:X:ilandh::ClipSend(GetRandomWord("russian"))
+:X:chrs::ClipSend(GetStringOfRandChars(15))
+:X:date::ClipSend(GetDate())
+:X:time::ClipSend(GetDateAndTime())
 
 ;Terminal completions
-:X:gh::Send(Links["gh"])
-:X:ghm::Send(Links["ghm"])
+:X:gh::ClipSend(Links["gh"])
+:X:ghm::ClipSend(Links["ghm"])
 
 ;Github nicknames
 :O:micha::Micha-ohne-el
