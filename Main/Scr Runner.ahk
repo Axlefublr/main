@@ -98,7 +98,7 @@
          "prog",  () => win_RunAct_Folders(Paths.Prog),
          "saved", () => win_RunAct_Folders(Paths.SavedScreenshots),
          "main",  () => vscode_WorkSpace("Main"),
-         
+
          ;Video production
          "clean text",  () => vscode_CleanText(),
          "edit",        () => video_EditScreenshot(),
@@ -111,7 +111,7 @@
 
       try runner_commands[val].Call()
       catch Any {
-         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down) (.+)", &result)
+         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop) (.+)", &result)
          static runner_regex := Map(
             "p",       (input) => ClipSend(Links[input],, false),
             "o",       (input) => RunLink(Links[input]),
@@ -132,6 +132,7 @@
             "gitopen", (input) => RunLink(git_Link(input)),
             "install", (input) => git_InstallAhkLibrary(input),
             "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
+            "drop",    (input) => Show_DeleteShow(input, true),
          )
          try runner_regex[result[1]].Call(result[2])
       }

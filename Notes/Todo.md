@@ -1,7 +1,5 @@
-﻿RegexMatch returns match
+﻿Regex in vim
 
-Regex hotkey is 2 instead of 6
+RemoveTrailingWhitespace
 
-InputHook for hotstrings, clipsends them
-
-Regex in vim
+Drop - appends dropped when delowing
