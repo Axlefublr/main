@@ -70,6 +70,7 @@
          "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
          "remove comments",       () => str_RemoveLineComments(),
          "convert to json",       () => ClipSend(str_ConvertToJsonSnippet(str_GetSelection()), ""),
+
          "str len", () => Infos(str_GetSelection().Length),
          "fs",      () => tool_FileSearch(),
          "startup", () => tool_StartupRun(),
@@ -83,6 +84,7 @@
          ;Apps
          "sm",   Run.Bind(Paths.Apps["Sound mixer"]),
          "apps", MainApps,
+
          "v1 docs", () => win_RunAct("AutoHotkey Help",                   Paths.Apps["Ahk v1 docs"]),
          "davinci", () => win_RunAct("Project Manager",                   Paths.Apps["Davinci Resolve"]),
          "slack",   () => win_RunAct("Slack ahk_exe slack.exe",           Paths.Apps["Slack"]),
@@ -112,7 +114,7 @@
 
       try runner_commands[val].Call()
       catch Any {
-         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop) (.+)", &result)
+         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop|disc) (.+)", &result)
          static runner_regex := Map(
             "p",       (input) => ClipSend(Links[input],, false),
             "o",       (input) => RunLink(Links[input]),
@@ -134,6 +136,7 @@
             "install", (input) => git_InstallAhkLibrary(input),
             "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
             "drop",    (input) => Show_DeleteShow(input, true),
+            "disc",    (input) => spotify_NewDiscovery_Manual(input),
          )
          try runner_regex[result[1]].Call(result[2])
       }
