@@ -93,6 +93,7 @@ RAlt::LAlt
 
 !Space::return
 #c::return
+AppsKey::RCtrl
 
 <+Escape::WindowsClock()
 #Escape::Infos(GetWeather())

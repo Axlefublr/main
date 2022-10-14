@@ -2,4 +2,4 @@
 
 RemoveTrailingWhitespace
 
-Discovery through runner
+Folding to vscode
