@@ -256,6 +256,18 @@ j focus editor
 
 !
 
+## /
+
+^+
+
+^!
+
++!
+
+^ Replace
+
+! Find
+
 ## PgUp / PgDn
 
 ^+
