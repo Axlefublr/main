@@ -116,4 +116,5 @@ XButton1 & LButton::Save()
 WheelUp::screenshot_Window()
 WheelDown::screenshot_Rectangle()
 MButton::screenshot_Fullscreen()
+#PrintScreen::screenshot_Fullscreen()
 #HotIf

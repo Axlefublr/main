@@ -85,6 +85,7 @@ Pause::scr_Test()
 #HotIf
 
 #j::SelectAll()
+#h::Paste()
 
 RAlt::LAlt
 
@@ -99,7 +100,7 @@ CapsLock::SomeLockHint("CapsLock")
 !CapsLock::CloseButActually()
 +Capslock::Counter()
 
-*PrintScreen::ScreenSnip()
+PrintScreen::ScreenSnip()
 
 Insert:: {
    if press_Hold()
