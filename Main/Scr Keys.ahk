@@ -70,24 +70,21 @@ Pause::scr_Test()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
 
-GroupAdd("builtin_vertical", "Linux ahk_exe WindowsTerminal.exe")
-GroupAdd("builtin_vertical", "Visual Studio Code ahk_exe Code.exe")
-#HotIf !WinActive("ahk_group builtin_vertical")
-^Space::Send("{Down}")
-^+Space::Send("{Up}")
 #HotIf !WinActive("Visual Studio Code ahk_exe Code.exe")
-!End::DeleteInDirection("right")
-!Home::DeleteInDirection("left")
+
+^j::Send("{Down}")
+^k::Send("{Up}")
 
 +!Left::Undo()
 +!Right::Redo()
 
-+Delete::DeleteLine()
-
 !Insert::Cut()
 
 !j::Find()
+
 #HotIf
+
+#j::SelectAll()
 
 RAlt::LAlt
 

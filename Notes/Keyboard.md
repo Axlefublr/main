@@ -182,7 +182,7 @@ m —
 
 ## L
 
-^+ Typewriter
+^+
 
 ^!
 
@@ -196,7 +196,7 @@ m —
 
 ^+ Format document
 
-^!
+^! Trim trailing whitespace
 
 +! +! Toggle autosave
 
@@ -208,6 +208,8 @@ m —
 
 ### ^;^
 
+i copy command id
+
 p Pin active tab
 
 j Add another keybinding
@@ -216,7 +218,7 @@ k Change "when"
 
 l Search by keybind
 
-. Go to keybind search
+; Go to keybind search
 
 ' Go to keybinds
 
@@ -276,7 +278,7 @@ j focus editor
 
 +!
 
-#! 
+#!
 
 ^ Go to prev / next editor
 
