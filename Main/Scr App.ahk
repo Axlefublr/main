@@ -44,6 +44,8 @@ PgUp::youtube_SkipPrev()
 !7::Send "^7"
 !8::Send "^8"
 !9::Send "^9"
+^7::PrevTab()
+^8::NextTab()
 
 !e::NewTab()
 
