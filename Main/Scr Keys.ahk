@@ -58,7 +58,7 @@ Pause::scr_Test()
 #0::Symbol("thinking")
 #-::Symbol("long dash", " ")
 #=::Symbol("skull")
-;😨😈💜🙄
+;😨😈💜🙄🤝🤷🤓
 #F5::Symbol("fearful")
 #F6::Symbol("smiling imp")
 #F7::Symbol("purple heart")

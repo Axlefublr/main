@@ -4,6 +4,8 @@ fix channel switch
 
 fix commenting
 
+move rare links to its own file
+
 ## Video links
 
 * main channel video links with same names, prepend 1, time stamp before link name
