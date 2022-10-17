@@ -84,6 +84,7 @@ Pause::scr_Test()
 !Insert::Cut()
 
 !j::Find()
+#'::Copy()
 
 #HotIf
 
