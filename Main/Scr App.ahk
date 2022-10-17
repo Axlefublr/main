@@ -21,7 +21,8 @@ PgUp::spotify_SkipPrev()
 #HotIf WinActive("YouTube Studio ahk_exe chrome.exe")
 :O:mmc::My main channel
 :O:msc::My second channel
-:O:ahk::Ahk all the way
+:O:ahk::Ahk all the way!
+:O:otw::Ahk on the way?
 
 #HotIf win_ActiveRegex("(?<! - )Watch later|Subscriptions|Youtube ahk_exe chrome\.exe")
 Escape::youtube_MiniscreenClose()
@@ -58,6 +59,8 @@ PgUp::youtube_SkipPrev()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("ahk_exe Discord.exe")
+^Space::Send("^k")
+
 MButton::discord_Reply()
 +MButton::discord_Reply()
 ^LButton::discord_React()
