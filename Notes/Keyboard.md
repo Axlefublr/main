@@ -72,9 +72,9 @@ m —
 
 ^+ Configure snippets
 
-^!
+^! Rename symbol 
 
-+!
++! Insert snippet
 
 ^
 
@@ -108,11 +108,11 @@ m —
 
 ^+
 
-^! Align by regex
+^!
 
 +!
 
-^ Go to previous change
+^
 
 !
 
@@ -128,7 +128,7 @@ m —
 
 +! . Keybindings json
 
-^ Go to next change
+^
 
 !
 
@@ -150,7 +150,7 @@ m —
 
 ^!
 
-+! Rename symbol
++!
 
 !
 
@@ -164,7 +164,7 @@ m —
 
 +!
 
-^ Select next suggestion
+^ Down
 
 !
 
@@ -176,7 +176,7 @@ m —
 
 +!
 
-^ Select previous suggestion
+^ Up
 
 !
 
