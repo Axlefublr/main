@@ -26,7 +26,7 @@ screenshot on screen getter through the folder
 
 \#w for screen screenshots used by win printscreen instead
 
-try remapping RAlt to capslock, escape to something else
+' => " in ctrlclick format
 
 ## Video links
 

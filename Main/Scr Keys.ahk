@@ -106,6 +106,7 @@ RAlt::SomeLockHint("CapsLock")
 +RAlt::Counter()
 
 PrintScreen::ScreenSnip()
+#PrintScreen::screenshot_Fullscreen()
 
 Insert:: {
    if press_Hold()
