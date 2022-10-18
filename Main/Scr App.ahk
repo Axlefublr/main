@@ -50,6 +50,7 @@ PgUp::youtube_SkipPrev()
 ^8::NextTab()
 
 !e::NewTab()
+^;::Send("^l")
 
 #!Delete::chrome_CloseAllTabs()
 
