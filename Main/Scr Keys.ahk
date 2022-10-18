@@ -1,4 +1,4 @@
-#Requires AutoHotkey v2.0-a
+﻿#Requires AutoHotkey v2.0-a
 #SingleInstance Force ;Launches the new instance of the script always, instead of asking whether it should
 #WinActivateForce ;Forces windows to be activated, skipping the gentle method
 #InputLevel 5 ;Makes sure hotkeys can't activate themselves (effectively $ on every hotkey)
@@ -75,8 +75,8 @@ Pause::scr_Test()
 
 #HotIf !WinActive("Visual Studio Code ahk_exe Code.exe")
 
-^j::Send("{Down}")
-^k::Send("{Up}")
+<^j::Send("{Down}")
+<^k::Send("{Up}")
 
 +!Left::Undo()
 +!Right::Redo()
@@ -92,15 +92,14 @@ Pause::scr_Test()
 #h::Paste()
 
 !Space::return
-#c::return
 AppsKey::RCtrl
 
 <+Escape::WindowsClock()
 #Escape::Infos(GetWeather())
 
-CapsLock::SomeLockHint("CapsLock")
-!CapsLock::CloseButActually()
-+Capslock::Counter()
+RAlt::SomeLockHint("CapsLock")
+!RAlt::CloseButActually()
++RAlt::Counter()
 
 PrintScreen::ScreenSnip()
 
