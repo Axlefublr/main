@@ -79,6 +79,8 @@ Pause::scr_Test()
 <^k::Send("{Up}")
 <^h::Send("{Left}")
 <^l::Send("{Right}")
+<^+h::Send("^{Left}")
+<^+l::Send("^{Right}")
 
 +!Left::Undo()
 +!Right::Redo()
