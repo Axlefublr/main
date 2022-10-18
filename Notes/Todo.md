@@ -10,10 +10,6 @@ vim remap to search for selection
 
 best settings for davinci resolve
 
-windows scroll is change scroll
-
-win c is toggle scrolll
-
 a way to mark infos down by description, (so it interprets some text as an info reminder)
 
 stage change (for line)
