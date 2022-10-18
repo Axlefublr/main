@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2.0-a
+#Requires AutoHotkey v2.0-a
 #SingleInstance Force ;Launches the new instance of the script always, instead of asking whether it should
 #WinActivateForce ;Forces windows to be activated, skipping the gentle method
 #InputLevel 5 ;Makes sure hotkeys can't activate themselves (effectively $ on every hotkey)
@@ -90,8 +90,6 @@ Pause::scr_Test()
 
 #j::SelectAll()
 #h::Paste()
-
-RAlt::LAlt
 
 !Space::return
 #c::return
