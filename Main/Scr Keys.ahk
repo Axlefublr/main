@@ -1,4 +1,7 @@
-﻿#Requires AutoHotkey v2.0-a
+﻿;;DIRECTIVES
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#Requires AutoHotkey v2.0-a
 #SingleInstance Force ;Launches the new instance of the script always, instead of asking whether it should
 #WinActivateForce ;Forces windows to be activated, skipping the gentle method
 #InputLevel 5 ;Makes sure hotkeys can't activate themselves (effectively $ on every hotkey)
@@ -10,15 +13,11 @@ KeyHistory 0
 SetWorkingDir A_ScriptDir "\..\" ;Ensures a consistent A_WorkingDir.
 A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
 
-;INCLUDES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;;INCLUDES
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-;Libraries
 #Include <All>
 
-;Script hotkeys
 #SuspendExempt true
 ScrollLock::Reload()
 +ScrollLock::scr_Suspend()
@@ -28,18 +27,15 @@ Pause::scr_Test()
 !Pause::scr_ExitTest()
 #SuspendExempt false
 
-;Script parts
 #Include Scr Groups.ahk
 #Include Scr Runner.ahk
 #Include Scr App.ahk
 #Include Scr Mouse.ahk
 #Include Scr Win.ahk
 
-;SPECIAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;;SPECIAL
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 ;Alt + number sends the Unicode for a specific Symbol, making that work anywhere. These hotkeys only work in windows that are messengers
 ;🥺😋🤯😼😎😩🤤👉👈
 #y::Symbol("pleading")
@@ -67,35 +63,56 @@ Pause::scr_Test()
 #F10::Symbol("shrug")
 #F11::Symbol("nerd")
 
-;MAIN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;;REMAPPED IN VSCODE
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
-
 #HotIf !WinActive("Visual Studio Code ahk_exe Code.exe")
-
-<^j::Send("{Down}")
-<^k::Send("{Up}")
-<^h::Send("{Left}")
-<^l::Send("{Right}")
-
-+!Left::Undo()
-+!Right::Redo()
+!j::Send("{Down}")
+!k::Send("{Up}")
+!h::Send("{Left}")
+!l::Send("{Right}")
 
 !Insert::Cut()
-
-!j::Find()
-#!h::Copy()
-
+^j::Find()
 #HotIf
 
+;;BASE HOTKEYS
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #j::SelectAll()
 #h::Paste()
+#Insert::WinPaste()
+#'::Copy()
+#^j::Undo()
+#^k::Redo()
 
+;;FULL REMAPS
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !Space::return
 AppsKey::RCtrl
 
+Launch_Media::Launch_App1 ;F1
+Media_Play_Pause::Launch_App2 ;F2
+; Media_Stop::return ;F3
+Media_Prev::return ;F4
+Media_Next::return ;F5
+Volume_Mute::return ;F6
+; Volume_Up::return ;F7
+; Volume_Down::return ;F8
+Launch_App1::return ;F9
+Launch_Mail::return ;F10
+; Launch_App2::return ;F11
+Browser_Home::return ;F12
+
+NumpadMult::return
+NumpadDiv::return
+NumpadEnter::return
+
+;;FUNCTIONAL
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <+Escape::WindowsClock()
 #Escape::Infos(GetWeather())
 
@@ -107,27 +124,30 @@ Launch_App2::SomeLockHint("CapsLock")
 +Launch_App2::Counter()
 
 PrintScreen::ScreenSnip()
-#PrintScreen::screenshot_Fullscreen()
+#PrintScreen::screenshot_Fullscreen_Edit()
 
-Insert:: {
-   if press_Hold()
-      SelectAll()
-}
-#Insert::WinPaste()
++!f::tool_CoordGetter()
++!g::tool_WindowGetter()
++!v::tool_RelativeCoordGetter()
+^+s::Snake(20, 50, 1.7)
+#d::HoverScreenshot()
 
+;;MOVING
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #Up::win_Maximize()
 #Down::win_RestoreDown()
 #Right::win_RestoreLeftRight("right")
 #Left::win_RestoreLeftRight("left")
 
-#^Up::   Send("{WheelUp}")
-#^k::    Send("{WheelUp}")
-#^Down:: Send("{WheelDown}")
-#^j::    Send("{WheelDown}")
-#^Right::Send("{WheelRight}")
-#^l::    Send("{WheelRight}")
-#^Left:: Send("{WheelLeft}")
-#^h::    Send("{WheelLeft}")
+#!Up::   Send("{WheelUp}")
+#!k::    Send("{WheelUp}")
+#!Down:: Send("{WheelDown}")
+#!j::    Send("{WheelDown}")
+#!Right::Send("{WheelRight}")
+#!l::    Send("{WheelRight}")
+#!Left:: Send("{WheelLeft}")
+#!h::    Send("{WheelLeft}")
 
 >^Home::Volume_Up
 >^End::Volume_Down
@@ -136,11 +156,9 @@ Insert:: {
 >^PgUp::Media_Prev
 >^Pgdn::Media_Next
 
-;REMAP~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;;NUMLOCK
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 NumpadDown::scr_Reload()
 !NumpadDown::scr_HardReload()
 +NumpadDown::scr_Suspend()
@@ -189,34 +207,5 @@ Numpad7::7
 Numpad8::8
 Numpad9::9
 
-Launch_Media::Launch_App1 ;F1
-Media_Play_Pause::Launch_App2 ;F2
-; Media_Stop::return ;F3
-Media_Prev::return ;F4
-Media_Next::return ;F5
-Volume_Mute::return ;F6
-; Volume_Up::return ;F7
-; Volume_Down::return ;F8
-Launch_App1::return ;F9
-Launch_Mail::return ;F10
-; Launch_App2::return ;F11
-Browser_Home::return ;F12
-
-NumpadMult::return
-NumpadDiv::return
-NumpadEnter::return
-
 #InputLevel 5
-
-;TOOLS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-+!f::tool_CoordGetter()
-+!g::tool_WindowGetter()
-+!v::tool_RelativeCoordGetter()
-^+s::Snake(20, 50, 1.7)
-#d::HoverScreenshot()
-
 Info("Script reloaded")

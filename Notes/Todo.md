@@ -22,15 +22,9 @@ two infos that keep track of what you set already
 
 unset instead of false in infos
 
-screenshot on screen getter through the folder
-
 ' => " in ctrlclick format
 
-reformat `[]()` to not that
-
-`unsave` to clear the screenshots folder
-
-imager just lets you select
+reply hotkey for vk
 
 ## Video links
 
@@ -38,5 +32,3 @@ imager just lets you select
 * second channel video links with same names, prepend 11., time stamp before link name
 * mention this in the readme
 * my development process
-
-https://github.com/Axlefublr

@@ -152,9 +152,9 @@ m —
 
 +!
 
-!
-
 ^
+
+! Left
 
 ## J
 
@@ -164,9 +164,9 @@ m —
 
 +!
 
-^ Down
+^
 
-!
+! Down
 
 ## K
 
@@ -176,9 +176,9 @@ m —
 
 +!
 
-^ Up
+^
 
-!
+! Up
 
 ## L
 
@@ -190,7 +190,7 @@ m —
 
 ^
 
-!
+! Right
 
 ## ;
 
@@ -222,10 +222,6 @@ l Search by keybind
 
 ' Go to keybinds
 
-f Copy full file path
-
-r Copy relative file path
-
 ### ^;.
 
 b bold
@@ -233,6 +229,12 @@ b bold
 i italic
 
 j focus editor
+
+f Copy full file path
+
+r Copy relative file path
+
+d Delete active file
 
 ## '
 
