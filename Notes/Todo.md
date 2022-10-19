@@ -24,9 +24,13 @@ unset instead of false in infos
 
 screenshot on screen getter through the folder
 
-\#w for screen screenshots used by win printscreen instead
-
 ' => " in ctrlclick format
+
+reformat `[]()` to not that
+
+`unsave` to clear the screenshots folder
+
+imager just lets you select
 
 ## Video links
 
@@ -34,3 +38,5 @@ screenshot on screen getter through the folder
 * second channel video links with same names, prepend 11., time stamp before link name
 * mention this in the readme
 * my development process
+
+https://github.com/Axlefublr

@@ -104,6 +104,9 @@ AppsKey::RCtrl
 RAlt::SomeLockHint("CapsLock")
 !RAlt::CloseButActually()
 +RAlt::Counter()
+Launch_App2::SomeLockHint("CapsLock")
+!Launch_App2::CloseButActually()
++Launch_App2::Counter()
 
 PrintScreen::ScreenSnip()
 #PrintScreen::screenshot_Fullscreen()
@@ -198,7 +201,7 @@ Volume_Mute::return ;F6
 ; Volume_Down::return ;F8
 Launch_App1::return ;F9
 Launch_Mail::return ;F10
-Launch_App2::return ;F11
+; Launch_App2::return ;F11
 Browser_Home::return ;F12
 
 NumpadMult::return
@@ -216,5 +219,6 @@ NumpadEnter::return
 +!g::tool_WindowGetter()
 +!v::tool_RelativeCoordGetter()
 ^+s::Snake(20, 50, 1.7)
+#d::HoverScreenshot()
 
 Info("Script reloaded")
