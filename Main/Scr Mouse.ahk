@@ -6,6 +6,7 @@
 #Include <Win>
 #Include <Win-full>
 #Include <Other>
+#Include <Tools>
 
 #MaxThreadsBuffer true
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,8 +85,10 @@ XButton1 & LButton::press_Hold_Sugar(Send.Bind("{BackSpace}"), SelectAll)
 XButton1 & RButton::Delete
 
 XButton2 & RButton::PrintScreen
-XButton2 & MButton::screenshot_Fullscreen_Edit()
 XButton2 & LButton::Enter
+
+XButton2 & MButton::screenshot_Fullscreen_Edit()
+XButton1 & MButton::HoverScreenshot()
 
 Media_Stop & RButton::Send "!{Pause}"
 Media_Stop & MButton::F5

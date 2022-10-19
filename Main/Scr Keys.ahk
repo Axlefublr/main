@@ -79,8 +79,6 @@ Pause::scr_Test()
 <^k::Send("{Up}")
 <^h::Send("{Left}")
 <^l::Send("{Right}")
-<^+h::Send("^{Left}")
-<^+l::Send("^{Right}")
 
 +!Left::Undo()
 +!Right::Redo()
@@ -88,7 +86,7 @@ Pause::scr_Test()
 !Insert::Cut()
 
 !j::Find()
-#'::Copy()
+#!h::Copy()
 
 #HotIf
 
