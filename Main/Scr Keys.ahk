@@ -73,8 +73,13 @@ Pause::scr_Test()
 !h::Send("{Left}")
 !l::Send("{Right}")
 
+^!h::Send("^{Left}")
+^!l::Send("^{Right}")
+
 !Insert::Cut()
 ^j::Find()
+
++^BackSpace::Send("^{Delete}")
 #HotIf
 
 ;;BASE HOTKEYS
@@ -87,7 +92,6 @@ Pause::scr_Test()
 #^j::Undo()
 #^k::Redo()
 !BackSpace::Delete
-+^BackSpace::Send("{Blind}{Delete}")
 
 ;;FULL REMAPS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -118,12 +122,15 @@ NumpadEnter::return
 <+Escape::WindowsClock()
 #Escape::Infos(GetWeather())
 
-RAlt::SomeLockHint("CapsLock")
-!RAlt::CloseButActually()
-+RAlt::Counter()
-Launch_App2::SomeLockHint("CapsLock")
+CapsLock::
+RAlt::
+Launch_App2::SomeLockHint("CapsLock")  
+!CapsLock::
+!RAlt::
 !Launch_App2::CloseButActually()
-+Launch_App2::Counter()
++CapsLock::
++RAlt::
++Launch_App2::Counter()  
 
 PrintScreen::ScreenSnip()
 #PrintScreen::screenshot_Fullscreen_Edit()
