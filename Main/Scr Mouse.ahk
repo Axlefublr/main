@@ -90,6 +90,9 @@ XButton2 & LButton::Enter
 XButton2 & MButton::screenshot_Fullscreen_Edit()
 XButton1 & MButton::HoverScreenshot()
 
+#!LButton::Hider(false)
+#LButton::Hider()
+
 Media_Stop & RButton::Send "!{Pause}"
 Media_Stop & MButton::F5
 Media_Stop & LButton::scr_Reload()

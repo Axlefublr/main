@@ -83,9 +83,11 @@ Pause::scr_Test()
 #j::SelectAll()
 #h::Paste()
 #Insert::WinPaste()
-#'::Copy()
+#vkde::Copy()
 #^j::Undo()
 #^k::Redo()
+!BackSpace::Delete
++^BackSpace::Send("{Blind}{Delete}")
 
 ;;FULL REMAPS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -131,6 +133,7 @@ PrintScreen::ScreenSnip()
 +!v::tool_RelativeCoordGetter()
 ^+s::Snake(20, 50, 1.7)
 #d::HoverScreenshot()
+#f::Hider(0x171717)
 
 ;;MOVING
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

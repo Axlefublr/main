@@ -24,7 +24,7 @@ unset instead of false in infos
 
 ' => " in ctrlclick format
 
-reply hotkey for vk
+`pt` to edit a blank screenshot with photos
 
 ## Video links
 
