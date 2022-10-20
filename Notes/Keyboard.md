@@ -236,6 +236,8 @@ r Copy relative file path
 
 d Delete active file
 
+n copy name
+
 ## '
 
 ^+
