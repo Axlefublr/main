@@ -24,6 +24,17 @@ image library
 
 clean text gets from clipboard
 
+include in links, with gihub gists, main channel and second channel video links
+
+^# click to transparent a color
+
+alt click lets you move the window
+
+![](../Files/Images/BlankPic.png)
+
+* asdf
+* asdfasdf
+
 ## Video links
 
 * my development process

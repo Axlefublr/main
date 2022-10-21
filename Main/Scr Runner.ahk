@@ -103,7 +103,7 @@
          "main",  () => vscode_WorkSpace("Main"),
 
          ;Video production
-         "clean text",  () => vscode_CleanText(),
+         "clean",       () => vscode_CleanText(A_Clipboard),
          "edit",        () => video_EditScreenshot(),
          "video up",    () => vscode_VideoUp(),
          "dupl",        () => video_DuplicateScreenshot(),
