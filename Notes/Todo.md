@@ -22,16 +22,8 @@ registry remap program
 
 image library
 
-clean text gets from clipboard
-
-include in links, with gihub gists, main channel and second channel video links
-
 ^# click to transparent a color
-
-alt click lets you move the window
 
 memes also an include
 
-## Video links
-
-* my development process
+update libraries

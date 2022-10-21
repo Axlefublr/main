@@ -7,6 +7,7 @@
 #Include <Win-full>
 #Include <Other>
 #Include <Tools>
+#Include <Image>
 
 #MaxThreadsBuffer true
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
