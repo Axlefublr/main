@@ -22,8 +22,6 @@ registry remap program
 
 image library
 
-^# click to transparent a color
-
 memes also an include
 
 update libraries

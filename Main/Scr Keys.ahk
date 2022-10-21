@@ -68,28 +68,22 @@ Pause::scr_Test()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
 #HotIf !WinActive("Visual Studio Code ahk_exe Code.exe")
-!j::Send("{Down}")
-!k::Send("{Up}")
-!h::Send("{Left}")
-!l::Send("{Right}")
-
-^!h::Send("^{Left}")
-^!l::Send("^{Right}")
-
 !Insert::Cut()
 ^j::Find()
 
-+^BackSpace::Send("^{Delete}")
 #HotIf
 
 ;;BASE HOTKEYS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++^BackSpace::Send("^{Delete}")
 #j::SelectAll()
 #h::Paste()
 #Insert::WinPaste()
 #vkde::Copy()
++!Left::
 #^j::Undo()
++!Right::
 #^k::Redo()
 !BackSpace::Delete
 
@@ -150,14 +144,22 @@ PrintScreen::ScreenSnip()
 #Right::win_RestoreLeftRight("right")
 #Left::win_RestoreLeftRight("left")
 
-#!Up::   Send("{WheelUp}")
-#!k::    Send("{WheelUp}")
-#!Down:: Send("{WheelDown}")
-#!j::    Send("{WheelDown}")
-#!Right::Send("{WheelRight}")
-#!l::    Send("{WheelRight}")
-#!Left:: Send("{WheelLeft}")
-#!h::    Send("{WheelLeft}")
+!j::Send("{Down}")
+!k::Send("{Up}")
+!h::Send("{Left}")
+!l::Send("{Right}")
+
+^!h::Send("^{Left}")
+^!l::Send("^{Right}")
+
+#!Up::
+#!k::Send("{WheelUp}")
+#!Down::
+#!j::Send("{WheelDown}")
+#!Right::
+#!l::Send("{WheelRight}")
+#!Left::
+#!h::Send("{WheelLeft}")
 
 >^Home::Volume_Up
 >^End::Volume_Down
