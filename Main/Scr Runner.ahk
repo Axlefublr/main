@@ -107,8 +107,6 @@
          "edit",        () => video_EditScreenshot(),
          "video up",    () => vscode_VideoUp(),
          "dupl",        () => video_DuplicateScreenshot(),
-         "desc",        () => ClipSend(ReadFile(Paths.Ptf["Description"]) "`n`n"),
-         "clean paste", () => video_PasteClean(),
          "setup",       () => davinci_Setup(),
 
       )
