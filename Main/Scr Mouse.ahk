@@ -93,12 +93,12 @@ XButton1 & MButton::HoverScreenshot()
 #!LButton::Hider(false)
 #LButton::Hider()
 
-Media_Stop & RButton::Send "!{Pause}"
+Media_Stop & RButton::scr_Reload()
 Media_Stop & MButton::F5
-Media_Stop & LButton::scr_Reload()
+Media_Stop & LButton::ScreenSnip()
 
-XButton1 & Media_Stop::return
-XButton2 & Media_Stop::return
+XButton1 & Media_Stop::scr_Test()
+XButton2 & Media_Stop::scr_ExitTest()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
