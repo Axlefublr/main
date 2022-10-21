@@ -23,7 +23,7 @@ PgUp::spotify_SkipPrev()
 :O:msc::My second channel
 :O:ahk::Ahk all the way!
 :O:otw::Ahk on the way?
-:XO::desc::ClipSend(ReadFile(Paths.Ptf["Description"]) "`n`n")
+:XO:desc::ClipSend(ReadFile(Paths.Ptf["Description"]) "`n`n")
 
 #HotIf win_ActiveRegex("(?<! - )Watch later|Subscriptions|Youtube ahk_exe chrome\.exe")
 Escape::youtube_MiniscreenClose()

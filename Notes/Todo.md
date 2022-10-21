@@ -30,10 +30,7 @@ include in links, with gihub gists, main channel and second channel video links
 
 alt click lets you move the window
 
-![](../Files/Images/BlankPic.png)
-
-* asdf
-* asdfasdf
+memes also an include
 
 ## Video links
 
