@@ -238,6 +238,8 @@ d Delete active file
 
 n copy name
 
+o move
+
 ## '
 
 ^+
