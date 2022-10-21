@@ -13,6 +13,7 @@
 #Include <Global>
 #Include <Other>
 #Include <Get>
+#Include <Channel>
 
 #Hotstring EndChars `t
 
@@ -113,10 +114,13 @@
 
       try runner_commands[val].Call()
       catch Any {
-         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop|disc) (.+)", &result)
+         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop|disc|cho|chp) (.+)", &result)
          static runner_regex := Map(
+
             "p",       (input) => ClipSend(Links[input],, false),
             "o",       (input) => RunLink(Links[input]),
+            "chp",     (input) => ClipSend(Channel[input],, false),
+            "cho",     (input) => RunLink(Channel[input]),
             "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
             "r",       (input) => spotify_NewRapper(input),
             "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
@@ -136,6 +140,7 @@
             "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
             "drop",    (input) => Show_DeleteShow(input, true),
             "disc",    (input) => spotify_NewDiscovery_Manual(input),
+
          )
          try runner_regex[result[1]].Call(result[2])
       }
