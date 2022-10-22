@@ -19,7 +19,7 @@ A_MaxHotkeysPerInterval := 1000 ;Removes the limitation of 35 hotkeys per second
 #Include <All>
 
 #SuspendExempt true
-ScrollLock::Reload()
+ScrollLock::scr_Reload()
 +ScrollLock::scr_Suspend()
 #ScrollLock::SystemReboot()
 #Pause::SystemPowerDown()
@@ -220,4 +220,4 @@ Numpad8::8
 Numpad9::9
 
 #InputLevel 5
-Info("Script reloaded")
+Info(A_AhkPath.Replace(Paths.AutoHotkey "\"))

@@ -1,18 +1,10 @@
-﻿fix commenting
-
-move rare links to its own file
-
-relative calculator for coords (in coord getter, using a_screen blablabla)
+﻿relative calculator for coords (in coord getter, using a_screen blablabla)
 
 getweekday()
 
 vim remap to search for selection
 
 best settings for davinci resolve
-
-stage change (for line)
-
-stage all changes (in file)
 
 ' => " in ctrlclick format
 
@@ -21,7 +13,5 @@ stage all changes (in file)
 registry remap program
 
 image library
-
-memes also an include
 
 update libraries
