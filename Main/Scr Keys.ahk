@@ -71,6 +71,14 @@ Pause::scr_Test()
 !Insert::Cut()
 ^j::Find()
 
+!j::Send("{Down}")
+!k::Send("{Up}")
+!h::Send("{Left}")
+!l::Send("{Right}")
+
+^!h::Send("^{Left}")
+^!l::Send("^{Right}")
+
 #HotIf
 
 ;;BASE HOTKEYS
@@ -143,14 +151,6 @@ PrintScreen::ScreenSnip()
 #Down::win_RestoreDown()
 #Right::win_RestoreLeftRight("right")
 #Left::win_RestoreLeftRight("left")
-
-!j::Send("{Down}")
-!k::Send("{Up}")
-!h::Send("{Left}")
-!l::Send("{Right}")
-
-^!h::Send("^{Left}")
-^!l::Send("^{Right}")
 
 #!Up::
 #!k::Send("{WheelUp}")

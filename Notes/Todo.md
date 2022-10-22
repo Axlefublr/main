@@ -2,15 +2,11 @@
 
 getweekday()
 
-vim remap to search for selection
-
 best settings for davinci resolve
 
-' => " in ctrlclick format
-
-`pt` to edit a blank screenshot with photos
-
 registry remap program
+
+trigger suggest if there is none with !j !k
 
 image library
 
