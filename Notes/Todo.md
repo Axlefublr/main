@@ -9,3 +9,5 @@ registry remap program
 image library
 
 update libraries
+
+fix youtube switch from channel

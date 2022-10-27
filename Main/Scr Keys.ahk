@@ -143,6 +143,7 @@ PrintScreen::ScreenSnip()
 ^+s::Snake(20, 50, 1.7)
 #d::HoverScreenshot()
 #f::Hider(0x171717)
+#b::Search.Engine("Google")
 
 ;;MOVING
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

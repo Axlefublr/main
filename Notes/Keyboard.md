@@ -1,14 +1,14 @@
 # Windows
 
-h —
+h — paste
 
-j —
+j — select all
 
-k —
+k — konnect (lol)
 
-' —
+' — copy
 
-b —
+b — googler
 
 n — Monkeytype
 
