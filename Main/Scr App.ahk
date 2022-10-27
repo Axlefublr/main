@@ -9,11 +9,11 @@
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("ahk_exe Spotify.exe")
-!w::spotify_Like()
-!e::spotify_LikedPlaylist()
+!w::Spotify.Like()
+!e::Spotify.LikedPlaylist()
 
-PgDn::spotify_SkipNext()
-PgUp::spotify_SkipPrev()
+PgDn::Spotify.SkipNext()
+PgUp::Spotify.SkipPrev()
 
 ;;YOUTUBE
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,8 +51,6 @@ PgUp::youtube_SkipPrev()
 
 !e::NewTab()
 
-#!Delete::chrome_CloseAllTabs()
-
 #HotIf WinActive("Google Chrome ahk_exe chrome.exe",, "Messenger")
 !w::CloseTab()
 
@@ -78,7 +76,7 @@ MButton::discord_Reply()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive(Paths.Ptf["Rappers"] " ahk_exe Code.exe")
 !e:: {
-   text := GetDateAndTime() " - " spotify_RemoveDateAndTime(A_Clipboard)
+   text := GetDateAndTime() " - " Spotify.RemoveDateAndTime(A_Clipboard)
    AppendFile(Paths.Ptf["Unfinished"], text)
    NextTab()
 }

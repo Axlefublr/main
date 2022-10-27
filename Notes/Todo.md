@@ -6,8 +6,6 @@ best settings for davinci resolve
 
 registry remap program
 
-trigger suggest if there is none with !j !k
-
 image library
 
 update libraries

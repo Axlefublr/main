@@ -43,10 +43,10 @@
    gui_hwnd := g_terminal.Hwnd
 
    Destruction(thisHotkey, shouldContinue := false) {
-      WinMinimize(gui_hwnd)
-      if shouldContinue
-         _Runner_Enclose(g_terminal_edit.Value)
+      editValue := g_terminal_edit.Value
       try g_terminal.Destroy()
+      if shouldContinue
+         _Runner_Enclose(editValue)
       HotIfWinExist("ahk_id " gui_hwnd)
       Hotkey("Escape", "Off")
       HotIfWinactive("ahk_id " gui_hwnd)
@@ -77,7 +77,7 @@
          "startup", () => tool_StartupRun(),
          "shows",   () => Show_GetShows(),
          "rel",     () => Reload(),
-         "track",   () => ClipSend(spotify_GetCurrSong()),
+         "track",   () => ClipSend(Spotify.GetCurrSong()),
          "kb",      () => tool_KeyCodeGetter(),
          "eat",     () => EatingLogger(),
          "dt",      () => ClipSend(GetDateAndTime(),, false),
@@ -120,9 +120,9 @@
             "p",       (input) => ClipSend(Links[input],, false),
             "o",       (input) => RunLink(Links[input]),
             "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
-            "r",       (input) => spotify_NewRapper(input),
+            "r",       (input) => Spotify.NewRapper(input),
             "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
-            "a",       (input) => spotify_FavRapper_Manual(input),
+            "a",       (input) => Spotify.FavRapper_Manual(input),
             "e",       (input) => Infos(Round(Eval(input), 3)),
             "i",       (input) => Infos(input),
             "show",    (input) => Show_Run(input),
@@ -137,7 +137,7 @@
             "install", (input) => git_InstallAhkLibrary(input),
             "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
             "drop",    (input) => Show_DeleteShow(input, true),
-            "disc",    (input) => spotify_NewDiscovery_Manual(input),
+            "disc",    (input) => Spotify.NewDiscovery_Manual(input),
 
          )
          try runner_regex[result[1]].Call(result[2])

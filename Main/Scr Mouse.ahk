@@ -180,12 +180,12 @@ XButton1:: {
 			}
 		Case WinActive("ahk_exe Spotify.exe"):
 			Switch {
-				Case topRight:   spotify_NewDiscovery()
-				Case bottomRight:spotify_Discovery()
-				Case topLeft:    spotify_Context()
-				Case bottomLeft: spotify_FavRapper_Auto()
-				Case up:         spotify_Like()
-				Case down:       spotify_Shuffle()
+				Case topRight:   Spotify.NewDiscovery()
+				Case bottomRight:Spotify.Discovery()
+				Case topLeft:    Spotify.Context()
+				Case bottomLeft: Spotify.FavRapper_Auto()
+				Case up:         Spotify.Like()
+				Case down:       Spotify.Shuffle()
 			}
 		Case WinActive("Telegram ahk_exe Telegram.exe") && down:telegram_Scroll()
 		Case WinActive("Discord ahk_exe Discord.exe") && down:Send("{Esc}")
