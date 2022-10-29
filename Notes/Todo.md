@@ -11,3 +11,5 @@ image library
 update libraries
 
 fix youtube switch from channel
+
+separate darkmode and setfont

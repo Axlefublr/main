@@ -35,7 +35,7 @@
 :O:me::Axlefublr
 
 +!l:: {
-   g_terminal := Gui("AlwaysOnTop -Caption +ToolWindow")
+   g_terminal := Gui("AlwaysOnTop -Caption")
    g_terminal.backColor := "171717"
    g_terminal.SetFont("S16 q5 c0xC5C5C5", "Consolas")
    g_terminal_edit := g_terminal.Add("Edit", "background171717 -E0x200 Center x10 W377 h45")
