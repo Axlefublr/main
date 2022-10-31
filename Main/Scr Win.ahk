@@ -19,7 +19,7 @@
 <!x::win_App("AutoHotkey v2 Help",                  Paths.Apps["Ahk v2 docs"])
 <!a::win_App("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
 <!c::win_App("Google Chrome ahk_exe chrome.exe",    Paths.Apps["Google Chrome"])
-<!q::win_App("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"])
+<!q::win_App("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"],,,, "Updater")
 <!t::win_App("Telegram ahk_exe Telegram.exe",       Paths.Apps["Telegram"])
 <!z::win_App("OBS ahk_exe obs64.exe",               Paths.Apps["OBS"],,, Paths.OBSFolder)
 

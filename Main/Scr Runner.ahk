@@ -72,7 +72,8 @@
          "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
          "remove comments",       () => str_RemoveLineComments(),
          "convert to json",       () => ClipSend(str_ConvertToJsonSnippet(str_GetSelection()), ""),
-
+         
+         "update",  () => github_UpdateAhkLibraries(),
          "str len", () => Infos(str_GetSelection().Length),
          "fs",      () => tool_FileSearch(),
          "startup", () => tool_StartupRun(),
@@ -87,16 +88,19 @@
          "sm",   Run.Bind(Paths.Apps["Sound mixer"]),
          "apps", MainApps,
 
-         "v1 docs", () => win_RunAct("AutoHotkey Help",                     Paths.Apps["Ahk v1 docs"]),
-         "davinci", () => win_RunAct("Project Manager ahk_exe Resolve.exe", Paths.Apps["Davinci Resolve"]),
-         "slack",   () => win_RunAct("Slack ahk_exe slack.exe",             Paths.Apps["Slack"]),
-         "steam",   () => win_RunAct("ahk_exe steam.exe",                   Paths.Apps["Steam"], , "Steam - News"),
-         "vpn",     () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe",    Paths.Apps["VPN"]),
-         "fl",      () => win_RunAct("ahk_exe FL64.exe",                    Paths.Ptf["FL preset"]),
-         "ds4",     () => win_RunAct("DS4Windows ahk_exe DS4Windows.exe",   Paths.Apps["DS4 Windows"]),
-         "obs",     () => win_RunAct("OBS ahk_exe obs64.exe",               Paths.Apps["OBS"],,, Paths.OBSFolder),
-         "gimp",    () => win_RunAct("Thumbnail preset.xcf-1.0",            Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
-         "gimp2",   () => win_RunAct("Thumbnail preset down.xcf-1.0",       Paths.Ptf["Thumbnail preset down"]),
+         "v1 docs",   () => win_RunAct("AutoHotkey Help",                     Paths.Apps["Ahk v1 docs"]),
+         "davinci",   () => win_RunAct("Project Manager ahk_exe Resolve.exe", Paths.Apps["Davinci Resolve"]),
+         "slack",     () => win_RunAct("Slack ahk_exe slack.exe",             Paths.Apps["Slack"]),
+         "steam",     () => win_RunAct("ahk_exe steam.exe",                   Paths.Apps["Steam"], , "Steam - News"),
+         "vpn",       () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe",    Paths.Apps["VPN"]),
+         "fl",        () => win_RunAct("ahk_exe FL64.exe",                    Paths.Ptf["FL preset"]),
+         "ds4",       () => win_RunAct("DS4Windows ahk_exe DS4Windows.exe",   Paths.Apps["DS4 Windows"]),
+         "obs",       () => win_RunAct("OBS ahk_exe obs64.exe",               Paths.Apps["OBS"],,, Paths.OBSFolder),
+         
+         ;Gimp
+         "gi main ahk", () => win_RunAct("main ahk channel.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
+         "gi ahk",      () => win_RunAct("ahk.xcf-1.0",              Paths.Ptf["Thumbnail preset down"],, "About GIMP ahk_exe gimp-2.10.exe"),
+         "gi nvim",     () => win_RunAct("nvim.xcf-1.0",             Paths.Ptf["Nvim preset"],, "About GIMP ahk_exe gimp-2.10.exe"),
 
          ;Folders
          "ext",   () => win_RunAct_Folders(Paths.VsCodeExtensions),
@@ -105,17 +109,17 @@
          "main",  () => vscode_WorkSpace("Main"),
 
          ;Video production
-         "clean",       () => vscode_CleanText(A_Clipboard),
-         "edit",        () => video_EditScreenshot(),
-         "video up",    () => vscode_VideoUp(),
-         "dupl",        () => video_DuplicateScreenshot(),
-         "setup",       () => davinci_Setup(),
+         "clean",    () => vscode_CleanText(A_Clipboard),
+         "edit",     () => video_EditScreenshot(),
+         "video up", () => vscode_VideoUp(),
+         "dupl",     () => video_DuplicateScreenshot(),
+         "setup",    () => davinci_Setup(),
 
       )
 
       try runner_commands[val].Call()
       catch Any {
-         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop|disc) (.+)", &result)
+         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop|disc|sy) (.+)", &result)
          static runner_regex := Map(
 
             "p",       (input) => ClipSend(Links[input],, false),
@@ -139,6 +143,7 @@
             "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
             "drop",    (input) => Show_DeleteShow(input, true),
             "disc",    (input) => Spotify.NewDiscovery_Manual(input),
+            "sy",      (input) => Symbol(input),
 
          )
          try runner_regex[result[1]].Call(result[2])
