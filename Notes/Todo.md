@@ -9,3 +9,5 @@ image library
 text library
 
 fix youtube switch from channel
+
+time stamp in shows

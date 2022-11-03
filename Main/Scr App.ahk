@@ -18,19 +18,19 @@ PgUp::Spotify.SkipPrev()
 ;;YOUTUBE
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("YouTube Studio ahk_exe chrome.exe")
-:O:mmc::My main channel
+#HotIf WinActive(Youtube.Studio)
+:O:mmc::My ahk specific channel
 :O:msc::My second channel
 :O:ahk::Ahk all the way!
 :O:otw::Ahk on the way?
 :XO:desc::ClipSend(ReadFile(Paths.Ptf["Description"]) "`n`n")
 
-#HotIf win_ActiveRegex("(?<! - )Watch later|Subscriptions|Youtube ahk_exe chrome\.exe")
-Escape::youtube_MiniscreenClose()
+#HotIf win_ActiveRegex(Youtube.NotWatchingVideo)
+Escape::Youtube.MiniscreenClose()
 
-#HotIf WinActive("YouTube")
-PgDn::youtube_SkipNext()
-PgUp::youtube_SkipPrev()
+#HotIf WinActive(Youtube.winTitle)
+PgDn::Youtube.SkipNext()
+PgUp::Youtube.SkipPrev()
 
 ;;CHROME
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

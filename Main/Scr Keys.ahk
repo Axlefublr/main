@@ -101,8 +101,8 @@ Pause::scr_Test()
 !Space::return
 AppsKey::RCtrl
 
-Launch_Media::Launch_App1 ;F1
-Media_Play_Pause::Launch_App2 ;F2
+Launch_Media::return ;F1
+Media_Play_Pause::return ;F2
 ; Media_Stop::return ;F3
 Media_Prev::return ;F4
 Media_Next::return ;F5
@@ -111,7 +111,7 @@ Volume_Mute::return ;F6
 ; Volume_Down::return ;F8
 Launch_App1::return ;F9
 Launch_Mail::return ;F10
-; Launch_App2::return ;F11
+Launch_App2::return ;F11
 Browser_Home::return ;F12
 
 NumpadMult::return
@@ -124,15 +124,9 @@ NumpadEnter::return
 <+Escape::WindowsClock()
 #Escape::Infos(GetWeather())
 
-CapsLock::
-RAlt::
-Launch_App2::SomeLockHint("CapsLock")  
-!CapsLock::
-!RAlt::
-!Launch_App2::CloseButActually()
-+CapsLock::
-+RAlt::
-+Launch_App2::Counter()  
+CapsLock::SomeLockHint("CapsLock")  
+!CapsLock::CloseButActually()
++CapsLock::Counter()  
 
 PrintScreen::ScreenSnip()
 #PrintScreen::screenshot_Fullscreen_Edit()
