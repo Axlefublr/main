@@ -35,118 +35,86 @@
 :O:me::Axlefublr
 
 +!l:: {
-   g_terminal := Gui("AlwaysOnTop -Caption")
-   g_terminal.backColor := "171717"
-   g_terminal.SetFont("S16 q5 c0xC5C5C5", "Consolas")
-   g_terminal_edit := g_terminal.Add("Edit", "background171717 -E0x200 Center x10 W377 h45")
+   input := CleanInputBox().WaitForInput()
 
-   gui_hwnd := g_terminal.Hwnd
+   static runner_commands := Map(
+      ;Main
+      "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
+      "remove comments",       () => str_RemoveLineComments(),
+      "convert to json",       () => ClipSend(str_ConvertToJsonSnippet(str_GetSelection()), ""),
 
-   Destruction(thisHotkey, shouldContinue := false) {
-      g_terminal.Minimize()
-      WinHide(gui_hwnd)
-      if shouldContinue
-         _Runner_Enclose(g_terminal_edit.Value)
-      try g_terminal.Destroy()
-      HotIfWinExist("ahk_id " gui_hwnd)
-      Hotkey("Escape", "Off")
-      HotIfWinactive("ahk_id " gui_hwnd)
-      Hotkey("Enter", "Off")
-   }
+      "update",  () => github_UpdateAhkLibraries(),
+      "str len", () => Infos(str_GetSelection().Length),
+      "fs",      () => tool_FileSearch(),
+      "startup", () => tool_StartupRun(),
+      "shows",   () => Shows().GetList(),
+      "rel",     () => Reload(),
+      "track",   () => ClipSend(Spotify.GetCurrSong()),
+      "kb",      () => tool_KeyCodeGetter(),
+      "eat",     () => EatingLogger(),
+      "dt",      () => ClipSend(GetDateAndTime(), , false),
 
-   HotIfWinExist("ahk_id " gui_hwnd)
-   Hotkey("Escape", Destruction, "On")
-   HotIfWinActive("ahk_id " gui_hwnd)
-   Hotkey("Enter", Destruction.Bind(, true), "On")
+      ;Apps
+      "sm",       Run.Bind(Paths.Apps["Sound mixer"]),
+      "apps",     MainApps,
+      "v1 docs",  () => win_RunAct("AutoHotkey Help", Paths.Apps["Ahk v1 docs"]),
+      "davinci",  () => win_RunAct("Project Manager ahk_exe Resolve.exe", Paths.Apps["Davinci Resolve"]),
+      "slack",    () => win_RunAct("Slack ahk_exe slack.exe", Paths.Apps["Slack"]),
+      "steam",    () => win_RunAct("ahk_exe steam.exe", Paths.Apps["Steam"], , "Steam - News"),
+      "vpn",      () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe", Paths.Apps["VPN"]),
+      "fl",       () => win_RunAct("ahk_exe FL64.exe", Paths.Ptf["FL preset"]),
+      "ds4",      () => win_RunAct("DS4Windows ahk_exe DS4Windows.exe", Paths.Apps["DS4 Windows"]),
+      "obs",      () => win_RunAct("OBS ahk_exe obs64.exe", Paths.Apps["OBS"], , , Paths.OBSFolder),
+      
+      ;Gimp
+      "gi ahk",  () => win_RunAct("main ahk channel.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
+      "gi main", () => win_RunAct("ahk.xcf-1.0", Paths.Ptf["Thumbnail preset down"], , "About GIMP ahk_exe gimp-2.10.exe"),
+      "gi nvim", () => win_RunAct("nvim.xcf-1.0", Paths.Ptf["Nvim preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
 
-   g_terminal.Show("W400 H50 y20")
+      ;Folders
+      "ext",   () => win_RunAct_Folders(Paths.VsCodeExtensions),
+      "prog",  () => win_RunAct_Folders(Paths.Prog),
+      "saved", () => win_RunAct_Folders(Paths.SavedScreenshots),
+      "main",  () => vscode_WorkSpace("Main"),
 
-   _Runner_Enclose(val) {
+      ;Video production
+      "clean",    () => vscode_CleanText(A_Clipboard),
+      "edit",     () => video_EditScreenshot(),
+      "video up", () => vscode_VideoUp(),
+      "dupl",     () => video_DuplicateScreenshot(),
+      "setup",    () => davinci_Setup(),
 
-      if !val
-         return
+   )
 
-      static runner_commands := Map(
+   try runner_commands[input].Call()
+   catch Any {
+      RegexMatch(input, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop|disc|sy) (.+)", &result)
+      static runner_regex := Map(
 
-         ;Main
-         "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
-         "remove comments",       () => str_RemoveLineComments(),
-         "convert to json",       () => ClipSend(str_ConvertToJsonSnippet(str_GetSelection()), ""),
-         
-         "update",  () => github_UpdateAhkLibraries(),
-         "str len", () => Infos(str_GetSelection().Length),
-         "fs",      () => tool_FileSearch(),
-         "startup", () => tool_StartupRun(),
-         "shows",   () => Show_GetShows(),
-         "rel",     () => Reload(),
-         "track",   () => ClipSend(Spotify.GetCurrSong()),
-         "kb",      () => tool_KeyCodeGetter(),
-         "eat",     () => EatingLogger(),
-         "dt",      () => ClipSend(GetDateAndTime(),, false),
-
-         ;Apps
-         "sm",   Run.Bind(Paths.Apps["Sound mixer"]),
-         "apps", MainApps,
-
-         "v1 docs",   () => win_RunAct("AutoHotkey Help",                     Paths.Apps["Ahk v1 docs"]),
-         "davinci",   () => win_RunAct("Project Manager ahk_exe Resolve.exe", Paths.Apps["Davinci Resolve"]),
-         "slack",     () => win_RunAct("Slack ahk_exe slack.exe",             Paths.Apps["Slack"]),
-         "steam",     () => win_RunAct("ahk_exe steam.exe",                   Paths.Apps["Steam"], , "Steam - News"),
-         "vpn",       () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe",    Paths.Apps["VPN"]),
-         "fl",        () => win_RunAct("ahk_exe FL64.exe",                    Paths.Ptf["FL preset"]),
-         "ds4",       () => win_RunAct("DS4Windows ahk_exe DS4Windows.exe",   Paths.Apps["DS4 Windows"]),
-         "obs",       () => win_RunAct("OBS ahk_exe obs64.exe",               Paths.Apps["OBS"],,, Paths.OBSFolder),
-         
-         ;Gimp
-         "gi main ahk", () => win_RunAct("main ahk channel.xcf-1.0", Paths.Ptf["Thumbnail preset"], , "About GIMP ahk_exe gimp-2.10.exe"),
-         "gi ahk",      () => win_RunAct("ahk.xcf-1.0",              Paths.Ptf["Thumbnail preset down"],, "About GIMP ahk_exe gimp-2.10.exe"),
-         "gi nvim",     () => win_RunAct("nvim.xcf-1.0",             Paths.Ptf["Nvim preset"],, "About GIMP ahk_exe gimp-2.10.exe"),
-
-         ;Folders
-         "ext",   () => win_RunAct_Folders(Paths.VsCodeExtensions),
-         "prog",  () => win_RunAct_Folders(Paths.Prog),
-         "saved", () => win_RunAct_Folders(Paths.SavedScreenshots),
-         "main",  () => vscode_WorkSpace("Main"),
-
-         ;Video production
-         "clean",    () => vscode_CleanText(A_Clipboard),
-         "edit",     () => video_EditScreenshot(),
-         "video up", () => vscode_VideoUp(),
-         "dupl",     () => video_DuplicateScreenshot(),
-         "setup",    () => davinci_Setup(),
+         "p",       (input) => ClipSend(Links[input], , false),
+         "o",       (input) => RunLink(Links[input]),
+         "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
+         "r",       (input) => Spotify.NewRapper(input),
+         "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
+         "a",       (input) => Spotify.FavRapper_Manual(input),
+         "e",       (input) => Infos(Round(Eval(input), 3)),
+         "i",       (input) => Infos(input),
+         "show",    (input) => Shows().Run(input),
+         "down",    (input) => Shows().Run(input, "downloaded"),
+         "link",    (input) => Shows().SetLink(input),
+         "ep",      (input) => Shows().SetEpisode(input),
+         "dd",      (input) => Shows().SetDownloaded(input),
+         "delow",   (input) => Shows().DeleteShow(input),
+         "drop",    (input) => Shows().DeleteShow(input, true),
+         "counter", (input) => Counter(input),
+         "gitlink", (input) => ClipSend(git_Link(input), "", false),
+         "gitopen", (input) => RunLink(git_Link(input)),
+         "install", (input) => git_InstallAhkLibrary(input),
+         "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
+         "disc",    (input) => Spotify.NewDiscovery_Manual(input),
+         "sy",      (input) => Symbol(input),
 
       )
-
-      try runner_commands[val].Call()
-      catch Any {
-         RegexMatch(val, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop|disc|sy) (.+)", &result)
-         static runner_regex := Map(
-
-            "p",       (input) => ClipSend(Links[input],, false),
-            "o",       (input) => RunLink(Links[input]),
-            "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
-            "r",       (input) => Spotify.NewRapper(input),
-            "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
-            "a",       (input) => Spotify.FavRapper_Manual(input),
-            "e",       (input) => Infos(Round(Eval(input), 3)),
-            "i",       (input) => Infos(input),
-            "show",    (input) => Show_Run(input),
-            "down",    (input) => Show_Run(input, "downloaded"),
-            "link",    (input) => Show_SetLink(input),
-            "ep",      (input) => Show_SetEpisode(input),
-            "dd",      (input) => Show_SetDownloaded(input),
-            "delow",   (input) => Show_DeleteShow(input),
-            "counter", (input) => Counter(input),
-            "gitlink", (input) => ClipSend(git_Link(input), "", false),
-            "gitopen", (input) => RunLink(git_Link(input)),
-            "install", (input) => git_InstallAhkLibrary(input),
-            "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
-            "drop",    (input) => Show_DeleteShow(input, true),
-            "disc",    (input) => Spotify.NewDiscovery_Manual(input),
-            "sy",      (input) => Symbol(input),
-
-         )
-         try runner_regex[result[1]].Call(result[2])
-      }
+      try runner_regex[result[1]].Call(result[2])
    }
 }

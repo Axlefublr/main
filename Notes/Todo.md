@@ -1,13 +1,3 @@
-﻿getweekday()
+﻿best settings for davinci resolve
 
-best settings for davinci resolve
-
-registry remap program
-
-image library
-
-text library
-
-fix youtube switch from channel
-
-time stamp in shows
+double deref in C#

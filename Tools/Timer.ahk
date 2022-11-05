@@ -2,7 +2,7 @@
 Persistent true
 #Include <Links>
 #Include <Paths>
-#Include <Global>
+#Include <Text>
 #Include <Tools>
 #Include <Eval>
 
