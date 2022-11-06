@@ -135,9 +135,9 @@ PrintScreen::ScreenSnip()
 +!g::tool_WindowGetter()
 +!v::tool_RelativeCoordGetter()
 ^+s::Snake(20, 50, 1.7)
-#d::HoverScreenshot()
 #f::Hider(0x171717)
-#b::Search("Google").ShowVisual()
+#b::InternetSearch("Google").TriggerSearch()
+RAlt::SoundPlay(Paths.Ptf["vine boom"])
 
 ;;MOVING
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -109,11 +109,17 @@ Down::Send "{Volume_Down}"
 ^8::Send("!s")
 ^6::Send("!c")
 
-;;BACKSPACE
+;;EXPLORER
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf win_ActiveRegex("ahk_exe AutoHotkey64_(UIA)?\.exe|explorer\.exe")
+#HotIf win_ActiveRegex(Explorer.winTitleRegex)
+F6::FileSystemSearch().GetInput()
+#HotIf win_ActiveRegex("ahk_exe AutoHotkey64(_UIA)?\.exe|explorer\.exe")
 ^BackSpace::DeleteWord()
+
+;;TERMINAL
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("Linux ahk_exe WindowsTerminal.exe")
 ^BackSpace::term_DeleteWord()
 :OX:fp::ClipSend(vscode_GetLinuxPath())

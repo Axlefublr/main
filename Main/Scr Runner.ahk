@@ -35,7 +35,9 @@
 :O:me::Axlefublr
 
 +!l:: {
-   input := CleanInputBox().WaitForInput()
+   if !input := CleanInputBox().WaitForInput() {
+      return false
+   }
 
    static runner_commands := Map(
       ;Main
