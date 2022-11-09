@@ -69,6 +69,10 @@ Pause::scr_Test()
 +^BackSpace::Send("^{Delete}")
 #j::SelectAll()
 #h::Paste()
+Insert:: {
+   if press_Hold()
+      SelectAll()
+}
 #Insert::WinPaste()
 #vkde::Copy()
 +!Left::
@@ -76,6 +80,7 @@ Pause::scr_Test()
 +!Right::
 #^k::Redo()
 !BackSpace::Delete
+!Tab::Send("^!{Tab}")
 
 ;;FULL REMAPS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -110,8 +115,8 @@ CapsLock::SomeLockHint("CapsLock")
 !CapsLock::CloseButActually()
 +CapsLock::Counter()  
 
-PrintScreen::ScreenSnip()
-#PrintScreen::screenshot_Fullscreen_Edit()
+PrintScreen::Screenshot.Start()
+#PrintScreen::Screenshot.FullScreenOut()
 
 +!f::tool_CoordGetter()
 +!g::tool_WindowGetter()

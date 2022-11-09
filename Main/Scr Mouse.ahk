@@ -88,7 +88,7 @@ XButton1 & RButton::Delete
 XButton2 & RButton::PrintScreen
 XButton2 & LButton::Enter
 
-XButton2 & MButton::screenshot_Fullscreen_Edit()
+XButton2 & MButton::Screenshot.FullScreenOut()
 XButton1 & MButton::HoverScreenshot()
 
 #!LButton::Hider(false)
@@ -96,7 +96,7 @@ XButton1 & MButton::HoverScreenshot()
 
 Media_Stop & RButton::scr_Reload()
 Media_Stop & MButton::F5
-Media_Stop & LButton::ScreenSnip()
+Media_Stop & LButton::Screenshot.Start()
 
 XButton1 & Media_Stop::scr_Test()
 XButton2 & Media_Stop::scr_ExitTest()

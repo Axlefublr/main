@@ -32,7 +32,7 @@ Escape::Youtube.MiniscreenClose()
 PgDn::Youtube.SkipNext()
 PgUp::Youtube.SkipPrev()
 
-;;CHROME
+Browser
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("Google Chrome ahk_exe chrome.exe")
@@ -130,7 +130,7 @@ F6::FileSystemSearch().GetInput()
 #HotIf WinActive("Snip & Sketch")
 XButton1 & LButton::Save()
 #HotIf WinActive("ahk_exe ScreenClippingHost.exe")
-WheelUp::screenshot_Window()
-WheelDown::screenshot_Rectangle()
-MButton::screenshot_Fullscreen()
+WheelUp::Screenshot.Window()
+WheelDown::Screenshot.Rectangle()
+MButton::Screenshot.Fullscreen()
 #HotIf

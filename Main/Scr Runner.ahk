@@ -47,7 +47,6 @@
 
       "update",  () => github_UpdateAhkLibraries(),
       "str len", () => Infos(str_GetSelection().Length),
-      "fs",      () => tool_FileSearch(),
       "startup", () => tool_StartupRun(),
       "shows",   () => Shows().GetList(),
       "rel",     () => Reload(),
@@ -80,7 +79,7 @@
       "main",  () => vscode_WorkSpace("Main"),
 
       ;Video production
-      "clean",    () => vscode_CleanText(A_Clipboard),
+      "clean",    () => vscode_CleanText(ReadFile(A_Clipboard)),
       "edit",     () => video_EditScreenshot(),
       "video up", () => vscode_VideoUp(),
       "dupl",     () => video_DuplicateScreenshot(),
