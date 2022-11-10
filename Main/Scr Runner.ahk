@@ -98,7 +98,7 @@
          "r",       (input) => Spotify.NewRapper(input),
          "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
          "a",       (input) => Spotify.FavRapper_Manual(input),
-         "e",       (input) => Infos(Round(Eval(input), 3)),
+         "e",       (input) => Calculator(input),
          "i",       (input) => Infos(input),
          "show",    (input) => Shows().Run(input),
          "down",    (input) => Shows().Run(input, "downloaded"),
