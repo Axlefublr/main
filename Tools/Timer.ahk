@@ -1,10 +1,7 @@
 #SingleInstance Off
 Persistent true
-#Include <Links>
-#Include <Paths>
+#Include <Timer>
 #Include <Text>
-#Include <Tools>
-#Include <Eval>
-#Include <App>
+#Include <Paths>
 
-tool_Timer(ReadFile(Paths.Ptf["Timer.txt"]), true)
+Timer(ReadFile(Paths.Ptf["Timer.txt"]),, true)
