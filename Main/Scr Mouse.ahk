@@ -4,7 +4,6 @@
 #Include <Global>
 #Include <Script>
 #Include <Win>
-#Include <Win-full>
 #Include <Other>
 #Include <Tools>
 #Include <Image>
@@ -28,12 +27,12 @@ Media_Stop & XButton1:: {
 		Case WinActive(Youtube.winTitle):Youtube.StudioSwitch()
 		Case WinActive("Visual Studio Code ahk_exe Code.exe"):
 			Switch {
-				Case right:vscode_IndentRight()
-				Case left:vscode_IndentLeft()
-				Case up:vscode_DeleteLine()
-				Case down:vscode_Comment()
+				Case right:VsCode.IndentRight()
+				Case left:VsCode.IndentLeft()
+				Case up:VsCode.DeleteLine()
+				Case down:VsCode.Comment()
 			}
-		Case WinActive("Discord ahk_exe Discord.exe"):discord_Emoji()
+		Case WinActive("Discord ahk_exe Discord.exe"):Discord.Emoji()
 	}
 }
 
@@ -51,9 +50,9 @@ Media_Stop & XButton2:: {
 		Case WinActive("YouTube Studio"):Youtube.ToYouTube()
 		Case WinActive("YouTube"):Youtube.ChannelSwitch()
 		Case WinActive("GitHub ahk_exe chrome.exe"):github_Profile()
-		Case WinActive("Messenger ahk_exe chrome.exe"):vk_Voice()
-		Case WinActive("ahk_exe Telegram.exe"):telegram_Voice()
-		Case WinActive("ahk_exe Discord.exe"):discord_Gif()
+		Case WinActive("Messenger ahk_exe chrome.exe"):VK.Voice()
+		Case WinActive("ahk_exe Telegram.exe"):Telegram.Voice()
+		Case WinActive("ahk_exe Discord.exe"):Discord.Gif()
 	}
 }
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -119,7 +118,7 @@ Media_Stop:: {
 		Case bottomRight:win_App("Telegram ahk_exe Telegram.exe",       Paths.Apps["Telegram"])
 		Case right:      win_App("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"],,,, "Updater")
 		Case topLeft:    win_App("ahk_group Terminal",                  Paths.Apps["Terminal"])
-		Case bottomLeft: win_App("AutoHotkey v2 Help",                  Paths.Apps["Ahk v2 docs"])
+		Case bottomLeft: win_App("OBS ahk_exe obs64.exe",               Paths.Apps["OBS"],,, Paths.OBSFolder)
 		Case left:       win_App("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
 		Case down:       win_App("ahk_exe Spotify.exe",                 Paths.Apps["Spotify"])
 		Case up:         win_App("Google Chrome ahk_exe chrome.exe",    Paths.Apps["Google Chrome"])
@@ -166,7 +165,7 @@ XButton1:: {
 			Case right:   NextTab()
 			Case left:    PrevTab()
 			Case up:      RestoreTab()
-			Case WinActive("Messenger ahk_exe chrome.exe"):vk_Scroll()
+			Case WinActive("Messenger ahk_exe chrome.exe"):VK.Scroll()
 			Case down:    CloseTab()
 		}
 		Case WinActive("ahk_exe Code.exe") || WinActive("ahk_group Terminal"):
@@ -175,7 +174,7 @@ XButton1:: {
 				Case right:      NextTab()
 				Case bottomLeft: scr_Test()
 				Case left:       PrevTab()
-				Case down:       vscode_CloseTab()
+				Case down:       VsCode.CloseTab()
 				Case up:         RestoreTab()
 			}
 		Case WinActive("ahk_exe Spotify.exe"):
@@ -187,7 +186,7 @@ XButton1:: {
 				Case up:         Spotify.Like()
 				Case down:       Spotify.Shuffle()
 			}
-		Case WinActive("Telegram ahk_exe Telegram.exe") && down:telegram_Scroll()
+		Case WinActive("Telegram ahk_exe Telegram.exe") && down:Telegram.Scroll()
 		Case WinActive("Discord ahk_exe Discord.exe") && down:Send("{Esc}")
 	}
 }

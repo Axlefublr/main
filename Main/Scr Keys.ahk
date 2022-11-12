@@ -111,9 +111,9 @@ NumpadEnter::return
 <+Escape::WindowsClock()
 #Escape::Infos(GetWeather())
 
-CapsLock::SomeLockHint("CapsLock")  
+CapsLock::SomeLockHint("CapsLock")
 !CapsLock::CloseButActually()
-+CapsLock::Counter()  
++CapsLock::Counter()
 
 PrintScreen::Screenshot.Start()
 #PrintScreen::Screenshot.FullScreenOut()

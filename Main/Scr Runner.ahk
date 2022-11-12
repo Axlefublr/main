@@ -9,11 +9,11 @@
 #Include <Info>
 #Include <Tools>
 #Include <Script>
-#Include <Win-full>
 #Include <Global>
 #Include <Other>
 #Include <Get>
 #Include <Channel>
+#Include <Timer>
 
 #Hotstring EndChars `t
 
@@ -76,12 +76,12 @@
       "ext",   () => win_RunAct_Folders(Paths.VsCodeExtensions),
       "prog",  () => win_RunAct_Folders(Paths.Prog),
       "saved", () => win_RunAct_Folders(Paths.SavedScreenshots),
-      "main",  () => vscode_WorkSpace("Main"),
+      "main",  () => VsCode.WorkSpace("Main"),
 
       ;Video production
-      "clean",    () => vscode_CleanText(ReadFile(A_Clipboard)),
+      "clean",    () => VsCode.CleanText(ReadFile(A_Clipboard)),
       "edit",     () => video_EditScreenshot(),
-      "video up", () => vscode_VideoUp(),
+      "video up", () => VsCode.VideoUp(),
       "dupl",     () => video_DuplicateScreenshot(),
       "setup",    () => davinci_Setup(),
 
@@ -89,7 +89,7 @@
 
    try runner_commands[input].Call()
    catch Any {
-      RegexMatch(input, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop|disc|sy) (.+)", &result)
+      RegexMatch(input, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gitlink|gitopen|install|chrs|dd|down|drop|disc|sy|ts) (.+)", &result)
       static runner_regex := Map(
 
          "p",       (input) => ClipSend(Links[input], , false),
@@ -97,6 +97,7 @@
          "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
          "r",       (input) => Spotify.NewRapper(input),
          "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
+         "ts",      (input) => Timer(input, false),
          "a",       (input) => Spotify.FavRapper_Manual(input),
          "e",       (input) => Calculator(input),
          "i",       (input) => Infos(input),

@@ -1,5 +1,4 @@
 #Include <Win>
-#Include <Win-full>
 #Include <Global>
 #Include <Links>
 #Include <Info>

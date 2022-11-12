@@ -57,8 +57,8 @@ Browser
 ;;VK
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("Messenger ahk_exe chrome.exe")
-MButton::vk_Reply()
+#HotIf WinActive(VK.winTitle)
+MButton::VK.Reply()
 
 ;;DISCORD
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -66,10 +66,10 @@ MButton::vk_Reply()
 #HotIf WinActive("ahk_exe Discord.exe")
 ^Space::Send("^k")
 
-MButton::discord_Reply()
-+MButton::discord_Reply()
-^LButton::discord_React()
-!LButton::discord_Edit()
+MButton::Discord.Reply()
++MButton::Discord.Reply()
+^LButton::Discord.React()
+!LButton::Discord.Edit()
 
 ;;VSCODE
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,7 +82,7 @@ MButton::discord_Reply()
 }
 
 #HotIf WinActive("ahk_exe Code.exe")
-Media_Stop & MButton::vscode_Reload()
+Media_Stop & MButton::VsCode.Reload()
 
 ;;PLAYERS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -122,7 +122,7 @@ F6::FileSystemSearch().GetInput()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("Linux ahk_exe WindowsTerminal.exe")
 ^BackSpace::term_DeleteWord()
-:OX:fp::ClipSend(vscode_GetLinuxPath())
+:OX:fp::ClipSend(VsCode.GetLinuxPath())
 
 ;;SCREENSHOT
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
