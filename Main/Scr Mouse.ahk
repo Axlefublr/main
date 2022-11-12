@@ -20,19 +20,19 @@ Media_Stop & XButton1:: {
 	, down        := (sectionY > 747)
 	, up          := (sectionY < 347)
 	, deffault    := !right && !left && !down && !up
-	|| WinActive("Skillfactory ahk_exe chrome.exe")
-	|| WinActive("Gogoanime ahk_exe chrome.exe")
+	|| WinActive("Skillfactory " Browser.exeTitle)
+	|| WinActive("Gogoanime " Browser.exeTitle)
 	Switch {
 		Case deffault:Cut()
 		Case WinActive(Youtube.winTitle):Youtube.StudioSwitch()
-		Case WinActive("Visual Studio Code ahk_exe Code.exe"):
+		Case WinActive(VsCode.winTitle):
 			Switch {
 				Case right:VsCode.IndentRight()
 				Case left:VsCode.IndentLeft()
 				Case up:VsCode.DeleteLine()
 				Case down:VsCode.Comment()
 			}
-		Case WinActive("Discord ahk_exe Discord.exe"):Discord.Emoji()
+		Case WinActive(Discord.winTitle):Discord.Emoji()
 	}
 }
 
@@ -47,12 +47,12 @@ Media_Stop & XButton2:: {
 		Case deffault:WinPaste()
 		Case up:Send("{Browser_Forward}")
 		Case down:Send("{Browser_Back}")
-		Case WinActive("YouTube Studio"):Youtube.ToYouTube()
-		Case WinActive("YouTube"):Youtube.ChannelSwitch()
-		Case WinActive("GitHub ahk_exe chrome.exe"):GitHub.Profile()
-		Case WinActive("Messenger ahk_exe chrome.exe"):VK.Voice()
-		Case WinActive("ahk_exe Telegram.exe"):Telegram.Voice()
-		Case WinActive("ahk_exe Discord.exe"):Discord.Gif()
+		Case WinActive(Youtube.Studio):Youtube.ToYouTube()
+		Case WinActive(Youtube.winTitle):Youtube.ChannelSwitch()
+		Case WinActive("GitHub " Browser.exeTitle):GitHub.Profile()
+		Case WinActive(VK.winTitle):VK.Voice()
+		Case WinActive(Telegram.winTitle):Telegram.Voice()
+		Case WinActive(Discord.winTitle):Discord.Gif()
 	}
 }
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -113,17 +113,19 @@ Media_Stop:: {
 	, topLeft     := ((sectionX < 252) && (sectionY < 229))
 	, bottomLeft  := ((sectionX < 263) && (sectionY > 849))
 	, bottomRight := ((sectionX > 1673) && (sectionY > 839))
+
 	Switch {
 		Case topRight:   GroupDeactivate("Main")
-		Case bottomRight:win_App("Telegram ahk_exe Telegram.exe",       Paths.Apps["Telegram"])
-		Case right:      win_App("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"],,,, "Updater")
-		Case topLeft:    win_App("ahk_group Terminal",                  Paths.Apps["Terminal"])
-		Case bottomLeft: win_App("OBS ahk_exe obs64.exe",               Paths.Apps["OBS"],,, Paths.OBSFolder)
-		Case left:       win_App("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
-		Case down:       win_App("ahk_exe Spotify.exe",                 Paths.Apps["Spotify"])
-		Case up:         win_App("Google Chrome ahk_exe chrome.exe",    Paths.Apps["Google Chrome"])
+		Case bottomRight:win_App(Telegram.winTitle,       Paths.Apps["Telegram"])
+		Case right:      win_App(Discord.winTitle,        Paths.Apps["Discord"],,,, "Updater")
+		Case topLeft:    win_App("ahk_group Terminal",    Paths.Apps["Terminal"])
+		Case bottomLeft: win_App("OBS ahk_exe obs64.exe", Paths.Apps["OBS"],,, Paths.OBSFolder)
+		Case left:       win_App(VsCode.winTitle,         Paths.Apps["VS Code"])
+		Case down:       win_App(Spotify.winTitle,        Paths.Apps["Spotify"])
+		Case up:         win_App(Browser.winTitle,        Paths.Apps["Google Chrome"])
 		Default:         AltTab()
 	}
+
 }
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

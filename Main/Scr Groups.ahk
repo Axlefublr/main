@@ -1,6 +1,3 @@
-GroupAdd("Media", "Photos ahk_exe ApplicationFrameHost.exe")
-GroupAdd("Media", "ahk_exe KMPlayer64.exe")
-
 GroupAdd("AutoHotkey_Help", "AutoHotkey Help")
 GroupAdd("AutoHotkey_Help", "AutoHotkey v2 Help")
 
