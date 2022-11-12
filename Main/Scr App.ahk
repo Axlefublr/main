@@ -8,7 +8,7 @@
 ;;SPOTIFY
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("ahk_exe Spotify.exe")
+#HotIf WinActive(Spotify.winTitle)
 !w::Spotify.Like()
 !e::Spotify.LikedPlaylist()
 
@@ -19,10 +19,9 @@ PgUp::Spotify.SkipPrev()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive(Youtube.Studio)
-:O:mmc::My ahk specific channel
-:O:msc::My second channel
+:O:msc::My second channel!
+:O:mmc::My main channel!
 :O:ahk::Ahk all the way!
-:O:otw::Ahk on the way?
 :XO:desc::ClipSend(ReadFile(Paths.Ptf["Description"]) "`n`n")
 
 #HotIf win_ActiveRegex(Youtube.NotWatchingVideo)
@@ -35,7 +34,7 @@ PgUp::Youtube.SkipPrev()
 Browser
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("Google Chrome ahk_exe chrome.exe")
+#HotIf WinActive(Browser.winTitle)
 
 !1::Send("^1")
 !2::Send("^2")
@@ -51,7 +50,7 @@ Browser
 
 !e::NewTab()
 
-#HotIf WinActive("Google Chrome ahk_exe chrome.exe",, "Messenger")
+#HotIf WinActive(Browser.winTitle,, VK.winTitle)
 !w::CloseTab()
 
 ;;VK
@@ -63,7 +62,7 @@ MButton::VK.Reply()
 ;;DISCORD
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("ahk_exe Discord.exe")
+#HotIf WinActive(Discord.winTitle,, Discord.exception)
 ^Space::Send("^k")
 
 MButton::Discord.Reply()
@@ -81,25 +80,26 @@ MButton::Discord.Reply()
    NextTab()
 }
 
-#HotIf WinActive("ahk_exe Code.exe")
+#HotIf WinActive(VsCode.winTitle)
 Media_Stop & MButton::VsCode.Reload()
 
 ;;PLAYERS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GroupAdd("Players", "ahk_exe Spotify.exe")
-GroupAdd("Players", "ahk_exe KMPlayer64.exe")
-GroupAdd("Players", "WatchMoviesHD ahk_exe chrome.exe")
-GroupAdd("Players", "Gogoanime ahk_exe chrome.exe")
-#HotIf WinActive("ahk_group Players")
+#HotIf win_IsActive([
+   Spotify.winTitle,
+   Player.winTitle,
+   "WatchMoviesHD " Browser.exeTitle,
+   "Gogoanime " Browser.exeTitle
+])
 Up::Send "{Volume_Up}"
 Down::Send "{Volume_Down}"
 
 ;;EDITING
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("ahk_exe Resolve.exe")
-!e::davinci_Insert()
+#HotIf WinActive(Davinci.winTitle)
+!e::Davinci.Insert()
 
 ;;DOCS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -120,16 +120,15 @@ F6::FileSystemSearch().GetInput()
 ;;TERMINAL
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("Linux ahk_exe WindowsTerminal.exe")
-^BackSpace::term_DeleteWord()
-:OX:fp::ClipSend(VsCode.GetLinuxPath())
+#HotIf WinActive(Terminal.winTitles["Linux"])
+^BackSpace::Terminal.DeleteWord()
 
 ;;SCREENSHOT
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive("Snip & Sketch")
+#HotIf WinActive(Screenshot.saveTitle)
 XButton1 & LButton::Save()
-#HotIf WinActive("ahk_exe ScreenClippingHost.exe")
+#HotIf WinActive(Screenshot.winTitle)
 WheelUp::Screenshot.Window()
 WheelDown::Screenshot.Rectangle()
 MButton::Screenshot.Fullscreen()

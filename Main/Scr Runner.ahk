@@ -45,7 +45,7 @@
       "remove comments",       () => str_RemoveLineComments(),
       "convert to json",       () => ClipSend(str_ConvertToJsonSnippet(str_GetSelection()), ""),
 
-      "update",  () => github_UpdateAhkLibraries(),
+      "update",  () => GitHub.UpdateAhkLibraries(),
       "str len", () => Infos(str_GetSelection().Length),
       "startup", () => tool_StartupRun(),
       "shows",   () => Shows().GetList(),
@@ -80,10 +80,10 @@
 
       ;Video production
       "clean",    () => VsCode.CleanText(ReadFile(A_Clipboard)),
-      "edit",     () => video_EditScreenshot(),
+      "edit",     () => Video.EditScreenshot(),
       "video up", () => VsCode.VideoUp(),
-      "dupl",     () => video_DuplicateScreenshot(),
-      "setup",    () => davinci_Setup(),
+      "dupl",     () => Video.DuplicateScreenshot(),
+      "setup",    () => Davinci.Setup(),
 
    )
 
@@ -109,9 +109,9 @@
          "delow",   (input) => Shows().DeleteShow(input),
          "drop",    (input) => Shows().DeleteShow(input, true),
          "counter", (input) => Counter(input),
-         "gitlink", (input) => ClipSend(git_Link(input), "", false),
-         "gitopen", (input) => RunLink(git_Link(input)),
-         "install", (input) => git_InstallAhkLibrary(input),
+         "gitlink", (input) => ClipSend(Git.Link(input), "", false),
+         "gitopen", (input) => RunLink(Git.Link(input)),
+         "install", (input) => Git.InstallAhkLibrary(input),
          "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
          "disc",    (input) => Spotify.NewDiscovery_Manual(input),
          "sy",      (input) => Symbol(input),

@@ -4,11 +4,9 @@ GroupAdd("Media", "ahk_exe KMPlayer64.exe")
 GroupAdd("AutoHotkey_Help", "AutoHotkey Help")
 GroupAdd("AutoHotkey_Help", "AutoHotkey v2 Help")
 
-GroupAdd("Terminal", "Linux ahk_exe WindowsTerminal.exe")
-GroupAdd("Terminal", "Cmd ahk_exe WindowsTerminal.exe")
-GroupAdd("Terminal", "PowerShell ahk_exe WindowsTerminal.exe")
-GroupAdd("Terminal", "Git Bash ahk_exe WindowsTerminal.exe")
-GroupAdd("Terminal", "Settings ahk_exe WindowsTerminal.exe")
+for key, value in Terminal.winTitles {
+   GroupAdd("Terminal", value)
+}
 
 GroupAdd("Main", "Visual Studio Code ahk_exe Code.exe")
 GroupAdd("Main", "ahk_group AutoHotkey_Help")

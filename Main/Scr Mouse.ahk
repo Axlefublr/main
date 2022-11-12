@@ -49,7 +49,7 @@ Media_Stop & XButton2:: {
 		Case down:Send("{Browser_Back}")
 		Case WinActive("YouTube Studio"):Youtube.ToYouTube()
 		Case WinActive("YouTube"):Youtube.ChannelSwitch()
-		Case WinActive("GitHub ahk_exe chrome.exe"):github_Profile()
+		Case WinActive("GitHub ahk_exe chrome.exe"):GitHub.Profile()
 		Case WinActive("Messenger ahk_exe chrome.exe"):VK.Voice()
 		Case WinActive("ahk_exe Telegram.exe"):Telegram.Voice()
 		Case WinActive("ahk_exe Discord.exe"):Discord.Gif()
@@ -160,15 +160,15 @@ XButton1:: {
 	, deffault    := !right && !left && !down && !up
 	Switch {
 		Case deffault:Copy()
-		Case WinActive("Google Chrome"):
+		Case WinActive(Browser.winTitle):
 			Switch {
 			Case right:   NextTab()
 			Case left:    PrevTab()
 			Case up:      RestoreTab()
-			Case WinActive("Messenger ahk_exe chrome.exe"):VK.Scroll()
+			Case WinActive(VK.winTitle):VK.Scroll()
 			Case down:    CloseTab()
 		}
-		Case WinActive("ahk_exe Code.exe") || WinActive("ahk_group Terminal"):
+		Case WinActive(VsCode.winTitle) || WinActive("ahk_group Terminal"):
 			Switch {
 				Case bottomRight:scr_Reload()
 				Case right:      NextTab()
@@ -177,7 +177,7 @@ XButton1:: {
 				Case down:       VsCode.CloseTab()
 				Case up:         RestoreTab()
 			}
-		Case WinActive("ahk_exe Spotify.exe"):
+		Case WinActive(Spotify.winTitle):
 			Switch {
 				Case topRight:   Spotify.NewDiscovery()
 				Case bottomRight:Spotify.Discovery()
@@ -186,8 +186,8 @@ XButton1:: {
 				Case up:         Spotify.Like()
 				Case down:       Spotify.Shuffle()
 			}
-		Case WinActive("Telegram ahk_exe Telegram.exe") && down:Telegram.Scroll()
-		Case WinActive("Discord ahk_exe Discord.exe") && down:Send("{Esc}")
+		Case WinActive(Telegram.winTitle) && down:Telegram.Scroll()
+		Case WinActive(Discord.winTitle) && down:Send("{Esc}")
 	}
 }
 #MaxThreadsBuffer false
