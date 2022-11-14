@@ -69,12 +69,12 @@ Pause::scr_Test()
 +^BackSpace::Send("^{Delete}")
 #j::SelectAll()
 #h::Paste()
+#k::Copy()
 Insert:: {
    if press_Hold()
       SelectAll()
 }
 #Insert::WinPaste()
-#vkde::Copy()
 +!Left::
 #^j::Undo()
 +!Right::

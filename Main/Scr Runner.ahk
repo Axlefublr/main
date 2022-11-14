@@ -6,14 +6,12 @@
 #Include <Paths>
 #Include <Char>
 #Include <String-full>
-#Include <Info>
 #Include <Tools>
 #Include <Script>
 #Include <Global>
 #Include <Other>
 #Include <Get>
 #Include <Channel>
-#Include <Timer>
 
 #Hotstring EndChars `t
 

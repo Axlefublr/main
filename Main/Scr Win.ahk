@@ -1,7 +1,7 @@
 #Include <Win>
 #Include <Global>
 #Include <Links>
-#Include <Info>
+#Include <Tools\Info>
 #Include <Press>
 #Include <Paths>
 
