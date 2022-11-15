@@ -1,1 +1,2 @@
-﻿best settings for davinci resolve
+﻿more specific hotstrings to be runner commands
+

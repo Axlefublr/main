@@ -49,7 +49,7 @@
       "shows",   () => Shows().GetList(),
       "rel",     () => Reload(),
       "track",   () => ClipSend(Spotify.GetCurrSong()),
-      "kb",      () => tool_KeyCodeGetter(),
+      "kb",      () => KeyCodeGetter(),
       "eat",     () => EatingLogger(),
       "dt",      () => ClipSend(GetDateAndTime(), , false),
 
