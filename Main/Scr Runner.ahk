@@ -12,25 +12,7 @@
 #Include <Other>
 #Include <Get>
 #Include <Channel>
-
-#Hotstring EndChars `t
-
-;Pasting random values
-:X:radnum::ClipSend(RadNum())
-:X:uclanr::ClipSend(GetRandomWord("english"))
-:X:ilandh::ClipSend(GetRandomWord("russian"))
-:X:chrs::ClipSend(GetStringOfRandChars(15))
-:X:date::ClipSend(GetDate())
-:X:time::ClipSend(GetDateAndTime())
-
-;Terminal completions
-:X:gh::ClipSend(Links["gh"])
-:X:ghm::ClipSend(Links["ghm"])
-
-;Github nicknames
-:O:micha::Micha-ohne-el
-:O:reiwa::rbstrachan
-:O:me::Axlefublr
+#Include <Tools\CleanInputBox>
 
 +!l:: {
    if !input := CleanInputBox().WaitForInput() {
@@ -38,6 +20,7 @@
    }
 
    static runner_commands := Map(
+   
       ;Main
       "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
       "remove comments",       () => str_RemoveLineComments(),
@@ -126,4 +109,34 @@
       )
       try runner_regex[result[1]].Call(result[2])
    }
+}
+
+#Hotstring EndChars `t
+
+#sc35:: {
+   input := CleanInputBox().WaitForInput()
+   static DynamicHotstrings := Map(
+
+      "radnum", () => RadNum(),
+      "date",   () => GetDate(),
+      "time",   () => GetDateAndTime(),
+      "uclanr", () => GetRandomWord("english") " ",
+      "ilandh", () => GetRandomWord("russian") " ",
+
+   )
+   static StaticHotstrings := Map(
+
+      "gh",    Links["gh"],
+      "ghm",   Links["ghm"],
+      "micha", "Micha-ohne-el",
+      "reiwa", "rbstrachan",
+      "me",    "Axlefublr",
+
+   )
+   try {
+      output := DynamicHotstrings[input].Call()
+   } catch Any {
+      output := StaticHotstrings[input]
+   }
+   ClipSend(output)
 }
