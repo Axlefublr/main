@@ -79,7 +79,7 @@
 
    try runner_commands[input].Call()
    catch Any {
-      RegexMatch(input, "^(p|o|s|r|t|a|e|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts) (.+)", &result)
+      RegexMatch(input, "^(p|o|s|r|t|a|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp) (.+)", &result)
       static runner_regex := Map(
 
          "p",       (input) => ClipSend(Links[input], , false),
@@ -89,7 +89,8 @@
          "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
          "ts",      (input) => Timer(input, false),
          "a",       (input) => Spotify.FavRapper_Manual(input),
-         "e",       (input) => Calculator(input),
+         "ev",      (input) => Infos(Calculator(input)),
+         "evp",     (input) => ClipSend(Calculator(input)),
          "i",       (input) => Infos(input),
          "show",    (input) => Shows().Run(input),
          "down",    (input) => Shows().Run(input, "downloaded"),
