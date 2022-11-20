@@ -25,14 +25,14 @@ Media_Stop & XButton1:: {
 	Switch {
 		Case deffault:Cut()
 		Case WinActive(Youtube.winTitle):Youtube.StudioSwitch()
-		Case WinActive(VsCode.winTitle):
-			Switch {
-				Case right:VsCode.IndentRight()
-				Case left:VsCode.IndentLeft()
-				Case up:VsCode.DeleteLine()
-				Case down:VsCode.Comment()
-			}
 		Case WinActive(Discord.winTitle):Discord.Emoji()
+		Case WinActive(VsCode.winTitle):
+		Switch {
+			Case right:VsCode.IndentRight()
+			Case left:VsCode.IndentLeft()
+			Case up:VsCode.DeleteLine()
+			Case down:VsCode.Comment()
+		}
 	}
 }
 

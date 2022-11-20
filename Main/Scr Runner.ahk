@@ -74,6 +74,7 @@
       "video up", () => VsCode.VideoUp(),
       "dupl",     () => Video.DuplicateScreenshot(),
       "setup",    () => Davinci.Setup(),
+      "cut",      () => win_RunAct(LosslessCut.winTitle, LosslessCut.path),
 
    )
 
