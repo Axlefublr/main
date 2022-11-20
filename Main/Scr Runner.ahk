@@ -117,6 +117,9 @@
 
 #sc35:: {
    input := CleanInputBox().WaitForInput()
+   if !input {
+      return
+   }
    static DynamicHotstrings := Map(
 
       "radnum", () => RadNum(),
@@ -140,5 +143,5 @@
    } catch Any {
       output := StaticHotstrings[input]
    }
-   ClipSend(output)
+   try ClipSend(output)
 }
