@@ -37,35 +37,74 @@
       "dt",      () => ClipSend(GetDateAndTime(), , false),
 
       ;Apps
-      "sm",       Run.Bind(Paths.Apps["Sound mixer"]),
-      "apps",     MainApps,
-      "v1 docs",  () => win_RunAct("AutoHotkey Help",                     Paths.Apps["Ahk v1 docs"]),
-      "davinci",  () => win_RunAct("Project Manager ahk_exe Resolve.exe", Paths.Apps["Davinci Resolve"]),
-      "slack",    () => win_RunAct("Slack ahk_exe slack.exe",             Paths.Apps["Slack"]),
-      "steam",    () => win_RunAct("ahk_exe steam.exe",                   Paths.Apps["Steam"], , "Steam - News"),
-      "vpn",      () => win_RunAct("Proton VPN ahk_exe ProtonVPN.exe",    Paths.Apps["VPN"]),
-      "fl",       () => win_RunAct("ahk_exe FL64.exe",                    Paths.Ptf["FL preset"]),
-      "ds4",      () => win_RunAct("DS4Windows ahk_exe DS4Windows.exe",   Paths.Apps["DS4 Windows"]),
-      "obs",      () => win_RunAct("OBS ahk_exe obs64.exe",               Paths.Apps["OBS"], , , Paths.OBSFolder),
+      "sm", Run.Bind(Paths.Apps["Sound mixer"]),
+      "apps", MainApps,
+      "v1 docs", () => Win({
+         winTitle: "AutoHotkey Help",
+         exePath:  Paths.Apps["Ahk v1 docs"]
+      }).RunAct(),
+      "davinci", () => Win({
+         winTitle: "Project Manager ahk_exe Resolve.exe",
+         exePath:  Paths.Apps["Davinci Resolve"]
+      })
+      .RunAct(),
+      "slack", () => Win({
+         winTitle: "Slack ahk_exe slack.exe",
+         exePath:  Paths.Apps["Slack"]
+      }).RunAct(),
+      "steam", () => Win({
+         winTitle:  "ahk_exe steam.exe",
+         exePath:   Paths.Apps["Steam"],
+         exception: "Steam - News"
+      }).RunAct(),
+      "vpn", () => Win({
+         winTitle: "Proton VPN ahk_exe ProtonVPN.exe",
+         exePath:  Paths.Apps["VPN"]
+      }).RunAct(),
+      "fl", () => Win({
+         winTitle: "ahk_exe FL64.exe",
+         exePath:  Paths.Ptf["FL preset"]
+      }).RunAct(),
+      "ds4", () => Win({
+         winTitle: "DS4Windows ahk_exe DS4Windows.exe",
+         exePath:  Paths.Apps["DS4 Windows"]
+      }).RunAct(),
+      "obs", () => Win({
+         winTitle: "OBS ahk_exe obs64.exe",
+         exePath:  Paths.Apps["OBS"],
+         startIn:  Paths.OBSFolder
+      }).RunAct(),
       
       ;Gimp
-      "gi ahk2",  () => win_RunAct(
-         Gimp.exeTitle, Gimp.Presets["ahk second channel"],, 
-         Gimp.toClose,, Gimp.exception
-      ),
-      "gi ahk", () => win_RunAct(
-         Gimp.exeTitle, Gimp.Presets["ahk"],, 
-         Gimp.toClose,, Gimp.exception
-      ),
-      "gi nvim", () => win_RunAct(
-         Gimp.exeTitle, Gimp.Presets["nvim"],, 
-         Gimp.toClose,, Gimp.exception
-      ),
+      "gi ahk2",  () => Win({
+         winTitle:  Gimp.exeTitle,
+         exePath:   Gimp.Presets["ahk second channel"],
+         toClose:   Gimp.toClose,
+         exception: Gimp.exception
+      }).RunAct(),
+      "gi ahk", () => Win({
+         winTitle:  Gimp.exeTitle,
+         exePath:   Gimp.Presets["ahk"],
+         toClose:   Gimp.toClose,
+         exception: Gimp.exception
+      }).RunAct(),
+      "gi nvim", () => Win({
+         winTitle:  Gimp.exeTitle,
+         exePath:   Gimp.Presets["nvim"],
+         toClose:   Gimp.toClose,
+         exception: Gimp.exception
+      }).RunAct(),
+      "gi vscode", () => Win({
+         winTitle:  Gimp.exeTitle,
+         exePath:   Gimp.Presets["vscode"],
+         toClose:   Gimp.toClose,
+         exception: Gimp.exception
+      }).RunAct(),
 
       ;Folders
-      "ext",   () => win_RunAct_Folders(Paths.VsCodeExtensions),
-      "prog",  () => win_RunAct_Folders(Paths.Prog),
-      "saved", () => win_RunAct_Folders(Paths.SavedScreenshots),
+      "ext",   () => Win({winTitle: Paths.VsCodeExtensions}).RunAct_Folders(),
+      "prog",  () => Win({winTitle: Paths.Prog}).RunAct_Folders(),
+      "saved", () => Win({winTitle: Paths.SavedScreenshots}).RunAct_Folders(),
       "main",  () => VsCode.WorkSpace("Main"),
 
       ;Video production
@@ -74,7 +113,7 @@
       "video up", () => VsCode.VideoUp(),
       "dupl",     () => Video.DuplicateScreenshot(),
       "setup",    () => Davinci.Setup(),
-      "cut",      () => win_RunAct(LosslessCut.winTitle, LosslessCut.path),
+      "cut",      () => Win({winTitle: LosslessCut.winTitle, exePath: LosslessCut.path}).RunAct(),
 
    )
 
@@ -141,7 +180,10 @@
    try {
       output := DynamicHotstrings[input].Call()
    } catch Any {
-      output := StaticHotstrings[input]
+      try output := StaticHotstrings[input]
+      catch Any {
+         return
+      }
    }
-   try ClipSend(output)
+   ClipSend(output)
 }

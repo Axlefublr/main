@@ -129,10 +129,10 @@ RAlt::SoundPlay(Paths.Ptf["vine boom"])
 ;;MOVING
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#Up::win_Maximize()
-#Down::win_RestoreDown()
-#Right::win_RestoreLeftRight("right")
-#Left::win_RestoreLeftRight("left")
+#Up::Win().Maximize()
+#Down::Win().RestoreDown()
+#Right::Win({direction: "right"}).RestoreLeftRight()
+#Left::Win({direction: "left"}).RestoreLeftRight()
 
 #!Up::
 #!k::Send("{WheelUp}")

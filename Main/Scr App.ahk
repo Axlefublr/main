@@ -24,7 +24,7 @@ PgUp::Spotify.SkipPrev()
 :O:ahk::Ahk all the way!
 :XO:desc::ClipSend(ReadFile(Paths.Ptf["Description"]) "`n`n")
 
-#HotIf win_ActiveRegex(Youtube.NotWatchingVideo)
+#HotIf Win({winTitle: Youtube.NotWatchingVideo}).ActiveRegex()
 Escape::Youtube.MiniscreenClose()
 
 #HotIf WinActive(Youtube.winTitle)
@@ -86,12 +86,12 @@ Media_Stop & MButton::VsCode.Reload()
 ;;PLAYERS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf win_IsActive([
+#HotIf Win({winTitles: [
    Spotify.winTitle,
    Player.winTitle,
    "WatchMoviesHD " Browser.exeTitle,
    "Gogoanime " Browser.exeTitle
-])
+]}).AreActive()
 Up::Send "{Volume_Up}"
 Down::Send "{Volume_Down}"
 
@@ -112,9 +112,9 @@ Down::Send "{Volume_Down}"
 ;;EXPLORER
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf win_ActiveRegex(Explorer.winTitleRegex)
+#HotIf Win({winTitle: Explorer.winTitleRegex}).ActiveRegex()
 F6::FileSystemSearch().GetInput()
-#HotIf win_ActiveRegex("ahk_exe AutoHotkey64(_UIA)?\.exe|explorer\.exe")
+#HotIf Win({winTitle: "ahk_exe AutoHotkey64(_UIA)?\.exe|explorer\.exe"}).ActiveRegex()
 ^BackSpace::DeleteWord()
 
 ;;TERMINAL

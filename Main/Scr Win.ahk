@@ -11,20 +11,49 @@
 #sc33::RunLink(Links["ghm"])
 #sc34::RunLink(Links["regex"])
 
-#n::win_App("Monkeytype " Browser.exeTitle, Paths.Apps["Monkeytype"])
+#n::Win({
+   winTitle: "Monkeytype " Browser.exeTitle, 
+   exePath: Paths.Apps["Monkeytype"]
+}).App()
 
-<!r::win_App("ahk_group Terminal",    Paths.Apps["Terminal"])
-<!s::win_App(Spotify.winTitle,        Paths.Apps["Spotify"])
-<!x::win_App("AutoHotkey v2 Help",    Paths.Apps["Ahk v2 docs"])
-<!a::win_App(VsCode.winTitle,         Paths.Apps["VS Code"])
-<!c::win_App(Browser.winTitle,        Paths.Apps["Google Chrome"])
-<!q::win_App(Discord.winTitle,        Paths.Apps["Discord"],,,, "Updater")
-<!t::win_App(Telegram.winTitle,       Paths.Apps["Telegram"])
-<!z::win_App("OBS ahk_exe obs64.exe", Paths.Apps["OBS"],,, Paths.OBSFolder)
+<!r::Win({
+   winTitle: "ahk_group Terminal",    
+   exePath: Paths.Apps["Terminal"]
+}).App()
+<!s::Win({
+   winTitle: Spotify.winTitle,        
+   exePath: Paths.Apps["Spotify"]
+}).App()
+<!x::Win({
+   winTitle: "AutoHotkey v2 Help",    
+   exePath: Paths.Apps["Ahk v2 docs"]
+}).App()
+<!a::Win({
+   winTitle: VsCode.winTitle,         
+   exePath: Paths.Apps["VS Code"]
+}).App()
+<!c::Win({
+   winTitle: Browser.winTitle,        
+   exePath: Paths.Apps["Google Chrome"]
+}).App()
+<!q::Win({
+   winTitle: Discord.winTitle,        
+   exePath: Paths.Apps["Discord"],
+   exception: Discord.exception
+}).App()
+<!t::Win({
+   winTitle: Telegram.winTitle,       
+   exePath: Paths.Apps["Telegram"]
+}).App()
+<!z::Win({
+   winTitle: "OBS ahk_exe obs64.exe", 
+   exePath: Paths.Apps["OBS"], 
+   startIn: Paths.OBSFolder
+}).App()
 
-<!d::win_App_Folders("C:\", "Min")
+<!d::Win({winTitle: "C:\", runOpt: "Min"}).App_Folders()
 
-<!v::win_App_Folders(Paths.Pictures, "Min")
+<!v::Win({winTitle: Paths.Pictures, runOpt: "Min"}).App_Folders()
 
 <!Escape::GroupDeactivate("Main")
 

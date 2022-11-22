@@ -115,15 +115,29 @@ Media_Stop:: {
 	, bottomRight := ((sectionX > 1673) && (sectionY > 839))
 
 	Switch {
-		Case topRight:   GroupDeactivate("Main")
-		Case bottomRight:win_App(Telegram.winTitle,       Paths.Apps["Telegram"])
-		Case right:      win_App(Discord.winTitle,        Paths.Apps["Discord"],,,, "Updater")
-		Case topLeft:    win_App("ahk_group Terminal",    Paths.Apps["Terminal"])
-		Case bottomLeft: win_App("OBS ahk_exe obs64.exe", Paths.Apps["OBS"],,, Paths.OBSFolder)
-		Case left:       win_App(VsCode.winTitle,         Paths.Apps["VS Code"])
-		Case down:       win_App(Spotify.winTitle,        Paths.Apps["Spotify"])
-		Case up:         win_App(Browser.winTitle,        Paths.Apps["Google Chrome"])
-		Default:         AltTab()
+		Case topRight:GroupDeactivate("Main")
+		Case bottomRight:Win({
+			winTitle: Telegram.winTitle,       exePath: Paths.Apps["Telegram"]
+		}).App()
+		Case right:Win({
+			winTitle: Discord.winTitle,        exePath: Paths.Apps["Discord"], exception: Discord.exception
+		}).App()
+		Case topLeft:Win({
+			winTitle: "ahk_group Terminal",    exePath: Paths.Apps["Terminal"]
+		}).App()
+		Case bottomLeft:Win({
+			winTitle: "OBS ahk_exe obs64.exe", exePath: Paths.Apps["OBS"],     startIn: Paths.OBSFolder
+		}).App()
+		Case left:Win({
+			winTitle: VsCode.winTitle,         exePath: Paths.Apps["VS Code"]
+		}).App()
+		Case down:Win({
+			winTitle: Spotify.winTitle,        exePath: Paths.Apps["Spotify"]
+		}).App()
+		Case up:Win({
+			winTitle: Browser.winTitle,        exePath: Paths.Apps["Google Chrome"]
+		}).App()
+		Default:AltTab()
 	}
 
 }
@@ -141,7 +155,7 @@ XButton2:: {
 		Case right:Send("{Media_Next}")
 		Case left:Send("{Media_Prev}")
 		Case down:CloseButActually()
-		Case up:win_Minimize()
+		Case up:Win().Minimize()
 		Default:Paste()
 	}
 }
