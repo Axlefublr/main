@@ -1,9 +1,9 @@
+#Include <App\Terminal>
+
 GroupAdd("AutoHotkey_Help", "AutoHotkey Help")
 GroupAdd("AutoHotkey_Help", "AutoHotkey v2 Help")
 
-for key, value in Terminal.winTitles {
-   GroupAdd("Terminal", value)
-}
+Terminal.SetupGroup()
 
 GroupAdd("Main", "Visual Studio Code ahk_exe Code.exe")
 GroupAdd("Main", "ahk_group AutoHotkey_Help")

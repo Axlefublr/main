@@ -115,52 +115,15 @@ Media_Stop:: {
    , bottomRight := ((sectionX > 1673) && (sectionY > 839))
    
    Switch {
-      Case topRight:GroupDeactivate("Main")
-      Case bottomRight:
-         static telegramObj := Win({
-            winTitle: Telegram.winTitle,
-            exePath: Paths.Apps["Telegram"]
-         })
-         telegramObj.App()
-      Case right:
-         static discordObj := Win({
-            winTitle: Discord.winTitle,
-            exePath: Paths.Apps["Discord"],
-            exception: Discord.exception
-         })
-         discordObj.App()
-      Case topLeft:
-         static terminalObj := Win({
-            winTitle: "ahk_group Terminal",
-            exePath: Paths.Apps["Terminal"]
-         })
-         terminalObj.App()
-      Case bottomLeft:
-         static obsObj := Win({
-            winTitle: "OBS ahk_exe obs64.exe",
-            exePath: Paths.Apps["OBS"],
-            startIn: Paths.OBSFolder
-         })
-         obsObj.App()
-      Case left:
-         static vscodeObj := Win({
-            winTitle: VsCode.winTitle,
-            exePath: Paths.Apps["VS Code"]
-         })
-         vscodeObj.App()
-      Case down:
-         static spotifyObj := Win({
-            winTitle: Spotify.winTitle,
-            exePath: Paths.Apps["Spotify"]
-         })
-         spotifyObj.App()
-      Case up:
-         static browserObj := Win({
-            winTitle: Browser.winTitle,
-            exePath: Paths.Apps["Google Chrome"]
-         })
-         browserObj.App()
-      Default:AltTab()
+      Case topRight:    GroupDeactivate("Main")
+      Case bottomRight: Telegram.winObj.App()
+      Case right:       Discord.winObj.App()
+      Case topLeft:     Terminal.winObj.App()
+      Case bottomLeft:  OBS.winObj.App()
+      Case left:        VsCode.winObj.App()
+      Case down:        Spotify.winObj.App()
+      Case up:          Browser.winObj.App()
+      Default:          AltTab()
    }
    
 }
@@ -178,7 +141,7 @@ XButton2:: {
       Case right:Send("{Media_Next}")
       Case left:Send("{Media_Prev}")
       Case down:CloseButActually()
-      Case up:Win().Minimize()
+      Case up:Win.Minimize()
       Default:Paste()
    }
 }
@@ -207,7 +170,7 @@ XButton1:: {
          Case WinActive(VK.winTitle):VK.Scroll()
          Case down:    CloseTab()
       }
-      Case WinActive(VsCode.winTitle) || WinActive("ahk_group Terminal"):
+      Case WinActive(VsCode.winTitle) || WinActive(Terminal.winTitle):
       Switch {
          Case bottomRight:scr_Reload()
          Case right:      NextTab()
