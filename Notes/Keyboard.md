@@ -104,7 +104,7 @@ m —
 
 ! Go to symbol
 
-## [
+## \[
 
 ^+
 
@@ -162,7 +162,7 @@ m —
 
 ^! Move line down
 
-+!
++! Copy line down
 
 ^
 
@@ -174,7 +174,7 @@ m —
 
 ^! Move line up
 
-+!
++! Copy line up
 
 ^
 
@@ -194,9 +194,9 @@ m —
 
 ## ;
 
-^+ Format document
+^+
 
-^! Trim trailing whitespace
+^!
 
 +! +! Toggle autosave
 
