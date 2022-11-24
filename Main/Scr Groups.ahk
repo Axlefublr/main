@@ -1,14 +1,21 @@
 #Include <App\Terminal>
+#Include <App\Spotify>
+#Include <App\Discord>
+#Include <App\Browser>
+#Include <App\Telegram>
+#Include <App\Autohotkey>
+#Include <App\VsCode>
 
 GroupAdd("AutoHotkey_Help", "AutoHotkey Help")
 GroupAdd("AutoHotkey_Help", "AutoHotkey v2 Help")
 
 Terminal.SetupGroup()
+Autohotkey.Docs.SetupGroup()
 
-GroupAdd("Main", "Visual Studio Code ahk_exe Code.exe")
-GroupAdd("Main", "ahk_group AutoHotkey_Help")
-GroupAdd("Main", "ahk_exe Spotify.exe")
-GroupAdd("Main", "Discord ahk_exe Discord.exe")
-GroupAdd("Main", "Google Chrome ahk_exe chrome.exe")
-GroupAdd("Main", "Telegram ahk_exe Telegram.exe")
-GroupAdd("Main", "ahk_group Terminal")
+GroupAdd("Main", VsCode.winTitle)
+GroupAdd("Main", Autohotkey.Docs.winTitle)
+GroupAdd("Main", Spotify.exeTitle)
+GroupAdd("Main", Discord.winTitle)
+GroupAdd("Main", Browser.winTitle)
+GroupAdd("Main", Telegram.winTitle)
+GroupAdd("Main", Terminal.winTitle)

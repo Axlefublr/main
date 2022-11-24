@@ -8,7 +8,7 @@
 ;;SPOTIFY
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive(Spotify.winTitle)
+#HotIf WinActive(Spotify.exeTitle)
 !w::Spotify.Like()
 !e::Spotify.LikedPlaylist()
 
@@ -87,7 +87,7 @@ Media_Stop & MButton::VsCode.Reload()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf Win({winTitles: [
-   Spotify.winTitle,
+   Spotify.exeTitle,
    Player.winTitle,
    "WatchMoviesHD " Browser.exeTitle,
    "Gogoanime " Browser.exeTitle

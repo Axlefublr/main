@@ -24,7 +24,7 @@
 
 <!r::Terminal.winObj.App()
 <!s::Spotify.winObj.App()
-<!x::Autohotkey.v2.Docs.winObj.App()
+<!x::Autohotkey.Docs.v2.winObj.App()
 <!a::VsCode.winObj.App()
 <!c::Browser.winObj.App()
 <!q::Discord.winObj.App()

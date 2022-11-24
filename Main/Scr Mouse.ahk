@@ -179,7 +179,7 @@ XButton1:: {
          Case down:       VsCode.CloseTab()
          Case up:         RestoreTab()
       }
-      Case WinActive(Spotify.winTitle):
+      Case WinActive(Spotify.exeTitle):
       Switch {
          Case topRight:   Spotify.NewDiscovery()
          Case bottomRight:Spotify.Discovery()
