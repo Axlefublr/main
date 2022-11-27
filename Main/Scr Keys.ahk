@@ -49,6 +49,12 @@ Pause::scr_Test()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
+
+#HotIf !WinActive(VsCode.winTitle) && !WinActive(Terminal.winTitles["Linux"])
+
+^f::Send("{PgDn}")
+^b::Send("{PgUp}")
+
 #HotIf !WinActive("Visual Studio Code ahk_exe Code.exe")
 !Insert::Cut()
 ^j::Find()

@@ -90,7 +90,7 @@ m —
 
 ^
 
-!
+! Insert snippet
 
 ## P
 
@@ -114,7 +114,7 @@ m —
 
 ^
 
-!
+! Prev error
 
 ## ]
 
@@ -130,7 +130,7 @@ m —
 
 ^
 
-!
+! Next error
 
 ## \
 
@@ -154,7 +154,7 @@ m —
 
 ^
 
-!
+! Prev change
 
 ## J
 
@@ -166,7 +166,7 @@ m —
 
 ^
 
-! Pick next
+! Next pick / symbol
 
 ## K
 
@@ -178,7 +178,7 @@ m —
 
 ^
 
-! Pick previous
+! Prev pick / symbol
 
 ## L
 
@@ -190,7 +190,7 @@ m —
 
 ^
 
-!
+! Next change
 
 ## ;
 

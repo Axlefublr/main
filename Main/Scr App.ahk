@@ -31,7 +31,7 @@ Escape::Youtube.MiniscreenClose()
 PgDn::Youtube.SkipNext()
 PgUp::Youtube.SkipPrev()
 
-;;Browser
+;;BROWSER
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive(Browser.winTitle)

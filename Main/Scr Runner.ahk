@@ -13,6 +13,7 @@
 #Include <Get>
 #Include <Channel>
 #Include <Tools\CleanInputBox>
+#Include <App\Slack>
 
 +!l:: {
    if !input := CleanInputBox().WaitForInput() {
@@ -37,74 +38,27 @@
       "dt",      () => ClipSend(GetDateAndTime(), , false),
 
       ;Apps
-      "sm", Run.Bind(Paths.Apps["Sound mixer"]),
-      "apps", MainApps,
-      "v1 docs", () => Win({
-         winTitle: "AutoHotkey Help",
-         exePath:  Paths.Apps["Ahk v1 docs"]
-      }).RunAct(),
-      "davinci", () => Win({
-         winTitle: "Project Manager ahk_exe Resolve.exe",
-         exePath:  Paths.Apps["Davinci Resolve"]
-      })
-      .RunAct(),
-      "slack", () => Win({
-         winTitle: "Slack ahk_exe slack.exe",
-         exePath:  Paths.Apps["Slack"]
-      }).RunAct(),
-      "steam", () => Win({
-         winTitle:  "ahk_exe steam.exe",
-         exePath:   Paths.Apps["Steam"],
-         exception: "Steam - News"
-      }).RunAct(),
-      "vpn", () => Win({
-         winTitle: "Proton VPN ahk_exe ProtonVPN.exe",
-         exePath:  Paths.Apps["VPN"]
-      }).RunAct(),
-      "fl", () => Win({
-         winTitle: "ahk_exe FL64.exe",
-         exePath:  Paths.Ptf["FL preset"]
-      }).RunAct(),
-      "ds4", () => Win({
-         winTitle: "DS4Windows ahk_exe DS4Windows.exe",
-         exePath:  Paths.Apps["DS4 Windows"]
-      }).RunAct(),
-      "obs", () => Win({
-         winTitle: "OBS ahk_exe obs64.exe",
-         exePath:  Paths.Apps["OBS"],
-         startIn:  Paths.OBSFolder
-      }).RunAct(),
+      "sm",      Run.Bind(Paths.Apps["Sound mixer"]),
+      "apps",    MainApps,
+      "v1 docs", () => Autohotkey.Docs.v1.RunAct(),
+      "davinci", () => Davinci.projectWinObj.RunAct(),
+      "slack",   () => Slack.winObj.RunAct(),
+      "steam",   () => Steam.winObj.RunAct(),
+      "vpn",     () => VPN.winObj.RunAct(),
+      "fl",      () => FL.winObj.RunAct(),
+      "ds4",     () => DS4.winObj.RunAct(),
       
       ;Gimp
-      "gi ahk2",  () => Win({
-         winTitle:  Gimp.exeTitle,
-         exePath:   Gimp.Presets["ahk second channel"],
-         toClose:   Gimp.toClose,
-         exception: Gimp.exception
-      }).RunAct(),
-      "gi ahk", () => Win({
-         winTitle:  Gimp.exeTitle,
-         exePath:   Gimp.Presets["ahk"],
-         toClose:   Gimp.toClose,
-         exception: Gimp.exception
-      }).RunAct(),
-      "gi nvim", () => Win({
-         winTitle:  Gimp.exeTitle,
-         exePath:   Gimp.Presets["nvim"],
-         toClose:   Gimp.toClose,
-         exception: Gimp.exception
-      }).RunAct(),
-      "gi vscode", () => Win({
-         winTitle:  Gimp.exeTitle,
-         exePath:   Gimp.Presets["vscode"],
-         toClose:   Gimp.toClose,
-         exception: Gimp.exception
-      }).RunAct(),
+      "gi",        () => Gimp.winObj.RunAct(),
+      "gi ahk2",   () => Gimp.ahk2Preset.RunAct(),
+      "gi ahk",    () => Gimp.ahkPreset.RunAct(),
+      "gi nvim",   () => Gimp.nvimPreset.RunAct(),
+      "gi vscode", () => Gimp.vscodePreset.RunAct(),
 
       ;Folders
-      "ext",   () => Win({winTitle: Paths.VsCodeExtensions}).RunAct_Folders(),
-      "prog",  () => Win({winTitle: Paths.Prog}).RunAct_Folders(),
-      "saved", () => Win({winTitle: Paths.SavedScreenshots}).RunAct_Folders(),
+      "ext",   () => Explorer.WinObj.VsCodeExtensions.RunAct_Folders(),
+      "prog",  () => Explorer.WinObj.Prog.RunAct_Folders(),
+      "saved", () => Explorer.WinObj.SavedScreenshots.RunAct_Folders(),
       "main",  () => VsCode.WorkSpace("Main"),
 
       ;Video production
@@ -113,17 +67,18 @@
       "video up", () => VsCode.VideoUp(),
       "dupl",     () => Video.DuplicateScreenshot(),
       "setup",    () => Davinci.Setup(),
-      "cut",      () => Win({winTitle: LosslessCut.winTitle, exePath: LosslessCut.path}).RunAct(),
+      "cut",      () => LosslessCut.winObj.RunAct(),
 
    )
 
    try runner_commands[input].Call()
    catch Any {
-      RegexMatch(input, "^(p|o|s|r|t|a|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp) (.+)", &result)
+      RegexMatch(input, "^(p|o|s|r|t|a|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp) (.+)", &result)
       static runner_regex := Map(
 
          "p",       (input) => ClipSend(Links[input], , false),
          "o",       (input) => RunLink(Links[input]),
+         "cp",      (input) => A_Clipboard := input,
          "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
          "r",       (input) => Spotify.NewRapper(input),
          "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
