@@ -248,9 +248,9 @@ o move
 
 +! Show view
 
-^ Show opened editors
+^
 
-!
+! Show opened editors
 
 ## N
 
