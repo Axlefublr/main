@@ -24,15 +24,15 @@
 
 <!r::Terminal.winObj.App()
 <!s::Spotify.winObj.App()
-<!x::Autohotkey.Docs.v2.winObj.App()
 <!a::VsCode.winObj.App()
 <!c::Browser.winObj.App()
 <!q::Discord.winObj.App()
 <!t::Telegram.winObj.App()
+<!x::Autohotkey.Docs.v2.winObj.App()
 <!z::OBS.winObj.App()
+<!f::Browser.Clock.winObj.App()
 
 <!d::Explorer.WinObj.Volume.App_Folders()
-
 <!v::Explorer.WinObj.Pictures.App_Folders()
 
 <!Escape::GroupDeactivate("Main")

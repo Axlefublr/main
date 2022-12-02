@@ -7,10 +7,7 @@
 #Include <App\Terminal>
 #Include <App\Browser>
 #Include <App\VsCode>
+#Include <Other>
 Run(Paths.Ptf["Keys"])
 
-Discord.winObj.RunAct()
-Spotify.winObj.RunAct()
-Terminal.winObj.RunAct()
-Browser.winObj.RunAct()
-VsCode.winObj.RunAct()
+MainApps()

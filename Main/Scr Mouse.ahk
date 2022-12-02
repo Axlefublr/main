@@ -119,7 +119,7 @@ Media_Stop:: {
       Case bottomRight: Telegram.winObj.App()
       Case right:       Discord.winObj.App()
       Case topLeft:     Terminal.winObj.App()
-      Case bottomLeft:  OBS.winObj.App()
+      Case bottomLeft:  Browser.Clock.winObj.App()
       Case left:        VsCode.winObj.App()
       Case down:        Spotify.winObj.App()
       Case up:          Browser.winObj.App()
