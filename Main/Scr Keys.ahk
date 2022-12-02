@@ -7,6 +7,7 @@ ScrollLock::scr_Reload()
 #Pause::SystemPowerDown()
 Pause::scr_Test()
 !Pause::scr_ExitTest()
++Pause::Exit()
 #SuspendExempt false
 
 #Include Scr Groups.ahk

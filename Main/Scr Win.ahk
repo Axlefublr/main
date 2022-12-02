@@ -18,7 +18,6 @@
 
 #m::RunLink(Links["gmail"])
 #sc33::RunLink(Links["ghm"])
-#sc34::RunLink(Links["regex"])
 
 #n::Browser.MonkeyType.winObj.App()
 
