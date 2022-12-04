@@ -59,17 +59,6 @@ PgUp::Youtube.SkipPrev()
 #HotIf WinActive(VK.winTitle)
 MButton::VK.Reply()
 
-;;DISCORD
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive(Discord.winTitle,, Discord.exception)
-^Space::Send("^k")
-
-MButton::Discord.Reply()
-+MButton::Discord.Reply()
-^LButton::Discord.React()
-!LButton::Discord.Edit()
-
 ;;VSCODE
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

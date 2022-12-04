@@ -54,6 +54,7 @@
       "gi ahk",    () => Gimp.ahkPreset.RunAct(),
       "gi nvim",   () => Gimp.nvimPreset.RunAct(),
       "gi vscode", () => Gimp.vscodePreset.RunAct(),
+      "gi csharp", () => Gimp.csharpPreset.RunAct(),
 
       ;Folders
       "ext",   () => Explorer.WinObj.VsCodeExtensions.RunAct_Folders(),
