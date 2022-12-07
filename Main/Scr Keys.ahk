@@ -51,11 +51,6 @@ Pause::scr_Test()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
 
-#HotIf !WinActive(VsCode.winTitle) && !WinActive(Terminal.winTitles["Linux"])
-
-^f::Send("{PgDn}")
-^b::Send("{PgUp}")
-
 #HotIf !WinActive("Visual Studio Code ahk_exe Code.exe")
 !Insert::Cut()
 ^j::Find()
@@ -82,10 +77,6 @@ Insert:: {
       SelectAll()
 }
 #Insert::WinPaste()
-+!Left::
-#^j::Undo()
-+!Right::
-#^k::Redo()
 !BackSpace::Delete
 !Tab::Send("^!{Tab}")
 
@@ -116,7 +107,7 @@ NumpadEnter::return
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <+Escape::WindowsClock()
-#Escape::Infos(GetWeather())
+#Escape::Infos(GetWeather()), RemindDate()
 
 CapsLock::SomeLockHint("CapsLock")
 !CapsLock::CloseButActually()
@@ -141,14 +132,15 @@ RAlt::SoundPlay(Paths.Ptf["vine boom"])
 #Right::Win({direction: "right"}).RestoreLeftRight()
 #Left::Win({direction: "left"}).RestoreLeftRight()
 
-#!Up::
 #!k::Send("{WheelUp}")
-#!Down::
 #!j::Send("{WheelDown}")
-#!Right::
-#!l::Send("{WheelRight}")
-#!Left::
-#!h::Send("{WheelLeft}")
+#!l::Send("{PgDn}")
+#!h::Send("{PgUp}")
+
+#^j::Undo()
+#^k::Redo()
+#^h::Win.Maximize()
+#^l::Win.RestoreDown()
 
 >^Home::Volume_Up
 >^End::Volume_Down
