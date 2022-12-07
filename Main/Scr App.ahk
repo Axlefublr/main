@@ -45,8 +45,8 @@ PgUp::Youtube.SkipPrev()
 !7::Send("^7")
 !8::Send("^8")
 !9::Send("^9")
-^7::PrevTab()
-^8::NextTab()
+!sc33::PrevTab()
+!sc34::NextTab()
 
 !e::NewTab()
 
@@ -94,9 +94,8 @@ Down::Send "{Volume_Down}"
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive("ahk_group AutoHotkey_Help")
-^7::Send("!n")
-^8::Send("!s")
-^6::Send("!c")
+!sc33::Send("!n")
+!sc34::Send("!s")
 
 ;;EXPLORER
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

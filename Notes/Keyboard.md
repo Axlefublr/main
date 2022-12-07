@@ -254,15 +254,51 @@ o move
 
 ## N
 
-^+
+^+ Create a new folder
 
 ^!
 
 +! Advanced new file
 
-^ New untitled file
+^
 
 !
+
+## M
+
+^+
+
+^!
+
++!
+
+^
+
+!
+
+## <
+
+^+
+
+^!
+
++!
+
+^
+
+! Previous tab
+
+## >
+
+^+
+
+^!
+
++!
+
+^
+
+! Next tab
 
 ## /
 
@@ -275,52 +311,6 @@ o move
 ^ Replace
 
 ! Find
-
-## PgUp / PgDn
-
-^+
-
-^!
-
-+!
-
-#!
-
-^ Go to prev / next editor
-
-!
-
-## Home / End
-
-^+ Select until start / end of file
-
-^! Got to prev / next found result
-
-+! Move editor left / right
-
-^ Go to start / end of file
-
-! Delete to the left / right of cursor
-
-## 7
-
-^+ Move editor into prev group
-
-^! Move editor left
-
-+! Focus previous group
-
-^ Prev tab
-
-## 8
-
-^+ Move editor into next group
-
-^! Move editor right
-
-+! Focus next group
-
-^ Next tab
 
 ## 9
 
@@ -340,32 +330,4 @@ o move
 
 +!
 
-^ Open search in editor
-
-! Go to the last tab
-
-## Arrows
-
-### Horizontal
-
-^+ Select word
-
-^! Indent
-
-+! Un/redo
-
-^ Skip a word
-
-!
-
-### Vertical
-
-^+
-
-^!
-
-+!
-
 ^
-
-!
