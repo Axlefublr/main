@@ -164,7 +164,7 @@ m —
 
 +! Copy line down
 
-^
+^ Create empty line down
 
 ! Next pick / symbol
 
@@ -176,7 +176,7 @@ m —
 
 +! Copy line up
 
-^
+^ Create empty line up
 
 ! Prev pick / symbol
 
@@ -188,7 +188,7 @@ m —
 
 +! Runner
 
-^
+^ 
 
 ! Next change
 
@@ -240,6 +240,10 @@ n copy name
 
 o move
 
+g join editor groups
+
+m check task list
+
 ## '
 
 ^+
@@ -278,25 +282,25 @@ o move
 
 ## <
 
-^+
+^+ Move editor to previous group
 
-^!
+^! Move tab left
 
 +!
 
-^
+^ Previous editor group
 
 ! Previous tab
 
 ## >
 
-^+
+^+ Move editor to next group
 
-^!
+^! Move tab right
 
 +!
 
-^
+^ Next editor group
 
 ! Next tab
 
