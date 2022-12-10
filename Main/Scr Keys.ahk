@@ -5,7 +5,11 @@
 #^u::scr_Reload()
 #^i::scr_Test()
 #^o::scr_ExitTest()
+ScrollLock::scr_Reload()
++ScrollLock::scr_Suspend()
 #ScrollLock::SystemReboot()
+Pause::scr_Test()
+!Pause::scr_ExitTest()
 #Pause::SystemPowerDown()
 #SuspendExempt false
 
@@ -84,8 +88,6 @@ Insert:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !Space::return
 AppsKey::RCtrl
-ScrollLock::return
-Pause::return
 
 Launch_Media::return     ; F1
 Media_Play_Pause::return ; F2
