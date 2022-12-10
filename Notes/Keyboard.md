@@ -4,9 +4,9 @@ h — paste
 
 j — select all
 
-k — konnect (lol)
+k — copy
 
-' — copy
+' — 
 
 b — googler
 
@@ -16,17 +16,29 @@ m — Gmail
 
 , — My github
 
-. — Regex
+. —
 
 / —
 
 # Windows ctrl
 
-h —
+y — Suspend script
 
-j —
+u — Reload script
 
-k —
+i — Run test script
+
+o — Exit test script
+
+h — Maximize window
+
+j — Undo
+
+k — Redo
+
+l — Minimize window
+
+; — 
 
 ' —
 
@@ -41,6 +53,16 @@ m —
 . —
 
 / —
+
+# Windows alt
+
+h — Page up
+
+j — Scroll down
+
+k — Scroll up
+
+l — Page down
 
 # Vs code
 

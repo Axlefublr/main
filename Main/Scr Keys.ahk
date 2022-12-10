@@ -1,13 +1,12 @@
 ﻿#Include <ScriptDirectives>
 
 #SuspendExempt true
-ScrollLock::scr_Reload()
-+ScrollLock::scr_Suspend()
+#^y::scr_Suspend()
+#^u::scr_Reload()
+#^i::scr_Test()
+#^o::scr_ExitTest()
 #ScrollLock::SystemReboot()
 #Pause::SystemPowerDown()
-Pause::scr_Test()
-!Pause::scr_ExitTest()
-+Pause::Exit()
 #SuspendExempt false
 
 #Include Scr Groups.ahk
@@ -85,19 +84,21 @@ Insert:: {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !Space::return
 AppsKey::RCtrl
+ScrollLock::return
+Pause::return
 
-Launch_Media::return ;F1
-Media_Play_Pause::return ;F2
-; Media_Stop::return ;F3
-Media_Prev::return ;F4
-Media_Next::return ;F5
-Volume_Mute::return ;F6
-; Volume_Up::return ;F7
-; Volume_Down::return ;F8
-Launch_App1::return ;F9
-Launch_Mail::return ;F10
-Launch_App2::return ;F11
-Browser_Home::return ;F12
+Launch_Media::return     ; F1
+Media_Play_Pause::return ; F2
+; Media_Stop::return       ; F3
+Media_Prev::return       ; F4
+Media_Next::return       ; F5
+Volume_Mute::return      ; F6
+Volume_Up::return        ; F7
+Volume_Down::return      ; F8
+Launch_App1::return      ; F9
+Launch_Mail::return      ; F10
+Launch_App2::return      ; F11
+Browser_Home::return     ; F12
 
 NumpadMult::return
 NumpadDiv::return
@@ -202,3 +203,4 @@ Numpad9::9
 
 #InputLevel 5
 Info(A_AhkPath.Replace(AutoHotkey.path "\"))
+RemindDate()
