@@ -95,7 +95,7 @@
          "dd",      (input) => Shows().SetDownloaded(input),
          "delow",   (input) => Shows().DeleteShow(input),
          "drop",    (input) => Shows().DeleteShow(input, true),
-         "counter", (input) => Counter(input),
+         "counter", (input) => Info(Counter.num := input),
          "gl",      (input) => ClipSend(Git.Link(input), "", false),
          "go",      (input) => RunLink(Git.Link(input)),
          "install", (input) => Git.InstallAhkLibrary(input),

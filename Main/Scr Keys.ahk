@@ -8,8 +8,8 @@
 ScrollLock::scr_Reload()
 +ScrollLock::scr_Suspend()
 #ScrollLock::SystemReboot()
-Pause::scr_Test()
-!Pause::scr_ExitTest()
+; Pause::scr_Test()
+; !Pause::scr_ExitTest()
 #Pause::SystemPowerDown()
 #SuspendExempt false
 
@@ -114,10 +114,15 @@ NumpadEnter::return
 
 CapsLock::SomeLockHint("CapsLock")
 !CapsLock::CloseButActually()
-+CapsLock::Counter()
 
 PrintScreen::Screenshot.Start()
 #PrintScreen::Screenshot.FullScreenOut()
+
+Pause::Counter.Increment()
++Pause::Counter.Send(), Counter.Increment()
+!Pause::Counter.Decrement()
++!Pause::Counter.Reset()
+^CtrlBreak::Counter.Show()
 
 +!f::CoordGetter()
 +!g::WindowGetter()
