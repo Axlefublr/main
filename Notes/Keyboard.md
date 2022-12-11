@@ -174,7 +174,7 @@ l — Page down
 
 +!
 
-^
+^ (insert) Insert next previous word
 
 ! Prev change
 
@@ -210,7 +210,7 @@ l — Page down
 
 +! Runner
 
-^ 
+^ (insert) Autocomplete the rest of the line
 
 ! Next change
 
@@ -300,7 +300,7 @@ k terminal
 
 +!
 
-^
+^ (insert) Insert next next word
 
 !
 

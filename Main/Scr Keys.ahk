@@ -66,6 +66,9 @@ ScrollLock::scr_Reload()
 ^!h::Send("^{Left}")
 ^!l::Send("^{Right}")
 
+#^j::Undo()
+#^k::Redo()
+
 #HotIf
 
 ;;BASE HOTKEYS
@@ -144,8 +147,6 @@ RAlt::SoundPlay(Paths.Ptf["vine boom"])
 #!l::Send("{PgDn}")
 #!h::Send("{PgUp}")
 
-#^j::Undo()
-#^k::Redo()
 #^h::Win.Maximize()
 #^l::Win.RestoreDown()
 
