@@ -113,19 +113,19 @@ Media_Stop:: {
    , topLeft     := ((sectionX < 252) && (sectionY < 229))
    , bottomLeft  := ((sectionX < 263) && (sectionY > 849))
    , bottomRight := ((sectionX > 1673) && (sectionY > 839))
-   
+
    Switch {
       Case topRight:    GroupDeactivate("Main")
       Case bottomRight: Telegram.winObj.App()
       Case right:       Discord.winObj.App()
-      Case topLeft:     Terminal.winObj.App()
+      ; Case topLeft:
       Case bottomLeft:  Browser.Clock.winObj.App()
       Case left:        VsCode.winObj.App()
       Case down:        Spotify.winObj.App()
       Case up:          Browser.winObj.App()
       Default:          AltTab()
    }
-   
+
 }
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,7 +170,7 @@ XButton1:: {
          Case WinActive(VK.winTitle):VK.Scroll()
          Case down:    CloseTab()
       }
-      Case WinActive(VsCode.winTitle) || WinActive(Terminal.winTitle):
+      Case WinActive(VsCode.winTitle):
       Switch {
          Case bottomRight:scr_Reload()
          Case right:      NextTab()

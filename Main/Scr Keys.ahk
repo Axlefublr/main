@@ -109,7 +109,6 @@ NumpadEnter::return
 ;;FUNCTIONAL
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<+Escape::WindowsClock()
 #Escape::Infos(GetWeather()), RemindDate()
 
 CapsLock::SomeLockHint("CapsLock")

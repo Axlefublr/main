@@ -236,7 +236,7 @@ p Pin active tab
 
 j Add another keybinding
 
-k Change "when"
+k Change "when" / create another terminal
 
 l Search by keybind
 
@@ -265,6 +265,8 @@ o move
 g join editor groups
 
 m check task list
+
+k terminal
 
 ## '
 
