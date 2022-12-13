@@ -66,6 +66,20 @@ l — Page down
 
 # Vs code
 
+## E
+
+^+
+
+^!
+
++!
+
+^ (normal) Decrement number
+
+(insert) Insert the character on the below line
+
+! 
+
 ## Y
 
 ^+ Add folder to workspace
@@ -74,7 +88,9 @@ l — Page down
 
 +! Reload window
 
-^ Redo
+^ (normal) Increment number
+
+(insert) Insert the character on the above line
 
 !
 
@@ -86,7 +102,9 @@ l — Page down
 
 +! Commit
 
-^
+^ (normal) Scroll half a page up
+
+(insert) Delete until the start of the line
 
 ! Maximize panel
 
@@ -98,7 +116,9 @@ l — Page down
 
 +! Insert snippet
 
-^
+^ (normal) Go forward in history
+
+(insert)
 
 ! Toggle panel
 
@@ -110,7 +130,9 @@ l — Page down
 
 +!
 
-^
+^ (normal) Go back in history
+
+(insert) Execute one normal mode command
 
 ! Insert snippet
 
@@ -122,7 +144,9 @@ l — Page down
 
 +! Command palette
 
-^ Go to file
+^ (normal) Go to file
+
+(insert) Previous suggestion
 
 ! Go to symbol
 
@@ -252,11 +276,11 @@ i italic
 
 j focus editor
 
-f Copy full file path
+f copy full file path
 
-r Copy relative file path
+r copy relative file path / restart terminal
 
-d Delete active file
+d delete active file
 
 n copy name
 
@@ -264,9 +288,11 @@ o move
 
 g join editor groups
 
-m check task list
+m check task list / move terminal from and to editor
 
-k terminal
+l run
+
+k kill terminal
 
 ## '
 
@@ -288,7 +314,7 @@ k terminal
 
 +! Advanced new file
 
-^
+^ (insert) Next suggestion
 
 !
 

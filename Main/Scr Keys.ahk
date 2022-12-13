@@ -54,14 +54,16 @@ ScrollLock::scr_Reload()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
 
-#HotIf !WinActive("Visual Studio Code ahk_exe Code.exe")
-!Insert::Cut()
-^j::Find()
+#HotIf !WinActive(VsCode.winTitle,, VsCode.exception)
 
 !j::Send("{Down}")
 !k::Send("{Up}")
 !h::Send("{Left}")
 !l::Send("{Right}")
+
+#HotIf !WinActive(VsCode.winTitle)
+!Insert::Cut()
+^j::Find()
 
 ^!h::Send("^{Left}")
 ^!l::Send("^{Right}")
@@ -115,6 +117,7 @@ NumpadEnter::return
 #Escape::Infos(GetWeather()), RemindDate()
 
 CapsLock::SomeLockHint("CapsLock")
++CapsLock::Win.Minimize()
 !CapsLock::CloseButActually()
 
 PrintScreen::Screenshot.Start()

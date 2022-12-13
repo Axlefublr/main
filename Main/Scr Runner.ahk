@@ -47,19 +47,13 @@
       "vpn",     () => VPN.winObj.RunAct(),
       "fl",      () => FL.winObj.RunAct(),
       "ds4",     () => DS4.winObj.RunAct(),
+      "gi",      () => Gimp.winObj.RunAct(),
       
-      ;Gimp
-      "gi",        () => Gimp.winObj.RunAct(),
-      "gi ahk2",   () => Gimp.ahk2Preset.RunAct(),
-      "gi ahk",    () => Gimp.ahkPreset.RunAct(),
-      "gi nvim",   () => Gimp.nvimPreset.RunAct(),
-      "gi vscode", () => Gimp.vscodePreset.RunAct(),
-      "gi csharp", () => Gimp.csharpPreset.RunAct(),
-
       ;Folders
       "ext",   () => Explorer.WinObj.VsCodeExtensions.RunAct_Folders(),
       "prog",  () => Explorer.WinObj.Prog.RunAct_Folders(),
       "saved", () => Explorer.WinObj.SavedScreenshots.RunAct_Folders(),
+      "gim",   () => Explorer.WinObj.VideoTools.RunAct_Folders(),
       "main",  () => VsCode.WorkSpace("Main"),
 
       ;Video production
