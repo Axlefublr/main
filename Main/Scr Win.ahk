@@ -27,8 +27,11 @@
 <!q::Discord.winObj.App()
 <!t::Telegram.winObj.App()
 <!x::Autohotkey.Docs.v2.winObj.App()
-<!z::OBS.winObj.App()
 +Escape::Browser.Clock.winObj.App()
+
+#HotIf !WinActive(OBS.exeTitle)
+<!z::OBS.winObj.RunAct()
+#HotIf
 
 <!d::Explorer.WinObj.Volume.App_Folders()
 <!v::Explorer.WinObj.Pictures.App_Folders()
