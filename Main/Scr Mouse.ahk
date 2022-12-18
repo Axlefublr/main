@@ -118,7 +118,7 @@ Media_Stop:: {
       Case topRight:    GroupDeactivate("Main")
       Case bottomRight: Telegram.winObj.App()
       Case right:       Discord.winObj.App()
-      ; Case topLeft:
+      Case topLeft:     Terminal.winObj.App()
       Case bottomLeft:  Browser.Clock.winObj.App()
       Case left:        VsCode.winObj.App()
       Case down:        Spotify.winObj.App()
@@ -170,7 +170,7 @@ XButton1:: {
          Case WinActive(VK.winTitle):VK.Scroll()
          Case down:    CloseTab()
       }
-      Case WinActive(VsCode.winTitle):
+      Case WinActive(VsCode.winTitle) || WinActive(Terminal.winTitle):
       Switch {
          Case bottomRight:scr_Reload()
          Case right:      NextTab()

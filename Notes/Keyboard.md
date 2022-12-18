@@ -302,9 +302,9 @@ k kill terminal
 
 +! Show view
 
-^
+^ Show opened editors
 
-! Show opened editors
+!
 
 ## N
 

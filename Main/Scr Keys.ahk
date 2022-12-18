@@ -54,13 +54,6 @@ ScrollLock::scr_Reload()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #InputLevel 6
 
-#HotIf !WinActive(VsCode.winTitle,, VsCode.exception)
-
-!j::Send("{Down}")
-!k::Send("{Up}")
-!h::Send("{Left}")
-!l::Send("{Right}")
-
 #HotIf !WinActive(VsCode.winTitle)
 !Insert::Cut()
 ^j::Find()
@@ -68,9 +61,13 @@ ScrollLock::scr_Reload()
 ^!h::Send("^{Left}")
 ^!l::Send("^{Right}")
 
+!j::Send("{Down}")
+!k::Send("{Up}")
+!h::Send("{Left}")
+!l::Send("{Right}")
+
 #^j::Undo()
 #^k::Redo()
-
 #HotIf
 
 ;;BASE HOTKEYS

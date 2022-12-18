@@ -108,7 +108,7 @@ F6::FileSystemSearch().GetInput()
 ;;TERMINAL
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive(Terminal.winTitles["Linux"])
+#HotIf WinActive(Terminal.winTitle)
 ^BackSpace::Terminal.DeleteWord()
 
 ;;SCREENSHOT

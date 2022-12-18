@@ -113,7 +113,8 @@
 
       "radnum", () => RadNum(),
       "date",   () => GetDate(),
-      "time",   () => GetDateAndTime(),
+      "time",   () => GetTime(),
+      "datetime", () => GetDateAndTime(),
       "uclanr", () => GetRandomWord("english") " ",
       "ilandh", () => GetRandomWord("russian") " ",
 
