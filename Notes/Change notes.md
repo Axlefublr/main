@@ -1,0 +1,1 @@
+startupWintitle: sometimes when you run an app, it will launch a window that is not the window you'll be minmaxing later, so you can specify that separately now if you want to
