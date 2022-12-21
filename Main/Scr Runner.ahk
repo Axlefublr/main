@@ -32,7 +32,7 @@
       "startup", () => tool_StartupRun(),
       "shows",   () => Shows().GetList(),
       "rel",     () => Reload(),
-      "track",   () => ClipSend(Spotify.GetCurrSong()),
+      "track",   () => ClipSend(Spotify.GetCurrSong(),, false),
       "kb",      () => KeyCodeGetter(),
       "eat",     () => EatingLogger(),
       "dt",      () => ClipSend(GetDateAndTime(), , false),

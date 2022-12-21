@@ -5,8 +5,8 @@
 #^u::scr_Reload()
 #^i::scr_Test()
 #^o::scr_ExitTest()
-ScrollLock::scr_Reload()
-+ScrollLock::scr_Suspend()
+; ScrollLock::scr_Reload()
+; +ScrollLock::scr_Suspend()
 #ScrollLock::SystemReboot()
 ; Pause::scr_Test()
 ; !Pause::scr_ExitTest()
@@ -66,8 +66,8 @@ ScrollLock::scr_Reload()
 !h::Send("{Left}")
 !l::Send("{Right}")
 
-#^j::Undo()
-#^k::Redo()
+#^sc33::Undo()
+#^sc34::Redo()
 #HotIf
 
 ;;BASE HOTKEYS
@@ -126,6 +126,15 @@ Pause::Counter.Increment()
 +!Pause::Counter.Reset()
 ^CtrlBreak::Counter.Show()
 
+ScrollLock:: {
+   output := StopWatch()
+   if output {
+      Infos(output)
+   } else {
+      Info("Timer started")
+   }
+}
+
 +!f::CoordGetter()
 +!g::WindowGetter()
 +!v::tool_RelativeCoordGetter()
@@ -133,6 +142,8 @@ Pause::Counter.Increment()
 #f::Hider(0x171717)
 #b::InternetSearch("Google").TriggerSearch()
 RAlt::SoundPlay(Paths.Ptf["vine boom"])
+#^sc1A::Brightness.ChangeBrightnessRelative(-10)
+#^sc1B::Brightness.ChangeBrightnessRelative(10)
 
 ;;MOVING
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -147,8 +158,10 @@ RAlt::SoundPlay(Paths.Ptf["vine boom"])
 #!l::Send("{PgDn}")
 #!h::Send("{PgUp}")
 
-#^h::Win.Maximize()
-#^l::Win.RestoreDown()
+#^h::Win.RestoreLeftRight("left")
+#^l::Win.RestoreLeftRight("right")
+#^k::Win.Maximize()
+#^j::Win.RestoreDown()
 
 >^Home::Volume_Up
 >^End::Volume_Down
