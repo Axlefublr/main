@@ -5,16 +5,13 @@
 #^u::scr_Reload()
 #^i::scr_Test()
 #^o::scr_ExitTest()
-; ScrollLock::scr_Reload()
-; +ScrollLock::scr_Suspend()
 #ScrollLock::SystemReboot()
-; Pause::scr_Test()
-; !Pause::scr_ExitTest()
 #Pause::SystemPowerDown()
 #SuspendExempt false
 
 #Include Scr Groups.ahk
 #Include Scr Runner.ahk
+#Include <Scr>
 #Include Scr App.ahk
 #Include Scr Mouse.ahk
 #Include Scr Win.ahk
