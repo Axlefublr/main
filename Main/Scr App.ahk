@@ -72,6 +72,9 @@ MButton::VK.Reply()
 #HotIf WinActive(VsCode.winTitle)
 Media_Stop & MButton::VsCode.Reload()
 
+XButton1 & WheelUp::VsCode.Redo()
+XButton1 & WheelDown::VsCode.Undo()
+
 ;;PLAYERS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

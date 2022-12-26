@@ -194,7 +194,7 @@ l — Page down
 
 ^+
 
-^!
+^! (markdown) Descrease heading
 
 +!
 
@@ -206,7 +206,7 @@ l — Page down
 
 ^+
 
-^! Move line down
+^!
 
 +! Copy line down
 
@@ -218,7 +218,7 @@ l — Page down
 
 ^+
 
-^! Move line up
+^!
 
 +! Copy line up
 
@@ -230,7 +230,7 @@ l — Page down
 
 ^+
 
-^!
+^! (markdown) Increase heading
 
 +! Runner
 
