@@ -88,7 +88,7 @@ Insert:: {
 !Space::return
 AppsKey::RCtrl
 
-Launch_Media::return     ; F1
+; Launch_Media::return     ; F1
 Media_Play_Pause::return ; F2
 ; Media_Stop::return       ; F3
 Media_Prev::return       ; F4
@@ -138,7 +138,7 @@ ScrollLock:: {
 ^+s::Snake(20, 50, 1.7)
 #f::Hider(0x171717)
 #b::InternetSearch("Google").TriggerSearch()
-RAlt::SoundPlay(Paths.Ptf["vine boom"])
+Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
 #^sc1B::Brightness.ChangeBrightnessRelative(10)
 

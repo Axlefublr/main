@@ -35,7 +35,6 @@
       "track",   () => ClipSend(Spotify.GetCurrSong(),, false),
       "kb",      () => KeyCodeGetter(),
       "eat",     () => EatingLogger(),
-      "dt",      () => ClipSend(GetDateAndTime(), , false),
 
       ;Apps
       "sm",      Run.Bind(Paths.Apps["Sound mixer"]),
@@ -111,12 +110,14 @@
    }
    static DynamicHotstrings := Map(
 
-      "radnum", () => RadNum(),
-      "date",   () => GetDate(),
-      "time",   () => GetTime(),
-      "datetime", () => GetDateAndTime(),
-      "uclanr", () => GetRandomWord("english") " ",
-      "ilandh", () => GetRandomWord("russian") " ",
+      "radnum",    () => RadNum(),
+      "date",      () => GetCurrDate(),
+      "datew",     () => GetDateWeek(),
+      "time",      () => GetCurrTime(),
+      "datetime",  () => GetDateTime(),
+      "datewtime", () => GetDateWeekTime(),
+      "uclanr",    () => GetRandomWord("english") " ",
+      "ilandh",    () => GetRandomWord("russian") " ",
 
    )
    static StaticHotstrings := Map(

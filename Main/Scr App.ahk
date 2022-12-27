@@ -64,7 +64,7 @@ MButton::VK.Reply()
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #HotIf WinActive(Paths.Ptf["Rappers"] " ahk_exe Code.exe")
 !e:: {
-   text := GetDateAndTime() " - " Spotify.RemoveDateAndTime(A_Clipboard)
+   text := GetDateTime() " - " Spotify.RemoveDateAndTime(A_Clipboard)
    AppendFile(Paths.Ptf["Unfinished"], text)
    NextTab()
 }
