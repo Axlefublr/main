@@ -6,7 +6,7 @@ j — select all
 
 k — copy
 
-' — 
+' — cut
 
 b — googler
 
@@ -22,21 +22,13 @@ m — Gmail
 
 # Windows ctrl
 
-y — Suspend script
+h — Move window to the left
 
-u — Reload script
+j — Restore window down
 
-i — Run test script
+k — Maximize window
 
-o — Exit test script
-
-h — Maximize window
-
-j — Undo
-
-k — Redo
-
-l — Minimize window
+l — Move window to the right
 
 ; — 
 
@@ -55,6 +47,16 @@ m —
 / —
 
 # Windows alt
+
+y — Suspend script
+
+u — Reload script
+
+i — Run test script
+
+o — Exit test script
+
+p — Paste from input
 
 h — Page up
 

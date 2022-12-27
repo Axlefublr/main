@@ -21,7 +21,7 @@
    }
 
    static runner_commands := Map(
-   
+
       ;Main
       "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
       "remove comments",       () => str_RemoveLineComments(),
@@ -46,8 +46,8 @@
       "vpn",     () => VPN.winObj.RunAct(),
       "fl",      () => FL.winObj.RunAct(),
       "ds4",     () => DS4.winObj.RunAct(),
-      "gi",      () => Gimp.winObj.RunAct(),
-      
+      "gimp",    () => Gimp.winObj.RunAct(),
+
       ;Folders
       "ext",   () => Explorer.WinObj.VsCodeExtensions.RunAct_Folders(),
       "prog",  () => Explorer.WinObj.Prog.RunAct_Folders(),

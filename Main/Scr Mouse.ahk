@@ -88,7 +88,7 @@ XButton2 & RButton::PrintScreen
 XButton2 & LButton::Enter
 
 XButton2 & MButton::Screenshot.FullScreenOut()
-XButton1 & MButton::HoverScreenshot()
+XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
 
 #!LButton::Hider(false)
 #LButton::Hider()
@@ -119,7 +119,7 @@ Media_Stop:: {
       Case bottomRight: Telegram.winObj.App()
       Case right:       Discord.winObj.App()
       Case topLeft:     Terminal.winObj.App()
-      Case bottomLeft:  Browser.Clock.winObj.App()
+      Case bottomLeft:  GroupActivate("Other")
       Case left:        VsCode.winObj.App()
       Case down:        Spotify.winObj.App()
       Case up:          Browser.winObj.App()

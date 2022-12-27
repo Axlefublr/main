@@ -1,10 +1,10 @@
 ﻿#Include <ScriptDirectives>
 
 #SuspendExempt true
-#^y::scr_Suspend()
-#^u::scr_Reload()
-#^i::scr_Test()
-#^o::scr_ExitTest()
+#!y::scr_Suspend()
+#!u::scr_Reload()
+#!i::scr_Test()
+#!o::scr_ExitTest()
 #ScrollLock::SystemReboot()
 #Pause::SystemPowerDown()
 #SuspendExempt false
@@ -74,6 +74,8 @@
 #j::SelectAll()
 #h::Paste()
 #k::Copy()
+#sc28::Cut()
+#!p::ClipSend(ReadFile(Paths.Ptf["Input"]))
 Insert:: {
    if press_Hold()
       SelectAll()
@@ -135,8 +137,6 @@ ScrollLock:: {
 +!f::CoordGetter()
 +!g::WindowGetter()
 +!v::tool_RelativeCoordGetter()
-^+s::Snake(20, 50, 1.7)
-#f::Hider(0x171717)
 #b::InternetSearch("Google").TriggerSearch()
 Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
