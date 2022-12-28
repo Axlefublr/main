@@ -35,6 +35,7 @@
       "track",   () => ClipSend(Spotify.GetCurrSong(),, false),
       "kb",      () => KeyCodeGetter(),
       "eat",     () => EatingLogger(),
+      "libs?",   () => Infos(CountLibraries()),
 
       ;Apps
       "sm",      Run.Bind(Paths.Apps["Sound mixer"]),

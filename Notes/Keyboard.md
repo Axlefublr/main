@@ -30,7 +30,7 @@ k — Maximize window
 
 l — Move window to the right
 
-; — 
+; —
 
 ' —
 
@@ -76,23 +76,23 @@ l — Page down
 
 +!
 
-^ (normal) Decrement number
+^ (insert) Insert the character on the below line
 
-(insert) Insert the character on the below line
-
-! 
+!
 
 ## Y
 
-^+ Add folder to workspace
+^+ ^+ Add folder to workspace
+
+^+ . Open folder in vscode
 
 ^! Remove folder from workspace
 
-+! Reload window
++! +! Reload window
 
-^ (normal) Increment number
++! . Restart extensions
 
-(insert) Insert the character on the above line
+^ (insert) Insert the character on the above line
 
 !
 
@@ -114,13 +114,13 @@ l — Page down
 
 ^+ Configure snippets
 
-^! Rename symbol 
+^! Rename symbol
 
-+! Insert snippet
++!
 
 ^ (normal) Go forward in history
 
-(insert)
+(insert) Reinsert starting from the absolute start of the line
 
 ! Toggle panel
 
@@ -200,7 +200,7 @@ l — Page down
 
 +!
 
-^ (insert) Insert next previous word
+^ (insert) Insert at the end of the last line, removing the current one
 
 ! Prev change
 
@@ -246,9 +246,7 @@ l — Page down
 
 ^!
 
-+! +! Toggle autosave
-
-+! . Save all
++! Toggle autosave
 
 ^
 
@@ -262,7 +260,7 @@ p Pin active tab
 
 j Add another keybinding
 
-k Change "when" / create another terminal
+k Change "when" / Create another terminal
 
 l Search by keybind
 
@@ -272,11 +270,7 @@ l Search by keybind
 
 ### ^;.
 
-b bold
-
-i italic
-
-j focus editor
+j focus editor / focus terminal
 
 f copy full file path
 
@@ -295,6 +289,12 @@ m check task list / move terminal from and to editor
 l run
 
 k kill terminal
+
+, close editors to the left
+
+. close editors to the right
+
+/ close editors aside from current one
 
 ## '
 
@@ -328,7 +328,7 @@ k kill terminal
 
 +!
 
-^ (insert) Insert next next word
+^ (insert) Insert at the end of the next line, removing the current line
 
 !
 
@@ -364,9 +364,9 @@ k kill terminal
 
 +!
 
-^ Replace
+^
 
-! Find
+! Replace
 
 ## 9
 
