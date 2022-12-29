@@ -37,6 +37,9 @@
 <!v::Explorer.WinObj.Pictures.App_Folders()
 
 <!Escape::GroupDeactivate("Main")
-<+Escape::GroupActivate("Other")
+<+Escape:: {
+   SetTitleMatchMode("Regex")
+   Explorer.winObjRegex.MinMax()
+}
 
 #MaxThreadsBuffer false

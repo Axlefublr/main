@@ -48,6 +48,7 @@
       "fl",      () => FL.winObj.RunAct(),
       "ds4",     () => DS4.winObj.RunAct(),
       "gimp",    () => Gimp.winObj.RunAct(),
+      "mt",      () => Browser.MonkeyType.winObj.RunAct(),
 
       ;Folders
       "ext",   () => Explorer.WinObj.VsCodeExtensions.RunAct_Folders(),

@@ -7,58 +7,13 @@
 #Include <Other>
 #Include <Tools>
 #Include <Image>
+#Include <Press>
 
 #MaxThreadsBuffer true
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Media_Stop & XButton1:: {
-   MouseGetPos &sectionX, &sectionY
-   right         := (sectionX > 1368)
-   , left        := (sectionX < 568)
-   , down        := (sectionY > 747)
-   , up          := (sectionY < 347)
-   , deffault    := !right && !left && !down && !up
-   || WinActive("Skillfactory " Browser.exeTitle)
-   || WinActive("Gogoanime " Browser.exeTitle)
-   Switch {
-      Case deffault:Cut()
-      Case WinActive(Youtube.winTitle):Youtube.StudioSwitch()
-      Case WinActive(Discord.winTitle):Discord.Emoji()
-      Case WinActive(VsCode.winTitle):
-      Switch {
-         Case right:VsCode.IndentRight()
-         Case left:VsCode.IndentLeft()
-         Case up:VsCode.DeleteLine()
-         Case down:VsCode.Comment()
-      }
-   }
-}
 
-Media_Stop & XButton2:: {
-   MouseGetPos &sectionX, &sectionY
-   right         := (sectionX > 1368)
-   , left        := (sectionX < 568)
-   , down        := (sectionY > 747)
-   , up          := (sectionY < 347)
-   , deffault    := !right && !left && !down && !up
-   Switch {
-      Case deffault:WinPaste()
-      Case up:Send("{Browser_Forward}")
-      Case down:Send("{Browser_Back}")
-      Case WinActive(Youtube.Studio):Youtube.ToYouTube()
-      Case WinActive(Youtube.winTitle):Youtube.ChannelSwitch()
-      Case WinActive("GitHub " Browser.exeTitle):GitHub.Profile()
-      Case WinActive(VK.winTitle):VK.Voice()
-      Case WinActive(Telegram.winTitle):Telegram.Voice()
-      Case WinActive(Discord.winTitle):Discord.Gif()
-   }
-}
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;;Singular mappings
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 SCROLL_VERTICALLY := true
 #c::global SCROLL_VERTICALLY := !SCROLL_VERTICALLY
 
@@ -93,103 +48,122 @@ XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
 #!LButton::Hider(false)
 #LButton::Hider()
 
-Media_Stop & RButton::scr_Reload()
+; Media_Stop & RButton::
 Media_Stop & MButton::F5
 Media_Stop & LButton::Screenshot.Start()
 
-XButton1 & Media_Stop::scr_Test()
-XButton2 & Media_Stop::scr_ExitTest()
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Media_Stop:: {
-   MouseGetPos &sectionX, &sectionY
-   right         := (sectionX > 1368)
-   , left        := (sectionX < 568)
-   , down        := (sectionY > 747)
-   , up          := (sectionY < 347)
-   , topRight    := ((sectionX > 1707) && (sectionY < 233))
-   , topLeft     := ((sectionX < 252) && (sectionY < 229))
-   , bottomLeft  := ((sectionX < 263) && (sectionY > 849))
-   , bottomRight := ((sectionX > 1673) && (sectionY > 839))
+XButton2 & Media_Stop::scr_Reload()
 
+;;App window manipulation
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Media_Stop:: {
+   sections := GetSections()
    Switch {
-      Case topRight:    GroupDeactivate("Main")
-      Case bottomRight: Telegram.winObj.App()
-      Case right:       Discord.winObj.App()
-      Case topLeft:     Terminal.winObj.App()
-      Case bottomLeft:  GroupActivate("Other")
-      Case left:        VsCode.winObj.App()
-      Case down:        Spotify.winObj.App()
-      Case up:          Browser.winObj.App()
-      Default:          AltTab()
+      Case sections.topRight:    GroupDeactivate("Main")
+      Case sections.bottomRight: Telegram.winObj.App()
+      Case sections.right:       Discord.winObj.App()
+      Case sections.topLeft:     Terminal.winObj.App()
+      Case sections.bottomLeft:
+         SetTitleMatchMode("Regex")
+         Explorer.winObjRegex.MinMax()
+      Case sections.left:        VsCode.winObj.App()
+      Case sections.down:        Spotify.winObj.App()
+      Case sections.up:          Browser.winObj.App()
+      Default:                   AltTab()
    }
 
 }
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-XButton2:: {
-   MouseGetPos &sectionX, &sectionY
-   right  := (sectionX > 1368)
-   , left := (sectionX < 568)
-   , down := (sectionY > 747)
-   , up   := (sectionY < 347)
+
+;;General window manipulation
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+XButton1 & Media_Stop:: {
+   sections := GetSections()
    Switch {
-      Case right:Send("{Media_Next}")
-      Case left:Send("{Media_Prev}")
-      Case down:CloseButActually()
-      Case up:Win.Minimize()
+      case sections.left:  Win.RestoreLeftRight("left")
+      case sections.right: Win.RestoreLeftRight("right")
+      case sections.up:    Win.Maximize()
+      case sections.down:  Win.RestoreDown()
+   }
+}
+;;Media + Window manipulation
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+XButton2:: {
+   sections := GetSections()
+   Switch {
+      Case sections.right: Send("{Media_Next}")
+      Case sections.left: Send("{Media_Prev}")
+      Case sections.down:CloseButActually()
+      Case sections.up:Win.Minimize()
       Default:Paste()
    }
 }
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+;;In-app actions
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 XButton1:: {
-   MouseGetPos &sectionX, &sectionY
-   right         := (sectionX > 1368)
-   , left        := (sectionX < 568)
-   , down        := (sectionY > 747)
-   , up          := (sectionY < 347)
-   , topRight    := ((sectionX > 1707) && (sectionY < 233))
-   , topLeft     := ((sectionX < 252) && (sectionY < 229))
-   , bottomLeft  := ((sectionX < 263) && (sectionY > 849))
-   , bottomRight := ((sectionX > 1673) && (sectionY > 839))
-   , deffault    := !right && !left && !down && !up
+   sections := GetSections()
    Switch {
-      Case deffault:Copy()
+      Case sections.middle:Copy()
       Case WinActive(Browser.winTitle):
-      Switch {
-         Case right:   NextTab()
-         Case left:    PrevTab()
-         Case up:      RestoreTab()
-         Case WinActive(VK.winTitle):VK.Scroll()
-         Case down:    CloseTab()
-      }
+         Switch {
+            Case sections.right:         NextTab()
+            Case sections.left:          PrevTab()
+            Case sections.up:            RestoreTab()
+            Case WinActive(VK.winTitle): VK.Scroll()
+            Case sections.down:          CloseTab()
+         }
       Case WinActive(VsCode.winTitle) || WinActive(Terminal.winTitle):
-      Switch {
-         Case bottomRight:scr_Reload()
-         Case right:      NextTab()
-         Case bottomLeft: scr_Test()
-         Case left:       PrevTab()
-         Case down:       VsCode.CloseTab()
-         Case up:         RestoreTab()
-      }
+         Switch {
+            Case sections.bottomRight:scr_Reload()
+            Case sections.right:      NextTab()
+            Case sections.bottomLeft: scr_Test()
+            Case sections.left:       PrevTab()
+            Case sections.down:       VsCode.CloseTab()
+            Case sections.up:         RestoreTab()
+         }
       Case WinActive(Spotify.exeTitle):
-      Switch {
-         Case topRight:   Spotify.NewDiscovery()
-         Case bottomRight:Spotify.Discovery()
-         Case topLeft:    Spotify.Context()
-         Case bottomLeft: Spotify.FavRapper_Auto()
-         Case up:         Spotify.Like()
-         Case down:       Spotify.Shuffle()
-      }
-      Case WinActive(Telegram.winTitle) && down:Telegram.Scroll()
-      Case WinActive(Discord.winTitle) && down:Send("{Esc}")
+         Switch {
+            Case sections.topRight:   Spotify.NewDiscovery()
+            Case sections.bottomRight:Spotify.Discovery()
+            Case sections.topLeft:    Spotify.Context()
+            Case sections.bottomLeft: Spotify.FavRapper_Auto()
+            Case sections.up:         Spotify.Like()
+            Case sections.down:       Spotify.Shuffle()
+         }
+      Case WinActive(Telegram.winTitle) && sections.down:Telegram.Scroll()
+      Case WinActive(Discord.winTitle)  && sections.down:Send("{Esc}")
    }
 }
+
+;;Additional in-app actions
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Media_Stop & XButton1:: {
+   sections := GetSections()
+   Switch {
+      Case sections.middle:Cut()
+      Case WinActive(Youtube.winTitle):Youtube.StudioSwitch()
+      Case WinActive(Discord.winTitle):Discord.Emoji()
+   }
+}
+
+Media_Stop & XButton2:: {
+   sections := GetSections()
+   Switch {
+      Case sections.middle:WinPaste()
+      Case sections.up:Send("{Browser_Forward}")
+      Case sections.down:Send("{Browser_Back}")
+      Case WinActive(Youtube.Studio):Youtube.ToYouTube()
+      Case WinActive(Youtube.winTitle):Youtube.ChannelSwitch()
+      Case WinActive("GitHub " Browser.exeTitle):GitHub.Profile()
+      Case WinActive(VK.winTitle):VK.Voice()
+      Case WinActive(Telegram.winTitle):Telegram.Voice()
+      Case WinActive(Discord.winTitle):Discord.Gif()
+   }
+}
+
 #MaxThreadsBuffer false

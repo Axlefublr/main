@@ -20,5 +20,4 @@ GroupAdd("Main", Discord.winTitle)
 GroupAdd("Main", Browser.winTitle)
 GroupAdd("Main", Telegram.winTitle)
 GroupAdd("Main", Terminal.winTitle)
-
-GroupAdd("Other", Player.winTitle)
+GroupAdd("Main", Explorer.exeTitle)
