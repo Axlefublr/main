@@ -76,6 +76,14 @@
 #k::Copy()
 #sc28::Cut()
 #!p::ClipSend(ReadFile(Paths.Ptf["Input"])), WriteFile(Paths.Ptf["Input"])
+#!m:: {
+   A_Clipboard := ""
+   SelectAll()
+   while !A_Clipboard
+      Send("^x")
+   WriteFile(Paths.Ptf["Input"], A_Clipboard)
+   Run(Paths.Ptf["Input"])
+}
 Insert:: {
    if press_Hold()
       SelectAll()
