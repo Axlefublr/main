@@ -75,15 +75,6 @@
 #h::Paste()
 #k::Copy()
 #sc28::Cut()
-#!p::ClipSend(ReadFile(Paths.Ptf["Input"])), WriteFile(Paths.Ptf["Input"])
-#!m:: {
-   A_Clipboard := ""
-   SelectAll()
-   while !A_Clipboard
-      Send("^x")
-   WriteFile(Paths.Ptf["Input"], A_Clipboard)
-   Run(Paths.Ptf["Input"])
-}
 Insert:: {
    if press_Hold()
       SelectAll()
@@ -145,10 +136,24 @@ ScrollLock:: {
 +!f::CoordGetter()
 +!g::WindowGetter()
 +!v::tool_RelativeCoordGetter()
+#f:: {
+   gHover := HoverScreenshot()
+   gHover.picturePath := Paths.Ptf["Femboy"]
+   gHover.Show()
+}
 #b::InternetSearch("Google").TriggerSearch()
 Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
 #^sc1B::Brightness.ChangeBrightnessRelative(10)
+#!p::ClipSend(ReadFile(Paths.Ptf["Input"])), WriteFile(Paths.Ptf["Input"])
+#!m:: {
+   A_Clipboard := ""
+   SelectAll()
+   while !A_Clipboard
+      Send("^x")
+   WriteFile(Paths.Ptf["Input"], A_Clipboard)
+   Run(Paths.Ptf["Input"])
+}
 
 ;;MOVING
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
