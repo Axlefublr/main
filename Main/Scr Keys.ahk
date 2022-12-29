@@ -75,7 +75,7 @@
 #h::Paste()
 #k::Copy()
 #sc28::Cut()
-#!p::ClipSend(ReadFile(Paths.Ptf["Input"]))
+#!p::ClipSend(ReadFile(Paths.Ptf["Input"])), WriteFile(Paths.Ptf["Input"])
 Insert:: {
    if press_Hold()
       SelectAll()
