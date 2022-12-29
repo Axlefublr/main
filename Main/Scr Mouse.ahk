@@ -81,10 +81,8 @@ Media_Stop:: {
 XButton1 & Media_Stop:: {
    sections := GetSections()
    Switch {
-      case sections.left:  Win.RestoreLeftRight("left")
-      case sections.right: Win.RestoreLeftRight("right")
-      case sections.up:    Win.Maximize()
-      case sections.down:  Win.RestoreDown()
+      case sections.up:   Win.Maximize()
+      case sections.down: Win.RestoreDown()
    }
 }
 ;;Media + Window manipulation
