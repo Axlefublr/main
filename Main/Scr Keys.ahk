@@ -124,14 +124,8 @@ Pause::Counter.Increment()
 +!Pause::Counter.Reset()
 ^CtrlBreak::Counter.Show()
 
-ScrollLock:: {
-   output := StopWatch()
-   if output {
-      Infos(output)
-   } else {
-      Info("Timer started")
-   }
-}
+ScrollLock::Stopwatch.Start(), Info("Timer started")
+!ScrollLock::Infos(Stopwatch.CurrTime)
 
 +!f::CoordGetter()
 +!g::WindowGetter()
