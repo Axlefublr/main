@@ -5,60 +5,6 @@
 #Include <Paths>
 #Include <ClipSend>
 
-;;SPOTIFY
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive(Spotify.exeTitle)
-!w::Spotify.Like()
-!e::Spotify.LikedPlaylist()
-
-PgDn::Spotify.SkipNext()
-PgUp::Spotify.SkipPrev()
-
-;;YOUTUBE
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive(Youtube.Studio)
-:O:msc::My second channel!
-:O:mmc::My main channel!
-:O:ahk::Ahk all the way!
-:XO:desc::ClipSend(ReadFile(Paths.Ptf["Description"]) "`n`n")
-
-#HotIf Win({winTitle: Youtube.NotWatchingVideo}).ActiveRegex()
-Escape::Youtube.MiniscreenClose()
-
-#HotIf WinActive(Youtube.winTitle)
-PgDn::Youtube.SkipNext()
-PgUp::Youtube.SkipPrev()
-
-;;BROWSER
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive(Browser.winTitle)
-
-!1::Send("^1")
-!2::Send("^2")
-!3::Send("^3")
-!4::Send("^4")
-!5::Send("^5")
-!6::Send("^6")
-!7::Send("^7")
-!8::Send("^8")
-!9::Send("^9")
-!sc33::PrevTab()
-!sc34::NextTab()
-
-!e::NewTab()
-
-#HotIf WinActive(Browser.winTitle,, VK.winTitle)
-!w::CloseTab()
-
-;;VK
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#HotIf WinActive(VK.winTitle)
-MButton::VK.Reply()
-
 ;;VSCODE
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
