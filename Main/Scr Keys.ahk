@@ -12,7 +12,6 @@
 #Include Scr Groups.ahk
 #Include Scr Runner.ahk
 #Include <Scr>
-#Include Scr Mouse.ahk
 #Include Scr Win.ahk
 
 ;;SPECIAL
