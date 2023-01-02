@@ -1,4 +1,4 @@
-﻿#Include <ScriptDirectives>
+﻿#Include <Loaders\Directives\Script>
 
 #SuspendExempt true
 #!y::scr_Suspend()
@@ -11,7 +11,7 @@
 
 #Include Scr Groups.ahk
 #Include Scr Runner.ahk
-#Include <Scr>
+#Include <Loaders\Scr>
 #Include Scr Win.ahk
 
 ;;SPECIAL

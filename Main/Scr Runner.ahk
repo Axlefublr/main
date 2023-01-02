@@ -1,4 +1,4 @@
-#Include <App>
+#Include <Loaders\App>
 #Include <ClipSend>
 #Include <Links>
 #Include <String>
@@ -6,7 +6,7 @@
 #Include <Paths>
 #Include <Char>
 #Include <String-full>
-#Include <Tools>
+#Include <Loaders\Tools>
 #Include <Script>
 #Include <Global>
 #Include <Other>
@@ -69,7 +69,7 @@
 
    try runner_commands[input].Call()
    catch Any {
-      RegexMatch(input, "^(p|o|s|r|t|a|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp) (.+)", &result)
+      RegexMatch(input, "^(p|o|s|r|t|a|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|tm) (.+)", &result)
       static runner_regex := Map(
 
          "p",       (input) => ClipSend(Links[input], , false),
@@ -78,6 +78,7 @@
          "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
          "r",       (input) => Spotify.NewRapper(input),
          "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
+         "tm",      (input) => Timer(input,,, false),
          "ts",      (input) => Timer(input, false),
          "a",       (input) => Spotify.FavRapper_Manual(input),
          "ev",      (input) => Infos(Calculator(input)),
