@@ -144,7 +144,6 @@ Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
    while !A_Clipboard
       Send("^x")
    WriteFile(Paths.Ptf["Input"], A_Clipboard)
-   Run(Paths.Ptf["Input"])
 }
 
 ;;MOVING

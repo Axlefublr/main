@@ -95,7 +95,7 @@
          "gl",      (input) => ClipSend(Git.Link(input), "", false),
          "go",      (input) => RunLink(Git.Link(input)),
          "install", (input) => Git.InstallAhkLibrary(input),
-         "chrs",    (input) => ClipSend(GetStringOfRandChars(input)),
+         "chrs",    (input) => ClipSend(CharGenerator(2).GenerateCharacters(input)),
          "disc",    (input) => Spotify.NewDiscovery_Manual(input),
          "sy",      (input) => Symbol(input),
 
@@ -121,6 +121,7 @@
       "datewtime", () => GetDateWeekTime(),
       "uclanr",    () => GetRandomWord("english") " ",
       "ilandh",    () => GetRandomWord("russian") " ",
+      "chrs",      () => CharGenerator(2).GenerateCharacters(15),
 
    )
    static StaticHotstrings := Map(
