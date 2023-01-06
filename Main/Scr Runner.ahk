@@ -69,7 +69,7 @@
 
    try runner_commands[input].Call()
    catch Any {
-      RegexMatch(input, "^(p|o|s|r|t|a|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|tm) (.+)", &result)
+      RegexMatch(input, "^(p|o|s|r|t|a|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|tm|glo) (.+)", &result)
       static runner_regex := Map(
 
          "p",       (input) => ClipSend(Links[input], , false),
@@ -94,6 +94,11 @@
          "counter", (input) => Info(Counter.num := input),
          "gl",      (input) => ClipSend(Git.Link(input), "", false),
          "go",      (input) => RunLink(Git.Link(input)),
+         "glo",     (input) => (
+            link := Git.Link(input),
+            RunLink(link),
+            A_Clipboard := link
+         ),
          "install", (input) => Git.InstallAhkLibrary(input),
          "chrs",    (input) => ClipSend(CharGenerator(2).GenerateCharacters(input)),
          "disc",    (input) => Spotify.NewDiscovery_Manual(input),
