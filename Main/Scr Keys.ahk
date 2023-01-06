@@ -138,15 +138,7 @@ Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
 #^sc1B::Brightness.ChangeBrightnessRelative(10)
 #!p::ClipSend(ReadFile(Paths.Ptf["Input"])), WriteFile(Paths.Ptf["Input"])
-#!m:: {
-   A_Clipboard := ""
-   SelectAll()
-   while !A_Clipboard {
-      Send("^x")
-      Sleep(10)
-   }
-   WriteFile(Paths.Ptf["Input"], A_Clipboard)
-}
+#!m::WriteFile(Paths.Ptf["Input"], A_Clipboard)
 
 ;;MOVING
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
