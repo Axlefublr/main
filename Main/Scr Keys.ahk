@@ -93,8 +93,8 @@ Media_Play_Pause::return ; F2
 Media_Prev::return       ; F4
 Media_Next::return       ; F5
 Volume_Mute::return      ; F6
-Volume_Up::return        ; F7
-Volume_Down::return      ; F8
+; Volume_Up::return        ; F7
+; Volume_Down::return      ; F8
 Launch_App1::return      ; F9
 Launch_Mail::return      ; F10
 Launch_App2::return      ; F11
@@ -141,8 +141,10 @@ Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
 #!m:: {
    A_Clipboard := ""
    SelectAll()
-   while !A_Clipboard
+   while !A_Clipboard {
       Send("^x")
+      Sleep(10)
+   }
    WriteFile(Paths.Ptf["Input"], A_Clipboard)
 }
 
@@ -174,54 +176,21 @@ Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
 ;;NUMLOCK
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-NumpadDown::scr_Reload()
-!NumpadDown::scr_HardReload()
-+NumpadDown::scr_Suspend()
-#NumpadDown::SystemReboot()
-
-NumpadPgDn::scr_Test()
-!NumpadPgDn::scr_ExitTest()
-
-NumpadLeft::Delete
-NumpadClear::End
-NumpadRight::PgDn
-NumpadUp::Home
-NumpadPgUp::PgUp
-
-NumpadHome:: {
-   if press_Hold()
-      SelectAll()
-}
-#NumpadHome::WinPaste()
-!NumpadHome::Cut()
-^NumpadHome::Copy()
-+NumpadHome::Paste()
-
-NumpadIns & NumpadUp::Volume_Up
-NumpadIns & NumpadClear::Volume_Down
-NumpadIns & NumpadHome::Volume_Mute
-NumpadIns & NumpadLeft::Media_Play_Pause
-NumpadIns & NumpadPgUp::Media_Prev
-NumpadIns & NumpadRight::Media_Next
+*NumpadDown::return
+*NumpadPgDn::return
+*NumpadLeft::return
+*NumpadClear::return
+*NumpadRight::return
+*NumpadUp::return
+*NumpadPgUp::return
+*NumpadHome::return
+*NumpadIns::return
+*NumpadAdd::return
+*NumpadSub::return
 
 NumLock::SomeLockHint("NumLock")
 
-NumpadAdd::WheelUp
-NumpadSub::WheelDown
-+NumpadAdd::WheelLeft
-+NumpadSub::WheelRight
-
-Numpad0::0
-Numpad1::1
-Numpad2::2
-Numpad3::3
-Numpad4::4
-Numpad5::5
-Numpad6::6
-Numpad7::7
-Numpad8::8
-Numpad9::9
-
 #InputLevel 5
+
 Info(A_AhkPath.Replace(AutoHotkey.path "\"))
 RemindDate()
