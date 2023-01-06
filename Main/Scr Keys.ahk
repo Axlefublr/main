@@ -176,17 +176,22 @@ Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
 ;;NUMLOCK
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*NumpadIns::return
+*NumpadEnd::return
 *NumpadDown::return
 *NumpadPgDn::return
 *NumpadLeft::return
 *NumpadClear::return
 *NumpadRight::return
+*NumpadHome::return
 *NumpadUp::return
 *NumpadPgUp::return
-*NumpadHome::return
-*NumpadIns::return
+*NumpadDel::return
+*NumpadDiv::return
+*NumpadMult::return
 *NumpadAdd::return
 *NumpadSub::return
+*NumpadEnter::return
 
 NumLock::SomeLockHint("NumLock")
 
