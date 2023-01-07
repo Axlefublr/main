@@ -164,7 +164,7 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
 ;;NUMLOCK
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*NumpadIns::SoundPlay(Paths.Ptf["vine boom"])
+*NumpadIns::SoundPlayer.Sounds["vine boom"].Play()
 *NumpadEnd::return
 *NumpadDown::return
 *NumpadPgDn::return
