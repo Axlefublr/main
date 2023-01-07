@@ -1,3 +1,0 @@
-﻿* treesitter
-* vieb browser
-* snake

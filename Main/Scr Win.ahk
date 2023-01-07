@@ -29,9 +29,7 @@
 <!r::Terminal.winObj.App()
 <!x::Autohotkey.Docs.v2.winObj.App()
 
-#HotIf !WinActive(OBS.exeTitle)
-<!z::OBS.winObj.RunAct()
-#HotIf
+<!z::OBS.winObj.App()
 
 <!d::Explorer.WinObj.Volume.App_Folders()
 <!v::Explorer.WinObj.Pictures.App_Folders()

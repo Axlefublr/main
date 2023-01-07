@@ -84,6 +84,7 @@ Insert:: {
 ;;FULL REMAPS
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Launch_Media::RAlt
 !Space::return
 AppsKey::RCtrl
 
@@ -99,10 +100,6 @@ Launch_App1::return      ; F9
 Launch_Mail::return      ; F10
 Launch_App2::return      ; F11
 Browser_Home::return     ; F12
-
-NumpadMult::return
-NumpadDiv::return
-NumpadEnter::return
 
 ;;FUNCTIONAL
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -134,7 +131,6 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
    gHover.Show()
 }
 #b::InternetSearch("Google").TriggerSearch()
-Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
 #^sc1B::Brightness.ChangeBrightnessRelative(10)
 #!p::ClipSend(ReadFile(Paths.Ptf["Input"])), WriteFile(Paths.Ptf["Input"])
@@ -168,22 +164,22 @@ Launch_Media::SoundPlay(Paths.Ptf["vine boom"])
 ;;NUMLOCK
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*NumpadIns::return
+*NumpadIns::SoundPlay(Paths.Ptf["vine boom"])
 *NumpadEnd::return
 *NumpadDown::return
 *NumpadPgDn::return
 *NumpadLeft::return
-*NumpadClear::return
+*NumpadClear::SoundPlay(Paths.Ptf["faded than a hoe"])
 *NumpadRight::return
 *NumpadHome::return
 *NumpadUp::return
 *NumpadPgUp::return
 *NumpadDel::return
-*NumpadDiv::return
-*NumpadMult::return
-*NumpadAdd::return
-*NumpadSub::return
-*NumpadEnter::return
+*NumpadDiv::F13
+*NumpadMult::F14
+*NumpadSub::OBS.winObj.App()
+*NumpadAdd::F15
+*NumpadEnter::SomeLockHint("NumLock")
 
 NumLock::SomeLockHint("NumLock")
 
