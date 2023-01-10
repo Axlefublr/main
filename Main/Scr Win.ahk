@@ -1,8 +1,8 @@
-#Include <Win>
-#Include <Global>
-#Include <Links>
+#Include <Utils\Win>
+#Include <Abstractions\Global>
+#Include <Loaders\Links>
 #Include <Tools\Info>
-#Include <Press>
+#Include <Utils\Press>
 #Include <Paths>
 #Include <App\OBS>
 #Include <App\Explorer>

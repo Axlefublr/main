@@ -1,17 +1,15 @@
 #Include <Loaders\App>
-#Include <ClipSend>
-#Include <Links>
-#Include <String>
-#Include <Win>
+#Include <Utils\ClipSend>
+#Include <Loaders\Links>
+#Include <Extensions\String>
+#Include <Utils\Win>
 #Include <Paths>
-#Include <Char>
-#Include <String-full>
+#Include <Utils\Char>
 #Include <Loaders\Tools>
-#Include <Script>
-#Include <Global>
+#Include <Abstractions\Script>
+#Include <Abstractions\Global>
 #Include <Other>
-#Include <Get>
-#Include <Channel>
+#Include <Converters\Get>
 #Include <Tools\CleanInputBox>
 #Include <App\Slack>
 
@@ -22,13 +20,8 @@
 
    static runner_commands := Map(
 
-      ;Main
-      "format table to array", () => ClipSend(str_FormatTableToArray(), ""),
-      "remove comments",       () => str_RemoveLineComments(),
-      "convert to json",       () => ClipSend(str_ConvertToJsonSnippet(str_GetSelection()), ""),
-
       "update",  () => GitHub.UpdateAhkLibraries(),
-      "str len", () => Infos(str_GetSelection().Length),
+      "str len", () => Infos(A_Clipboard.Length),
       "startup", () => tool_StartupRun(),
       "shows",   () => Shows().GetList(),
       "rel",     () => Reload(),
