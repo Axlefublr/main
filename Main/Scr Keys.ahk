@@ -183,11 +183,12 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
 *NumpadUp::return
 *NumpadPgUp::SoundPlayer.Storage["rizz"].Play()
 *NumpadDel::return
+
 *NumpadDiv::F13
 *NumpadMult::F14
 *NumpadSub::OBS.winObj.App()
 *NumpadAdd::F15
-*NumpadEnter::SomeLockHint("NumLock")
+*NumpadEnter::F16
 
 NumLock::SomeLockHint("NumLock")
 
