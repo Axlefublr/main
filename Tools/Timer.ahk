@@ -5,4 +5,4 @@
 #Include <Abstractions\Text>
 #Include <Paths>
 
-Timer(ReadFile(Paths.Ptf["time-agent"])).Start()
+Timer(ReadFile(Paths.Ptf["time-agent"]), true).Start()
