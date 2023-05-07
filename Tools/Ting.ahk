@@ -1,8 +1,9 @@
 #Include <Directives\Base>
 #Include <Paths>
 #Include <Tools\Info>
+#Include <Scr\SoundPlayer>
 
-SoundPlay(Paths.Ptf["ting"])
+SoundPlayer.Storage["ting"].Play()
 inst := Infos("Timer ran out!")
 WinWaitClose(inst.hwnd)
 ExitApp()
