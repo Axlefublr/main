@@ -6,11 +6,11 @@
 main() {
 	SoundPlayer.Storage["ting"].Play()
 	if A_Args.Length {
-		message := ": " A_Args.ToString(" ")
+		message := A_Args.ToString(" ")
 	} else {
-		message := ""
+		message := "Timer ran out!"
 	}
-	inst := Infos("Timer ran out!" message)
+	inst := Infos(message)
 	WinWaitClose(inst.hwnd)
 	ExitApp()
 }
