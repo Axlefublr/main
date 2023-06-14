@@ -4,6 +4,5 @@
 
 #Include <Tests\Converters\DateTime>
 #Include <Tests\Converters\Layouts>
-#Include <Tests\Tools\Timer>
 
 Infos("tests passed!")

@@ -1,9 +1,18 @@
 #Include <Directives\Base>
-#Include <Paths>
 #Include <Tools\Info>
 #Include <Scr\SoundPlayer>
+#Include <Extensions\Array>
 
-SoundPlayer.Storage["ting"].Play()
-inst := Infos("Timer ran out!")
-WinWaitClose(inst.hwnd)
-ExitApp()
+main() {
+	SoundPlayer.Storage["ting"].Play()
+	if A_Args.Length {
+		message := ": " A_Args.ToString(" ")
+	} else {
+		message := ""
+	}
+	inst := Infos("Timer ran out!" message)
+	WinWaitClose(inst.hwnd)
+	ExitApp()
+}
+
+main()
