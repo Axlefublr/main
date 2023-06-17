@@ -4,11 +4,13 @@
 #Include <Extensions\Array>
 
 main() {
-	SoundPlayer.Storage["ting"].Play()
-	if A_Args.Length {
-		message := A_Args.ToString(" ")
+	if A_Args.Length > 0 {
+		message := A_Args[1]
 	} else {
 		message := "Timer ran out!"
+	}
+	if A_Args.Length < 2 {
+		SoundPlayer.Storage["ting"].Play()
 	}
 	inst := Infos(message)
 	WinWaitClose(inst.hwnd)
