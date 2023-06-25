@@ -12,6 +12,7 @@ main() {
 	inst := Infos(message)
 	if A_Args.Length < 2 {
 		SoundPlay(Paths.Ptf["ting"])
+		SoundPlay(Paths.Ptf["ting"])
 	}
 	WinWaitClose(inst.hwnd)
 	ExitApp()
